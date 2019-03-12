@@ -1,0 +1,78 @@
+﻿[
+  {
+    "proname": "athena_get_basestation_by_lid_cid",
+    "sql": "CREATE OR REPLACE FUNCTION public.athena_get_basestation_by_lid_cid(lid integer, cid integer) RETURNS SETOF \"BaseStations\" LANGUAGE 'sql' COST 100 VOLATILE AS $BODY$ SELECT * FROM public.\"BaseStations\" WHERE \"BaseStations\".\"Cid\" = cid AND \"BaseStations\".\"Lid\" = lid  $BODY$;  ALTER FUNCTION public.athena_get_basestation_by_lid_cid(integer, integer) OWNER TO postgres;  COMMENT ON FUNCTION public.athena_get_basestation_by_lid_cid(integer, integer) IS 'Отримати базову станцію по LID та CID';"
+  },
+  {
+    "proname": "athena_get_session_status_by_default",
+    "sql": "CREATE OR REPLACE FUNCTION public.athena_get_session_status_by_default() RETURNS SETOF \"SessionStatus\" LANGUAGE 'sql' COST 100 VOLATILE ROWS 1000 AS $BODY$ SELECT * FROM public.\"SessionStatus\" WHERE \"IsDefault\" = true $BODY$; ALTER FUNCTION public.athena_get_session_status_by_default() OWNER TO postgres; COMMENT ON FUNCTION public.athena_get_session_status_by_default() IS 'Отримати статус сесій за замовчуванням';"
+  },
+  {
+    "proname": "athena_get_parse_setting_by_id",
+    "sql": "CREATE OR REPLACE FUNCTION public.athena_get_parse_setting_by_id(id uuid) RETURNS SETOF \"ParseSettings\" LANGUAGE 'sql' COST 100 VOLATILE AS $BODY$ SELECT * FROM public.\"ParseSettings\" WHERE \"Id\"=id $BODY$; ALTER FUNCTION public.athena_get_parse_setting_by_id(uuid) OWNER TO postgres; COMMENT ON FUNCTION public.athena_get_parse_setting_by_id(uuid) IS 'Отримати налаштування парсингу по ідентифікатору';"
+  },
+  {
+    "proname": "athena_get_issue_by_complex_id",
+    "sql": "CREATE OR REPLACE FUNCTION public.athena_get_issue_by_complex_id(id uuid, OUT \"Id\" uuid, OUT \"Number\" text, OUT \"StaticSim\" text, OUT \"StaticImei\" text) RETURNS SETOF record LANGUAGE 'sql' COST 100 VOLATILE ROWS 1000 AS $BODY$ SELECT \"Issues\".\"Id\", \"Issues\".\"Number\", \"Issues\".\"StaticSim\", \"Issues\".\"StaticImei\" FROM \"IssueStatuses\" INNER JOIN \"Issues\" ON \"IssueStatuses\".\"Id\" = \"Issues\".\"IssueStatusId\" WHERE \"CommunicationComplexId\" = id AND \"IssueStatuses\".\"CanBeImportedSessions\" $BODY$; ALTER FUNCTION public.athena_get_issue_by_complex_id(uuid) OWNER TO postgres; COMMENT ON FUNCTION public.athena_get_issue_by_complex_id(uuid) IS 'Отримати завдання по ідентифікатору комплексу';"
+  },
+  {
+    "proname": "athena_add_new_session",
+    "sql": "CREATE OR REPLACE FUNCTION public.athena_add_new_session( createdon timestamp without time zone, updatedon timestamp without time zone, deletedon timestamp without time zone, relevancedate timestamp without time zone, isdeleted boolean, createdby uuid, updatedby uuid, deletedby uuid, id uuid, direction integer, datetimestamp timestamp without time zone, duration integer, comment text, initiatorcomment text, isprivacy boolean, numbera text, numberb text, numberb1 text, imeia text, ownera text, staticlastcid integer, staticlastlid integer, textsms text, textmms text, location text, imsiа text, infofilelink text, textfilelink text, rawdata text, completioncause integer, issueid uuid, sessiontype integer, sessionstatusid uuid, basestationid uuid, sessionstatusinitiatorid uuid, levelofimportance integer, sessionrankid uuid, addinfo text, infofilehash text, txtfilehash text ) RETURNS bigint LANGUAGE 'sql' COST 100 VOLATILE AS $BODY$ INSERT INTO public.\"Sessions\"( \"CreatedOn\", \"UpdatedOn\", \"DeletedOn\", \"RelevanceDate\", \"IsDeleted\", \"CreatedBy\", \"UpdatedBy\", \"DeletedBy\", \"Id\", \"Direction\", \"DateTimeStamp\", \"Duration\", \"Comment\", \"InitiatorComment\", \"IsPrivacy\", \"NumberA\", \"NumberB\", \"NumberB1\", \"ImeiA\", \"OwnerA\", \"StaticLastCid\", \"StaticLastLid\", \"TextSms\", \"TextMms\", \"Location\", \"ImsiА\", \"InfoFileLink\", \"TextFileLink\", \"RawData\", \"CompletionCause\", \"IssueId\", \"SessionType\", \"SessionStatusId\", \"BaseStationId\", \"SessionStatusInitiatorId\", \"LevelOfImportance\", \"SessionRankId\", \"AddInfo\", \"InfoFileHash\", \"TxtFileHash\") VALUES (createdon, updatedon, deletedon, relevancedate, isdeleted, createdby, updatedby, deletedby, id, direction, datetimestamp, duration, comment, initiatorcomment, isprivacy, numbera, numberb, numberb1, imeia, ownera, staticlastcid, staticlastlid, textsms, textmms, location, imsiа, infofilelink, textfilelink, rawdata, completioncause, issueid, sessiontype, sessionstatusid, basestationid, sessionstatusinitiatorid, levelofimportance, sessionrankid, addinfo, infofilehash, txtfilehash); SELECT COUNT(*) FROM public.\"Sessions\" WHERE \"Id\" = id; $BODY$; ALTER FUNCTION public.athena_add_new_session(timestamp without time zone, timestamp without time zone, timestamp without time zone, timestamp without time zone, boolean, uuid, uuid, uuid, uuid, integer, timestamp without time zone, integer, text, text, boolean, text, text, text, text, text, integer, integer, text, text, text, text, text, text, text, integer, uuid, integer, uuid, uuid, uuid, integer, uuid, text, text, text) OWNER TO postgres; COMMENT ON FUNCTION public.athena_add_new_session(timestamp without time zone, timestamp without time zone, timestamp without time zone, timestamp without time zone, boolean, uuid, uuid, uuid, uuid, integer, timestamp without time zone, integer, text, text, boolean, text, text, text, text, text, integer, integer, text, text, text, text, text, text, text, integer, uuid, integer, uuid, uuid, uuid, integer, uuid, text, text, text) IS 'Додати новий сеанс';"
+  },
+  {
+    "proname": "athena_get_importer_by_id",
+    "sql": "CREATE OR REPLACE FUNCTION public.athena_get_importer_by_id(id uuid) RETURNS SETOF \"ImporterServices\" LANGUAGE 'sql' COST 100 VOLATILE AS $BODY$ SELECT * FROM public.\"ImporterServices\" WHERE \"ImporterServices\".\"Id\" = id $BODY$; ALTER FUNCTION public.athena_get_importer_by_id(uuid) OWNER TO postgres; COMMENT ON FUNCTION public.athena_get_importer_by_id(uuid) IS 'Отримати налаштування імпортеру по ідентифікатору';"
+  },
+  {
+    "proname": "athena_get_complex_by_id",
+    "sql": "CREATE OR REPLACE FUNCTION public.athena_get_complex_by_id(id uuid) RETURNS \"CommunicationComplexes\" LANGUAGE 'sql' COST 100 VOLATILE AS $BODY$ SELECT * FROM public.\"CommunicationComplexes\" WHERE \"Id\" = id $BODY$; ALTER FUNCTION public.athena_get_complex_by_id(uuid) OWNER TO postgres; COMMENT ON FUNCTION public.athena_get_complex_by_id(uuid) IS 'Отримати комплекс по ідентифікатору';"
+  },
+  {
+    "proname": "athena_set_complex_importer_state",
+    "sql": "CREATE OR REPLACE FUNCTION public.athena_set_complex_importer_state(id uuid, state integer) RETURNS integer LANGUAGE 'sql' COST 100 VOLATILE AS $BODY$ UPDATE public.\"ImporterServices\" SET \"ImporterState\" = state WHERE public.\"ImporterServices\".\"Id\" = id; SELECT 1; $BODY$; ALTER FUNCTION public.athena_set_complex_importer_state(uuid, integer) OWNER TO postgres; COMMENT ON FUNCTION public.athena_set_complex_importer_state(uuid, integer) IS 'Встановити поточний статус імпорту';"
+  },
+  {
+    "proname": "athena_add_base_station",
+    "sql": "CREATE OR REPLACE FUNCTION public.athena_add_base_station(id uuid, createdon timestamp without time zone, updatedon timestamp without time zone, relevancedate timestamp without time zone, isdeleted boolean, mnc integer, lid integer, cid integer, azimuth text, address text, latitude text, longitude text, mobileoperatorid uuid) RETURNS bigint LANGUAGE 'sql' COST 100 VOLATILE AS $BODY$ INSERT INTO public.\"BaseStations\" (\"Id\", \"CreatedOn\", \"UpdatedOn\", \"RelevanceDate\", \"IsDeleted\", \"Mnc\", \"Lid\", \"Cid\", \"Azimuth\", \"Address\", \"Latitude\", \"Longitude\", \"MobileOperatorId\") VALUES(id, createdon, updatedon, relevancedate, isdeleted, mnc, lid, cid, azimuth, address, latitude, longitude, mobileoperatorid); SELECT COUNT(*) FROM public.\"BaseStations\" WHERE \"Id\" = id; $BODY$;  ALTER FUNCTION public.athena_add_base_station(uuid, timestamp without time zone, timestamp without time zone, timestamp without time zone, boolean, integer, integer, integer, text, text, text, text, uuid) OWNER TO postgres; COMMENT ON FUNCTION public.athena_add_base_station(uuid, timestamp without time zone, timestamp without time zone, timestamp without time zone, boolean, integer, integer, integer, text, text, text, text, uuid) IS 'Додати нову базову станцію';"
+  },
+  {
+    "proname": "athena_get_wav_path",
+    "sql": "CREATE OR REPLACE FUNCTION public.athena_get_wav_path(id uuid) RETURNS text LANGUAGE 'sql' COST 100 VOLATILE AS $BODY$ SELECT \"TextFileLink\" FROM public.\"Sessions\" WHERE public.\"Sessions\".\"Id\" = id $BODY$; ALTER FUNCTION public.athena_get_wav_path(uuid) OWNER TO postgres; COMMENT ON FUNCTION public.athena_get_wav_path(uuid) IS 'Отримати шлях до wav-файлу по ідентифікатору сеансу';"
+  },
+  {
+    "proname": "athena_get_stream_info",
+    "sql": "CREATE OR REPLACE FUNCTION public.athena_get_stream_info(id uuid, OUT \"InfoFileLink\" text, OUT \"Id\" uuid, OUT \"Number\" text) RETURNS record LANGUAGE 'sql'  COST 100 VOLATILE AS $BODY$ SELECT \"Sessions\".\"InfoFileLink\", \"Issues\".\"Id\", \"Issues\".\"Number\" FROM public.\"Sessions\", public.\"Issues\" WHERE \"Sessions\".\"IssueId\" = \"Issues\".\"Id\" AND \"Sessions\".\"Id\"=id  $BODY$;  ALTER FUNCTION public.athena_get_stream_info(uuid) OWNER TO postgres;  COMMENT ON FUNCTION public.athena_get_stream_info(uuid) IS 'Отримати інформацію для стрім-сервісу';"
+  },
+  {
+    "proname": "athena_get_session_rank_by_default",
+    "sql": "CREATE OR REPLACE FUNCTION public.athena_get_session_rank_by_default() RETURNS \"SessionRanks\" LANGUAGE 'sql' COST 100 VOLATILE AS $BODY$ SELECT * FROM public.\"SessionRanks\" WHERE \"IsDefault\" $BODY$; ALTER FUNCTION public.athena_get_session_rank_by_default() OWNER TO postgres; COMMENT ON FUNCTION public.athena_get_session_rank_by_default() IS 'Отримати ранг сеансу за замовчуванням';"
+  },
+  {
+    "proname": "athena_get_issue_by_id",
+    "sql": "CREATE OR REPLACE FUNCTION public.athena_get_issue_by_id(id uuid) RETURNS \"Issues\" LANGUAGE 'sql' COST 100 VOLATILE AS $BODY$ SELECT * FROM public.\"Issues\" WHERE public.\"Issues\".\"Id\" = id $BODY$; ALTER FUNCTION public.athena_get_issue_by_id(uuid) OWNER TO postgres; COMMENT ON FUNCTION public.athena_get_issue_by_id(uuid) IS 'Отримати завдання за ідентифікатором';"
+  },
+  {
+    "proname": "athena_set_issue_export_status_by_id",
+    "sql": "CREATE OR REPLACE FUNCTION public.athena_set_issue_export_status_by_id(id uuid, status bigint) RETURNS bigint LANGUAGE 'sql' COST 100 VOLATILE AS $BODY$ UPDATE public.\"Issues\" SET \"IssueExportStatus\" = status WHERE public.\"Issues\".\"Id\" = id; SELECT COUNT(*) FROM public.\"Issues\" WHERE public.\"Issues\".\"Id\" = id; $BODY$; ALTER FUNCTION public.athena_set_issue_export_status_by_id(uuid, bigint) OWNER TO postgres; COMMENT ON FUNCTION public.athena_set_issue_export_status_by_id(uuid, bigint) IS 'Встановити статус експорту для завдання з вказаним ідентифікатором';"
+  },
+  {
+    "proname": "athena_upd_issue_status_in_midnight",
+    "sql": "CREATE OR REPLACE FUNCTION public.athena_upd_issue_status_in_midnight() RETURNS bigint LANGUAGE 'plpgsql' COST 100 VOLATILE AS $BODY$ DECLARE a_count integer; b_count integer; BEGIN UPDATE public.\"Issues\" SET \"IssueStatusId\" = 'd1b4e174-66d6-45ef-8552-3145b6f26773' WHERE \"AccomplishedOn\"::date = CURRENT_DATE - 1 AND \"IssueStatusId\" IN (SELECT \"Id\" FROM public.\"IssueStatuses\" WHERE \"AutoChange\"); GET DIAGNOSTICS a_count = ROW_COUNT; UPDATE public.\"Issues\" SET \"IssueStatusId\" = '793fa6ca-8696-4e8f-894c-fa9101530bc2' WHERE \"AccomplishedOn\"::date = CURRENT_DATE AND \"IssueStatusId\" IN (SELECT \"Id\" FROM public.\"IssueStatuses\" WHERE \"AutoChange\"); GET DIAGNOSTICS b_count = ROW_COUNT; RETURN a_count + b_count; END; $BODY$; ALTER FUNCTION public.athena_upd_issue_status_in_midnight() OWNER TO postgres; COMMENT ON FUNCTION public.athena_upd_issue_status_in_midnight() IS 'Модифікація статусів завдань опівночі';"
+  },
+  {
+    "proname": "athena_get_uniq_issues_creators",
+    "sql": "CREATE OR REPLACE FUNCTION public.athena_get_uniq_issues_creators(OUT \"Id\" uuid, OUT \"UserName\" text, OUT \"FullName\" text) RETURNS SETOF record LANGUAGE 'sql' COST 100 VOLATILE ROWS 1000 AS $BODY$ SELECT \"AppUsers\".\"Id\", \"AppUsers\".\"UserName\", TRIM(public.\"Persons\".\"LastName\" || ' ' || public.\"Persons\".\"FirstName\" || ' ' || public.\"Persons\".\"MiddleName\") as \"FullName\" FROM public.\"Issues\", public.\"AppUsers\", public.\"Persons\" WHERE public.\"Issues\".\"CreatedBy\" = public.\"AppUsers\".\"Id\" AND public.\"Persons\".\"Id\" = \"AppUsers\".\"PersonId\" GROUP BY public.\"AppUsers\".\"Id\", \"FullName\" $BODY$; ALTER FUNCTION public.athena_get_uniq_issues_creators() OWNER TO postgres; COMMENT ON FUNCTION public.athena_get_uniq_issues_creators() IS 'Отримати список унікальних користувачів, що створювали завдання';"
+  },
+  {
+    "proname": "athena_get_session_by_hash",
+    "sql": "CREATE OR REPLACE FUNCTION public.athena_get_session_by_hash(text_hash text, info_hash text) RETURNS bigint LANGUAGE 'sql' COST 100 VOLATILE AS $BODY$SELECT COUNT(*) FROM public.\"Sessions\" WHERE \"TxtFileHash\"=text_hash AND \"InfoFileHash\"=info_hash$BODY$; ALTER FUNCTION public.athena_get_session_by_hash(text, text) OWNER TO postgres; COMMENT ON FUNCTION public.athena_get_session_by_hash(text, text) IS 'Отримати сеанси за хешами';"
+  },
+  {
+    "proname": "athena_get_issues_short_by_param",
+    "sql": "CREATE OR REPLACE FUNCTION public.athena_get_issues_short_by_param(sim text, imei text, OUT \"Id\" uuid, OUT \"Number\" text, OUT \"StaticSim\" text, OUT \"StaticImei\" text, OUT \"Name\" text, OUT \"CanBeImportedSessions\" boolean) RETURNS SETOF record LANGUAGE 'sql' COST 100 VOLATILE ROWS 1000 AS $BODY$ SELECT \"Issues\".\"Id\", \"Issues\".\"Number\", \"Issues\".\"StaticSim\", \"Issues\".\"StaticImei\", \"IssueStatuses\".\"Name\", \"IssueStatuses\".\"CanBeImportedSessions\" FROM \"IssueStatuses\" JOIN \"Issues\" ON \"IssueStatuses\".\"Id\" = \"Issues\".\"IssueStatusId\" WHERE \"StaticSim\" = sim OR \"StaticImei\"=imei;$BODY$; ALTER FUNCTION public.athena_get_issues_short_by_param(text, text) OWNER TO postgres; COMMENT ON FUNCTION public.athena_get_issues_short_by_param(text, text) IS 'Отримати завдання за StaticSim або StaticImei';"
+  },
+  {
+    "proname": "athena_get_importer_count_by_id",
+    "sql": "CREATE OR REPLACE FUNCTION public.athena_get_importer_count_by_id(id uuid) RETURNS bigint LANGUAGE 'sql' COST 100 VOLATILE AS $BODY$SELECT COUNT(*) FROM public.\"ImporterServices\" WHERE \"Id\"=id;$BODY$; ALTER FUNCTION public.athena_get_importer_count_by_id(uuid) OWNER TO postgres; COMMENT ON FUNCTION public.athena_get_importer_count_by_id(uuid) IS 'Перевірка наявності імпортера за ідентифікатором'; "
+  }
+]

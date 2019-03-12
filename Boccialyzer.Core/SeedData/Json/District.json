@@ -1,0 +1,2450 @@
+﻿[{
+	"id": "44778ea7-7454-4f6e-8f13-43d3df622734",
+	"name": "Бахчисарайський",
+	"regionId": "5a91f7dc-790e-4300-87dc-ad06f169c112"
+},
+{
+	"id": "ac22c75f-fa8f-42e4-be8b-32cdd2752765",
+	"name": "Білогірський",
+	"regionId": "5a91f7dc-790e-4300-87dc-ad06f169c112"
+},
+{
+	"id": "268a9d42-7eda-49d0-ba40-1ccb6cccc82c",
+	"name": "Джанкойський",
+	"regionId": "5a91f7dc-790e-4300-87dc-ad06f169c112"
+},
+{
+	"id": "de2e91a5-90e2-4331-9715-060ae5058522",
+	"name": "Кіровський",
+	"regionId": "5a91f7dc-790e-4300-87dc-ad06f169c112"
+},
+{
+	"id": "628202ae-ec79-4552-91f4-8dfa01125459",
+	"name": "Красногвардійський",
+	"regionId": "5a91f7dc-790e-4300-87dc-ad06f169c112"
+},
+{
+	"id": "74474746-0e3b-4289-9759-cb0d18f5c29c",
+	"name": "Красноперекопський",
+	"regionId": "5a91f7dc-790e-4300-87dc-ad06f169c112"
+},
+{
+	"id": "8607dc67-088b-478f-9938-e2035d030293",
+	"name": "Ленінський",
+	"regionId": "5a91f7dc-790e-4300-87dc-ad06f169c112"
+},
+{
+	"id": "cfb3b6bf-d6f9-4b21-86f5-46220e5ca1a6",
+	"name": "Нижньогірський",
+	"regionId": "5a91f7dc-790e-4300-87dc-ad06f169c112"
+},
+{
+	"id": "0f6d77b6-e32a-4735-90d9-e62f178f0645",
+	"name": "Первомайський",
+	"regionId": "5a91f7dc-790e-4300-87dc-ad06f169c112"
+},
+{
+	"id": "a66503bf-a898-4d3f-b71e-d0814fc13d30",
+	"name": "Роздольненський",
+	"regionId": "5a91f7dc-790e-4300-87dc-ad06f169c112"
+},
+{
+	"id": "f38e6b78-b090-4102-9e44-a1a7777d4700",
+	"name": "Сакський",
+	"regionId": "5a91f7dc-790e-4300-87dc-ad06f169c112"
+},
+{
+	"id": "5c8f8f78-7819-41d1-8a71-4aa9e36588d8",
+	"name": "Сімферопольський",
+	"regionId": "5a91f7dc-790e-4300-87dc-ad06f169c112"
+},
+{
+	"id": "2fcecc8d-668d-462e-a124-33c17010059d",
+	"name": "Совєтський",
+	"regionId": "5a91f7dc-790e-4300-87dc-ad06f169c112"
+},
+{
+	"id": "774ba70e-c5e4-4d62-adf7-2844763359f6",
+	"name": "Чорноморський",
+	"regionId": "5a91f7dc-790e-4300-87dc-ad06f169c112"
+},
+{
+	"id": "0b34eab3-d080-4938-b685-b1be834b3927",
+	"name": "Барський",
+	"regionId": "ad381ced-7c5c-4dc9-ae6d-5d67df3ea513"
+},
+{
+	"id": "39e8a9e6-c5d3-4b53-96ca-e1c7e5238dda",
+	"name": "Бершадський",
+	"regionId": "ad381ced-7c5c-4dc9-ae6d-5d67df3ea513"
+},
+{
+	"id": "a2426d09-814c-4289-90be-3f274bba61ae",
+	"name": "Вінницький",
+	"regionId": "ad381ced-7c5c-4dc9-ae6d-5d67df3ea513"
+},
+{
+	"id": "d7a910e6-b422-4990-bdee-70397e0f98c1",
+	"name": "Гайсинський",
+	"regionId": "ad381ced-7c5c-4dc9-ae6d-5d67df3ea513"
+},
+{
+	"id": "e932ee2e-f099-45d2-9bb8-4025d210c422",
+	"name": "Жмеринський",
+	"regionId": "ad381ced-7c5c-4dc9-ae6d-5d67df3ea513"
+},
+{
+	"id": "0601c02e-8a20-44ef-9fae-b969e9c5533a",
+	"name": "Іллінецький",
+	"regionId": "ad381ced-7c5c-4dc9-ae6d-5d67df3ea513"
+},
+{
+	"id": "4676d916-489b-4b22-9034-108c812e5750",
+	"name": "Козятинський",
+	"regionId": "ad381ced-7c5c-4dc9-ae6d-5d67df3ea513"
+},
+{
+	"id": "8d2dcc61-9621-4055-af42-40aa6c21a841",
+	"name": "Калинівський",
+	"regionId": "ad381ced-7c5c-4dc9-ae6d-5d67df3ea513"
+},
+{
+	"id": "ec06011d-df19-4a35-922f-457179046d15",
+	"name": "Крижопільський",
+	"regionId": "ad381ced-7c5c-4dc9-ae6d-5d67df3ea513"
+},
+{
+	"id": "27e4fba7-d7e6-44a5-b4e4-3cee9839a703",
+	"name": "Липовецький",
+	"regionId": "ad381ced-7c5c-4dc9-ae6d-5d67df3ea513"
+},
+{
+	"id": "e2f2e746-ad9f-4c03-94f5-695bc7b48806",
+	"name": "Літинський",
+	"regionId": "ad381ced-7c5c-4dc9-ae6d-5d67df3ea513"
+},
+{
+	"id": "395db3fe-ea0b-4dce-bc00-7dea0cbb1048",
+	"name": "Могилів-Подільський",
+	"regionId": "ad381ced-7c5c-4dc9-ae6d-5d67df3ea513"
+},
+{
+	"id": "d5e3dedd-0cb3-48cf-805b-4416f3c79390",
+	"name": "Мурованокуриловецький",
+	"regionId": "ad381ced-7c5c-4dc9-ae6d-5d67df3ea513"
+},
+{
+	"id": "ae261639-1a2d-4580-932a-2f4117b63d06",
+	"name": "Немирівський",
+	"regionId": "ad381ced-7c5c-4dc9-ae6d-5d67df3ea513"
+},
+{
+	"id": "b1671ba2-321a-44d0-9d45-53664ebd6b32",
+	"name": "Оратівський",
+	"regionId": "ad381ced-7c5c-4dc9-ae6d-5d67df3ea513"
+},
+{
+	"id": "a9dd780e-2cb2-4924-b63b-b8ca21d81856",
+	"name": "Піщанський",
+	"regionId": "ad381ced-7c5c-4dc9-ae6d-5d67df3ea513"
+},
+{
+	"id": "a31ef2af-32d4-4def-bf95-a3eec42b032a",
+	"name": "Погребищенський",
+	"regionId": "ad381ced-7c5c-4dc9-ae6d-5d67df3ea513"
+},
+{
+	"id": "de4ce61a-62da-4ec0-bfd4-1d67da7f0306",
+	"name": "Теплицький",
+	"regionId": "ad381ced-7c5c-4dc9-ae6d-5d67df3ea513"
+},
+{
+	"id": "72805174-a174-498b-b7f1-ab4e1c5c6b8e",
+	"name": "Томашпільський",
+	"regionId": "ad381ced-7c5c-4dc9-ae6d-5d67df3ea513"
+},
+{
+	"id": "9b0c0c7a-e97b-4963-adb2-0382dbe5e886",
+	"name": "Тростянецький",
+	"regionId": "ad381ced-7c5c-4dc9-ae6d-5d67df3ea513"
+},
+{
+	"id": "9c0def0f-9c06-47a1-99fc-3daea35eae09",
+	"name": "Тульчинський",
+	"regionId": "ad381ced-7c5c-4dc9-ae6d-5d67df3ea513"
+},
+{
+	"id": "86ebf23c-217c-4617-85b4-34e2d3c492c9",
+	"name": "Тиврівський",
+	"regionId": "ad381ced-7c5c-4dc9-ae6d-5d67df3ea513"
+},
+{
+	"id": "0ae48c28-e1ab-423d-85c4-1697bdf4d265",
+	"name": "Хмільницький",
+	"regionId": "ad381ced-7c5c-4dc9-ae6d-5d67df3ea513"
+},
+{
+	"id": "e6b2e673-fc27-4cf8-8d0a-b7c582eb6f45",
+	"name": "Чернівецький",
+	"regionId": "ad381ced-7c5c-4dc9-ae6d-5d67df3ea513"
+},
+{
+	"id": "bb8342c3-ec36-4259-96e6-2bc0938f5ef2",
+	"name": "Чечельницький",
+	"regionId": "ad381ced-7c5c-4dc9-ae6d-5d67df3ea513"
+},
+{
+	"id": "d60c1a05-4c82-4bfc-a999-6a8f89860640",
+	"name": "Шаргородський",
+	"regionId": "ad381ced-7c5c-4dc9-ae6d-5d67df3ea513"
+},
+{
+	"id": "311a1100-1d92-4d7c-86be-7b7c65e9a8e4",
+	"name": "Ямпільський",
+	"regionId": "ad381ced-7c5c-4dc9-ae6d-5d67df3ea513"
+},
+{
+	"id": "031ca827-ea8d-4c4c-8aa1-da4b039e0f53",
+	"name": "Володимир-Волинський",
+	"regionId": "3dbcde47-515a-48ee-ac18-fa1058519db1"
+},
+{
+	"id": "b331a887-16dc-4505-ac7f-263f64ba3a5e",
+	"name": "Горохівський",
+	"regionId": "3dbcde47-515a-48ee-ac18-fa1058519db1"
+},
+{
+	"id": "a8a3fe31-21bf-4d18-842b-bb8850000c33",
+	"name": "Іваничівський",
+	"regionId": "3dbcde47-515a-48ee-ac18-fa1058519db1"
+},
+{
+	"id": "e439a410-5966-436a-bd3a-5957570a19f3",
+	"name": "Камінь-каширський",
+	"regionId": "3dbcde47-515a-48ee-ac18-fa1058519db1"
+},
+{
+	"id": "72a4f28c-6553-4073-97cf-a7a7da23f8d6",
+	"name": "Ківерцівський",
+	"regionId": "3dbcde47-515a-48ee-ac18-fa1058519db1"
+},
+{
+	"id": "c883e46a-e7b4-4521-864b-e15e04e5b41a",
+	"name": "Ковельський",
+	"regionId": "3dbcde47-515a-48ee-ac18-fa1058519db1"
+},
+{
+	"id": "282bb335-614a-43d9-9db8-6d6d754a4065",
+	"name": "Локачинський",
+	"regionId": "3dbcde47-515a-48ee-ac18-fa1058519db1"
+},
+{
+	"id": "984d74b6-3390-4a14-b757-89d2870ad9d8",
+	"name": "Луцький",
+	"regionId": "3dbcde47-515a-48ee-ac18-fa1058519db1"
+},
+{
+	"id": "88d2091e-4f07-4056-b4ab-b0b8830a9a37",
+	"name": "Любешівський",
+	"regionId": "3dbcde47-515a-48ee-ac18-fa1058519db1"
+},
+{
+	"id": "632a0d78-ae27-409d-b34e-90d152da7747",
+	"name": "Любомльський",
+	"regionId": "3dbcde47-515a-48ee-ac18-fa1058519db1"
+},
+{
+	"id": "e6714180-1893-4eaf-bbb1-d2071b846a6a",
+	"name": "Маневицький",
+	"regionId": "3dbcde47-515a-48ee-ac18-fa1058519db1"
+},
+{
+	"id": "80a73b84-6218-44da-bd13-0418cc02c96c",
+	"name": "Ратнівський",
+	"regionId": "3dbcde47-515a-48ee-ac18-fa1058519db1"
+},
+{
+	"id": "bd82b0ff-6d37-409e-8c4f-bd4001fa7f21",
+	"name": "Рожищенський",
+	"regionId": "3dbcde47-515a-48ee-ac18-fa1058519db1"
+},
+{
+	"id": "7f6a0829-8bab-43a6-ba31-25f3a069e553",
+	"name": "Старовижівський",
+	"regionId": "3dbcde47-515a-48ee-ac18-fa1058519db1"
+},
+{
+	"id": "39b2e384-8309-4b53-9a85-1b868c76d7f0",
+	"name": "Турійський",
+	"regionId": "3dbcde47-515a-48ee-ac18-fa1058519db1"
+},
+{
+	"id": "c9d85ef2-62e6-43be-a174-da5b88cb706b",
+	"name": "Шацький",
+	"regionId": "3dbcde47-515a-48ee-ac18-fa1058519db1"
+},
+{
+	"id": "52902e84-38f1-4932-88d2-08742ac924ec",
+	"name": "Апостолівський",
+	"regionId": "4ce3bb57-5eeb-430d-b156-00aae148b7d2"
+},
+{
+	"id": "4f70d682-6482-4b0f-aadc-e17df545e3c2",
+	"name": "Васильківський",
+	"regionId": "4ce3bb57-5eeb-430d-b156-00aae148b7d2"
+},
+{
+	"id": "9fbca044-84f9-47c7-a5ff-4ee85a918aee",
+	"name": "Верхньодніпровський",
+	"regionId": "4ce3bb57-5eeb-430d-b156-00aae148b7d2"
+},
+{
+	"id": "60ca2e20-9b7c-4a07-9424-31a14facd069",
+	"name": "Дніпровський",
+	"regionId": "4ce3bb57-5eeb-430d-b156-00aae148b7d2"
+},
+{
+	"id": "fe31893a-fc6a-451e-a8b6-fb3b0e257179",
+	"name": "Криворізький",
+	"regionId": "4ce3bb57-5eeb-430d-b156-00aae148b7d2"
+},
+{
+	"id": "4bdf47e6-4d4d-42be-93c3-73dd2af778e9",
+	"name": "Криничанський",
+	"regionId": "4ce3bb57-5eeb-430d-b156-00aae148b7d2"
+},
+{
+	"id": "2f41b26b-f04f-4f8d-bc4b-43f96c6d281a",
+	"name": "Магдалинівський",
+	"regionId": "4ce3bb57-5eeb-430d-b156-00aae148b7d2"
+},
+{
+	"id": "0db593f5-e4c4-4711-ad01-357bd3096221",
+	"name": "Межівський",
+	"regionId": "4ce3bb57-5eeb-430d-b156-00aae148b7d2"
+},
+{
+	"id": "41de3a87-b4e6-4b7e-9d85-113c6d3c223c",
+	"name": "Нікопольський",
+	"regionId": "4ce3bb57-5eeb-430d-b156-00aae148b7d2"
+},
+{
+	"id": "6a339e8d-3a90-48ef-8484-cdd055fadee3",
+	"name": "Новомосковський",
+	"regionId": "4ce3bb57-5eeb-430d-b156-00aae148b7d2"
+},
+{
+	"id": "95d20654-9bb7-4aa0-a781-d1ec5d2eec89",
+	"name": "Павлоградський",
+	"regionId": "4ce3bb57-5eeb-430d-b156-00aae148b7d2"
+},
+{
+	"id": "55373176-2903-4851-a61e-5d1ea53f0f0f",
+	"name": "Петриківський",
+	"regionId": "4ce3bb57-5eeb-430d-b156-00aae148b7d2"
+},
+{
+	"id": "4d97a88f-4b5f-487c-bd43-da17042c7a13",
+	"name": "Петропавлівський",
+	"regionId": "4ce3bb57-5eeb-430d-b156-00aae148b7d2"
+},
+{
+	"id": "441d9c0b-947f-46ab-9b06-a55c9c31843b",
+	"name": "Покровський",
+	"regionId": "4ce3bb57-5eeb-430d-b156-00aae148b7d2"
+},
+{
+	"id": "170f58b9-0451-49d2-b9f8-3a38f8fdd360",
+	"name": "П'ятихатський",
+	"regionId": "4ce3bb57-5eeb-430d-b156-00aae148b7d2"
+},
+{
+	"id": "fc6558cd-65ca-471f-8166-85729359c80e",
+	"name": "Синельниківський",
+	"regionId": "4ce3bb57-5eeb-430d-b156-00aae148b7d2"
+},
+{
+	"id": "ae78f0c9-be25-4a20-b961-774167944bc7",
+	"name": "Солонянський",
+	"regionId": "4ce3bb57-5eeb-430d-b156-00aae148b7d2"
+},
+{
+	"id": "a01ec089-650c-4ff6-b7e1-9a417cb14e0e",
+	"name": "Софіївський",
+	"regionId": "4ce3bb57-5eeb-430d-b156-00aae148b7d2"
+},
+{
+	"id": "a384c6df-46aa-459f-a5d8-d4f1a07b85a3",
+	"name": "Томаківський",
+	"regionId": "4ce3bb57-5eeb-430d-b156-00aae148b7d2"
+},
+{
+	"id": "5f04bbb1-f168-4388-b710-bbd289c7375a",
+	"name": "Царичанський",
+	"regionId": "4ce3bb57-5eeb-430d-b156-00aae148b7d2"
+},
+{
+	"id": "88d724c9-4e76-49fd-82bf-2449449645af",
+	"name": "Широківський",
+	"regionId": "4ce3bb57-5eeb-430d-b156-00aae148b7d2"
+},
+{
+	"id": "ff4c8395-3db0-44c1-8b53-9d318b5b5b0e",
+	"name": "Юр'ївський",
+	"regionId": "4ce3bb57-5eeb-430d-b156-00aae148b7d2"
+},
+{
+	"id": "f79685f0-1a70-4b6a-ba79-9c0024caea5b",
+	"name": "Олександрівський",
+	"regionId": "cdf2d5ca-656b-474a-8105-ea2a02c909f2"
+},
+{
+	"id": "864b085b-a363-4114-8100-f2e812ce68b8",
+	"name": "Амвросіївський",
+	"regionId": "cdf2d5ca-656b-474a-8105-ea2a02c909f2"
+},
+{
+	"id": "1d997390-78e8-4dc9-91de-00fd795fb798",
+	"name": "Бахмутський",
+	"regionId": "cdf2d5ca-656b-474a-8105-ea2a02c909f2"
+},
+{
+	"id": "c9fd05e0-5cdd-4c35-a411-0f4de6b9c179",
+	"name": "Великоновосілківський",
+	"regionId": "cdf2d5ca-656b-474a-8105-ea2a02c909f2"
+},
+{
+	"id": "07e5e44c-5c25-48ee-90ed-0e8f94fbfc8a",
+	"name": "Волноваський",
+	"regionId": "cdf2d5ca-656b-474a-8105-ea2a02c909f2"
+},
+{
+	"id": "5277c152-3e2a-43d4-80a0-8c16ff7ae8e1",
+	"name": "Нікольський",
+	"regionId": "cdf2d5ca-656b-474a-8105-ea2a02c909f2"
+},
+{
+	"id": "b27ac586-9c1e-45dd-a683-2bbe5437fdcc",
+	"name": "Добропільський",
+	"regionId": "cdf2d5ca-656b-474a-8105-ea2a02c909f2"
+},
+{
+	"id": "035f6296-db31-49b1-b545-02b98c190a99",
+	"name": "Костянтинівський",
+	"regionId": "cdf2d5ca-656b-474a-8105-ea2a02c909f2"
+},
+{
+	"id": "8770b938-da65-497f-8d03-ac2853520acd",
+	"name": "Покровський",
+	"regionId": "cdf2d5ca-656b-474a-8105-ea2a02c909f2"
+},
+{
+	"id": "7c1cde67-0288-4ba6-843b-c9e4faa9cf6a",
+	"name": "Лиманський",
+	"regionId": "cdf2d5ca-656b-474a-8105-ea2a02c909f2"
+},
+{
+	"id": "d33f5e54-4812-4667-91b1-ed2d82054429",
+	"name": "Мар'їнський",
+	"regionId": "cdf2d5ca-656b-474a-8105-ea2a02c909f2"
+},
+{
+	"id": "b3a25a18-e792-4a39-ab9c-7cc745d9379a",
+	"name": "Новоазовський",
+	"regionId": "cdf2d5ca-656b-474a-8105-ea2a02c909f2"
+},
+{
+	"id": "3c04eb24-0a37-48c5-96b1-65e7525711d7",
+	"name": "Мангушський",
+	"regionId": "cdf2d5ca-656b-474a-8105-ea2a02c909f2"
+},
+{
+	"id": "28bc97f1-66aa-4553-9661-170afd1ffad3",
+	"name": "Слов'янський",
+	"regionId": "cdf2d5ca-656b-474a-8105-ea2a02c909f2"
+},
+{
+	"id": "312c40da-31ae-4ae4-a174-a35d6678d30a",
+	"name": "Старобешівський",
+	"regionId": "cdf2d5ca-656b-474a-8105-ea2a02c909f2"
+},
+{
+	"id": "15c0a689-7e58-4b6a-a253-d72e13e7dbf1",
+	"name": "Бойківський",
+	"regionId": "cdf2d5ca-656b-474a-8105-ea2a02c909f2"
+},
+{
+	"id": "85816153-1e6f-4e00-a88e-4b3a71f5f5d9",
+	"name": "Шахтарський",
+	"regionId": "cdf2d5ca-656b-474a-8105-ea2a02c909f2"
+},
+{
+	"id": "5a988932-da6c-4c04-b8d9-5a50df14da03",
+	"name": "Ясинуватський",
+	"regionId": "cdf2d5ca-656b-474a-8105-ea2a02c909f2"
+},
+{
+	"id": "1238dc51-c737-4991-bf6f-19619b79adbd",
+	"name": "Андрушівський",
+	"regionId": "8969076d-30c1-4f15-95f4-d597d22b60f1"
+},
+{
+	"id": "639cdc78-4e00-40bd-82ab-80a777ba1f54",
+	"name": "Баранівський",
+	"regionId": "8969076d-30c1-4f15-95f4-d597d22b60f1"
+},
+{
+	"id": "c42cf3ea-ce36-46d6-a915-04524ae1fb07",
+	"name": "Бердичівський",
+	"regionId": "8969076d-30c1-4f15-95f4-d597d22b60f1"
+},
+{
+	"id": "8212ba71-2d3c-45d9-b1ce-fa6c6e98160f",
+	"name": "Брусилівський",
+	"regionId": "8969076d-30c1-4f15-95f4-d597d22b60f1"
+},
+{
+	"id": "ebe95a69-1c5e-4e0f-a3ce-a0ca46fdab3a",
+	"name": "Хорошівський",
+	"regionId": "8969076d-30c1-4f15-95f4-d597d22b60f1"
+},
+{
+	"id": "59b75add-3491-4c6e-a678-14cf71235c34",
+	"name": "Романівський",
+	"regionId": "8969076d-30c1-4f15-95f4-d597d22b60f1"
+},
+{
+	"id": "28f54ea0-2191-4aee-9965-fc2e7d844867",
+	"name": "Ємільчинський",
+	"regionId": "8969076d-30c1-4f15-95f4-d597d22b60f1"
+},
+{
+	"id": "89efa6e0-f681-448d-b579-81e8b04cfd47",
+	"name": "Житомирський",
+	"regionId": "8969076d-30c1-4f15-95f4-d597d22b60f1"
+},
+{
+	"id": "31642416-7cff-46dd-8328-4d87ebd6f6e6",
+	"name": "Коростенський",
+	"regionId": "8969076d-30c1-4f15-95f4-d597d22b60f1"
+},
+{
+	"id": "8ec18b99-61d8-44bc-b898-a382618a181f",
+	"name": "Коростишівський",
+	"regionId": "8969076d-30c1-4f15-95f4-d597d22b60f1"
+},
+{
+	"id": "48f76188-a6ef-43bf-a2ff-c41bbad2c083",
+	"name": "Лугинський",
+	"regionId": "8969076d-30c1-4f15-95f4-d597d22b60f1"
+},
+{
+	"id": "5ac6e3f1-ab9e-4f37-b420-0f855e14534d",
+	"name": "Любарський",
+	"regionId": "8969076d-30c1-4f15-95f4-d597d22b60f1"
+},
+{
+	"id": "ceb1166a-12a3-4f37-833c-482679567630",
+	"name": "Малинський",
+	"regionId": "8969076d-30c1-4f15-95f4-d597d22b60f1"
+},
+{
+	"id": "1989ed33-c572-492f-a5cc-3c79a88dee7f",
+	"name": "Народицький",
+	"regionId": "8969076d-30c1-4f15-95f4-d597d22b60f1"
+},
+{
+	"id": "500818dd-4743-4f44-9801-e0056191567d",
+	"name": "Новоград-Волинський",
+	"regionId": "8969076d-30c1-4f15-95f4-d597d22b60f1"
+},
+{
+	"id": "7232ec00-0bcf-4c06-9fdf-c168ea18fa4b",
+	"name": "Овруцький",
+	"regionId": "8969076d-30c1-4f15-95f4-d597d22b60f1"
+},
+{
+	"id": "bdc1a86e-e8e7-4f7a-b177-abf2dacc5fb9",
+	"name": "Олевський",
+	"regionId": "8969076d-30c1-4f15-95f4-d597d22b60f1"
+},
+{
+	"id": "98409561-ee7c-434c-9d78-506d37689f92",
+	"name": "Попільнянський",
+	"regionId": "8969076d-30c1-4f15-95f4-d597d22b60f1"
+},
+{
+	"id": "1345f4b0-09bf-4039-8ba5-5bf956be7a85",
+	"name": "Радомишльський",
+	"regionId": "8969076d-30c1-4f15-95f4-d597d22b60f1"
+},
+{
+	"id": "59ef9582-eebd-4eca-96d4-22654fb5a2dd",
+	"name": "Ружинський",
+	"regionId": "8969076d-30c1-4f15-95f4-d597d22b60f1"
+},
+{
+	"id": "fd1d1bf0-5e01-4afd-aa0e-df689a7f095f",
+	"name": "Пулинський",
+	"regionId": "8969076d-30c1-4f15-95f4-d597d22b60f1"
+},
+{
+	"id": "e12ffb93-4dd8-4060-9cb5-ddde4a6e0468",
+	"name": "Черняхівський",
+	"regionId": "8969076d-30c1-4f15-95f4-d597d22b60f1"
+},
+{
+	"id": "fa4bec52-ca34-4de2-af6d-67a7f064c5c9",
+	"name": "Чуднівський",
+	"regionId": "8969076d-30c1-4f15-95f4-d597d22b60f1"
+},
+{
+	"id": "134c3c05-3ed8-4c43-a423-cd66ac971fa5",
+	"name": "Берегівський",
+	"regionId": "500516d4-c8cb-441d-a782-69568df5d9a7"
+},
+{
+	"id": "7ef44f64-e56b-4889-89f6-13e2c19bdbae",
+	"name": "Великоберезнянський",
+	"regionId": "500516d4-c8cb-441d-a782-69568df5d9a7"
+},
+{
+	"id": "96d410a3-afd3-4710-88ba-b35ae087e68e",
+	"name": "Виноградівський",
+	"regionId": "500516d4-c8cb-441d-a782-69568df5d9a7"
+},
+{
+	"id": "db1c112d-cd79-46f0-b1c5-bbab18d24a93",
+	"name": "Воловецький",
+	"regionId": "500516d4-c8cb-441d-a782-69568df5d9a7"
+},
+{
+	"id": "7751aef6-2bd8-449d-b875-aa9a5352852b",
+	"name": "Іршавський",
+	"regionId": "500516d4-c8cb-441d-a782-69568df5d9a7"
+},
+{
+	"id": "86df9b18-b6de-46f0-92a6-6752b1f95429",
+	"name": "Міжгірський",
+	"regionId": "500516d4-c8cb-441d-a782-69568df5d9a7"
+},
+{
+	"id": "f147a495-5e0b-4e02-8d5f-c6049c17792a",
+	"name": "Мукачівський",
+	"regionId": "500516d4-c8cb-441d-a782-69568df5d9a7"
+},
+{
+	"id": "674aea4d-1049-49aa-b61e-e13607c549e9",
+	"name": "Перечинський",
+	"regionId": "500516d4-c8cb-441d-a782-69568df5d9a7"
+},
+{
+	"id": "c664fe29-6786-4ea4-a5c4-a46a52c4e25d",
+	"name": "Рахівський",
+	"regionId": "500516d4-c8cb-441d-a782-69568df5d9a7"
+},
+{
+	"id": "7e40fa9b-e666-4c15-a51c-ce43658ebfb7",
+	"name": "Свалявський",
+	"regionId": "500516d4-c8cb-441d-a782-69568df5d9a7"
+},
+{
+	"id": "02a83544-e43c-4392-8533-e3c31ade2305",
+	"name": "Тячівський",
+	"regionId": "500516d4-c8cb-441d-a782-69568df5d9a7"
+},
+{
+	"id": "21b779f1-843a-4921-9558-46e3e978883a",
+	"name": "Ужгородський",
+	"regionId": "500516d4-c8cb-441d-a782-69568df5d9a7"
+},
+{
+	"id": "cd8ee48a-80c3-4104-83cc-ec605ae62ae1",
+	"name": "Хустський",
+	"regionId": "500516d4-c8cb-441d-a782-69568df5d9a7"
+},
+{
+	"id": "6c1ef198-4454-4319-847e-0a8513ef66fc",
+	"name": "Якимівський",
+	"regionId": "0346c45e-62be-4548-a901-c4a7637b953d"
+},
+{
+	"id": "e1c9781b-18fb-4a41-a096-c3c9edec773a",
+	"name": "Бердянський",
+	"regionId": "0346c45e-62be-4548-a901-c4a7637b953d"
+},
+{
+	"id": "16308fee-1992-4c0f-adc1-7d742f2a4db3",
+	"name": "Василівський",
+	"regionId": "0346c45e-62be-4548-a901-c4a7637b953d"
+},
+{
+	"id": "e7b00958-b750-444e-8a79-68a80c549352",
+	"name": "Великобілозерський",
+	"regionId": "0346c45e-62be-4548-a901-c4a7637b953d"
+},
+{
+	"id": "7cf861ab-cd24-4335-be72-e049498c25be",
+	"name": "Веселівський",
+	"regionId": "0346c45e-62be-4548-a901-c4a7637b953d"
+},
+{
+	"id": "ec41a4f3-3ccf-4a42-86c7-bc838381cca8",
+	"name": "Вільнянський",
+	"regionId": "0346c45e-62be-4548-a901-c4a7637b953d"
+},
+{
+	"id": "79e95d33-7ae9-4929-a48c-69a89d728778",
+	"name": "Гуляйпільський",
+	"regionId": "0346c45e-62be-4548-a901-c4a7637b953d"
+},
+{
+	"id": "bd92d80c-1ac4-42a2-bacf-750c312fe5cb",
+	"name": "Запорізький",
+	"regionId": "0346c45e-62be-4548-a901-c4a7637b953d"
+},
+{
+	"id": "229231a8-3920-4643-a691-c4f842e965c1",
+	"name": "Кам'янсько-Дніпровський",
+	"regionId": "0346c45e-62be-4548-a901-c4a7637b953d"
+},
+{
+	"id": "76e2b166-30f8-4c60-bb9f-5b2099891bb1",
+	"name": "Більмацький",
+	"regionId": "0346c45e-62be-4548-a901-c4a7637b953d"
+},
+{
+	"id": "bc5ff253-35e7-4bf6-bc4f-e4cc22c2f0fd",
+	"name": "Мелітопольський",
+	"regionId": "0346c45e-62be-4548-a901-c4a7637b953d"
+},
+{
+	"id": "fd3f97ac-40ee-4790-ba4f-32da52491cc3",
+	"name": "Михайлівський",
+	"regionId": "0346c45e-62be-4548-a901-c4a7637b953d"
+},
+{
+	"id": "2733a9e4-ab08-4f61-ac04-78c0e6da90b6",
+	"name": "Новомиколаївський",
+	"regionId": "0346c45e-62be-4548-a901-c4a7637b953d"
+},
+{
+	"id": "bf492587-d3e0-4c9e-bd78-04284e4e8896",
+	"name": "Оріхівський",
+	"regionId": "0346c45e-62be-4548-a901-c4a7637b953d"
+},
+{
+	"id": "8ebfe934-40c8-4d1b-8d51-5d3834c9561b",
+	"name": "Пологівський",
+	"regionId": "0346c45e-62be-4548-a901-c4a7637b953d"
+},
+{
+	"id": "9c211d76-06e0-4e3b-aa07-f284fbe5d946",
+	"name": "Приазовський",
+	"regionId": "0346c45e-62be-4548-a901-c4a7637b953d"
+},
+{
+	"id": "ccc6863c-2803-421c-8b95-6189a75825db",
+	"name": "Приморський",
+	"regionId": "0346c45e-62be-4548-a901-c4a7637b953d"
+},
+{
+	"id": "c3e6a869-4380-435a-8879-b5a4e6af34d1",
+	"name": "Розівський",
+	"regionId": "0346c45e-62be-4548-a901-c4a7637b953d"
+},
+{
+	"id": "fe4bfef4-0411-49ab-8b37-34af84249264",
+	"name": "Токмацький",
+	"regionId": "0346c45e-62be-4548-a901-c4a7637b953d"
+},
+{
+	"id": "f463f2d1-a8b9-4745-8fb1-f946caefa53a",
+	"name": "Чернігівський",
+	"regionId": "0346c45e-62be-4548-a901-c4a7637b953d"
+},
+{
+	"id": "193f5219-c3d4-4372-aaed-e19b3b898284",
+	"name": "Богородчанський",
+	"regionId": "58e1bf8a-17ad-461e-8c89-34a8aafe79dc"
+},
+{
+	"id": "9dcd2c35-b586-41ce-8560-b30ce3bd2726",
+	"name": "Верховинський",
+	"regionId": "58e1bf8a-17ad-461e-8c89-34a8aafe79dc"
+},
+{
+	"id": "4be01cd0-7a20-4948-9f33-519fb96f743f",
+	"name": "Галицький",
+	"regionId": "58e1bf8a-17ad-461e-8c89-34a8aafe79dc"
+},
+{
+	"id": "04458b4a-1979-4588-a03e-7f18a209513b",
+	"name": "Городенківський",
+	"regionId": "58e1bf8a-17ad-461e-8c89-34a8aafe79dc"
+},
+{
+	"id": "f1d8d9cb-c160-4e49-b7ba-b7fa75e0aaf2",
+	"name": "Долинський",
+	"regionId": "58e1bf8a-17ad-461e-8c89-34a8aafe79dc"
+},
+{
+	"id": "0bb7068d-9c40-4361-b9e6-7dd622cdb748",
+	"name": "Калуський",
+	"regionId": "58e1bf8a-17ad-461e-8c89-34a8aafe79dc"
+},
+{
+	"id": "b8f4a793-76cf-42cd-a4c9-3bda2b3f80c0",
+	"name": "Коломийський",
+	"regionId": "58e1bf8a-17ad-461e-8c89-34a8aafe79dc"
+},
+{
+	"id": "f4e42191-23e8-4693-a8e7-bd426592a644",
+	"name": "Косівський",
+	"regionId": "58e1bf8a-17ad-461e-8c89-34a8aafe79dc"
+},
+{
+	"id": "a697e87f-7e7c-4a4d-b0a2-4308de681cc8",
+	"name": "Надвірнянський",
+	"regionId": "58e1bf8a-17ad-461e-8c89-34a8aafe79dc"
+},
+{
+	"id": "dbb0536b-b1ed-4d08-916b-f5293d4fcb2a",
+	"name": "Рогатинський",
+	"regionId": "58e1bf8a-17ad-461e-8c89-34a8aafe79dc"
+},
+{
+	"id": "da3af4e3-a337-42b5-af7e-e2ff14cb29ac",
+	"name": "Рожнятівський",
+	"regionId": "58e1bf8a-17ad-461e-8c89-34a8aafe79dc"
+},
+{
+	"id": "06188e49-7250-4b1b-a158-a8177f8d1238",
+	"name": "Снятинський",
+	"regionId": "58e1bf8a-17ad-461e-8c89-34a8aafe79dc"
+},
+{
+	"id": "c3462686-a2c5-4b23-bbf0-c92a00951259",
+	"name": "Тлумацький",
+	"regionId": "58e1bf8a-17ad-461e-8c89-34a8aafe79dc"
+},
+{
+	"id": "e8e005f7-a129-4a90-87d7-827b23cef67b",
+	"name": "Тисменицький",
+	"regionId": "58e1bf8a-17ad-461e-8c89-34a8aafe79dc"
+},
+{
+	"id": "9c85b13e-0c61-49fa-b7f2-abe1d3cd75cd",
+	"name": "Баришівський",
+	"regionId": "69e28dde-9246-4bd7-be91-b9cde135c844"
+},
+{
+	"id": "21889668-5da5-4117-8013-4a5470522273",
+	"name": "Білоцерківський",
+	"regionId": "69e28dde-9246-4bd7-be91-b9cde135c844"
+},
+{
+	"id": "cf731800-b663-4489-b0bf-2c67e03c30bb",
+	"name": "Богуславський",
+	"regionId": "69e28dde-9246-4bd7-be91-b9cde135c844"
+},
+{
+	"id": "8cc724db-f78c-4356-a58e-9cd80197d110",
+	"name": "Бориспільський",
+	"regionId": "69e28dde-9246-4bd7-be91-b9cde135c844"
+},
+{
+	"id": "bc041193-ff48-41d2-94ae-2ea53e58d524",
+	"name": "Бородянський",
+	"regionId": "69e28dde-9246-4bd7-be91-b9cde135c844"
+},
+{
+	"id": "04cfa6fa-93c5-4bc5-bd86-a32c12fd9e18",
+	"name": "Броварський",
+	"regionId": "69e28dde-9246-4bd7-be91-b9cde135c844"
+},
+{
+	"id": "5a9a7860-9c6b-4f8e-ae02-f13ce4b9ced1",
+	"name": "Васильківський",
+	"regionId": "69e28dde-9246-4bd7-be91-b9cde135c844"
+},
+{
+	"id": "e267e6cb-a68a-4167-b552-ebdac88100bd",
+	"name": "Володарський",
+	"regionId": "69e28dde-9246-4bd7-be91-b9cde135c844"
+},
+{
+	"id": "95c758e1-c196-429b-a041-bfc8f6314528",
+	"name": "Вишгородський",
+	"regionId": "69e28dde-9246-4bd7-be91-b9cde135c844"
+},
+{
+	"id": "7c84b94c-16b5-4506-b8ff-abb3180a1110",
+	"name": "Згурівський",
+	"regionId": "69e28dde-9246-4bd7-be91-b9cde135c844"
+},
+{
+	"id": "5abb450d-c13d-4598-9d0a-5ef62082b54a",
+	"name": "Іванківський",
+	"regionId": "69e28dde-9246-4bd7-be91-b9cde135c844"
+},
+{
+	"id": "f658b25b-4623-4d97-8b3f-18e91036ca6e",
+	"name": "Кагарлицький",
+	"regionId": "69e28dde-9246-4bd7-be91-b9cde135c844"
+},
+{
+	"id": "cfca1489-7141-4d22-95ad-1c761c6c8c57",
+	"name": "Києво-святошинський",
+	"regionId": "69e28dde-9246-4bd7-be91-b9cde135c844"
+},
+{
+	"id": "9da63fd8-1a7a-4530-8da6-5e674c7c8286",
+	"name": "Макарівський",
+	"regionId": "69e28dde-9246-4bd7-be91-b9cde135c844"
+},
+{
+	"id": "a362e9c8-8677-4133-9529-1f634324da6d",
+	"name": "Миронівський",
+	"regionId": "69e28dde-9246-4bd7-be91-b9cde135c844"
+},
+{
+	"id": "840a0071-841a-43af-b47e-5e62d9952a38",
+	"name": "Обухівський",
+	"regionId": "69e28dde-9246-4bd7-be91-b9cde135c844"
+},
+{
+	"id": "014d04ae-8d4f-4fd8-b740-43e0412870d4",
+	"name": "Переяслав-Хмельницький",
+	"regionId": "69e28dde-9246-4bd7-be91-b9cde135c844"
+},
+{
+	"id": "b6bcd31f-9b5f-4da1-ba8d-14a44d867a95",
+	"name": "Поліський",
+	"regionId": "69e28dde-9246-4bd7-be91-b9cde135c844"
+},
+{
+	"id": "a9a14a6b-5317-4409-a265-fcfb47dc1467",
+	"name": "Рокитнянський",
+	"regionId": "69e28dde-9246-4bd7-be91-b9cde135c844"
+},
+{
+	"id": "b8a3e648-274c-4c1f-bdb2-6af3461526c5",
+	"name": "Сквирський",
+	"regionId": "69e28dde-9246-4bd7-be91-b9cde135c844"
+},
+{
+	"id": "52306d4a-9b20-4384-a872-6b2842206ea0",
+	"name": "Ставищенський",
+	"regionId": "69e28dde-9246-4bd7-be91-b9cde135c844"
+},
+{
+	"id": "cd99f2c7-448e-4149-a9a5-27285db0e88b",
+	"name": "Таращанський",
+	"regionId": "69e28dde-9246-4bd7-be91-b9cde135c844"
+},
+{
+	"id": "8622184b-9496-4261-847b-b8606c5851bb",
+	"name": "Тетіївський",
+	"regionId": "69e28dde-9246-4bd7-be91-b9cde135c844"
+},
+{
+	"id": "5e5f88f6-696e-4c81-8b03-6ed5251ed47a",
+	"name": "Фастівський",
+	"regionId": "69e28dde-9246-4bd7-be91-b9cde135c844"
+},
+{
+	"id": "8ce28b1a-2b0f-46bd-b41a-8a55a7764942",
+	"name": "Яготинський",
+	"regionId": "69e28dde-9246-4bd7-be91-b9cde135c844"
+},
+{
+	"id": "63d3483d-558d-44d9-bab1-bde01bb5121b",
+	"name": "Олександрійський",
+	"regionId": "ac58a897-bca7-435c-851c-40fb4b41e843"
+},
+{
+	"id": "d521cff2-ba51-4a08-9b67-7944e5529158",
+	"name": "Олександрівський",
+	"regionId": "ac58a897-bca7-435c-851c-40fb4b41e843"
+},
+{
+	"id": "9d7a9282-da84-4ad5-b1ed-bc824dcc3d16",
+	"name": "Бобринецький",
+	"regionId": "ac58a897-bca7-435c-851c-40fb4b41e843"
+},
+{
+	"id": "a65e0e56-3313-426e-b06e-96702edb8046",
+	"name": "Гайворонський",
+	"regionId": "ac58a897-bca7-435c-851c-40fb4b41e843"
+},
+{
+	"id": "fdd69e38-b490-4a1b-9413-99778a9dc6c3",
+	"name": "Голованівський",
+	"regionId": "ac58a897-bca7-435c-851c-40fb4b41e843"
+},
+{
+	"id": "4dd03228-efb0-43dd-9920-8344463aced5",
+	"name": "Добровеличківський",
+	"regionId": "ac58a897-bca7-435c-851c-40fb4b41e843"
+},
+{
+	"id": "aa255883-7845-4f24-aac8-88ae5ed3f045",
+	"name": "Долинський",
+	"regionId": "ac58a897-bca7-435c-851c-40fb4b41e843"
+},
+{
+	"id": "118dec6f-51ec-4a24-a13b-92a3524e1d2b",
+	"name": "Знам'янський",
+	"regionId": "ac58a897-bca7-435c-851c-40fb4b41e843"
+},
+{
+	"id": "8ff65a60-687d-4c5b-a1bb-84e939cd6868",
+	"name": "Кіровоградський",
+	"regionId": "ac58a897-bca7-435c-851c-40fb4b41e843"
+},
+{
+	"id": "b317aca9-a550-495d-86d1-87c24122936c",
+	"name": "Компаніївський",
+	"regionId": "ac58a897-bca7-435c-851c-40fb4b41e843"
+},
+{
+	"id": "7f06158a-9f49-4f94-a6e5-bc0fef0a5551",
+	"name": "Маловисківський",
+	"regionId": "ac58a897-bca7-435c-851c-40fb4b41e843"
+},
+{
+	"id": "1db4c6d5-f95b-4b16-96b0-fc655f17be5f",
+	"name": "Новгородківський",
+	"regionId": "ac58a897-bca7-435c-851c-40fb4b41e843"
+},
+{
+	"id": "7d7f9ebe-abc3-4a91-a025-14ef81333ee2",
+	"name": "Новоархангельський",
+	"regionId": "ac58a897-bca7-435c-851c-40fb4b41e843"
+},
+{
+	"id": "0e9f1616-196b-4a96-bd63-bb62f37e388c",
+	"name": "Новомиргородський",
+	"regionId": "ac58a897-bca7-435c-851c-40fb4b41e843"
+},
+{
+	"id": "59aa383d-2184-493d-beee-c405e0f46384",
+	"name": "Новоукраїнський",
+	"regionId": "ac58a897-bca7-435c-851c-40fb4b41e843"
+},
+{
+	"id": "f1bd080b-2254-4a3b-b3f6-b0371c05589f",
+	"name": "Вільшанський",
+	"regionId": "ac58a897-bca7-435c-851c-40fb4b41e843"
+},
+{
+	"id": "2a96d01d-09b4-4a2f-8273-3b7ba6bdfb04",
+	"name": "Онуфріївський",
+	"regionId": "ac58a897-bca7-435c-851c-40fb4b41e843"
+},
+{
+	"id": "6f6d9e1c-1757-46d5-8750-fbeb0f6e048b",
+	"name": "Петрівський",
+	"regionId": "ac58a897-bca7-435c-851c-40fb4b41e843"
+},
+{
+	"id": "77e0690a-05ce-4c7b-a251-b6fe41e5d595",
+	"name": "Світловодський",
+	"regionId": "ac58a897-bca7-435c-851c-40fb4b41e843"
+},
+{
+	"id": "6f347c58-1504-46e5-a46b-c91018611ee5",
+	"name": "Благовіщенський",
+	"regionId": "ac58a897-bca7-435c-851c-40fb4b41e843"
+},
+{
+	"id": "d8382ccb-1bc1-422f-a266-4387765952b2",
+	"name": "Устинівський",
+	"regionId": "ac58a897-bca7-435c-851c-40fb4b41e843"
+},
+{
+	"id": "154f07b9-5eba-4779-b4f5-361345ffc650",
+	"name": "Антрацитівський",
+	"regionId": "7de862cf-5c3d-41e6-8f1d-a88bcd455e8e"
+},
+{
+	"id": "02f46bc3-b55d-4545-8f15-1b0f52b10de3",
+	"name": "Біловодський",
+	"regionId": "7de862cf-5c3d-41e6-8f1d-a88bcd455e8e"
+},
+{
+	"id": "16f12f48-c7b3-481f-b61e-45852087f3a5",
+	"name": "Білокуракинський",
+	"regionId": "7de862cf-5c3d-41e6-8f1d-a88bcd455e8e"
+},
+{
+	"id": "292bfe38-9c91-4711-8b70-2ff707f1eaa6",
+	"name": "Сорокинський",
+	"regionId": "7de862cf-5c3d-41e6-8f1d-a88bcd455e8e"
+},
+{
+	"id": "32935698-7914-4afd-b923-645709afd129",
+	"name": "Кремінський",
+	"regionId": "7de862cf-5c3d-41e6-8f1d-a88bcd455e8e"
+},
+{
+	"id": "7796a621-6064-40b6-8c80-22dafbcd3f9a",
+	"name": "Лутугинський",
+	"regionId": "7de862cf-5c3d-41e6-8f1d-a88bcd455e8e"
+},
+{
+	"id": "1e7264db-f419-489a-86e7-27939c91b9e9",
+	"name": "Марківський",
+	"regionId": "7de862cf-5c3d-41e6-8f1d-a88bcd455e8e"
+},
+{
+	"id": "90d37c8e-c078-40ef-875c-3afa0f99ce39",
+	"name": "Міловський",
+	"regionId": "7de862cf-5c3d-41e6-8f1d-a88bcd455e8e"
+},
+{
+	"id": "67750a3e-24f2-426a-82c4-43be15a0d9a8",
+	"name": "Новоайдарський",
+	"regionId": "7de862cf-5c3d-41e6-8f1d-a88bcd455e8e"
+},
+{
+	"id": "8c9acc26-b040-4372-a041-37a2982c9ca2",
+	"name": "Новопсковський",
+	"regionId": "7de862cf-5c3d-41e6-8f1d-a88bcd455e8e"
+},
+{
+	"id": "2fb2198f-f3b4-43d0-b59d-92114ff77c7b",
+	"name": "Перевальський",
+	"regionId": "7de862cf-5c3d-41e6-8f1d-a88bcd455e8e"
+},
+{
+	"id": "78fecf62-e56b-42d4-ade9-d376c3e5d9c7",
+	"name": "Попаснянський",
+	"regionId": "7de862cf-5c3d-41e6-8f1d-a88bcd455e8e"
+},
+{
+	"id": "bf49bada-6d3e-40ea-87ef-90ba73c99b0f",
+	"name": "Сватівський",
+	"regionId": "7de862cf-5c3d-41e6-8f1d-a88bcd455e8e"
+},
+{
+	"id": "99d97323-4546-4a75-b3c2-41a261016e03",
+	"name": "Довжанський",
+	"regionId": "7de862cf-5c3d-41e6-8f1d-a88bcd455e8e"
+},
+{
+	"id": "d3ead5cf-655a-423f-af0d-491e9eedcad4",
+	"name": "Слов'яносербський",
+	"regionId": "7de862cf-5c3d-41e6-8f1d-a88bcd455e8e"
+},
+{
+	"id": "c5c16efb-20a5-45f8-bc7b-a414d4296625",
+	"name": "Станично-Луганський",
+	"regionId": "7de862cf-5c3d-41e6-8f1d-a88bcd455e8e"
+},
+{
+	"id": "067058e9-3483-4c48-a412-73392f9b84f7",
+	"name": "Старобільський",
+	"regionId": "7de862cf-5c3d-41e6-8f1d-a88bcd455e8e"
+},
+{
+	"id": "45d7452c-f870-4819-872d-ff904890751f",
+	"name": "Троїцький",
+	"regionId": "7de862cf-5c3d-41e6-8f1d-a88bcd455e8e"
+},
+{
+	"id": "0d9febae-c75a-49b0-a973-f1dc3d80fd14",
+	"name": "Бродівський",
+	"regionId": "82dcde1c-d656-4a2a-9e1b-56d539cb0e4f"
+},
+{
+	"id": "d8308f5c-ce19-4062-b9c7-77b95e3949f8",
+	"name": "Буський",
+	"regionId": "82dcde1c-d656-4a2a-9e1b-56d539cb0e4f"
+},
+{
+	"id": "2f3942f3-5942-43dc-a888-dfb5f108493c",
+	"name": "Городоцький",
+	"regionId": "82dcde1c-d656-4a2a-9e1b-56d539cb0e4f"
+},
+{
+	"id": "b3ec97df-ad65-4047-9878-cabcd82d599e",
+	"name": "Дрогобицький",
+	"regionId": "82dcde1c-d656-4a2a-9e1b-56d539cb0e4f"
+},
+{
+	"id": "bcbed75a-64d7-4903-940e-99c931a3f06b",
+	"name": "Жидачівський",
+	"regionId": "82dcde1c-d656-4a2a-9e1b-56d539cb0e4f"
+},
+{
+	"id": "fddd8c55-07c3-47a0-bc49-acc1555172bb",
+	"name": "Золочівський",
+	"regionId": "82dcde1c-d656-4a2a-9e1b-56d539cb0e4f"
+},
+{
+	"id": "36515638-0a4e-4600-997c-fc64b8f1fbe1",
+	"name": "Кам'янка-Бузький",
+	"regionId": "82dcde1c-d656-4a2a-9e1b-56d539cb0e4f"
+},
+{
+	"id": "43a91131-3c00-4010-97fa-50413fb480b4",
+	"name": "Мостиський",
+	"regionId": "82dcde1c-d656-4a2a-9e1b-56d539cb0e4f"
+},
+{
+	"id": "794f5a24-83d0-4ad3-8abe-131a7426a8f4",
+	"name": "Жовківський",
+	"regionId": "82dcde1c-d656-4a2a-9e1b-56d539cb0e4f"
+},
+{
+	"id": "09ce0243-3255-4998-8f4c-31801771cebb",
+	"name": "Миколаївський",
+	"regionId": "82dcde1c-d656-4a2a-9e1b-56d539cb0e4f"
+},
+{
+	"id": "1d8ac5ab-985c-425b-8613-5fdb86fefc72",
+	"name": "Перемишлянський",
+	"regionId": "82dcde1c-d656-4a2a-9e1b-56d539cb0e4f"
+},
+{
+	"id": "456c818a-53d3-4a15-809e-58cf95b069e8",
+	"name": "Пустомитівський",
+	"regionId": "82dcde1c-d656-4a2a-9e1b-56d539cb0e4f"
+},
+{
+	"id": "67f30f9d-3062-445c-92e8-2a6738d6861b",
+	"name": "Радехівський",
+	"regionId": "82dcde1c-d656-4a2a-9e1b-56d539cb0e4f"
+},
+{
+	"id": "8acacbda-2669-4413-ab6e-d42d842a76fd",
+	"name": "Самбірський",
+	"regionId": "82dcde1c-d656-4a2a-9e1b-56d539cb0e4f"
+},
+{
+	"id": "ed834923-bb40-4d7f-9d2b-9274c27e6f5d",
+	"name": "Сколівський",
+	"regionId": "82dcde1c-d656-4a2a-9e1b-56d539cb0e4f"
+},
+{
+	"id": "7af05e11-2689-4df4-8834-1aed607b0179",
+	"name": "Сокальський",
+	"regionId": "82dcde1c-d656-4a2a-9e1b-56d539cb0e4f"
+},
+{
+	"id": "3ded88e0-c010-4f28-b67a-1c5178d00e2c",
+	"name": "Старосамбірський",
+	"regionId": "82dcde1c-d656-4a2a-9e1b-56d539cb0e4f"
+},
+{
+	"id": "091b1ec6-a988-4225-a112-67cbc29eccd1",
+	"name": "Стрийський",
+	"regionId": "82dcde1c-d656-4a2a-9e1b-56d539cb0e4f"
+},
+{
+	"id": "49d87581-cd2c-4f59-baf0-59b596702ea8",
+	"name": "Турківський",
+	"regionId": "82dcde1c-d656-4a2a-9e1b-56d539cb0e4f"
+},
+{
+	"id": "697b8046-48f8-428d-ba85-7a910bc74782",
+	"name": "Яворівський",
+	"regionId": "82dcde1c-d656-4a2a-9e1b-56d539cb0e4f"
+},
+{
+	"id": "f633bda8-0dc5-4079-a97c-ccd5ede5f138",
+	"name": "Арбузинський",
+	"regionId": "c9ac74e4-747c-437b-ab1c-ae6e4cbecaa9"
+},
+{
+	"id": "a05a1f2e-f93e-4dc9-be74-842e1819cfad",
+	"name": "Баштанський",
+	"regionId": "c9ac74e4-747c-437b-ab1c-ae6e4cbecaa9"
+},
+{
+	"id": "ea7db3e6-b3fe-420a-a039-cf6cc3677ea8",
+	"name": "Березанський",
+	"regionId": "c9ac74e4-747c-437b-ab1c-ae6e4cbecaa9"
+},
+{
+	"id": "0880aaa3-b5ef-4e69-b893-c913c9fd1264",
+	"name": "Березнегуватський",
+	"regionId": "c9ac74e4-747c-437b-ab1c-ae6e4cbecaa9"
+},
+{
+	"id": "0ffadb8c-bbc1-42af-8dcf-5dab3b0a2888",
+	"name": "Братський",
+	"regionId": "c9ac74e4-747c-437b-ab1c-ae6e4cbecaa9"
+},
+{
+	"id": "910cbfd1-e607-45f6-82ca-2171bfb79626",
+	"name": "Веселинівський",
+	"regionId": "c9ac74e4-747c-437b-ab1c-ae6e4cbecaa9"
+},
+{
+	"id": "da6598de-70ae-4f40-b5ae-4ba800fd8ecb",
+	"name": "Вознесенський",
+	"regionId": "c9ac74e4-747c-437b-ab1c-ae6e4cbecaa9"
+},
+{
+	"id": "2bab3933-5e34-434d-88c1-716f7533f68e",
+	"name": "Врадіївський",
+	"regionId": "c9ac74e4-747c-437b-ab1c-ae6e4cbecaa9"
+},
+{
+	"id": "37b8232f-98e2-429a-802c-d65914671aac",
+	"name": "Доманівський",
+	"regionId": "c9ac74e4-747c-437b-ab1c-ae6e4cbecaa9"
+},
+{
+	"id": "0056ea9c-76f1-4e6e-b34f-6779d930aa9c",
+	"name": "Єланецький",
+	"regionId": "c9ac74e4-747c-437b-ab1c-ae6e4cbecaa9"
+},
+{
+	"id": "b3cc1947-500e-4526-959e-ff290133b5e8",
+	"name": "Вітовський",
+	"regionId": "c9ac74e4-747c-437b-ab1c-ae6e4cbecaa9"
+},
+{
+	"id": "70bd8320-a41a-4bc4-a5e7-cdca107cc35f",
+	"name": "Казанківський",
+	"regionId": "c9ac74e4-747c-437b-ab1c-ae6e4cbecaa9"
+},
+{
+	"id": "7dfa3ce0-e6b0-432e-979d-77385c8da0eb",
+	"name": "Кривоозерський",
+	"regionId": "c9ac74e4-747c-437b-ab1c-ae6e4cbecaa9"
+},
+{
+	"id": "9a33580b-e623-4634-b397-6c8587fdc41e",
+	"name": "Миколаївський",
+	"regionId": "c9ac74e4-747c-437b-ab1c-ae6e4cbecaa9"
+},
+{
+	"id": "5103a8ae-5210-4806-a872-6b6e5b379415",
+	"name": "Новобузький",
+	"regionId": "c9ac74e4-747c-437b-ab1c-ae6e4cbecaa9"
+},
+{
+	"id": "75fdd508-032f-4e23-b010-88eb35bb1bbc",
+	"name": "Новоодеський",
+	"regionId": "c9ac74e4-747c-437b-ab1c-ae6e4cbecaa9"
+},
+{
+	"id": "a136f022-50ff-4b78-bc34-66d54e360d6f",
+	"name": "Очаківський",
+	"regionId": "c9ac74e4-747c-437b-ab1c-ae6e4cbecaa9"
+},
+{
+	"id": "562905cb-ed24-4004-bc58-087e2fb27de8",
+	"name": "Первомайський",
+	"regionId": "c9ac74e4-747c-437b-ab1c-ae6e4cbecaa9"
+},
+{
+	"id": "137f4f83-f89f-46aa-b7d5-c4452dbd979f",
+	"name": "Снігурівський",
+	"regionId": "c9ac74e4-747c-437b-ab1c-ae6e4cbecaa9"
+},
+{
+	"id": "b924ce34-13ad-464f-817e-458b50f76861",
+	"name": "Ананьївський",
+	"regionId": "4853d398-544f-4e3a-aabd-07d853dd7794"
+},
+{
+	"id": "7587443b-ebc6-4a14-a491-23880aca6472",
+	"name": "Арцизький",
+	"regionId": "4853d398-544f-4e3a-aabd-07d853dd7794"
+},
+{
+	"id": "50935d58-3d29-497e-ac4c-9a834965c313",
+	"name": "Балтський",
+	"regionId": "4853d398-544f-4e3a-aabd-07d853dd7794"
+},
+{
+	"id": "a2832246-6685-4a3d-9cfd-d61798335d76",
+	"name": "Білгород-Дністровський",
+	"regionId": "4853d398-544f-4e3a-aabd-07d853dd7794"
+},
+{
+	"id": "cf089f5c-aded-4667-9f2c-060dfc207a4f",
+	"name": "Біляївський",
+	"regionId": "4853d398-544f-4e3a-aabd-07d853dd7794"
+},
+{
+	"id": "38e11d22-5ad5-4a25-a582-e2f05bf5d901",
+	"name": "Березівський",
+	"regionId": "4853d398-544f-4e3a-aabd-07d853dd7794"
+},
+{
+	"id": "c73300b3-b526-48a1-bc05-1046f63f39e9",
+	"name": "Болградський",
+	"regionId": "4853d398-544f-4e3a-aabd-07d853dd7794"
+},
+{
+	"id": "23a138fa-58a8-4bc9-a76d-bdc5338eb95e",
+	"name": "Великомихайлівський",
+	"regionId": "4853d398-544f-4e3a-aabd-07d853dd7794"
+},
+{
+	"id": "8b9d99e1-6ebd-4940-b206-22b8de5fe810",
+	"name": "Іванівський",
+	"regionId": "4853d398-544f-4e3a-aabd-07d853dd7794"
+},
+{
+	"id": "6e8accc9-62a3-4e35-8111-3a4785f09346",
+	"name": "Ізмаїльський",
+	"regionId": "4853d398-544f-4e3a-aabd-07d853dd7794"
+},
+{
+	"id": "6a500637-fc9f-4292-abdb-ad6cc4072007",
+	"name": "Кілійський",
+	"regionId": "4853d398-544f-4e3a-aabd-07d853dd7794"
+},
+{
+	"id": "c46b0a7f-de36-4633-9e32-57cbfefe4e73",
+	"name": "Кодимський",
+	"regionId": "4853d398-544f-4e3a-aabd-07d853dd7794"
+},
+{
+	"id": "febe175e-f6b1-4cc0-977b-7f492818896a",
+	"name": "Лиманський",
+	"regionId": "4853d398-544f-4e3a-aabd-07d853dd7794"
+},
+{
+	"id": "f7ded2b1-721a-44d2-a65f-5a63a4959e5b",
+	"name": "Подільський",
+	"regionId": "4853d398-544f-4e3a-aabd-07d853dd7794"
+},
+{
+	"id": "9b144a88-c0d7-4cf6-a1de-2cae291f9b9a",
+	"name": "Окнянський",
+	"regionId": "4853d398-544f-4e3a-aabd-07d853dd7794"
+},
+{
+	"id": "0e140cc8-e155-4884-b102-7c1b81b66833",
+	"name": "Любашівський",
+	"regionId": "4853d398-544f-4e3a-aabd-07d853dd7794"
+},
+{
+	"id": "6aec6a42-739a-4ae3-a131-d5c69ea42426",
+	"name": "Миколаївський",
+	"regionId": "4853d398-544f-4e3a-aabd-07d853dd7794"
+},
+{
+	"id": "71549573-4e46-4530-9d2c-8af5f02310bb",
+	"name": "Овідіопольський",
+	"regionId": "4853d398-544f-4e3a-aabd-07d853dd7794"
+},
+{
+	"id": "34322769-1666-436a-8a34-734355ad6698",
+	"name": "Роздільнянський",
+	"regionId": "4853d398-544f-4e3a-aabd-07d853dd7794"
+},
+{
+	"id": "fe890cfb-4b5a-4f21-ab70-f240e3c28fff",
+	"name": "Ренійський",
+	"regionId": "4853d398-544f-4e3a-aabd-07d853dd7794"
+},
+{
+	"id": "0d6b601c-eecb-424b-b5ea-f2b062d4c8d0",
+	"name": "Савранський",
+	"regionId": "4853d398-544f-4e3a-aabd-07d853dd7794"
+},
+{
+	"id": "21e0eb33-af6e-45fd-8bef-4ef003b5fcd6",
+	"name": "Саратський",
+	"regionId": "4853d398-544f-4e3a-aabd-07d853dd7794"
+},
+{
+	"id": "d567b1fb-d80d-45b1-85b5-8ed6a8b36748",
+	"name": "Тарутинський",
+	"regionId": "4853d398-544f-4e3a-aabd-07d853dd7794"
+},
+{
+	"id": "13d41d00-ddb5-4c3e-b4e6-3a6a4c87b324",
+	"name": "Татарбунарський",
+	"regionId": "4853d398-544f-4e3a-aabd-07d853dd7794"
+},
+{
+	"id": "2b53b7d6-8461-4780-9872-ada30c164c74",
+	"name": "Захарівський",
+	"regionId": "4853d398-544f-4e3a-aabd-07d853dd7794"
+},
+{
+	"id": "31742a27-731b-41f4-935c-a9aee76e5642",
+	"name": "Ширяївський",
+	"regionId": "4853d398-544f-4e3a-aabd-07d853dd7794"
+},
+{
+	"id": "2363908f-8efb-4530-a829-f9e2ce85ad85",
+	"name": "Великобагачанський",
+	"regionId": "7ac8e416-cbd1-437d-9be5-000505adbd2d"
+},
+{
+	"id": "5332e522-ad5c-47df-b41b-c008ba1f3467",
+	"name": "Гадяцький",
+	"regionId": "7ac8e416-cbd1-437d-9be5-000505adbd2d"
+},
+{
+	"id": "d0b942cd-286e-4be6-909e-884e40f62f7b",
+	"name": "Глобинський",
+	"regionId": "7ac8e416-cbd1-437d-9be5-000505adbd2d"
+},
+{
+	"id": "cea815a2-66e0-4afa-ac6e-6840cf57c38b",
+	"name": "Гребінківський",
+	"regionId": "7ac8e416-cbd1-437d-9be5-000505adbd2d"
+},
+{
+	"id": "db6d1a4d-a8be-4048-bdf9-52d8324b8f6a",
+	"name": "Диканський",
+	"regionId": "7ac8e416-cbd1-437d-9be5-000505adbd2d"
+},
+{
+	"id": "e6b0f049-c6d5-48e8-9d77-2aa56d479c2a",
+	"name": "Зіньківський",
+	"regionId": "7ac8e416-cbd1-437d-9be5-000505adbd2d"
+},
+{
+	"id": "4ba74678-318e-4fc2-ae27-37eb5c2e253f",
+	"name": "Карлівський",
+	"regionId": "7ac8e416-cbd1-437d-9be5-000505adbd2d"
+},
+{
+	"id": "4071e1c6-db91-4459-a55b-5ee5eee190c6",
+	"name": "Кобеляцький",
+	"regionId": "7ac8e416-cbd1-437d-9be5-000505adbd2d"
+},
+{
+	"id": "114ef88e-83b8-4995-a304-cc16204c7bd0",
+	"name": "Козельщинський",
+	"regionId": "7ac8e416-cbd1-437d-9be5-000505adbd2d"
+},
+{
+	"id": "0185eb5d-0437-4761-a07f-c51ba2c0dad3",
+	"name": "Котелевський",
+	"regionId": "7ac8e416-cbd1-437d-9be5-000505adbd2d"
+},
+{
+	"id": "c1866acc-0aae-4649-a7a4-76eefea258d0",
+	"name": "Кременчуцький",
+	"regionId": "7ac8e416-cbd1-437d-9be5-000505adbd2d"
+},
+{
+	"id": "d7a832a8-bf05-44c3-9e37-da566ac3acc9",
+	"name": "Лохвицький",
+	"regionId": "7ac8e416-cbd1-437d-9be5-000505adbd2d"
+},
+{
+	"id": "b05e01f2-a245-41d9-b91f-dd425bb592ca",
+	"name": "Лубенський",
+	"regionId": "7ac8e416-cbd1-437d-9be5-000505adbd2d"
+},
+{
+	"id": "34dd4496-6380-4855-a803-69ec181055fd",
+	"name": "Машівський",
+	"regionId": "7ac8e416-cbd1-437d-9be5-000505adbd2d"
+},
+{
+	"id": "bbb66cd7-9886-4018-a6e9-fa046275c6e4",
+	"name": "Миргородський",
+	"regionId": "7ac8e416-cbd1-437d-9be5-000505adbd2d"
+},
+{
+	"id": "a5ab230b-d3c9-4b0a-a2a7-c8cc71ee1265",
+	"name": "Новосанжарський",
+	"regionId": "7ac8e416-cbd1-437d-9be5-000505adbd2d"
+},
+{
+	"id": "b9640a53-df57-4991-8f9e-c8c5abaffca2",
+	"name": "Оржицький",
+	"regionId": "7ac8e416-cbd1-437d-9be5-000505adbd2d"
+},
+{
+	"id": "9a62222e-cb16-415a-95a3-50d41e9f36a6",
+	"name": "Пирятинський",
+	"regionId": "7ac8e416-cbd1-437d-9be5-000505adbd2d"
+},
+{
+	"id": "f41e314e-2d25-49e0-b61b-6de7b84d887e",
+	"name": "Полтавський",
+	"regionId": "7ac8e416-cbd1-437d-9be5-000505adbd2d"
+},
+{
+	"id": "5b9fb15e-1053-4b8a-8a2b-9862506952c4",
+	"name": "Решетилівський",
+	"regionId": "7ac8e416-cbd1-437d-9be5-000505adbd2d"
+},
+{
+	"id": "0a794070-dad9-495a-b488-b16ba644395f",
+	"name": "Семенівський",
+	"regionId": "7ac8e416-cbd1-437d-9be5-000505adbd2d"
+},
+{
+	"id": "b95ddf71-0a7d-4667-907e-1a2d50927613",
+	"name": "Хорольський",
+	"regionId": "7ac8e416-cbd1-437d-9be5-000505adbd2d"
+},
+{
+	"id": "322a1898-a408-4f8e-abe2-e3426a527110",
+	"name": "Чорнухинський",
+	"regionId": "7ac8e416-cbd1-437d-9be5-000505adbd2d"
+},
+{
+	"id": "ba3c77f8-6005-4985-a3f7-014b9103ad9c",
+	"name": "Чутівський",
+	"regionId": "7ac8e416-cbd1-437d-9be5-000505adbd2d"
+},
+{
+	"id": "0198d36a-88c1-4d85-aec4-2e85a7bf9884",
+	"name": "Шишацький",
+	"regionId": "7ac8e416-cbd1-437d-9be5-000505adbd2d"
+},
+{
+	"id": "72bb8926-c6b2-454d-875c-edc40d40b84b",
+	"name": "Березнівський",
+	"regionId": "5d6b9d94-7495-46c5-a4ac-38744f530089"
+},
+{
+	"id": "f6598f74-dcf9-43c3-8f9e-45ce9b45c204",
+	"name": "Володимирецький",
+	"regionId": "5d6b9d94-7495-46c5-a4ac-38744f530089"
+},
+{
+	"id": "3a11e44c-2ab3-4599-ad7c-7ae7021d785d",
+	"name": "Гощанський",
+	"regionId": "5d6b9d94-7495-46c5-a4ac-38744f530089"
+},
+{
+	"id": "18f4bb62-6089-4fe5-b424-a94bc49f8cc2",
+	"name": "Демидівський",
+	"regionId": "5d6b9d94-7495-46c5-a4ac-38744f530089"
+},
+{
+	"id": "b572645b-1cbc-4525-8048-5b3a89217743",
+	"name": "Дубенський",
+	"regionId": "5d6b9d94-7495-46c5-a4ac-38744f530089"
+},
+{
+	"id": "f5c81380-08ca-4b55-b993-e20b81dd813f",
+	"name": "Дубровицький",
+	"regionId": "5d6b9d94-7495-46c5-a4ac-38744f530089"
+},
+{
+	"id": "0808739b-2d6f-484b-a956-3e0ba8d83dd5",
+	"name": "Зарічненський",
+	"regionId": "5d6b9d94-7495-46c5-a4ac-38744f530089"
+},
+{
+	"id": "8ed33e80-2432-40ab-a640-687567cd429d",
+	"name": "Здолбунівський",
+	"regionId": "5d6b9d94-7495-46c5-a4ac-38744f530089"
+},
+{
+	"id": "c1ba676a-4931-44c7-b533-d376179dbf4c",
+	"name": "Корецький",
+	"regionId": "5d6b9d94-7495-46c5-a4ac-38744f530089"
+},
+{
+	"id": "bf2bfcb3-060c-46f6-92fa-22aa5115cda4",
+	"name": "Костопільський",
+	"regionId": "5d6b9d94-7495-46c5-a4ac-38744f530089"
+},
+{
+	"id": "adb77d6c-c0c9-4707-bddb-55803c6e2991",
+	"name": "Млинівський",
+	"regionId": "5d6b9d94-7495-46c5-a4ac-38744f530089"
+},
+{
+	"id": "4f765a88-c798-46f4-8e4d-994680d90702",
+	"name": "Острозький",
+	"regionId": "5d6b9d94-7495-46c5-a4ac-38744f530089"
+},
+{
+	"id": "eaab1b03-4ad1-4dbc-aeed-e9c5a7a7c808",
+	"name": "Рівненський",
+	"regionId": "5d6b9d94-7495-46c5-a4ac-38744f530089"
+},
+{
+	"id": "1016e2ee-37cb-47af-b6a6-c28a1ec52045",
+	"name": "Рокитнівський",
+	"regionId": "5d6b9d94-7495-46c5-a4ac-38744f530089"
+},
+{
+	"id": "63cf3459-6443-44ab-8574-3e6855fd4025",
+	"name": "Сарненський",
+	"regionId": "5d6b9d94-7495-46c5-a4ac-38744f530089"
+},
+{
+	"id": "65aea34c-8040-4920-b0a2-c886ebfd0159",
+	"name": "Радивилівський",
+	"regionId": "5d6b9d94-7495-46c5-a4ac-38744f530089"
+},
+{
+	"id": "cecc03fd-f5d1-4018-a080-b173ad0022d5",
+	"name": "Охтирський",
+	"regionId": "10f4f254-851e-40ca-941d-8365c1d446e0"
+},
+{
+	"id": "31175590-7819-4d9d-a8a3-5aaabd0dc0c6",
+	"name": "Білопільський",
+	"regionId": "10f4f254-851e-40ca-941d-8365c1d446e0"
+},
+{
+	"id": "237feca4-bc46-4870-8e03-c44b51abd9c1",
+	"name": "Буринський",
+	"regionId": "10f4f254-851e-40ca-941d-8365c1d446e0"
+},
+{
+	"id": "7a1243b3-f819-49e3-ba0f-4d7fb151516a",
+	"name": "Великописарівський",
+	"regionId": "10f4f254-851e-40ca-941d-8365c1d446e0"
+},
+{
+	"id": "d396800d-8cf1-4207-ad49-36f28eff04ba",
+	"name": "Глухівський",
+	"regionId": "10f4f254-851e-40ca-941d-8365c1d446e0"
+},
+{
+	"id": "2f8e6931-b8fe-4bbd-a4c1-ea260225f095",
+	"name": "Конотопський",
+	"regionId": "10f4f254-851e-40ca-941d-8365c1d446e0"
+},
+{
+	"id": "945e93f9-04ec-4075-acee-39b6b3b9e546",
+	"name": "Краснопільський",
+	"regionId": "10f4f254-851e-40ca-941d-8365c1d446e0"
+},
+{
+	"id": "35a12f00-bbf1-4a57-a1f0-9ee8d5374c20",
+	"name": "Кролевецький",
+	"regionId": "10f4f254-851e-40ca-941d-8365c1d446e0"
+},
+{
+	"id": "76345955-6c6c-4a8f-be0b-f2804a68115f",
+	"name": "Лебединський",
+	"regionId": "10f4f254-851e-40ca-941d-8365c1d446e0"
+},
+{
+	"id": "a4391332-0759-473a-bbff-336cac395f5a",
+	"name": "Липоводолинський",
+	"regionId": "10f4f254-851e-40ca-941d-8365c1d446e0"
+},
+{
+	"id": "1b2c3cef-5ced-46d3-9a64-a368218ab2a6",
+	"name": "Недригайлівський",
+	"regionId": "10f4f254-851e-40ca-941d-8365c1d446e0"
+},
+{
+	"id": "64927cac-3b56-40e1-a5cd-e43165faed9b",
+	"name": "Путивльський",
+	"regionId": "10f4f254-851e-40ca-941d-8365c1d446e0"
+},
+{
+	"id": "0ca7a3df-a473-4dff-9a6c-bdb3b17edc78",
+	"name": "Роменський",
+	"regionId": "10f4f254-851e-40ca-941d-8365c1d446e0"
+},
+{
+	"id": "65bb116a-a925-4cff-85c3-00526a25ce19",
+	"name": "Середино-Будський",
+	"regionId": "10f4f254-851e-40ca-941d-8365c1d446e0"
+},
+{
+	"id": "6b013b0a-ce20-4da9-a376-f69c9bec4700",
+	"name": "Сумський",
+	"regionId": "10f4f254-851e-40ca-941d-8365c1d446e0"
+},
+{
+	"id": "4abfde99-c6e1-40f1-9754-9fb1ee6db6f2",
+	"name": "Тростянецький",
+	"regionId": "10f4f254-851e-40ca-941d-8365c1d446e0"
+},
+{
+	"id": "22809741-38ce-450c-8992-32da8c1bd744",
+	"name": "Шосткинський",
+	"regionId": "10f4f254-851e-40ca-941d-8365c1d446e0"
+},
+{
+	"id": "4d57670d-15d3-46b4-9e7d-ee56bb485711",
+	"name": "Ямпільський",
+	"regionId": "10f4f254-851e-40ca-941d-8365c1d446e0"
+},
+{
+	"id": "7c017315-3894-46a4-aafe-c912e5498800",
+	"name": "Бережанський",
+	"regionId": "6228f6af-4b39-456b-a803-e7c55c16a1e2"
+},
+{
+	"id": "518a7f87-b08b-4102-acb7-10914e2b3f72",
+	"name": "Борщівський",
+	"regionId": "6228f6af-4b39-456b-a803-e7c55c16a1e2"
+},
+{
+	"id": "5612d17e-0e9f-419b-9ef1-7cca5751f5bc",
+	"name": "Бучацький",
+	"regionId": "6228f6af-4b39-456b-a803-e7c55c16a1e2"
+},
+{
+	"id": "231b31a5-c4bf-4a63-a996-242b97b2132f",
+	"name": "Гусятинський",
+	"regionId": "6228f6af-4b39-456b-a803-e7c55c16a1e2"
+},
+{
+	"id": "26cd0c61-de05-475a-b925-5f7e0acd84c8",
+	"name": "Заліщицький",
+	"regionId": "6228f6af-4b39-456b-a803-e7c55c16a1e2"
+},
+{
+	"id": "02336f76-1274-4038-8c98-314f6ff990a7",
+	"name": "Збаразький",
+	"regionId": "6228f6af-4b39-456b-a803-e7c55c16a1e2"
+},
+{
+	"id": "8eb65b16-9db4-48bd-b932-28d30ed5122e",
+	"name": "Зборівський",
+	"regionId": "6228f6af-4b39-456b-a803-e7c55c16a1e2"
+},
+{
+	"id": "0105ab5c-2d59-467b-b071-b8e1e74d649e",
+	"name": "Козівський",
+	"regionId": "6228f6af-4b39-456b-a803-e7c55c16a1e2"
+},
+{
+	"id": "42fe623e-c0a4-43b2-addd-dbd693a6c8e4",
+	"name": "Кременецький",
+	"regionId": "6228f6af-4b39-456b-a803-e7c55c16a1e2"
+},
+{
+	"id": "560222c6-6891-4fb2-97a8-6ebcd3f4d595",
+	"name": "Лановецький",
+	"regionId": "6228f6af-4b39-456b-a803-e7c55c16a1e2"
+},
+{
+	"id": "8c0989c6-55cd-4a58-bef8-223eacb4c503",
+	"name": "Монастириський",
+	"regionId": "6228f6af-4b39-456b-a803-e7c55c16a1e2"
+},
+{
+	"id": "e5f78df4-0a34-4808-b570-7017900aeec7",
+	"name": "Підволочиський",
+	"regionId": "6228f6af-4b39-456b-a803-e7c55c16a1e2"
+},
+{
+	"id": "6057fe8f-c2c9-435b-a65b-f7baecb67de9",
+	"name": "Підгаєцький",
+	"regionId": "6228f6af-4b39-456b-a803-e7c55c16a1e2"
+},
+{
+	"id": "b074ae50-eb6e-4e92-93a3-187efc58fa09",
+	"name": "Теребовлянський",
+	"regionId": "6228f6af-4b39-456b-a803-e7c55c16a1e2"
+},
+{
+	"id": "7b4234f9-ef59-4d8b-b691-bf3bf73ec876",
+	"name": "Тернопільський",
+	"regionId": "6228f6af-4b39-456b-a803-e7c55c16a1e2"
+},
+{
+	"id": "777028b5-f90b-4017-854f-e715ea9f37ea",
+	"name": "Чортківський",
+	"regionId": "6228f6af-4b39-456b-a803-e7c55c16a1e2"
+},
+{
+	"id": "bd2c99fb-971f-4ea8-85d1-49047c19f946",
+	"name": "Шумський",
+	"regionId": "6228f6af-4b39-456b-a803-e7c55c16a1e2"
+},
+{
+	"id": "799137ae-3233-4a4e-93b5-2c09cfa48b4c",
+	"name": "Балаклійський",
+	"regionId": "e4154a34-5d86-459b-adc0-48e28ac4f32f"
+},
+{
+	"id": "0602a46e-5256-4b10-9e7d-31239e3647d4",
+	"name": "Барвінківський",
+	"regionId": "e4154a34-5d86-459b-adc0-48e28ac4f32f"
+},
+{
+	"id": "ef4927e0-a52d-4ac2-901d-731dbd22b871",
+	"name": "Близнюківський",
+	"regionId": "e4154a34-5d86-459b-adc0-48e28ac4f32f"
+},
+{
+	"id": "b1fe9cb7-0e6d-4a48-9aed-7ef83328ad6b",
+	"name": "Богодухівський",
+	"regionId": "e4154a34-5d86-459b-adc0-48e28ac4f32f"
+},
+{
+	"id": "d5434d0d-a432-4850-8a6f-252ee405f77a",
+	"name": "Борівський",
+	"regionId": "e4154a34-5d86-459b-adc0-48e28ac4f32f"
+},
+{
+	"id": "f1232e05-b20a-4449-9da0-918332caabf0",
+	"name": "Валківський",
+	"regionId": "e4154a34-5d86-459b-adc0-48e28ac4f32f"
+},
+{
+	"id": "f87a5e15-ea18-4c00-9049-e70248b7b308",
+	"name": "Великобурлуцький",
+	"regionId": "e4154a34-5d86-459b-adc0-48e28ac4f32f"
+},
+{
+	"id": "9e6b18f5-5003-4e65-b2d8-dbe8139c2b5c",
+	"name": "Вовчанський",
+	"regionId": "e4154a34-5d86-459b-adc0-48e28ac4f32f"
+},
+{
+	"id": "04708d6b-0f97-4015-a464-73f808464f25",
+	"name": "Зміївський",
+	"regionId": "e4154a34-5d86-459b-adc0-48e28ac4f32f"
+},
+{
+	"id": "3f3e9969-08ff-4cda-9629-645dafd43f8e",
+	"name": "Дворічанський",
+	"regionId": "e4154a34-5d86-459b-adc0-48e28ac4f32f"
+},
+{
+	"id": "65fb2799-764f-45fb-bbf7-182c6a78dc0f",
+	"name": "Дергачівський",
+	"regionId": "e4154a34-5d86-459b-adc0-48e28ac4f32f"
+},
+{
+	"id": "56d1d246-349c-49fb-ab4c-8ef5b08177dc",
+	"name": "Зачепилівський",
+	"regionId": "e4154a34-5d86-459b-adc0-48e28ac4f32f"
+},
+{
+	"id": "3e57bfc6-1a73-4321-8024-a30d4a1c5413",
+	"name": "Золочівський",
+	"regionId": "e4154a34-5d86-459b-adc0-48e28ac4f32f"
+},
+{
+	"id": "2d4d6ea9-9b58-4a59-b63f-3c0dd3524971",
+	"name": "Ізюмський",
+	"regionId": "e4154a34-5d86-459b-adc0-48e28ac4f32f"
+},
+{
+	"id": "dbb33fdd-8561-4764-81da-2dfde26668e0",
+	"name": "Кегичівський",
+	"regionId": "e4154a34-5d86-459b-adc0-48e28ac4f32f"
+},
+{
+	"id": "daea06df-4949-4e40-9e13-16b7c1df100f",
+	"name": "Коломацький",
+	"regionId": "e4154a34-5d86-459b-adc0-48e28ac4f32f"
+},
+{
+	"id": "532b0164-2552-4b7f-814b-68fcea8dd597",
+	"name": "Красноградський",
+	"regionId": "e4154a34-5d86-459b-adc0-48e28ac4f32f"
+},
+{
+	"id": "117771ec-fbcb-46f1-b6c1-7f0e0d438987",
+	"name": "Краснокутський",
+	"regionId": "e4154a34-5d86-459b-adc0-48e28ac4f32f"
+},
+{
+	"id": "6b23ec6e-0f65-45b8-9000-7450b8dbacea",
+	"name": "Куп'янський",
+	"regionId": "e4154a34-5d86-459b-adc0-48e28ac4f32f"
+},
+{
+	"id": "ba8d27dc-ad15-4bcb-9e24-c4026abce286",
+	"name": "Лозівський",
+	"regionId": "e4154a34-5d86-459b-adc0-48e28ac4f32f"
+},
+{
+	"id": "ff5c0b86-b70d-4660-b30e-f0c72c203d70",
+	"name": "Нововодолазький",
+	"regionId": "e4154a34-5d86-459b-adc0-48e28ac4f32f"
+},
+{
+	"id": "2b377738-6770-40b8-bfeb-92c6231c8016",
+	"name": "Первомайський",
+	"regionId": "e4154a34-5d86-459b-adc0-48e28ac4f32f"
+},
+{
+	"id": "823c70d3-ffbc-44bb-8578-cf5996621bad",
+	"name": "Печенізький",
+	"regionId": "e4154a34-5d86-459b-adc0-48e28ac4f32f"
+},
+{
+	"id": "88f8f1c3-59f1-461a-8e03-2c13fa2c5776",
+	"name": "Сахновщинський",
+	"regionId": "e4154a34-5d86-459b-adc0-48e28ac4f32f"
+},
+{
+	"id": "38919656-6b89-4873-b175-958d1989a182",
+	"name": "Харківський",
+	"regionId": "e4154a34-5d86-459b-adc0-48e28ac4f32f"
+},
+{
+	"id": "f549c1a8-2e57-4e12-9b37-342fe5b93622",
+	"name": "Чугуївський",
+	"regionId": "e4154a34-5d86-459b-adc0-48e28ac4f32f"
+},
+{
+	"id": "0f9ef52f-af2f-46c0-a4c8-e1bb499e9b45",
+	"name": "Шевченківський",
+	"regionId": "e4154a34-5d86-459b-adc0-48e28ac4f32f"
+},
+{
+	"id": "e2a62fd7-66de-4833-b704-ee5e7fa49fa1",
+	"name": "Білозерський",
+	"regionId": "1486f0f9-2e40-47e8-b8c1-b5a661c6f266"
+},
+{
+	"id": "3e0d18ba-231d-48d4-9942-60d779daf518",
+	"name": "Бериславський",
+	"regionId": "1486f0f9-2e40-47e8-b8c1-b5a661c6f266"
+},
+{
+	"id": "a9bb161c-782e-426e-8015-2186432e49b6",
+	"name": "Великоолександрівський",
+	"regionId": "1486f0f9-2e40-47e8-b8c1-b5a661c6f266"
+},
+{
+	"id": "56941000-4bf6-4ef8-9ebd-a706763f6a9d",
+	"name": "Великолепетиський",
+	"regionId": "1486f0f9-2e40-47e8-b8c1-b5a661c6f266"
+},
+{
+	"id": "66dd9adf-278b-4b97-b02f-d5dc2c426101",
+	"name": "Верхньорогачицький",
+	"regionId": "1486f0f9-2e40-47e8-b8c1-b5a661c6f266"
+},
+{
+	"id": "befabe0c-452c-4b9d-b2a5-08016aa323ba",
+	"name": "Високопільський",
+	"regionId": "1486f0f9-2e40-47e8-b8c1-b5a661c6f266"
+},
+{
+	"id": "92719e25-585e-40b4-b9e3-e8c22bfcd6f3",
+	"name": "Генічеський",
+	"regionId": "1486f0f9-2e40-47e8-b8c1-b5a661c6f266"
+},
+{
+	"id": "511ee030-3a6b-413d-a442-072596ae705f",
+	"name": "Голопристанський",
+	"regionId": "1486f0f9-2e40-47e8-b8c1-b5a661c6f266"
+},
+{
+	"id": "c5dcc161-6ddf-4695-b2be-3ae8fde62788",
+	"name": "Горностаївський",
+	"regionId": "1486f0f9-2e40-47e8-b8c1-b5a661c6f266"
+},
+{
+	"id": "fdf0d719-6cbe-4f42-9780-77a7f3161fc9",
+	"name": "Іванівський",
+	"regionId": "1486f0f9-2e40-47e8-b8c1-b5a661c6f266"
+},
+{
+	"id": "22b97af6-6023-493c-a810-9f08a5465c51",
+	"name": "Каланчацький",
+	"regionId": "1486f0f9-2e40-47e8-b8c1-b5a661c6f266"
+},
+{
+	"id": "57c71623-96e7-487c-bb88-b12733d47dd9",
+	"name": "Каховський",
+	"regionId": "1486f0f9-2e40-47e8-b8c1-b5a661c6f266"
+},
+{
+	"id": "af8e37f5-c7fb-4524-83fb-67c9f20f3981",
+	"name": "Нижньосірогозький",
+	"regionId": "1486f0f9-2e40-47e8-b8c1-b5a661c6f266"
+},
+{
+	"id": "ae5ca75d-c532-40f5-917f-79427511c42a",
+	"name": "Нововоронцовський",
+	"regionId": "1486f0f9-2e40-47e8-b8c1-b5a661c6f266"
+},
+{
+	"id": "c61bd7ae-5f71-43ec-9388-e50cf55f6cdc",
+	"name": "Новотроїцький",
+	"regionId": "1486f0f9-2e40-47e8-b8c1-b5a661c6f266"
+},
+{
+	"id": "8c00edda-fea9-4b83-afdb-9dbf09020386",
+	"name": "Скадовський",
+	"regionId": "1486f0f9-2e40-47e8-b8c1-b5a661c6f266"
+},
+{
+	"id": "7d8e85a7-a63b-4ff0-89c3-be98bdfbf380",
+	"name": "Олешківський",
+	"regionId": "1486f0f9-2e40-47e8-b8c1-b5a661c6f266"
+},
+{
+	"id": "8491bf08-0ae1-40eb-8ae4-4699ab79eac2",
+	"name": "Чаплинський",
+	"regionId": "1486f0f9-2e40-47e8-b8c1-b5a661c6f266"
+},
+{
+	"id": "1f10f9c6-60c3-4e73-b1e8-c94dccfab856",
+	"name": "Білогірський",
+	"regionId": "e5c21526-3a18-4e54-9b9e-80c9b0ca0e84"
+},
+{
+	"id": "ca5313a7-3af6-4c67-a3ca-4975955eb6d9",
+	"name": "Віньковецький",
+	"regionId": "e5c21526-3a18-4e54-9b9e-80c9b0ca0e84"
+},
+{
+	"id": "4bae41eb-4989-4c7b-ab61-496238991e5d",
+	"name": "Волочиський",
+	"regionId": "e5c21526-3a18-4e54-9b9e-80c9b0ca0e84"
+},
+{
+	"id": "6d5cd87f-fc6c-47a0-ad4d-178557d3df24",
+	"name": "Городоцький",
+	"regionId": "e5c21526-3a18-4e54-9b9e-80c9b0ca0e84"
+},
+{
+	"id": "230285b0-bf4d-4b15-8d6e-fb9446be387d",
+	"name": "Деражнянський",
+	"regionId": "e5c21526-3a18-4e54-9b9e-80c9b0ca0e84"
+},
+{
+	"id": "64226fc1-c521-4f25-b4ee-5e3d6993fd4a",
+	"name": "Дунаєвецький",
+	"regionId": "e5c21526-3a18-4e54-9b9e-80c9b0ca0e84"
+},
+{
+	"id": "18051b57-6c35-4182-a3bb-724587255210",
+	"name": "Ізяславський",
+	"regionId": "e5c21526-3a18-4e54-9b9e-80c9b0ca0e84"
+},
+{
+	"id": "eaaf95c8-836f-4cc4-bbcb-5bfd3b62627f",
+	"name": "Кам'янець-Подільський",
+	"regionId": "e5c21526-3a18-4e54-9b9e-80c9b0ca0e84"
+},
+{
+	"id": "8fd158d8-9cee-4df6-b9f1-9e41f4a44e19",
+	"name": "Красилівський",
+	"regionId": "e5c21526-3a18-4e54-9b9e-80c9b0ca0e84"
+},
+{
+	"id": "5d2866a4-b484-47ea-89a3-4b5b5b6e369e",
+	"name": "Летичівський",
+	"regionId": "e5c21526-3a18-4e54-9b9e-80c9b0ca0e84"
+},
+{
+	"id": "8a63cd01-f891-4c60-812f-dd862707dbd1",
+	"name": "Новоушицький",
+	"regionId": "e5c21526-3a18-4e54-9b9e-80c9b0ca0e84"
+},
+{
+	"id": "ed31c11e-a404-4adb-b239-571501677fc4",
+	"name": "Полонський",
+	"regionId": "e5c21526-3a18-4e54-9b9e-80c9b0ca0e84"
+},
+{
+	"id": "559be2eb-6e5c-4028-80ba-afe2b2f6933c",
+	"name": "Славутський",
+	"regionId": "e5c21526-3a18-4e54-9b9e-80c9b0ca0e84"
+},
+{
+	"id": "2d5cca39-deab-4dd3-a01f-13e364053b4a",
+	"name": "Старокостянтинівський",
+	"regionId": "e5c21526-3a18-4e54-9b9e-80c9b0ca0e84"
+},
+{
+	"id": "f7312124-8823-4146-9ca2-64da64608979",
+	"name": "Старосинявський",
+	"regionId": "e5c21526-3a18-4e54-9b9e-80c9b0ca0e84"
+},
+{
+	"id": "2a9f467c-329d-4630-a305-980c309edafd",
+	"name": "Теофіпольський",
+	"regionId": "e5c21526-3a18-4e54-9b9e-80c9b0ca0e84"
+},
+{
+	"id": "3882c08c-1ae4-4154-a605-8af2100da1bf",
+	"name": "Хмельницький",
+	"regionId": "e5c21526-3a18-4e54-9b9e-80c9b0ca0e84"
+},
+{
+	"id": "906c22a4-48de-442c-a15a-cabe1a8a4925",
+	"name": "Чемеровецький",
+	"regionId": "e5c21526-3a18-4e54-9b9e-80c9b0ca0e84"
+},
+{
+	"id": "10ed6128-61cf-47da-9e8e-cc33981a6859",
+	"name": "Шепетівський",
+	"regionId": "e5c21526-3a18-4e54-9b9e-80c9b0ca0e84"
+},
+{
+	"id": "90b626ff-c26f-41fa-ab01-528cc4e338cb",
+	"name": "Ярмолинецький",
+	"regionId": "e5c21526-3a18-4e54-9b9e-80c9b0ca0e84"
+},
+{
+	"id": "d63e6956-6073-4258-8871-188314abea25",
+	"name": "Городищенський",
+	"regionId": "2c763f56-db62-4bf1-ba97-60c8e51ee6de"
+},
+{
+	"id": "b30a8fa8-ae40-4892-aa89-002581b8eb0b",
+	"name": "Драбівський",
+	"regionId": "2c763f56-db62-4bf1-ba97-60c8e51ee6de"
+},
+{
+	"id": "5f68f8e5-8269-45cc-90b1-33ea51bb9603",
+	"name": "Жашківський",
+	"regionId": "2c763f56-db62-4bf1-ba97-60c8e51ee6de"
+},
+{
+	"id": "b35aad5e-8a09-4063-8a47-ce1c7c94899d",
+	"name": "Звенигородський",
+	"regionId": "2c763f56-db62-4bf1-ba97-60c8e51ee6de"
+},
+{
+	"id": "42304614-d2cb-4d97-8fb4-1cec0d393b18",
+	"name": "Золотоніський",
+	"regionId": "2c763f56-db62-4bf1-ba97-60c8e51ee6de"
+},
+{
+	"id": "faeaf6ad-452e-47fa-8135-7014518c3fb5",
+	"name": "Кам'янський",
+	"regionId": "2c763f56-db62-4bf1-ba97-60c8e51ee6de"
+},
+{
+	"id": "ccb0c062-534d-483d-b500-67b7aef45ccb",
+	"name": "Канівський",
+	"regionId": "2c763f56-db62-4bf1-ba97-60c8e51ee6de"
+},
+{
+	"id": "7e77b2ec-cf18-4763-8fda-ad20e53c8bd6",
+	"name": "Катеринопільський",
+	"regionId": "2c763f56-db62-4bf1-ba97-60c8e51ee6de"
+},
+{
+	"id": "8bb5de68-08b6-4e73-b7d0-32113917e5f2",
+	"name": "Корсунь-Шевченківський",
+	"regionId": "2c763f56-db62-4bf1-ba97-60c8e51ee6de"
+},
+{
+	"id": "2809d13e-eec7-4ce5-8c6d-679960b23898",
+	"name": "Лисянський",
+	"regionId": "2c763f56-db62-4bf1-ba97-60c8e51ee6de"
+},
+{
+	"id": "cadb6b3f-acfc-4111-a109-d7cdeceeb195",
+	"name": "Маньківський",
+	"regionId": "2c763f56-db62-4bf1-ba97-60c8e51ee6de"
+},
+{
+	"id": "bcc3457d-96cf-479a-9a7c-5b7e039bb05a",
+	"name": "Монастирищенський",
+	"regionId": "2c763f56-db62-4bf1-ba97-60c8e51ee6de"
+},
+{
+	"id": "f9ef5774-f400-4e3f-9fb7-9b1db873dae1",
+	"name": "Смілянський",
+	"regionId": "2c763f56-db62-4bf1-ba97-60c8e51ee6de"
+},
+{
+	"id": "16f96163-c9ab-4319-bccb-a32d5f6ad4c7",
+	"name": "Тальнівський",
+	"regionId": "2c763f56-db62-4bf1-ba97-60c8e51ee6de"
+},
+{
+	"id": "6b68409d-dcf8-4f72-882a-49c7d72ea134",
+	"name": "Уманський",
+	"regionId": "2c763f56-db62-4bf1-ba97-60c8e51ee6de"
+},
+{
+	"id": "157377f0-dd46-400c-8232-cf7ce6b5756d",
+	"name": "Христинівський",
+	"regionId": "2c763f56-db62-4bf1-ba97-60c8e51ee6de"
+},
+{
+	"id": "8b47be22-6ff2-4653-86cf-b316c63f29e6",
+	"name": "Черкаський",
+	"regionId": "2c763f56-db62-4bf1-ba97-60c8e51ee6de"
+},
+{
+	"id": "7c2cd8c0-5be6-45fe-a643-61d07bbbc3b8",
+	"name": "Чорнобаївський",
+	"regionId": "2c763f56-db62-4bf1-ba97-60c8e51ee6de"
+},
+{
+	"id": "49e95282-3e87-43b6-9a30-08c8aa7c3f39",
+	"name": "Чигиринський",
+	"regionId": "2c763f56-db62-4bf1-ba97-60c8e51ee6de"
+},
+{
+	"id": "fdbaa101-fb1c-4489-89db-01e58d7d05d8",
+	"name": "Шполянський",
+	"regionId": "2c763f56-db62-4bf1-ba97-60c8e51ee6de"
+},
+{
+	"id": "c2b34b4e-14c8-431c-a17d-fd4b6092d924",
+	"name": "Вижницький",
+	"regionId": "decc5e09-eb7e-48a8-b9b4-a0770c683589"
+},
+{
+	"id": "2bb3d48b-1e0b-4aa7-bedb-c59f853b0a62",
+	"name": "Герцаївський",
+	"regionId": "decc5e09-eb7e-48a8-b9b4-a0770c683589"
+},
+{
+	"id": "c585ba9a-32ce-4509-9b44-10ad3fb6d78b",
+	"name": "Глибоцький",
+	"regionId": "decc5e09-eb7e-48a8-b9b4-a0770c683589"
+},
+{
+	"id": "8db57e15-1e36-45bd-af95-5a507666cd9f",
+	"name": "Заставнівський",
+	"regionId": "decc5e09-eb7e-48a8-b9b4-a0770c683589"
+},
+{
+	"id": "65d68819-aea7-43c8-b058-a8467645aff4",
+	"name": "Кельменецький",
+	"regionId": "decc5e09-eb7e-48a8-b9b4-a0770c683589"
+},
+{
+	"id": "96cbcf5c-a2c6-40d2-bf52-c8dc47ede134",
+	"name": "Кіцманський",
+	"regionId": "decc5e09-eb7e-48a8-b9b4-a0770c683589"
+},
+{
+	"id": "46167a26-6d87-4487-b01d-f648bc0ed73d",
+	"name": "Новоселицький",
+	"regionId": "decc5e09-eb7e-48a8-b9b4-a0770c683589"
+},
+{
+	"id": "9192771e-2a54-47cc-9340-e27b2df3ea16",
+	"name": "Путильський",
+	"regionId": "decc5e09-eb7e-48a8-b9b4-a0770c683589"
+},
+{
+	"id": "a784b96c-b37c-4306-8bca-e406fd9fb22d",
+	"name": "Сокирянський",
+	"regionId": "decc5e09-eb7e-48a8-b9b4-a0770c683589"
+},
+{
+	"id": "64cea3ee-e0fc-470d-81e0-8ebbcfb243ae",
+	"name": "Сторожинецький",
+	"regionId": "decc5e09-eb7e-48a8-b9b4-a0770c683589"
+},
+{
+	"id": "846a2cad-78be-4a55-80c1-392d28cd4a2c",
+	"name": "Хотинський",
+	"regionId": "decc5e09-eb7e-48a8-b9b4-a0770c683589"
+},
+{
+	"id": "c1d42509-81c5-4d04-804f-4360cf8a4df3",
+	"name": "Бахмацький",
+	"regionId": "0d4f7cbf-c313-476f-94ff-dfc7039fa6ea"
+},
+{
+	"id": "828d6309-967f-485c-88ff-63be5fe465c3",
+	"name": "Бобровицький",
+	"regionId": "0d4f7cbf-c313-476f-94ff-dfc7039fa6ea"
+},
+{
+	"id": "84452c88-2382-45dc-9ce6-1e8eb1a88506",
+	"name": "Борзнянський",
+	"regionId": "0d4f7cbf-c313-476f-94ff-dfc7039fa6ea"
+},
+{
+	"id": "8e11b41a-d3d3-4358-a747-84fc16a79ba6",
+	"name": "Варвинський",
+	"regionId": "0d4f7cbf-c313-476f-94ff-dfc7039fa6ea"
+},
+{
+	"id": "0510a97c-526c-4cbe-95ca-94060c375ac1",
+	"name": "Городнянський",
+	"regionId": "0d4f7cbf-c313-476f-94ff-dfc7039fa6ea"
+},
+{
+	"id": "a7d898b9-cdc6-4a38-9ee7-06a10c9ab2f9",
+	"name": "Ічнянський",
+	"regionId": "0d4f7cbf-c313-476f-94ff-dfc7039fa6ea"
+},
+{
+	"id": "2c4748c2-9b1b-4758-b9e4-44fee85f7939",
+	"name": "Козелецький",
+	"regionId": "0d4f7cbf-c313-476f-94ff-dfc7039fa6ea"
+},
+{
+	"id": "1138bb3d-05c1-4e72-b881-9334e43c88f0",
+	"name": "Коропський",
+	"regionId": "0d4f7cbf-c313-476f-94ff-dfc7039fa6ea"
+},
+{
+	"id": "8aeac5e3-4a92-4266-b316-f40d71ae4760",
+	"name": "Корюківський",
+	"regionId": "0d4f7cbf-c313-476f-94ff-dfc7039fa6ea"
+},
+{
+	"id": "d7a297d4-e26c-49b0-b229-71bc8a3b7ca0",
+	"name": "Куликівський",
+	"regionId": "0d4f7cbf-c313-476f-94ff-dfc7039fa6ea"
+},
+{
+	"id": "6b51bf8b-be46-43b0-819d-11021200f085",
+	"name": "Менський",
+	"regionId": "0d4f7cbf-c313-476f-94ff-dfc7039fa6ea"
+},
+{
+	"id": "205d52d8-daa9-469b-8d2c-f048463a3eb4",
+	"name": "Ніжинський",
+	"regionId": "0d4f7cbf-c313-476f-94ff-dfc7039fa6ea"
+},
+{
+	"id": "94fbc4e2-dd29-4b0f-ab7e-3cc276bf8a0c",
+	"name": "Новгород-Сіверський",
+	"regionId": "0d4f7cbf-c313-476f-94ff-dfc7039fa6ea"
+},
+{
+	"id": "e409e5e2-6761-42ee-b414-64f244eae392",
+	"name": "Носівський",
+	"regionId": "0d4f7cbf-c313-476f-94ff-dfc7039fa6ea"
+},
+{
+	"id": "2f410ec2-baf8-4bf4-841f-7e67aa9b447a",
+	"name": "Прилуцький",
+	"regionId": "0d4f7cbf-c313-476f-94ff-dfc7039fa6ea"
+},
+{
+	"id": "4f9476b4-c719-425c-8c68-e4e505e4e19a",
+	"name": "Ріпкинський",
+	"regionId": "0d4f7cbf-c313-476f-94ff-dfc7039fa6ea"
+},
+{
+	"id": "70acaad2-1781-44d2-aeea-8ac74bb509ff",
+	"name": "Семенівський",
+	"regionId": "0d4f7cbf-c313-476f-94ff-dfc7039fa6ea"
+},
+{
+	"id": "dc26db22-8355-4eb3-a5c8-6996172150f7",
+	"name": "Сосницький",
+	"regionId": "0d4f7cbf-c313-476f-94ff-dfc7039fa6ea"
+},
+{
+	"id": "1654836f-f7bf-4d66-8247-e8f395d9b5e5",
+	"name": "Срібнянський",
+	"regionId": "0d4f7cbf-c313-476f-94ff-dfc7039fa6ea"
+},
+{
+	"id": "45b6b272-619f-40b6-9ff9-87758eb5f134",
+	"name": "Талалаївський",
+	"regionId": "0d4f7cbf-c313-476f-94ff-dfc7039fa6ea"
+},
+{
+	"id": "567b3fed-9abb-4b5e-bfe2-19643197bb7e",
+	"name": "Чернігівський",
+	"regionId": "0d4f7cbf-c313-476f-94ff-dfc7039fa6ea"
+},
+{
+	"id": "a25d11e1-f6ac-4a7b-b856-5a77be4bfffc",
+	"name": "Сновський",
+	"regionId": "0d4f7cbf-c313-476f-94ff-dfc7039fa6ea"
+}]

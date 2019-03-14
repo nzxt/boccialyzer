@@ -1,12 +1,10 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Boccialyzer.Domain.Attributes;
+﻿using Boccialyzer.Domain.Attributes;
 using Boccialyzer.Domain.Enums;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using Boccialyzer.Domain.Entities;
 
 namespace Boccialyzer.Domain.Entities
 {
@@ -61,7 +59,7 @@ namespace Boccialyzer.Domain.Entities
         /// Національність
         /// </summary>
         [Obsolete]
-        public Nationality Nationality { get; set; }
+        public Country Country { get; set; }
         /// <summary>
         /// Ім'я
         /// </summary>
@@ -83,6 +81,14 @@ namespace Boccialyzer.Domain.Entities
         /// </summary>
         public Gender Gender { get; set; }
 
+        /// <summary>
+        /// Турніри
+        /// </summary>
+        public ICollection<Tournament> Tournaments { get; set; } = new Collection<Tournament>();
+        /// <summary>
+        /// Тренування
+        /// </summary>
+        public ICollection<Training> Trainings { get; set; } = new Collection<Training>();
 
 
         #region # override prop

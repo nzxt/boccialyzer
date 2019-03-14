@@ -7,11 +7,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Boccialyzer.Domain.Entities
 {
     /// <summary>
-    /// Турнір
+    /// Тренування
     /// </summary>
-    public class Tournament : BaseEntity, IEntity
+    public class Training : BaseEntity, IEntity
     {
-        public Tournament()
+        public Training()
         {
             Id = Guid.NewGuid();
         }
@@ -21,30 +21,18 @@ namespace Boccialyzer.Domain.Entities
         [Key]
         public Guid Id { get; set; }
         /// <summary>
-        /// Назва
-        /// </summary>
-        public string Name { get; set; }
-        /// <summary>
-        /// Тип турнирів
-        /// </summary>
-        public Guid TournamentTypeId { get; set; }
-        /// <summary>
-        /// Дата початку
+        /// Дата тренування
         /// </summary>
         [Column(TypeName = "Date")]
         public DateTime DateFrom { get; set; }
-        /// <summary>
-        /// Дата завершення
-        /// </summary>
-        [Column(TypeName = "Date")]
-        public DateTime DateTo { get; set; }
         /// <summary>
         /// Користувач системи
         /// </summary>
         public Guid AppUserId { get; set; }
         /// <summary>
-        /// Матчі
+        /// М'ячі
         /// </summary>
-        public virtual ICollection<Match> Matches { get; set; } = new Collection<Match>();
+        public virtual ICollection<TrainingBall> TrainingBalls { get; set; } = new Collection<TrainingBall>();
+
     }
 }

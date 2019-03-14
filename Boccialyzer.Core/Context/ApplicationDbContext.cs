@@ -41,7 +41,7 @@ namespace Boccialyzer.Core.Context
         /// <summary>
         /// Національності
         /// </summary>
-        public DbSet<Nationality> Nationalities { get; set; }
+        public DbSet<Country> Countries { get; set; }
         /// <summary>
         /// Тип турнирів
         /// </summary>
@@ -50,6 +50,28 @@ namespace Boccialyzer.Core.Context
         /// Турніри
         /// </summary>
         public DbSet<Tournament> Tournaments { get; set; }
+
+        public DbSet<Ball> Balls { get; set; }
+
+
+
+        /// <summary>
+        /// Матчі
+        /// </summary>
+        public DbSet<Match> Matches { get; set; }
+        /// <summary>
+        /// М'ячі у матчі
+        /// </summary>
+        public DbSet<MatchBall> MatchBalls { get; set; }
+        /// <summary>
+        /// Тренування
+        /// </summary>
+        public DbSet<Training> Trainings { get; set; }
+        /// <summary>
+        /// М'ячі тренування
+        /// </summary>
+        public DbSet<TrainingBall> TrainingBalls { get; set; }
+
 
 
         /// <summary>
@@ -127,29 +149,28 @@ namespace Boccialyzer.Core.Context
             modelBuilder.Entity<AppUser>().Property(x => x.UpdatedBy).HasColumnName(@"UpdatedBy").ForNpgsqlHasComment("Користувач системи, що модифікував запис").ValueGeneratedNever();
 
             #endregion
-            #region # Nationality Mapping
+            #region # Country Mapping
 
-            modelBuilder.Entity<Nationality>().ToTable(@"Nationalities").ForNpgsqlHasComment("Громадянство");
-            modelBuilder.Entity<Nationality>().HasKey(x => x.Id);
-            modelBuilder.Entity<Nationality>().HasIndex(x => x.Code);
-            modelBuilder.Entity<Nationality>().HasIndex(x => x.Name);
+            modelBuilder.Entity<Country>().ToTable(@"Countries").ForNpgsqlHasComment("Громадянство");
+            modelBuilder.Entity<Country>().HasKey(x => x.Id);
+            modelBuilder.Entity<Country>().HasIndex(x => x.Code);
+            modelBuilder.Entity<Country>().HasIndex(x => x.Name);
 
-            modelBuilder.Entity<Nationality>().Property(x => x.Id).HasColumnName(@"Id").IsRequired().ForNpgsqlHasComment("Ідентифікатор").ValueGeneratedNever();
-            modelBuilder.Entity<Nationality>().Property(x => x.IsDefault).HasColumnName(@"IsDefault").ForNpgsqlHasComment("За замовчуванням").ValueGeneratedNever();
-            modelBuilder.Entity<Nationality>().Property(x => x.Name).HasColumnName(@"Name").IsRequired().ForNpgsqlHasComment("Назва").ValueGeneratedNever();
-            modelBuilder.Entity<Nationality>().Property(x => x.Code).HasColumnName(@"Code").ForNpgsqlHasComment("Код країни").ValueGeneratedNever();
-            modelBuilder.Entity<Nationality>().Property(x => x.Alpha2).HasColumnName(@"Alpha2").ForNpgsqlHasComment("Alpha2").ValueGeneratedNever();
-            modelBuilder.Entity<Nationality>().Property(x => x.Alpha3).HasColumnName(@"Alpha3").ForNpgsqlHasComment("Alpha3").ValueGeneratedNever();
+            modelBuilder.Entity<Country>().Property(x => x.Id).HasColumnName(@"Id").IsRequired().ForNpgsqlHasComment("Ідентифікатор").ValueGeneratedNever();
+            modelBuilder.Entity<Country>().Property(x => x.Name).HasColumnName(@"Name").IsRequired().ForNpgsqlHasComment("Назва").ValueGeneratedNever();
+            modelBuilder.Entity<Country>().Property(x => x.Code).HasColumnName(@"Code").ForNpgsqlHasComment("Код країни").ValueGeneratedNever();
+            modelBuilder.Entity<Country>().Property(x => x.Alpha2).HasColumnName(@"Alpha2").ForNpgsqlHasComment("Alpha2").ValueGeneratedNever();
+            modelBuilder.Entity<Country>().Property(x => x.Alpha3).HasColumnName(@"Alpha3").ForNpgsqlHasComment("Alpha3").ValueGeneratedNever();
 
-            modelBuilder.Entity<Nationality>().Property(x => x.CreatedOn).HasColumnName(@"CreatedOn").ForNpgsqlHasComment("Дата та час внесення").ValueGeneratedNever();
-            modelBuilder.Entity<Nationality>().Property(x => x.UpdatedOn).HasColumnName(@"UpdatedOn").ForNpgsqlHasComment("Дата та час редагування").ValueGeneratedNever();
-            modelBuilder.Entity<Nationality>().Property(x => x.CreatedBy).HasColumnName(@"CreatedBy").ForNpgsqlHasComment("Користувач системи, що створив запис").ValueGeneratedNever();
-            modelBuilder.Entity<Nationality>().Property(x => x.UpdatedBy).HasColumnName(@"UpdatedBy").ForNpgsqlHasComment("Користувач системи, що модифікував запис").ValueGeneratedNever();
+            modelBuilder.Entity<Country>().Property(x => x.CreatedOn).HasColumnName(@"CreatedOn").ForNpgsqlHasComment("Дата та час внесення").ValueGeneratedNever();
+            modelBuilder.Entity<Country>().Property(x => x.UpdatedOn).HasColumnName(@"UpdatedOn").ForNpgsqlHasComment("Дата та час редагування").ValueGeneratedNever();
+            modelBuilder.Entity<Country>().Property(x => x.CreatedBy).HasColumnName(@"CreatedBy").ForNpgsqlHasComment("Користувач системи, що створив запис").ValueGeneratedNever();
+            modelBuilder.Entity<Country>().Property(x => x.UpdatedBy).HasColumnName(@"UpdatedBy").ForNpgsqlHasComment("Користувач системи, що модифікував запис").ValueGeneratedNever();
 
             #endregion
             #region # TournamentType Mapping
 
-            modelBuilder.Entity<TournamentType>().ToTable(@"Nationalities").ForNpgsqlHasComment("Громадянство");
+            modelBuilder.Entity<TournamentType>().ToTable(@"TournamentType").ForNpgsqlHasComment("Тип турниру");
             modelBuilder.Entity<TournamentType>().HasKey(x => x.Id);
             modelBuilder.Entity<TournamentType>().HasIndex(x => x.Name);
 

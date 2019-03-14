@@ -8,16 +8,16 @@ using Boccialyzer.Domain;
 namespace Boccialyzer.Domain.Entities
 {
     /// <summary>
-    /// Громадянство
+    /// Країни
     /// </summary>
-    public partial class Nationality : BaseEntity, IEntity
+    public class Country : BaseEntity, IEntity
     {
-        #region Nationality constructor
+        #region Country constructor
 
         /// <summary>
-        /// Nationality constructor
+        /// Country constructor
         /// </summary>
-        public Nationality()
+        public Country()
         {
             Id = Guid.NewGuid();
         }
@@ -28,11 +28,6 @@ namespace Boccialyzer.Domain.Entities
         /// </summary>
         [Key]
         public Guid Id { get; set; }
-        /// <summary>
-        /// За замовчуванням
-        /// </summary>
-        [DefaultValue(false)]
-        public bool IsDefault { get; set; }
         /// <summary>
         /// Назва
         /// </summary>
@@ -50,6 +45,10 @@ namespace Boccialyzer.Domain.Entities
         /// Alpha3
         /// </summary>
         public string Alpha3 { get; set; }
+        /// <summary>
+        /// Іконка флагу
+        /// </summary>
+        public string Icon { get; set; }
         /// <summary>
         /// Користувачі
         /// </summary>

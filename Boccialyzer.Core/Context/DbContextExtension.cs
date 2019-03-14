@@ -25,7 +25,7 @@ namespace Boccialyzer.Core.Context
             try
             {
                 if (!dbContext.TournamentTypes.IgnoreQueryFilters().Any()) await TournamentTypeData.Seed(dbContext);
-                if (!dbContext.Nationalities.IgnoreQueryFilters().Any()) await NationalityData.Seed(dbContext);
+                if (!dbContext.Countries.IgnoreQueryFilters().Any()) await CountryData.Seed(dbContext);
                 if (!dbContext.Configurations.Any()) await ConfigurationData.Seed(dbContext);
 
                 //Seed для разработчиков

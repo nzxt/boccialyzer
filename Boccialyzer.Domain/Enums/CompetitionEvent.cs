@@ -1,9 +1,9 @@
 ﻿namespace Boccialyzer.Domain.Enums
 {
     /// <summary>
-    /// Класифікація гравців
+    /// Competition Event
     /// </summary>
-    public enum PlayerClassification
+    public enum CompetitionEvent
     {
         /// <summary>
         /// BC1
@@ -20,6 +20,18 @@
         /// <summary>
         /// BC4
         /// </summary>
-        Bс4
+        Bс4,
+        /// <summary>
+        /// Pair BC3
+        /// </summary>
+        PairBc3,
+        /// <summary>
+        /// Pair BC4
+        /// </summary>
+        PairBc4,
+        /// <summary>
+        /// Team BC1/BC2
+        /// </summary>
+        TeamBc1Bc2
     }
 }

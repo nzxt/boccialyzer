@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Boccialyzer.Domain.Entities
 {
@@ -16,8 +17,7 @@ namespace Boccialyzer.Domain.Entities
         public AppRole() : base()
         {
             CreatedOn = DateTime.UtcNow;
-            UpdatedOn = DateTime.UtcNow;
-            IsDeleted = false;
+            CreatedBy = default(Guid);
         }
 
         #endregion
@@ -30,7 +30,7 @@ namespace Boccialyzer.Domain.Entities
         /// Дата та час редагування
         /// </summary>
         [Obsolete]
-        public DateTime UpdatedOn { get; set; }
+        public DateTime? UpdatedOn { get; set; }
         /// <summary>
         /// Користувач системи, що створив запис
         /// </summary>
@@ -42,23 +42,9 @@ namespace Boccialyzer.Domain.Entities
         [Obsolete]
         public Guid? UpdatedBy { get; set; }
         /// <summary>
-        /// Користувач системи, що видалив запис
-        /// </summary>
-        [Obsolete]
-        public Guid? DeletedBy { get; set; }
-        /// <summary>
-        /// Видалено
-        /// </summary>
-        [Obsolete]
-        public bool IsDeleted { get; set; }
-        /// <summary>
-        /// Дата та час видалення
-        /// </summary>
-        [Obsolete]
-        public DateTime? DeletedOn { get; set; }
-        /// <summary>
         /// Опис ролі
         /// </summary>
+        [Required]
         public string Caption { get; set; }
         /// <summary>
         /// За замовчуванням
@@ -68,10 +54,6 @@ namespace Boccialyzer.Domain.Entities
         /// Системна?
         /// </summary>
         public bool IsSystem { get; set; }
-        /// <summary>
-        /// Респондент?
-        /// </summary>
-        public bool IsRespondent { get; set; }
         /// <summary>
         /// Адміністратор?
         /// </summary>

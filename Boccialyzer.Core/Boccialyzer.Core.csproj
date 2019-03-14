@@ -7,6 +7,11 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <NoWarn>1701;1702;CS0612;CS0809</NoWarn>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20190314214241_ModifiedDB2.cs" />
+    <Compile Remove="Migrations\20190314214733_ModifiedDB2.cs" />
+  </ItemGroup>
   
   <ItemGroup>
     <PackageReference Include="DalSoft.Hosting.BackgroundQueue" Version="1.0.4" />

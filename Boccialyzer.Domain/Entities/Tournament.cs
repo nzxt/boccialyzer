@@ -23,10 +23,12 @@ namespace Boccialyzer.Domain.Entities
         /// <summary>
         /// Назва
         /// </summary>
+        [Required]
         public string Name { get; set; }
         /// <summary>
         /// Тип турнирів
         /// </summary>
+        [Required]
         public Guid TournamentTypeId { get; set; }
         /// <summary>
         /// Дата початку
@@ -41,6 +43,7 @@ namespace Boccialyzer.Domain.Entities
         /// <summary>
         /// Користувач системи
         /// </summary>
+        [Required]
         public Guid AppUserId { get; set; }
         /// <summary>
         /// Матчі

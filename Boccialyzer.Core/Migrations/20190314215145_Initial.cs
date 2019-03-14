@@ -21,26 +21,18 @@ namespace Boccialyzer.Core.Migrations
                     ConcurrencyStamp = table.Column<string>(nullable: true),
                     CreatedOn = table.Column<DateTime>(nullable: false)
                         .Annotation("Npgsql:Comment", "Дата та час внесення"),
-                    UpdatedOn = table.Column<DateTime>(nullable: false)
+                    UpdatedOn = table.Column<DateTime>(nullable: true)
                         .Annotation("Npgsql:Comment", "Дата та час редагування"),
                     CreatedBy = table.Column<Guid>(nullable: true)
                         .Annotation("Npgsql:Comment", "Користувач системи, що створив запис"),
                     UpdatedBy = table.Column<Guid>(nullable: true)
                         .Annotation("Npgsql:Comment", "Користувач системи, що модифікував запис"),
-                    DeletedBy = table.Column<Guid>(nullable: true)
-                        .Annotation("Npgsql:Comment", "Користувач системи, що видалив запис"),
-                    IsDeleted = table.Column<bool>(nullable: false)
-                        .Annotation("Npgsql:Comment", "Видалено"),
-                    DeletedOn = table.Column<DateTime>(nullable: true)
-                        .Annotation("Npgsql:Comment", "Дата та час видалення"),
-                    Caption = table.Column<string>(nullable: true)
+                    Caption = table.Column<string>(nullable: false)
                         .Annotation("Npgsql:Comment", "Опис ролі"),
                     IsDefault = table.Column<bool>(nullable: false)
                         .Annotation("Npgsql:Comment", "За замовчуванням"),
                     IsSystem = table.Column<bool>(nullable: false)
                         .Annotation("Npgsql:Comment", "Системна?"),
-                    IsRespondent = table.Column<bool>(nullable: false)
-                        .Annotation("Npgsql:Comment", "Респондент?"),
                     IsAdministrator = table.Column<bool>(nullable: false)
                         .Annotation("Npgsql:Comment", "Адміністратор?"),
                     IsSuperUser = table.Column<bool>(nullable: false)
@@ -144,6 +136,24 @@ namespace Boccialyzer.Core.Migrations
                     table.PrimaryKey("PK_LogDbEvent", x => x.Id);
                 })
                 .Annotation("Npgsql:Comment", "Сповіщення операцій з БД");
+
+            migrationBuilder.CreateTable(
+                name: "Players",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    CreatedOn = table.Column<DateTime>(nullable: true),
+                    UpdatedOn = table.Column<DateTime>(nullable: true),
+                    CreatedBy = table.Column<Guid>(nullable: true),
+                    UpdatedBy = table.Column<Guid>(nullable: true),
+                    FullName = table.Column<string>(nullable: false),
+                    PlayerClassification = table.Column<int>(nullable: false),
+                    CountryId = table.Column<Guid>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Players", x => x.Id);
+                });
 
             migrationBuilder.CreateTable(
                 name: "TournamentType",
@@ -335,7 +345,7 @@ namespace Boccialyzer.Core.Migrations
                     UpdatedOn = table.Column<DateTime>(nullable: true),
                     CreatedBy = table.Column<Guid>(nullable: true),
                     UpdatedBy = table.Column<Guid>(nullable: true),
-                    Name = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: false),
                     TournamentTypeId = table.Column<Guid>(nullable: false),
                     DateFrom = table.Column<DateTime>(type: "Date", nullable: false),
                     DateTo = table.Column<DateTime>(type: "Date", nullable: false),
@@ -367,7 +377,7 @@ namespace Boccialyzer.Core.Migrations
                     UpdatedOn = table.Column<DateTime>(nullable: true),
                     CreatedBy = table.Column<Guid>(nullable: true),
                     UpdatedBy = table.Column<Guid>(nullable: true),
-                    DateFrom = table.Column<DateTime>(type: "Date", nullable: false),
+                    DateTimeStamp = table.Column<DateTime>(nullable: false),
                     AppUserId = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
@@ -435,7 +445,7 @@ namespace Boccialyzer.Core.Migrations
                     ShotType = table.Column<int>(nullable: false),
                     Box = table.Column<int>(nullable: false),
                     Distance = table.Column<int>(nullable: false),
-                    Discriminator = table.Column<string>(nullable: false),
+                    Discriminator = table.Column<int>(nullable: false),
                     MatchId = table.Column<Guid>(nullable: true),
                     TrainingId = table.Column<Guid>(nullable: true)
                 },
@@ -584,6 +594,9 @@ namespace Boccialyzer.Core.Migrations
 
             migrationBuilder.DropTable(
                 name: "LogDbEvent");
+
+            migrationBuilder.DropTable(
+                name: "Players");
 
             migrationBuilder.DropTable(
                 name: "AppRoles");

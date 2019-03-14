@@ -14,6 +14,7 @@ namespace Boccialyzer.Domain.Entities
         public Training()
         {
             Id = Guid.NewGuid();
+            DateTimeStamp = DateTime.UtcNow;
         }
         /// <summary>
         /// Ідентифікатор
@@ -21,13 +22,13 @@ namespace Boccialyzer.Domain.Entities
         [Key]
         public Guid Id { get; set; }
         /// <summary>
-        /// Дата тренування
+        /// Дата та час тренування
         /// </summary>
-        [Column(TypeName = "Date")]
-        public DateTime DateFrom { get; set; }
+        public DateTime DateTimeStamp { get; set; }
         /// <summary>
         /// Користувач системи
         /// </summary>
+        [Required]
         public Guid AppUserId { get; set; }
         /// <summary>
         /// М'ячі

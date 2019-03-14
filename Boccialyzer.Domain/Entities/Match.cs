@@ -38,8 +38,10 @@ namespace Boccialyzer.Domain.Entities
         public int Box1PlayerBib  { get; set; }
         public Guid? Box2PlayerId  { get; set; }
         public int Box2PlayerBib  { get; set; }
+        [Required]
         public Guid Box3PlayerId { get; set; }
         public int Box3PlayerBib  { get; set; }
+        [Required]
         public Guid Box4PlayerId { get; set; }
         public int Box4PlayerBib  { get; set; }
         public Guid? Box5PlayerId  { get; set; }

@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Boccialyzer.Core.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190314172200_Initial")]
+    [Migration("20190314215145_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,6 +28,7 @@ namespace Boccialyzer.Core.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Caption")
+                        .IsRequired()
                         .HasColumnName("Caption")
                         .HasAnnotation("Npgsql:Comment", "Опис ролі");
 
@@ -42,14 +43,6 @@ namespace Boccialyzer.Core.Migrations
                         .HasColumnName("CreatedOn")
                         .HasAnnotation("Npgsql:Comment", "Дата та час внесення");
 
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnName("DeletedBy")
-                        .HasAnnotation("Npgsql:Comment", "Користувач системи, що видалив запис");
-
-                    b.Property<DateTime?>("DeletedOn")
-                        .HasColumnName("DeletedOn")
-                        .HasAnnotation("Npgsql:Comment", "Дата та час видалення");
-
                     b.Property<bool>("IsAdministrator")
                         .HasColumnName("IsAdministrator")
                         .HasAnnotation("Npgsql:Comment", "Адміністратор?");
@@ -57,10 +50,6 @@ namespace Boccialyzer.Core.Migrations
                     b.Property<bool>("IsDefault")
                         .HasColumnName("IsDefault")
                         .HasAnnotation("Npgsql:Comment", "За замовчуванням");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnName("IsDeleted")
-                        .HasAnnotation("Npgsql:Comment", "Видалено");
 
                     b.Property<bool>("IsExpert")
                         .HasColumnName("IsExpert")
@@ -73,10 +62,6 @@ namespace Boccialyzer.Core.Migrations
                     b.Property<bool>("IsOwner")
                         .HasColumnName("IsOwner")
                         .HasAnnotation("Npgsql:Comment", "Наш співробітник?");
-
-                    b.Property<bool>("IsRespondent")
-                        .HasColumnName("IsRespondent")
-                        .HasAnnotation("Npgsql:Comment", "Респондент?");
 
                     b.Property<bool>("IsSuperUser")
                         .HasColumnName("IsSuperUser")
@@ -96,7 +81,7 @@ namespace Boccialyzer.Core.Migrations
                         .HasColumnName("UpdatedBy")
                         .HasAnnotation("Npgsql:Comment", "Користувач системи, що модифікував запис");
 
-                    b.Property<DateTime>("UpdatedOn")
+                    b.Property<DateTime?>("UpdatedOn")
                         .HasColumnName("UpdatedOn")
                         .HasAnnotation("Npgsql:Comment", "Дата та час редагування");
 
@@ -209,8 +194,7 @@ namespace Boccialyzer.Core.Migrations
 
                     b.Property<int>("DeadBallType");
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired();
+                    b.Property<int>("Discriminator");
 
                     b.Property<int>("Distance");
 
@@ -230,7 +214,7 @@ namespace Boccialyzer.Core.Migrations
 
                     b.ToTable("Balls");
 
-                    b.HasDiscriminator<string>("Discriminator").HasValue("Ball");
+                    b.HasDiscriminator<int>("Discriminator").HasValue(0);
                 });
 
             modelBuilder.Entity("Boccialyzer.Domain.Entities.Configuration", b =>
@@ -362,6 +346,31 @@ namespace Boccialyzer.Core.Migrations
                     b.ToTable("Matches");
                 });
 
+            modelBuilder.Entity("Boccialyzer.Domain.Entities.Player", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<Guid?>("CountryId");
+
+                    b.Property<Guid?>("CreatedBy");
+
+                    b.Property<DateTime?>("CreatedOn");
+
+                    b.Property<string>("FullName")
+                        .IsRequired();
+
+                    b.Property<int>("PlayerClassification");
+
+                    b.Property<Guid?>("UpdatedBy");
+
+                    b.Property<DateTime?>("UpdatedOn");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Players");
+                });
+
             modelBuilder.Entity("Boccialyzer.Domain.Entities.Tournament", b =>
                 {
                     b.Property<Guid>("Id")
@@ -379,7 +388,8 @@ namespace Boccialyzer.Core.Migrations
                     b.Property<DateTime>("DateTo")
                         .HasColumnType("Date");
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .IsRequired();
 
                     b.Property<Guid>("TournamentTypeId");
 
@@ -456,8 +466,7 @@ namespace Boccialyzer.Core.Migrations
 
                     b.Property<DateTime?>("CreatedOn");
 
-                    b.Property<DateTime>("DateFrom")
-                        .HasColumnType("Date");
+                    b.Property<DateTime>("DateTimeStamp");
 
                     b.Property<Guid?>("UpdatedBy");
 
@@ -632,7 +641,7 @@ namespace Boccialyzer.Core.Migrations
 
                     b.HasIndex("MatchId");
 
-                    b.HasDiscriminator().HasValue("MatchBall");
+                    b.HasDiscriminator().HasValue(2);
                 });
 
             modelBuilder.Entity("Boccialyzer.Domain.Entities.TrainingBall", b =>
@@ -643,7 +652,7 @@ namespace Boccialyzer.Core.Migrations
 
                     b.HasIndex("TrainingId");
 
-                    b.HasDiscriminator().HasValue("TrainingBall");
+                    b.HasDiscriminator().HasValue(1);
                 });
 
             modelBuilder.Entity("Boccialyzer.Domain.Entities.AppUser", b =>

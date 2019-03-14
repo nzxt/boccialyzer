@@ -9,6 +9,8 @@ namespace Boccialyzer.Domain.Entities
         public Ball()
         {
             Id = Guid.NewGuid();
+            IsDeadBall = false;
+            IsPenalty = false;
         }
         /// <summary>
         /// Ідентифікатор

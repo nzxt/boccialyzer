@@ -53,6 +53,8 @@ namespace Boccialyzer.Core.Context
 
         public DbSet<Ball> Balls { get; set; }
 
+        public DbSet<Player> Players { get; set; }
+
 
 
         /// <summary>
@@ -95,6 +97,17 @@ namespace Boccialyzer.Core.Context
             base.OnModelCreating(modelBuilder);
             modelBuilder.HasPostgresExtension("hstore");
 
+
+
+            modelBuilder.Entity<Ball>()
+                .HasDiscriminator<int>("Discriminator")
+                .HasValue<Ball>(0)
+                .HasValue<TrainingBall>(1)
+                .HasValue<MatchBall>(2);
+
+
+
+
             modelBuilder.Query<ViewStoredFunction>();
             modelBuilder.Query<ViewStoredView>();
             modelBuilder.Query<ViewTrigger>();
@@ -114,12 +127,10 @@ namespace Boccialyzer.Core.Context
 
             modelBuilder.Entity<AppRole>().ToTable("AppRoles");
             modelBuilder.Entity<AppRole>().HasKey(x => x.Id);
-            modelBuilder.Entity<AppRole>().HasQueryFilter(x => !x.IsDeleted);
 
             modelBuilder.Entity<AppRole>().Property(x => x.Caption).HasColumnName(@"Caption").ForNpgsqlHasComment("Опис ролі").ValueGeneratedNever();
             modelBuilder.Entity<AppRole>().Property(x => x.IsDefault).HasColumnName(@"IsDefault").ForNpgsqlHasComment("За замовчуванням").ValueGeneratedNever();
             modelBuilder.Entity<AppRole>().Property(x => x.IsSystem).HasColumnName(@"IsSystem").ForNpgsqlHasComment("Системна?").ValueGeneratedNever();
-            modelBuilder.Entity<AppRole>().Property(x => x.IsRespondent).HasColumnName(@"IsRespondent").ForNpgsqlHasComment("Респондент?").ValueGeneratedNever();
             modelBuilder.Entity<AppRole>().Property(x => x.IsAdministrator).HasColumnName(@"IsAdministrator").ForNpgsqlHasComment("Адміністратор?").ValueGeneratedNever();
             modelBuilder.Entity<AppRole>().Property(x => x.IsSuperUser).HasColumnName(@"IsSuperUser").ForNpgsqlHasComment("Суперюзер?").ValueGeneratedNever();
             modelBuilder.Entity<AppRole>().Property(x => x.IsExpert).HasColumnName(@"IsExpert").ForNpgsqlHasComment("Експерт?").ValueGeneratedNever();
@@ -128,11 +139,8 @@ namespace Boccialyzer.Core.Context
 
             modelBuilder.Entity<AppRole>().Property(x => x.CreatedOn).HasColumnName(@"CreatedOn").ForNpgsqlHasComment("Дата та час внесення").ValueGeneratedNever();
             modelBuilder.Entity<AppRole>().Property(x => x.UpdatedOn).HasColumnName(@"UpdatedOn").ForNpgsqlHasComment("Дата та час редагування").ValueGeneratedNever();
-            modelBuilder.Entity<AppRole>().Property(x => x.DeletedOn).HasColumnName(@"DeletedOn").ForNpgsqlHasComment("Дата та час видалення").ValueGeneratedNever();
-            modelBuilder.Entity<AppRole>().Property(x => x.IsDeleted).HasColumnName(@"IsDeleted").ForNpgsqlHasComment("Видалено").ValueGeneratedNever();
             modelBuilder.Entity<AppRole>().Property(x => x.CreatedBy).HasColumnName(@"CreatedBy").ForNpgsqlHasComment("Користувач системи, що створив запис").ValueGeneratedNever();
             modelBuilder.Entity<AppRole>().Property(x => x.UpdatedBy).HasColumnName(@"UpdatedBy").ForNpgsqlHasComment("Користувач системи, що модифікував запис").ValueGeneratedNever();
-            modelBuilder.Entity<AppRole>().Property(x => x.DeletedBy).HasColumnName(@"DeletedBy").ForNpgsqlHasComment("Користувач системи, що видалив запис").ValueGeneratedNever();
 
             #endregion
             #region # AppUser Mapping

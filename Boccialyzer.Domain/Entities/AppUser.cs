@@ -81,6 +81,12 @@ namespace Boccialyzer.Domain.Entities
         /// </summary>
         public Gender Gender { get; set; }
 
+
+
+        //public Guid PlayerId { get; set; }
+
+
+
         /// <summary>
         /// Турніри
         /// </summary>

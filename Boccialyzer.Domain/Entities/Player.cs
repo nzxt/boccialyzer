@@ -21,6 +21,7 @@ namespace Boccialyzer.Domain.Entities
         /// <summary>
         /// Ім'я та прізвище
         /// </summary>
+        [Required]
         public string FullName { get; set; }
         /// <summary>
         /// Класифікація
@@ -29,6 +30,6 @@ namespace Boccialyzer.Domain.Entities
         /// <summary>
         /// Країна
         /// </summary>
-        public Guid CountryId { get; set; }
+        public Guid? CountryId { get; set; }
     }
 }

@@ -1,5 +1,7 @@
 ﻿using Boccialyzer.Domain.Enums;
 using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace Boccialyzer.Domain.Entities
@@ -31,5 +33,11 @@ namespace Boccialyzer.Domain.Entities
         /// Країна
         /// </summary>
         public Guid? CountryId { get; set; }
+
+        /// <summary>
+        /// М'ячі
+        /// </summary>
+        public virtual ICollection<MatchToPlayer> MatchToPlayers { get; set; } = new Collection<MatchToPlayer>();
+
     }
 }

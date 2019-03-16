@@ -11,6 +11,7 @@
   <ItemGroup>
     <Compile Remove="Migrations\20190314214241_ModifiedDB2.cs" />
     <Compile Remove="Migrations\20190314214733_ModifiedDB2.cs" />
+    <Compile Remove="Migrations\20190316193327_ModifiedModel.cs" />
   </ItemGroup>
   
   <ItemGroup>
@@ -58,6 +59,12 @@
   
   <ItemGroup>
     <ProjectReference Include="..\Boccialyzer.Domain\Boccialyzer.Domain.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Update="SeedData\Json\Players.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   
 </Project>

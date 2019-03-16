@@ -45,5 +45,13 @@ namespace Boccialyzer.Domain.Entities
         /// Дистанція
         /// </summary>
         public Distance Distance { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public Guid? StageId { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public Guid? MatchToPlayerId { get; set; }
     }
 }

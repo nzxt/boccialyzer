@@ -23,6 +23,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Boccialyzer.Web;
+using System.Reflection;
 
 namespace Boccialyzer
 {
@@ -235,38 +236,6 @@ namespace Boccialyzer
                         }
 
                         #endregion
-                        #region option: ConfirmEmailUrl
-
-                        tempValue = Configuration.GetSection("ConfirmEmailUrl").Value;
-                        if (!string.IsNullOrEmpty(tempValue))
-                        {
-                            options.ConfirmEmailUrl = tempValue;
-                            AppState.FatalError = false;
-                        }
-                        else
-                        {
-                            AppState.FatalError = true;
-                            Log.Fatal("{Fatal}",
-                                "Не вказано URL для підтвердження email (ConnectionStrings: ConfirmEmailUrl)");
-                        }
-
-                        #endregion
-                        #region option: SendGrid
-
-                        var temp = Configuration.GetSection("SendGrid").Get<SendGridModel>();
-                        if (temp != null)
-                        {
-                            options.SendGrid = temp;
-                            AppState.FatalError = false;
-                        }
-                        else
-                        {
-                            AppState.FatalError = true;
-                            Log.Fatal("{Fatal}",
-                                "Не вказані налаштування SendGrid (ConnectionStrings: SendGrid)");
-                        }
-
-                        #endregion
                     }
                     catch (Exception ex)
                     {
@@ -299,11 +268,18 @@ namespace Boccialyzer
                     c.SwaggerDoc("v1", new Info
                     {
                         Version = "v1",
-                        Title = $"SAC API Version 1 Build {DateTime.UtcNow:yyyy.MM.dd}",
-                        Description = "SAC Web API"
+                        Title = $"Boccialyzer API Version 1 Build {DateTime.UtcNow:yyyy.MM.dd}",
+                        Description = "Boccialyzer Web API"
                     });
-                    c.IncludeXmlComments(Path.Combine(PlatformServices.Default.Application.ApplicationBasePath, "SAC.Web.xml"));
-                    c.IncludeXmlComments(Path.Combine(PlatformServices.Default.Application.ApplicationBasePath, "SAC.Domain.xml"));
+                    //c.IncludeXmlComments(Path.Combine(PlatformServices.Default.Application.ApplicationBasePath, "Boccialyzer.Web.xml"));
+                    //c.IncludeXmlComments(Path.Combine(PlatformServices.Default.Application.ApplicationBasePath, "Boccialyzer.Domain.xml"));
+
+                    //var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                    //var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                    //c.IncludeXmlComments(xmlPath);
+                    c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "Boccialyzer.Web.xml"));
+                    c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "Boccialyzer.Domain.xml"));
+
                     c.DescribeAllEnumsAsStrings();
                     c.DescribeStringEnumsInCamelCase();
                     c.IgnoreObsoleteProperties();

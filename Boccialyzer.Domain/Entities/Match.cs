@@ -34,27 +34,31 @@ namespace Boccialyzer.Domain.Entities
         /// </summary>
         public EliminationStage EliminationStage { get; set; }
 
-        public Guid? Box1PlayerId  { get; set; }
-        public int Box1PlayerBib  { get; set; }
-        public Guid? Box2PlayerId  { get; set; }
-        public int Box2PlayerBib  { get; set; }
-        [Required]
-        public Guid Box3PlayerId { get; set; }
-        public int Box3PlayerBib  { get; set; }
-        [Required]
-        public Guid Box4PlayerId { get; set; }
-        public int Box4PlayerBib  { get; set; }
-        public Guid? Box5PlayerId  { get; set; }
-        public int Box5PlayerBib  { get; set; }
-        public Guid? Box6PlayerId  { get; set; }
-        public int Box6PlayerBib { get; set; }
-
+        //public Guid? Box1PlayerId  { get; set; }
+        //public int Box1PlayerBib  { get; set; }
+        //public Guid? Box2PlayerId  { get; set; }
+        //public int Box2PlayerBib  { get; set; }
+        //[Required]
+        //public Guid Box3PlayerId { get; set; }
+        //public int Box3PlayerBib  { get; set; }
+        //[Required]
+        //public Guid Box4PlayerId { get; set; }
+        //public int Box4PlayerBib  { get; set; }
+        //public Guid? Box5PlayerId  { get; set; }
+        //public int Box5PlayerBib  { get; set; }
+        //public Guid? Box6PlayerId  { get; set; }
+        //public int Box6PlayerBib { get; set; }
 
 
 
         /// <summary>
-        /// М'ячі
+        /// Період гри
         /// </summary>
-        public virtual ICollection<MatchBall> MatchBalls { get; set; } = new Collection<MatchBall>();
+        public virtual ICollection<Stage> Stages { get; set; } = new Collection<Stage>();
+
+        /// <summary>
+        /// Зв'язок гравців з матчами/тренуваннями
+        /// </summary>
+        public virtual ICollection<MatchToPlayer> MatchToPlayers { get; set; } = new Collection<MatchToPlayer>();
     }
 }

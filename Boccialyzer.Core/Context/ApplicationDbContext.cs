@@ -61,19 +61,22 @@ namespace Boccialyzer.Core.Context
         /// Матчі
         /// </summary>
         public DbSet<Match> Matches { get; set; }
-        /// <summary>
-        /// М'ячі у матчі
-        /// </summary>
-        public DbSet<MatchBall> MatchBalls { get; set; }
+        ///// <summary>
+        ///// М'ячі у матчі
+        ///// </summary>
+        //public DbSet<MatchBall> MatchBalls { get; set; }
         /// <summary>
         /// Тренування
         /// </summary>
         public DbSet<Training> Trainings { get; set; }
+        ///// <summary>
+        ///// М'ячі тренування
+        ///// </summary>
+        //public DbSet<TrainingBall> TrainingBalls { get; set; }
         /// <summary>
-        /// М'ячі тренування
+        /// Зв'язок гравців з матчами/тренуваннями
         /// </summary>
-        public DbSet<TrainingBall> TrainingBalls { get; set; }
-
+        public DbSet<MatchToPlayer> MatchToPlayers { get; set; }
 
 
         /// <summary>
@@ -99,11 +102,11 @@ namespace Boccialyzer.Core.Context
 
 
 
-            modelBuilder.Entity<Ball>()
-                .HasDiscriminator<int>("Discriminator")
-                .HasValue<Ball>(0)
-                .HasValue<TrainingBall>(1)
-                .HasValue<MatchBall>(2);
+            //modelBuilder.Entity<Ball>()
+            //    .HasDiscriminator<int>("Discriminator")
+            //    .HasValue<Ball>(0)
+            //    .HasValue<TrainingBall>(1)
+            //    .HasValue<MatchBall>(2);
 
 
 

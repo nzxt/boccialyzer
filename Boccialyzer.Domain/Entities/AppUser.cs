@@ -54,7 +54,7 @@ namespace Boccialyzer.Domain.Entities
         /// <summary>
         /// Національність
         /// </summary>
-        public Guid? NationalityId { get; set; }
+        public Guid? CountryId { get; set; }
         /// <summary>
         /// Національність
         /// </summary>
@@ -86,11 +86,15 @@ namespace Boccialyzer.Domain.Entities
         //public Guid PlayerId { get; set; }
 
 
-
         /// <summary>
-        /// Турніри
+        /// Матчі
         /// </summary>
-        public ICollection<Tournament> Tournaments { get; set; } = new Collection<Tournament>();
+        public ICollection<Match> Matches { get; set; } = new Collection<Match>();
+
+        ///// <summary>
+        ///// Турніри
+        ///// </summary>
+        //public ICollection<Tournament> Tournaments { get; set; } = new Collection<Tournament>();
         /// <summary>
         /// Тренування
         /// </summary>

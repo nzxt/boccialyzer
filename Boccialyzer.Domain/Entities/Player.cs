@@ -11,6 +11,9 @@ namespace Boccialyzer.Domain.Entities
     /// </summary>
     public class Player : BaseEntity, IEntity
     {
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public Player()
         {
             Id = Guid.NewGuid();

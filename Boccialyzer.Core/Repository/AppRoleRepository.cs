@@ -1,11 +1,11 @@
-﻿using Boccialyzer.Domain.Entities;
+﻿using Boccialyzer.Core.Context;
+using Boccialyzer.Domain.Entities;
 using Boccialyzer.Domain.Enums;
 using Boccialyzer.Domain.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Threading.Tasks;
-using Boccialyzer.Core.Context;
 
 namespace Boccialyzer.Core.Repository
 {

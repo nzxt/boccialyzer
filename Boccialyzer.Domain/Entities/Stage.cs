@@ -10,6 +10,9 @@ namespace Boccialyzer.Domain.Entities
     /// </summary>
     public class Stage : BaseEntity, IEntity
     {
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public Stage()
         {
             Id = Guid.NewGuid();

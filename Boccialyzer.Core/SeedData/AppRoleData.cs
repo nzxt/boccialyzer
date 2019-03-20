@@ -31,22 +31,9 @@ namespace Boccialyzer.Core.SeedData
             },
             new AppRole
             {
-                Id = new Guid("f622470e-03c0-42d4-8b51-63e559ba3ab4"),
-                Name = "ManagerOwner",
-                Caption = "Наш Менеджер",
-                IsDefault = false,
-                IsAdministrator = false,
-                IsExpert = false,
-                IsManager = true,
-                IsOwner = true,
-                IsSuperUser = false,
-                IsSystem = true
-            },
-            new AppRole
-            {
                 Id = new Guid("47c9d0a4-f2c4-4228-96f1-4dc645c1e58a"),
-                Name = "Respondent",
-                Caption = "Респондент",
+                Name = "User",
+                Caption = "Користувач",
                 IsDefault = false,
                 IsAdministrator = true,
                 IsExpert = false,
@@ -66,19 +53,6 @@ namespace Boccialyzer.Core.SeedData
                 IsManager = false,
                 IsOwner = true,
                 IsSuperUser = false,
-                IsSystem = true
-            },
-            new AppRole
-            {
-                Id = new Guid("ad6c2e51-9ede-4805-8ef3-27bc1a815d64"),
-                Name = "Technologist",
-                Caption = "Технолог",
-                IsDefault = false,
-                IsAdministrator = false,
-                IsExpert = false,
-                IsManager = false,
-                IsOwner = false,
-                IsSuperUser = true,
                 IsSystem = true
             },
             new AppRole
@@ -107,19 +81,6 @@ namespace Boccialyzer.Core.SeedData
                 IsSuperUser = true,
                 IsSystem = true
             },
-            new AppRole
-            {
-                Id = new Guid("440bc264-97f4-40e3-83b3-187d7edf8c5c"),
-                Name = "ExpertOwner",
-                Caption = "Наш експерт",
-                IsDefault = false,
-                IsAdministrator = false,
-                IsExpert = true,
-                IsManager = false,
-                IsOwner = true,
-                IsSuperUser = false,
-                IsSystem = true
-            }
         };
 
         #endregion

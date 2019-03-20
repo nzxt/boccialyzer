@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Boccialyzer.Core.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190314215145_Initial")]
+    [Migration("20190320141823_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -104,7 +104,9 @@ namespace Boccialyzer.Core.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
 
-                    b.Property<Guid?>("CountryId");
+                    b.Property<Guid?>("CountryId")
+                        .HasColumnName("CountryId")
+                        .HasAnnotation("Npgsql:Comment", "Національність");
 
                     b.Property<Guid>("CreatedBy")
                         .HasColumnName("CreatedBy")
@@ -133,10 +135,6 @@ namespace Boccialyzer.Core.Migrations
                     b.Property<bool>("LockoutEnabled");
 
                     b.Property<DateTimeOffset?>("LockoutEnd");
-
-                    b.Property<Guid?>("NationalityId")
-                        .HasColumnName("NationalityId")
-                        .HasAnnotation("Npgsql:Comment", "Національність");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256);
@@ -194,17 +192,19 @@ namespace Boccialyzer.Core.Migrations
 
                     b.Property<int>("DeadBallType");
 
-                    b.Property<int>("Discriminator");
-
                     b.Property<int>("Distance");
 
                     b.Property<bool>("IsDeadBall");
 
                     b.Property<bool>("IsPenalty");
 
+                    b.Property<Guid?>("MatchToPlayerId");
+
                     b.Property<int>("Rating");
 
                     b.Property<int>("ShotType");
+
+                    b.Property<Guid?>("StageId");
 
                     b.Property<Guid?>("UpdatedBy");
 
@@ -212,9 +212,9 @@ namespace Boccialyzer.Core.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Balls");
+                    b.HasIndex("MatchToPlayerId");
 
-                    b.HasDiscriminator<int>("Discriminator").HasValue(0);
+                    b.ToTable("Balls");
                 });
 
             modelBuilder.Entity("Boccialyzer.Domain.Entities.Configuration", b =>
@@ -297,29 +297,7 @@ namespace Boccialyzer.Core.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("Box1PlayerBib");
-
-                    b.Property<Guid?>("Box1PlayerId");
-
-                    b.Property<int>("Box2PlayerBib");
-
-                    b.Property<Guid?>("Box2PlayerId");
-
-                    b.Property<int>("Box3PlayerBib");
-
-                    b.Property<Guid>("Box3PlayerId");
-
-                    b.Property<int>("Box4PlayerBib");
-
-                    b.Property<Guid>("Box4PlayerId");
-
-                    b.Property<int>("Box5PlayerBib");
-
-                    b.Property<Guid?>("Box5PlayerId");
-
-                    b.Property<int>("Box6PlayerBib");
-
-                    b.Property<Guid?>("Box6PlayerId");
+                    b.Property<Guid>("AppUserId");
 
                     b.Property<int>("CompetitionEvent");
 
@@ -341,9 +319,47 @@ namespace Boccialyzer.Core.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("AppUserId");
+
                     b.HasIndex("TournamentId");
 
                     b.ToTable("Matches");
+                });
+
+            modelBuilder.Entity("Boccialyzer.Domain.Entities.MatchToPlayer", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("Bib");
+
+                    b.Property<int>("Box");
+
+                    b.Property<Guid?>("CreatedBy");
+
+                    b.Property<DateTime?>("CreatedOn");
+
+                    b.Property<bool>("IsSubstitutePlayer");
+
+                    b.Property<Guid?>("MatchId");
+
+                    b.Property<Guid>("PlayerId");
+
+                    b.Property<Guid?>("TrainingId");
+
+                    b.Property<Guid?>("UpdatedBy");
+
+                    b.Property<DateTime?>("UpdatedOn");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MatchId");
+
+                    b.HasIndex("PlayerId");
+
+                    b.HasIndex("TrainingId");
+
+                    b.ToTable("MatchToPlayers");
                 });
 
             modelBuilder.Entity("Boccialyzer.Domain.Entities.Player", b =>
@@ -376,8 +392,6 @@ namespace Boccialyzer.Core.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<Guid>("AppUserId");
-
                     b.Property<Guid?>("CreatedBy");
 
                     b.Property<DateTime?>("CreatedOn");
@@ -398,8 +412,6 @@ namespace Boccialyzer.Core.Migrations
                     b.Property<DateTime?>("UpdatedOn");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AppUserId");
 
                     b.HasIndex("TournamentTypeId");
 
@@ -633,28 +645,6 @@ namespace Boccialyzer.Core.Migrations
                     b.ToTable("AppUserTokens");
                 });
 
-            modelBuilder.Entity("Boccialyzer.Domain.Entities.MatchBall", b =>
-                {
-                    b.HasBaseType("Boccialyzer.Domain.Entities.Ball");
-
-                    b.Property<Guid>("MatchId");
-
-                    b.HasIndex("MatchId");
-
-                    b.HasDiscriminator().HasValue(2);
-                });
-
-            modelBuilder.Entity("Boccialyzer.Domain.Entities.TrainingBall", b =>
-                {
-                    b.HasBaseType("Boccialyzer.Domain.Entities.Ball");
-
-                    b.Property<Guid>("TrainingId");
-
-                    b.HasIndex("TrainingId");
-
-                    b.HasDiscriminator().HasValue(1);
-                });
-
             modelBuilder.Entity("Boccialyzer.Domain.Entities.AppUser", b =>
                 {
                     b.HasOne("Boccialyzer.Domain.Entities.Country", "Country")
@@ -662,20 +652,43 @@ namespace Boccialyzer.Core.Migrations
                         .HasForeignKey("CountryId");
                 });
 
+            modelBuilder.Entity("Boccialyzer.Domain.Entities.Ball", b =>
+                {
+                    b.HasOne("Boccialyzer.Domain.Entities.MatchToPlayer")
+                        .WithMany("Balls")
+                        .HasForeignKey("MatchToPlayerId");
+                });
+
             modelBuilder.Entity("Boccialyzer.Domain.Entities.Match", b =>
                 {
+                    b.HasOne("Boccialyzer.Domain.Entities.AppUser")
+                        .WithMany("Matches")
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
                     b.HasOne("Boccialyzer.Domain.Entities.Tournament")
                         .WithMany("Matches")
                         .HasForeignKey("TournamentId");
                 });
 
-            modelBuilder.Entity("Boccialyzer.Domain.Entities.Tournament", b =>
+            modelBuilder.Entity("Boccialyzer.Domain.Entities.MatchToPlayer", b =>
                 {
-                    b.HasOne("Boccialyzer.Domain.Entities.AppUser")
-                        .WithMany("Tournaments")
-                        .HasForeignKey("AppUserId")
+                    b.HasOne("Boccialyzer.Domain.Entities.Match")
+                        .WithMany("MatchToPlayers")
+                        .HasForeignKey("MatchId");
+
+                    b.HasOne("Boccialyzer.Domain.Entities.Player")
+                        .WithMany("MatchToPlayers")
+                        .HasForeignKey("PlayerId")
                         .OnDelete(DeleteBehavior.Cascade);
 
+                    b.HasOne("Boccialyzer.Domain.Entities.Training")
+                        .WithMany("MatchToPlayers")
+                        .HasForeignKey("TrainingId");
+                });
+
+            modelBuilder.Entity("Boccialyzer.Domain.Entities.Tournament", b =>
+                {
                     b.HasOne("Boccialyzer.Domain.Entities.TournamentType")
                         .WithMany("Tournaments")
                         .HasForeignKey("TournamentTypeId")
@@ -732,22 +745,6 @@ namespace Boccialyzer.Core.Migrations
                     b.HasOne("Boccialyzer.Domain.Entities.AppUser")
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Boccialyzer.Domain.Entities.MatchBall", b =>
-                {
-                    b.HasOne("Boccialyzer.Domain.Entities.Match")
-                        .WithMany("MatchBalls")
-                        .HasForeignKey("MatchId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Boccialyzer.Domain.Entities.TrainingBall", b =>
-                {
-                    b.HasOne("Boccialyzer.Domain.Entities.Training")
-                        .WithMany("TrainingBalls")
-                        .HasForeignKey("TrainingId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

@@ -4,8 +4,14 @@ using Boccialyzer.Domain.Enums;
 
 namespace Boccialyzer.Domain.Entities
 {
+    /// <summary>
+    /// М'яч
+    /// </summary>
     public class Ball : BaseEntity, IEntity
     {
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public Ball()
         {
             Id = Guid.NewGuid();

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Boccialyzer.Domain.Entities
 {
@@ -11,6 +10,9 @@ namespace Boccialyzer.Domain.Entities
     /// </summary>
     public class Training : BaseEntity, IEntity
     {
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public Training()
         {
             Id = Guid.NewGuid();

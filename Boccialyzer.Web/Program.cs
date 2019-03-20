@@ -258,6 +258,9 @@ namespace Boccialyzer
                 services.AddTransient<ICountryRepository, CountryRepository>();
                 services.AddTransient<ISendGridRepository, SendGridRepository>();
                 services.AddTransient<ISystemJobRepository, SystemJobRepository>();
+                services.AddTransient<ITournamentRepository, TournamentRepository>();
+                services.AddTransient<IMatchRepository, MatchRepository>();
+                services.AddTransient<ILogRepository, LogRepository>();
 
                 #endregion
 

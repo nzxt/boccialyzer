@@ -37,7 +37,7 @@ namespace Boccialyzer.Core.SeedData
                     {
                         Id = new Guid("8f666c33-f0c1-41a9-bc70-8628bfe521b5"),
                         UserName = userName,
-                        FirstName = "FirstName",
+                        FirstName = "Administrator",
                         LastName = "LastName",
                         Gender = Gender.Male,
                         EmailConfirmed = true,
@@ -52,9 +52,9 @@ namespace Boccialyzer.Core.SeedData
                 }
 
                 #endregion
-                #region # respondent1
+                #region # user1
 
-                userName = "respondent1";
+                userName = "user1";
                 userExist = await userManager.FindByNameAsync(userName);
                 if (userExist == null)
                 {
@@ -63,7 +63,7 @@ namespace Boccialyzer.Core.SeedData
                     {
                         Id = new Guid("a5922060-c876-4d1e-ab4e-1fe8dfcd987b"),
                         UserName = userName,
-                        FirstName = "FirstName",
+                        FirstName = "User1",
                         LastName = "LastName",
                         Gender = Gender.Male,
                         EmailConfirmed = true,
@@ -78,9 +78,9 @@ namespace Boccialyzer.Core.SeedData
                 }
 
                 #endregion
-                #region # respondent2
+                #region # user2
 
-                userName = "respondent2";
+                userName = "user2";
                 userExist = await userManager.FindByNameAsync(userName);
                 if (userExist == null)
                 {
@@ -89,7 +89,7 @@ namespace Boccialyzer.Core.SeedData
                     {
                         Id = new Guid("31465951-a55d-49b3-915d-17f01fb3c73b"),
                         UserName = userName,
-                        FirstName = "FirstName",
+                        FirstName = "User2",
                         LastName = "LastName",
                         Gender = Gender.Male,
                         EmailConfirmed = true,
@@ -99,32 +99,6 @@ namespace Boccialyzer.Core.SeedData
                     if (result.Succeeded)
                     {
                         var role = await roleManager.FindByIdAsync(RoleEnum.Respondent.ToString());
-                        if (role != null) await userManager.AddToRoleAsync(user, role.Name);
-                    }
-                }
-
-                #endregion
-                #region # technologist
-
-                userName = "technologist";
-                userExist = await userManager.FindByNameAsync(userName);
-                if (userExist == null)
-                {
-                    string password = "qwerty";
-                    var user = new AppUser
-                    {
-                        Id = new Guid("2d2b0c24-cf72-4879-ab51-90214829427e"),
-                        UserName = userName,
-                        FirstName = "FirstName",
-                        LastName = "LastName",
-                        Gender = Gender.Male,
-                        EmailConfirmed = true,
-                        PhoneNumberConfirmed = true,
-                    };
-                    var result = await userManager.CreateAsync(user, password);
-                    if (result.Succeeded)
-                    {
-                        var role = await roleManager.FindByIdAsync(RoleEnum.Technologist.ToString());
                         if (role != null) await userManager.AddToRoleAsync(user, role.Name);
                     }
                 }
@@ -141,7 +115,7 @@ namespace Boccialyzer.Core.SeedData
                     {
                         Id = new Guid("853a3c4a-7409-4fbb-a6f7-cebaa30d7d23"),
                         UserName = userName,
-                        FirstName = "FirstName",
+                        FirstName = "Expert",
                         LastName = "LastName",
                         Gender = Gender.Male,
                         EmailConfirmed = true,
@@ -158,7 +132,7 @@ namespace Boccialyzer.Core.SeedData
                 #endregion
                 #region # SuperUser
 
-                userName = "SuperUser";
+                userName = "superuser";
                 userExist = await userManager.FindByNameAsync(userName);
                 if (userExist == null)
                 {
@@ -167,7 +141,7 @@ namespace Boccialyzer.Core.SeedData
                     {
                         Id = new Guid("1def0cb0-96c2-4130-aa45-fb5f9a73e745"),
                         UserName = userName,
-                        FirstName = "FirstName",
+                        FirstName = "SuperUser",
                         LastName = "LastName",
                         Gender = Gender.Male,
                         EmailConfirmed = true,
@@ -193,7 +167,7 @@ namespace Boccialyzer.Core.SeedData
                     {
                         Id = new Guid("83de8388-cb9a-44dc-bfec-a93c78845b8c"),
                         UserName = userName,
-                        FirstName = "FirstName",
+                        FirstName = "Manager",
                         LastName = "LastName",
                         Gender = Gender.Male,
                         EmailConfirmed = true,

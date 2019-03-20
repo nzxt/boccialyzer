@@ -221,9 +221,8 @@ namespace Boccialyzer.Core.Migrations
                         .Annotation("Npgsql:Comment", "Користувач системи, що створив запис"),
                     UpdatedBy = table.Column<Guid>(nullable: true)
                         .Annotation("Npgsql:Comment", "Користувач системи, що модифікував запис"),
-                    NationalityId = table.Column<Guid>(nullable: true)
+                    CountryId = table.Column<Guid>(nullable: true)
                         .Annotation("Npgsql:Comment", "Національність"),
-                    CountryId = table.Column<Guid>(nullable: true),
                     FirstName = table.Column<string>(maxLength: 50, nullable: true),
                     LastName = table.Column<string>(maxLength: 50, nullable: false),
                     DateOfBirth = table.Column<DateTime>(nullable: true),
@@ -249,6 +248,31 @@ namespace Boccialyzer.Core.Migrations
                         principalTable: "Countries",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Tournaments",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    CreatedOn = table.Column<DateTime>(nullable: true),
+                    UpdatedOn = table.Column<DateTime>(nullable: true),
+                    CreatedBy = table.Column<Guid>(nullable: true),
+                    UpdatedBy = table.Column<Guid>(nullable: true),
+                    Name = table.Column<string>(nullable: false),
+                    TournamentTypeId = table.Column<Guid>(nullable: false),
+                    DateFrom = table.Column<DateTime>(type: "Date", nullable: false),
+                    DateTo = table.Column<DateTime>(type: "Date", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Tournaments", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Tournaments_TournamentType_TournamentTypeId",
+                        column: x => x.TournamentTypeId,
+                        principalTable: "TournamentType",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -337,38 +361,6 @@ namespace Boccialyzer.Core.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Tournaments",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(nullable: false),
-                    CreatedOn = table.Column<DateTime>(nullable: true),
-                    UpdatedOn = table.Column<DateTime>(nullable: true),
-                    CreatedBy = table.Column<Guid>(nullable: true),
-                    UpdatedBy = table.Column<Guid>(nullable: true),
-                    Name = table.Column<string>(nullable: false),
-                    TournamentTypeId = table.Column<Guid>(nullable: false),
-                    DateFrom = table.Column<DateTime>(type: "Date", nullable: false),
-                    DateTo = table.Column<DateTime>(type: "Date", nullable: false),
-                    AppUserId = table.Column<Guid>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Tournaments", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Tournaments_AppUsers_AppUserId",
-                        column: x => x.AppUserId,
-                        principalTable: "AppUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Tournaments_TournamentType_TournamentTypeId",
-                        column: x => x.TournamentTypeId,
-                        principalTable: "TournamentType",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Trainings",
                 columns: table => new
                 {
@@ -404,27 +396,61 @@ namespace Boccialyzer.Core.Migrations
                     CompetitionEvent = table.Column<int>(nullable: false),
                     PoolStage = table.Column<int>(nullable: false),
                     EliminationStage = table.Column<int>(nullable: false),
-                    Box1PlayerId = table.Column<Guid>(nullable: true),
-                    Box1PlayerBib = table.Column<int>(nullable: false),
-                    Box2PlayerId = table.Column<Guid>(nullable: true),
-                    Box2PlayerBib = table.Column<int>(nullable: false),
-                    Box3PlayerId = table.Column<Guid>(nullable: false),
-                    Box3PlayerBib = table.Column<int>(nullable: false),
-                    Box4PlayerId = table.Column<Guid>(nullable: false),
-                    Box4PlayerBib = table.Column<int>(nullable: false),
-                    Box5PlayerId = table.Column<Guid>(nullable: true),
-                    Box5PlayerBib = table.Column<int>(nullable: false),
-                    Box6PlayerId = table.Column<Guid>(nullable: true),
-                    Box6PlayerBib = table.Column<int>(nullable: false),
+                    AppUserId = table.Column<Guid>(nullable: false),
                     TournamentId = table.Column<Guid>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Matches", x => x.Id);
                     table.ForeignKey(
+                        name: "FK_Matches_AppUsers_AppUserId",
+                        column: x => x.AppUserId,
+                        principalTable: "AppUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
                         name: "FK_Matches_Tournaments_TournamentId",
                         column: x => x.TournamentId,
                         principalTable: "Tournaments",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "MatchToPlayers",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    CreatedOn = table.Column<DateTime>(nullable: true),
+                    UpdatedOn = table.Column<DateTime>(nullable: true),
+                    CreatedBy = table.Column<Guid>(nullable: true),
+                    UpdatedBy = table.Column<Guid>(nullable: true),
+                    IsSubstitutePlayer = table.Column<bool>(nullable: false),
+                    Bib = table.Column<int>(nullable: false),
+                    Box = table.Column<int>(nullable: false),
+                    PlayerId = table.Column<Guid>(nullable: false),
+                    TrainingId = table.Column<Guid>(nullable: true),
+                    MatchId = table.Column<Guid>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_MatchToPlayers", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_MatchToPlayers_Matches_MatchId",
+                        column: x => x.MatchId,
+                        principalTable: "Matches",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_MatchToPlayers_Players_PlayerId",
+                        column: x => x.PlayerId,
+                        principalTable: "Players",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_MatchToPlayers_Trainings_TrainingId",
+                        column: x => x.TrainingId,
+                        principalTable: "Trainings",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -445,25 +471,18 @@ namespace Boccialyzer.Core.Migrations
                     ShotType = table.Column<int>(nullable: false),
                     Box = table.Column<int>(nullable: false),
                     Distance = table.Column<int>(nullable: false),
-                    Discriminator = table.Column<int>(nullable: false),
-                    MatchId = table.Column<Guid>(nullable: true),
-                    TrainingId = table.Column<Guid>(nullable: true)
+                    StageId = table.Column<Guid>(nullable: true),
+                    MatchToPlayerId = table.Column<Guid>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Balls", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Balls_Matches_MatchId",
-                        column: x => x.MatchId,
-                        principalTable: "Matches",
+                        name: "FK_Balls_MatchToPlayers_MatchToPlayerId",
+                        column: x => x.MatchToPlayerId,
+                        principalTable: "MatchToPlayers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Balls_Trainings_TrainingId",
-                        column: x => x.TrainingId,
-                        principalTable: "Trainings",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
@@ -514,14 +533,9 @@ namespace Boccialyzer.Core.Migrations
                 column: "UserName");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Balls_MatchId",
+                name: "IX_Balls_MatchToPlayerId",
                 table: "Balls",
-                column: "MatchId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Balls_TrainingId",
-                table: "Balls",
-                column: "TrainingId");
+                column: "MatchToPlayerId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Countries_Code",
@@ -544,14 +558,29 @@ namespace Boccialyzer.Core.Migrations
                 column: "EventType");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Matches_AppUserId",
+                table: "Matches",
+                column: "AppUserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Matches_TournamentId",
                 table: "Matches",
                 column: "TournamentId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Tournaments_AppUserId",
-                table: "Tournaments",
-                column: "AppUserId");
+                name: "IX_MatchToPlayers_MatchId",
+                table: "MatchToPlayers",
+                column: "MatchId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_MatchToPlayers_PlayerId",
+                table: "MatchToPlayers",
+                column: "PlayerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_MatchToPlayers_TrainingId",
+                table: "MatchToPlayers",
+                column: "TrainingId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Tournaments_TournamentTypeId",
@@ -596,13 +625,16 @@ namespace Boccialyzer.Core.Migrations
                 name: "LogDbEvent");
 
             migrationBuilder.DropTable(
-                name: "Players");
-
-            migrationBuilder.DropTable(
                 name: "AppRoles");
 
             migrationBuilder.DropTable(
+                name: "MatchToPlayers");
+
+            migrationBuilder.DropTable(
                 name: "Matches");
+
+            migrationBuilder.DropTable(
+                name: "Players");
 
             migrationBuilder.DropTable(
                 name: "Trainings");

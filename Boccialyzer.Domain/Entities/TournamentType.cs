@@ -11,6 +11,9 @@ namespace Boccialyzer.Domain.Entities
     public class TournamentType : BaseEntity, IEntity
     {
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public TournamentType()
         {
             Id = Guid.NewGuid();

@@ -6,9 +6,7 @@ namespace Boccialyzer.Core.Repository
     /// <summary>
     /// Репозиторій громадянства
     /// </summary>
-    public interface ICountryRepository : IGenericRepository<Country>
-    {
-    }
+    public interface ICountryRepository : IGenericRepository<Country> { }
 
     /// <summary>
     /// Репозиторій громадянства

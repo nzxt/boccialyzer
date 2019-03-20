@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json;
-using Boccialyzer.Core.Context;
+﻿using Boccialyzer.Core.Context;
 using Boccialyzer.Domain.Entities;
 using Boccialyzer.Domain.Enums;
 using Boccialyzer.Domain.Models;
+using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Boccialyzer.Core.Repository
 {

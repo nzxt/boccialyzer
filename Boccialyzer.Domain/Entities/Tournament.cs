@@ -11,9 +11,14 @@ namespace Boccialyzer.Domain.Entities
     /// </summary>
     public class Tournament : BaseEntity, IEntity
     {
+        /// <summary>
+        /// Tournament construdtor
+        /// </summary>
         public Tournament()
         {
             Id = Guid.NewGuid();
+            DateFrom = DateTime.UtcNow;
+            DateTo = DateTime.UtcNow;
         }
         /// <summary>
         /// Ідентифікатор
@@ -26,7 +31,7 @@ namespace Boccialyzer.Domain.Entities
         [Required]
         public string Name { get; set; }
         /// <summary>
-        /// Тип турнирів
+        /// Тип турниру
         /// </summary>
         [Required]
         public Guid TournamentTypeId { get; set; }
@@ -40,14 +45,11 @@ namespace Boccialyzer.Domain.Entities
         /// </summary>
         [Column(TypeName = "Date")]
         public DateTime DateTo { get; set; }
-        /// <summary>
-        /// Користувач системи
-        /// </summary>
-        [Required]
-        public Guid AppUserId { get; set; }
+
         /// <summary>
         /// Матчі
         /// </summary>
+        [Obsolete]
         public virtual ICollection<Match> Matches { get; set; } = new Collection<Match>();
     }
 }

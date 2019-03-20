@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using Boccialyzer.Domain;
 
 namespace Boccialyzer.Domain.Entities
 {
@@ -9,6 +8,9 @@ namespace Boccialyzer.Domain.Entities
     /// </summary>
     public class Configuration : BaseEntity, IEntity
     {
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public Configuration()
         {
             Id = Guid.NewGuid();

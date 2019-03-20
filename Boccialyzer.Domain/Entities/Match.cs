@@ -1,13 +1,19 @@
-﻿using System;
+﻿using Boccialyzer.Domain.Enums;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
-using Boccialyzer.Domain.Enums;
 
 namespace Boccialyzer.Domain.Entities
 {
-    public class Match : BaseEntity,IEntity
+    /// <summary>
+    /// Матч
+    /// </summary>
+    public class Match : BaseEntity, IEntity
     {
+        /// <summary>
+        /// Match constructor
+        /// </summary>
         public Match()
         {
             Id = Guid.NewGuid();
@@ -20,6 +26,7 @@ namespace Boccialyzer.Domain.Entities
         /// <summary>
         /// Дата та час проведення
         /// </summary>
+        [Required]
         public DateTime DateTimeStamp { get; set; }
         /// <summary>
         /// Competition Event
@@ -34,27 +41,16 @@ namespace Boccialyzer.Domain.Entities
         /// </summary>
         public EliminationStage EliminationStage { get; set; }
 
-        //public Guid? Box1PlayerId  { get; set; }
-        //public int Box1PlayerBib  { get; set; }
-        //public Guid? Box2PlayerId  { get; set; }
-        //public int Box2PlayerBib  { get; set; }
-        //[Required]
-        //public Guid Box3PlayerId { get; set; }
-        //public int Box3PlayerBib  { get; set; }
-        //[Required]
-        //public Guid Box4PlayerId { get; set; }
-        //public int Box4PlayerBib  { get; set; }
-        //public Guid? Box5PlayerId  { get; set; }
-        //public int Box5PlayerBib  { get; set; }
-        //public Guid? Box6PlayerId  { get; set; }
-        //public int Box6PlayerBib { get; set; }
-
-
+        /// <summary>
+        /// Користувач системи
+        /// </summary>
+        [Required]
+        public Guid AppUserId { get; set; }
 
         /// <summary>
-        /// Період гри
+        /// Турнір
         /// </summary>
-        public virtual ICollection<Stage> Stages { get; set; } = new Collection<Stage>();
+        public Guid? TournamentId { get; set; }
 
         /// <summary>
         /// Зв'язок гравців з матчами/тренуваннями

@@ -1,9 +1,8 @@
 ﻿using Boccialyzer.Core.Context;
 using Boccialyzer.Domain.Enums;
-using System;
-using System.Text;
-using System.Threading.Tasks;
 using Boccialyzer.Domain.Models;
+using System;
+using System.Threading.Tasks;
 
 namespace Boccialyzer.Core.Repository
 {

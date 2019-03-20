@@ -1,7 +1,7 @@
 ﻿namespace Boccialyzer.Domain.Enums
 {
     /// <summary>
-    /// Competition Event
+    /// Кваліфікації
     /// </summary>
     public enum CompetitionEvent
     {

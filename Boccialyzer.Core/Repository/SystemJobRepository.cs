@@ -51,7 +51,7 @@ namespace Boccialyzer.Core.Repository
                 try
                 {
                     db.Open();
-                    var result = await db.QueryFirstAsync<int>("public.athena_upd_issue_status_in_midnight",
+                    var result = await db.QueryFirstAsync<int>("public.Boccialyzer_upd_issue_status_in_midnight",
                         commandType: CommandType.StoredProcedure);
                     db.Close();
                     return (Result: OperationResult.Ok, Value: result, Message: "");

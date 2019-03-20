@@ -102,7 +102,9 @@ namespace Boccialyzer.Core.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
 
-                    b.Property<Guid?>("CountryId");
+                    b.Property<Guid?>("CountryId")
+                        .HasColumnName("CountryId")
+                        .HasAnnotation("Npgsql:Comment", "Національність");
 
                     b.Property<Guid>("CreatedBy")
                         .HasColumnName("CreatedBy")
@@ -131,10 +133,6 @@ namespace Boccialyzer.Core.Migrations
                     b.Property<bool>("LockoutEnabled");
 
                     b.Property<DateTimeOffset?>("LockoutEnd");
-
-                    b.Property<Guid?>("NationalityId")
-                        .HasColumnName("NationalityId")
-                        .HasAnnotation("Npgsql:Comment", "Національність");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256);
@@ -213,8 +211,6 @@ namespace Boccialyzer.Core.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("MatchToPlayerId");
-
-                    b.HasIndex("StageId");
 
                     b.ToTable("Balls");
                 });
@@ -299,6 +295,8 @@ namespace Boccialyzer.Core.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<Guid>("AppUserId");
+
                     b.Property<int>("CompetitionEvent");
 
                     b.Property<Guid?>("CreatedBy");
@@ -318,6 +316,8 @@ namespace Boccialyzer.Core.Migrations
                     b.Property<DateTime?>("UpdatedOn");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
 
                     b.HasIndex("TournamentId");
 
@@ -385,40 +385,10 @@ namespace Boccialyzer.Core.Migrations
                     b.ToTable("Players");
                 });
 
-            modelBuilder.Entity("Boccialyzer.Domain.Entities.Stage", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<Guid?>("CreatedBy");
-
-                    b.Property<DateTime?>("CreatedOn");
-
-                    b.Property<int>("Index");
-
-                    b.Property<bool>("IsDisrupted");
-
-                    b.Property<bool>("IsTieBreak");
-
-                    b.Property<Guid>("MatchId");
-
-                    b.Property<Guid?>("UpdatedBy");
-
-                    b.Property<DateTime?>("UpdatedOn");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("MatchId");
-
-                    b.ToTable("Stage");
-                });
-
             modelBuilder.Entity("Boccialyzer.Domain.Entities.Tournament", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
-
-                    b.Property<Guid>("AppUserId");
 
                     b.Property<Guid?>("CreatedBy");
 
@@ -440,8 +410,6 @@ namespace Boccialyzer.Core.Migrations
                     b.Property<DateTime?>("UpdatedOn");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AppUserId");
 
                     b.HasIndex("TournamentTypeId");
 
@@ -687,14 +655,15 @@ namespace Boccialyzer.Core.Migrations
                     b.HasOne("Boccialyzer.Domain.Entities.MatchToPlayer")
                         .WithMany("Balls")
                         .HasForeignKey("MatchToPlayerId");
-
-                    b.HasOne("Boccialyzer.Domain.Entities.Stage")
-                        .WithMany("Balls")
-                        .HasForeignKey("StageId");
                 });
 
             modelBuilder.Entity("Boccialyzer.Domain.Entities.Match", b =>
                 {
+                    b.HasOne("Boccialyzer.Domain.Entities.AppUser")
+                        .WithMany("Matches")
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
                     b.HasOne("Boccialyzer.Domain.Entities.Tournament")
                         .WithMany("Matches")
                         .HasForeignKey("TournamentId");
@@ -716,21 +685,8 @@ namespace Boccialyzer.Core.Migrations
                         .HasForeignKey("TrainingId");
                 });
 
-            modelBuilder.Entity("Boccialyzer.Domain.Entities.Stage", b =>
-                {
-                    b.HasOne("Boccialyzer.Domain.Entities.Match")
-                        .WithMany("Stages")
-                        .HasForeignKey("MatchId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
             modelBuilder.Entity("Boccialyzer.Domain.Entities.Tournament", b =>
                 {
-                    b.HasOne("Boccialyzer.Domain.Entities.AppUser")
-                        .WithMany("Tournaments")
-                        .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
                     b.HasOne("Boccialyzer.Domain.Entities.TournamentType")
                         .WithMany("Tournaments")
                         .HasForeignKey("TournamentTypeId")

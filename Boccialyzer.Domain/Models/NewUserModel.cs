@@ -7,6 +7,9 @@ namespace Boccialyzer.Domain.Models
     /// </summary>
     public class NewUserModel
     {
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public NewUserModel()
         {
             InvitationId = default(Guid);

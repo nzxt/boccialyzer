@@ -1,6 +1,8 @@
-﻿using Boccialyzer.Domain.Entities;
+﻿using Boccialyzer.Domain;
+using Boccialyzer.Domain.Entities;
 using Boccialyzer.Domain.Enums;
 using Boccialyzer.Domain.LogEntities;
+using Boccialyzer.Domain.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -10,8 +12,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Boccialyzer.Domain;
-using Boccialyzer.Domain.Models;
 
 namespace Boccialyzer.Core.Context
 {
@@ -100,17 +100,6 @@ namespace Boccialyzer.Core.Context
             base.OnModelCreating(modelBuilder);
             modelBuilder.HasPostgresExtension("hstore");
 
-
-
-            //modelBuilder.Entity<Ball>()
-            //    .HasDiscriminator<int>("Discriminator")
-            //    .HasValue<Ball>(0)
-            //    .HasValue<TrainingBall>(1)
-            //    .HasValue<MatchBall>(2);
-
-
-
-
             modelBuilder.Query<ViewStoredFunction>();
             modelBuilder.Query<ViewStoredView>();
             modelBuilder.Query<ViewTrigger>();
@@ -152,7 +141,7 @@ namespace Boccialyzer.Core.Context
             modelBuilder.Entity<AppUser>().HasKey(x => x.Id);
             modelBuilder.Entity<AppUser>().HasIndex(x => x.UserName);
 
-            modelBuilder.Entity<AppUser>().Property(x => x.NationalityId).HasColumnName(@"NationalityId").ForNpgsqlHasComment("Національність").ValueGeneratedNever();
+            modelBuilder.Entity<AppUser>().Property(x => x.CountryId).HasColumnName(@"CountryId").ForNpgsqlHasComment("Національність").ValueGeneratedNever();
 
             modelBuilder.Entity<AppUser>().Property(x => x.CreatedOn).HasColumnName(@"CreatedOn").ForNpgsqlHasComment("Дата та час внесення").ValueGeneratedNever();
             modelBuilder.Entity<AppUser>().Property(x => x.UpdatedOn).HasColumnName(@"UpdatedOn").ForNpgsqlHasComment("Дата та час редагування").ValueGeneratedNever();
@@ -195,6 +184,24 @@ namespace Boccialyzer.Core.Context
             modelBuilder.Entity<TournamentType>().Property(x => x.UpdatedOn).HasColumnName(@"UpdatedOn").ForNpgsqlHasComment("Дата та час редагування").ValueGeneratedNever();
             modelBuilder.Entity<TournamentType>().Property(x => x.CreatedBy).HasColumnName(@"CreatedBy").ForNpgsqlHasComment("Користувач системи, що створив запис").ValueGeneratedNever();
             modelBuilder.Entity<TournamentType>().Property(x => x.UpdatedBy).HasColumnName(@"UpdatedBy").ForNpgsqlHasComment("Користувач системи, що модифікував запис").ValueGeneratedNever();
+
+            #endregion
+            #region # Tournament Mapping
+
+            modelBuilder.Entity<Tournament>().ToTable(@"Tournament").ForNpgsqlHasComment("Турнири");
+            modelBuilder.Entity<Tournament>().HasKey(x => x.Id);
+            modelBuilder.Entity<Tournament>().HasIndex(x => x.Name);
+
+            modelBuilder.Entity<Tournament>().Property(x => x.Id).HasColumnName(@"Id").IsRequired().ForNpgsqlHasComment("Ідентифікатор").ValueGeneratedNever();
+            modelBuilder.Entity<Tournament>().Property(x => x.Name).HasColumnName(@"Name").IsRequired().ForNpgsqlHasComment("Назва").ValueGeneratedNever();
+            modelBuilder.Entity<Tournament>().Property(x => x.TournamentTypeId).HasColumnName(@"TournamentTypeId").IsRequired().ForNpgsqlHasComment("Тип турниру").ValueGeneratedNever();
+            modelBuilder.Entity<Tournament>().Property(x => x.DateFrom).HasColumnName(@"DateFrom").IsRequired().ForNpgsqlHasComment("Дата початку").ValueGeneratedNever();
+            modelBuilder.Entity<Tournament>().Property(x => x.DateTo).HasColumnName(@"DateTo").ForNpgsqlHasComment("Дата завершення").ValueGeneratedNever();
+
+            modelBuilder.Entity<Tournament>().Property(x => x.CreatedOn).HasColumnName(@"CreatedOn").ForNpgsqlHasComment("Дата та час внесення").ValueGeneratedNever();
+            modelBuilder.Entity<Tournament>().Property(x => x.UpdatedOn).HasColumnName(@"UpdatedOn").ForNpgsqlHasComment("Дата та час редагування").ValueGeneratedNever();
+            modelBuilder.Entity<Tournament>().Property(x => x.CreatedBy).HasColumnName(@"CreatedBy").ForNpgsqlHasComment("Користувач системи, що створив запис").ValueGeneratedNever();
+            modelBuilder.Entity<Tournament>().Property(x => x.UpdatedBy).HasColumnName(@"UpdatedBy").ForNpgsqlHasComment("Користувач системи, що модифікував запис").ValueGeneratedNever();
 
             #endregion
 

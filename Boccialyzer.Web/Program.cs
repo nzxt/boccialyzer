@@ -261,6 +261,8 @@ namespace Boccialyzer
                 services.AddTransient<ITournamentRepository, TournamentRepository>();
                 services.AddTransient<ITournamentTypeRepository, TournamentTypeRepository>();
                 services.AddTransient<IMatchRepository, MatchRepository>();
+                services.AddTransient<IStageRepository, StageRepository>();
+                services.AddTransient<IBallRepository, BallRepository>();
                 services.AddTransient<ILogRepository, LogRepository>();
 
                 #endregion

@@ -233,175 +233,175 @@ namespace Boccialyzer.Core.Context
 
         }
 
-        public override int SaveChanges()
-        {
-            if (LoggingDisable)
-            {
-                var result = base.SaveChanges();
-                return result;
-            }
-            else
-            {
-                var auditEntries = ActionBeforeSaveChanges();
-                var result = base.SaveChanges();
-                ActionAfterSaveChanges(auditEntries);
-                return result;
-            }
-        }
+        //public override int SaveChanges()
+        //{
+        //    if (LoggingDisable)
+        //    {
+        //        var result = base.SaveChanges();
+        //        return result;
+        //    }
+        //    else
+        //    {
+        //        var auditEntries = ActionBeforeSaveChanges();
+        //        var result = base.SaveChanges();
+        //        ActionAfterSaveChanges(auditEntries);
+        //        return result;
+        //    }
+        //}
 
-        public override async Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default(CancellationToken))
-        {
-            if (LoggingDisable)
-            {
-                var result = await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
-                return result;
-            }
-            else
-            {
-                var auditEntries = ActionBeforeSaveChanges();
-                var result = await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
-                if (auditEntries.Any())
-                    await ActionAfterSaveChanges(auditEntries);
-                return result;
-            }
-        }
+        //public override async Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default(CancellationToken))
+        //{
+        //    if (LoggingDisable)
+        //    {
+        //        var result = await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
+        //        return result;
+        //    }
+        //    else
+        //    {
+        //        var auditEntries = ActionBeforeSaveChanges();
+        //        var result = await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
+        //        if (auditEntries.Any())
+        //            await ActionAfterSaveChanges(auditEntries);
+        //        return result;
+        //    }
+        //}
 
-        private List<AuditEntry> ActionBeforeSaveChanges()
-        {
-            ChangeTracker.DetectChanges();
+        //private List<AuditEntry> ActionBeforeSaveChanges()
+        //{
+        //    ChangeTracker.DetectChanges();
 
-            var entriesChanges = ChangeTracker.Entries().Where(x =>
-                x.State == EntityState.Added ||
-                x.State == EntityState.Modified ||
-                x.State == EntityState.Deleted).ToList();
+        //    var entriesChanges = ChangeTracker.Entries().Where(x =>
+        //        x.State == EntityState.Added ||
+        //        x.State == EntityState.Modified ||
+        //        x.State == EntityState.Deleted).ToList();
 
-            if (entriesChanges.Count > 0)
-            {
-                var entries = new List<AuditEntry>();
-                try
-                {
-                    foreach (var entry in entriesChanges)
-                    {
-                        var auditEntry = new AuditEntry(tableName: entry.Metadata.Relational().TableName);
-                        #region # Set OperationType
+        //    if (entriesChanges.Count > 0)
+        //    {
+        //        var entries = new List<AuditEntry>();
+        //        try
+        //        {
+        //            foreach (var entry in entriesChanges)
+        //            {
+        //                var auditEntry = new AuditEntry(tableName: entry.Metadata.Relational().TableName);
+        //                #region # Set OperationType
 
-                        switch (entry.State)
-                        {
-                            case EntityState.Added:
-                                auditEntry.OperationType = OperationType.Create;
-                                auditEntry.Message = "Запис додано";
-                                break;
-                            case EntityState.Deleted:
-                                auditEntry.OperationType = OperationType.Delete;
-                                auditEntry.Message = "Запис видалено";
-                                break;
-                            case EntityState.Modified:
-                                auditEntry.OperationType = OperationType.Update;
-                                auditEntry.Message = "Запис модифіковано";
-                                break;
-                        }
+        //                switch (entry.State)
+        //                {
+        //                    case EntityState.Added:
+        //                        auditEntry.OperationType = OperationType.Create;
+        //                        auditEntry.Message = "Запис додано";
+        //                        break;
+        //                    case EntityState.Deleted:
+        //                        auditEntry.OperationType = OperationType.Delete;
+        //                        auditEntry.Message = "Запис видалено";
+        //                        break;
+        //                    case EntityState.Modified:
+        //                        auditEntry.OperationType = OperationType.Update;
+        //                        auditEntry.Message = "Запис модифіковано";
+        //                        break;
+        //                }
 
-                        #endregion
+        //                #endregion
 
-                        foreach (var property in entry.Properties)
-                        {
-                            if (property.Metadata.PropertyInfo.CustomAttributes.Any(_ =>
-                                _.AttributeType.Name == "AuditIgnoreAttribute"))
-                                continue;
+        //                foreach (var property in entry.Properties)
+        //                {
+        //                    if (property.Metadata.PropertyInfo.CustomAttributes.Any(_ =>
+        //                        _.AttributeType.Name == "AuditIgnoreAttribute"))
+        //                        continue;
 
-                            if (property.IsTemporary)
-                            {
-                                auditEntry.TemporaryProperties.Add(property);
-                                continue;
-                            }
+        //                    if (property.IsTemporary)
+        //                    {
+        //                        auditEntry.TemporaryProperties.Add(property);
+        //                        continue;
+        //                    }
 
-                            var propertyName = property.Metadata.Name;
+        //                    var propertyName = property.Metadata.Name;
 
-                            if (property.Metadata.IsPrimaryKey())
-                            {
-                                auditEntry.KeyValues[propertyName] = property.CurrentValue;
-                                continue;
-                            }
+        //                    if (property.Metadata.IsPrimaryKey())
+        //                    {
+        //                        auditEntry.KeyValues[propertyName] = property.CurrentValue;
+        //                        continue;
+        //                    }
 
-                            switch (entry.State)
-                            {
-                                case EntityState.Added:
-                                    auditEntry.NewValues[propertyName] = property.CurrentValue;
-                                    auditEntry.EventType = LogEventTypeDb.DbAddOk;
-                                    break;
+        //                    switch (entry.State)
+        //                    {
+        //                        case EntityState.Added:
+        //                            auditEntry.NewValues[propertyName] = property.CurrentValue;
+        //                            auditEntry.EventType = LogEventTypeDb.DbAddOk;
+        //                            break;
 
-                                case EntityState.Deleted:
-                                    entry.State = EntityState.Modified;
-                                    if (entry.Properties.Any(_ => _.Metadata.Name.Equals("IsDeleted")))
-                                    {
-                                        entry.Property("IsDeleted").CurrentValue = true;
-                                        auditEntry.EventType = LogEventTypeDb.DbDeleteOk;
-                                    }
-                                    break;
+        //                        case EntityState.Deleted:
+        //                            entry.State = EntityState.Modified;
+        //                            if (entry.Properties.Any(_ => _.Metadata.Name.Equals("IsDeleted")))
+        //                            {
+        //                                entry.Property("IsDeleted").CurrentValue = true;
+        //                                auditEntry.EventType = LogEventTypeDb.DbDeleteOk;
+        //                            }
+        //                            break;
 
-                                case EntityState.Modified:
-                                    if (property.OriginalValue.Equals(property.CurrentValue))
-                                        continue;
-                                    if (property.IsModified)
-                                    {
-                                        auditEntry.OldValues[propertyName] = property.OriginalValue;
-                                        if (auditEntry.OperationType == OperationType.Update)
-                                        {
-                                            auditEntry.NewValues[propertyName] = property.CurrentValue;
-                                        }
-                                        auditEntry.EventType = LogEventTypeDb.DbUpdateOk;
-                                    }
-                                    break;
-                                case EntityState.Detached:
-                                    break;
-                                case EntityState.Unchanged:
-                                    break;
-                            }
-                        }
-                        if (auditEntry.OldValues != null
-                            && auditEntry.OldValues.Count > 0
-                            && auditEntry.NewValues != null
-                            && auditEntry.NewValues.Count > 0) entries.Add(auditEntry);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Log.Error("{SaveChangesError}", ex.Message);
-                }
+        //                        case EntityState.Modified:
+        //                            if (property.OriginalValue.Equals(property.CurrentValue))
+        //                                continue;
+        //                            if (property.IsModified)
+        //                            {
+        //                                auditEntry.OldValues[propertyName] = property.OriginalValue;
+        //                                if (auditEntry.OperationType == OperationType.Update)
+        //                                {
+        //                                    auditEntry.NewValues[propertyName] = property.CurrentValue;
+        //                                }
+        //                                auditEntry.EventType = LogEventTypeDb.DbUpdateOk;
+        //                            }
+        //                            break;
+        //                        case EntityState.Detached:
+        //                            break;
+        //                        case EntityState.Unchanged:
+        //                            break;
+        //                    }
+        //                }
+        //                if (auditEntry.OldValues != null
+        //                    && auditEntry.OldValues.Count > 0
+        //                    && auditEntry.NewValues != null
+        //                    && auditEntry.NewValues.Count > 0) entries.Add(auditEntry);
+        //            }
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            Log.Error("{SaveChangesError}", ex.Message);
+        //        }
 
-                return entries;
-            }
+        //        return entries;
+        //    }
 
-            return null;
-        }
+        //    return null;
+        //}
 
-        private Task ActionAfterSaveChanges(List<AuditEntry> auditEntries)
-        {
-            if (auditEntries == null || auditEntries.Count == 0)
-                return Task.CompletedTask;
+        //private Task ActionAfterSaveChanges(List<AuditEntry> auditEntries)
+        //{
+        //    if (auditEntries == null || auditEntries.Count == 0)
+        //        return Task.CompletedTask;
 
-            foreach (var entry in auditEntries)
-            {
+        //    foreach (var entry in auditEntries)
+        //    {
 
-                if (entry.HasTemporaryProperties)
-                {
-                    foreach (var prop in entry.TemporaryProperties)
-                    {
-                        if (prop.Metadata.IsPrimaryKey())
-                        {
-                            entry.KeyValues[prop.Metadata.Name] = prop.CurrentValue;
-                        }
-                        else
-                        {
-                            entry.NewValues[prop.Metadata.Name] = prop.CurrentValue;
-                        }
-                    }
-                }
+        //        if (entry.HasTemporaryProperties)
+        //        {
+        //            foreach (var prop in entry.TemporaryProperties)
+        //            {
+        //                if (prop.Metadata.IsPrimaryKey())
+        //                {
+        //                    entry.KeyValues[prop.Metadata.Name] = prop.CurrentValue;
+        //                }
+        //                else
+        //                {
+        //                    entry.NewValues[prop.Metadata.Name] = prop.CurrentValue;
+        //                }
+        //            }
+        //        }
 
-                //_log.DbLog(auditEntries);
-            }
+        //        //_log.DbLog(auditEntries);
+        //    }
 
-            return Task.CompletedTask;
-        }
+        //    return Task.CompletedTask;
+        //}
     }
 }

@@ -14,7 +14,7 @@ namespace Boccialyzer.Core.Repository
     /// </summary>
     public interface IAppRoleRepository
     {
-        #region # Task<(OperationResult Result, PagedList<AppRole> Value, string Message)> GetPagedAsync(int pageNumber, int pageSize, string filter, string order)
+        #region # Task<(...)> GetPagedAsync(...)
 
         /// <summary>
         /// Отримати системні ролі
@@ -28,7 +28,7 @@ namespace Boccialyzer.Core.Repository
             int pageSize, string filter, string order);
 
         #endregion
-        #region # Task<(OperationResult Result, AppRole Value, string Message)> GetByIdAsync(string roleId)
+        #region # Task<(...)> GetByIdAsync(...)
 
         /// <summary>
         /// Отримати деталі системної ролі
@@ -38,7 +38,7 @@ namespace Boccialyzer.Core.Repository
         Task<(OperationResult Result, AppRole Value, string Message)> GetByIdAsync(string roleId);
 
         #endregion
-        #region # Task<(OperationResult Result, AppRole Value, string Message)> GetByIdAsync(Guid roleId)
+        #region # Task<(...)> GetByIdAsync(...)
 
         /// <summary>
         /// Отримати роль за ідентифікатором
@@ -48,7 +48,7 @@ namespace Boccialyzer.Core.Repository
         Task<(OperationResult Result, AppRole Value, string Message)> GetByIdAsync(Guid roleId);
 
         #endregion
-        #region # Task<(OperationResult Result, Guid Value, string Message)> CreateAsync(AppRole item)
+        #region # Task<(...)> CreateAsync(...)
 
         /// <summary>
         /// Створити нову системну роль
@@ -58,7 +58,7 @@ namespace Boccialyzer.Core.Repository
         Task<(OperationResult Result, Guid Value, string Message)> CreateAsync(AppRole item);
 
         #endregion
-        #region # Task<(OperationResult Result, Guid Value, string Message)> UpdateAsync(AppRole item)
+        #region # Task<(...)> UpdateAsync(...)
 
         /// <summary>
         /// Модифікація системної ролі
@@ -68,7 +68,7 @@ namespace Boccialyzer.Core.Repository
         Task<(OperationResult Result, Guid Value, string Message)> UpdateAsync(AppRole item);
 
         #endregion
-        #region # Task<(OperationResult Result, Guid Value, string Message)> GetDefaultIdAsync()
+        #region # Task<(...)> GetDefaultIdAsync()
 
         /// <summary>
         /// Отримати ідентифікатор ролі за замовчуванням
@@ -77,7 +77,7 @@ namespace Boccialyzer.Core.Repository
         Task<(OperationResult Result, Guid Value, string Message)> GetDefaultIdAsync();
 
         #endregion
-        #region # Task<(OperationResult Result, AppRole Value, string Message)> GetDefaultAsync()
+        #region # Task<(...)> GetDefaultAsync()
 
         /// <summary>
         /// Отримати роль за замовчуванням
@@ -86,7 +86,7 @@ namespace Boccialyzer.Core.Repository
         Task<(OperationResult Result, AppRole Value, string Message)> GetDefaultAsync();
 
         #endregion
-        #region # Task<(OperationResult Result, string Value, string Message)> GetNameByIdAsync(Guid id)
+        #region # Task<(...)> GetNameByIdAsync(...)
 
         /// <summary>
         /// Отримати назву системної ролі
@@ -96,7 +96,7 @@ namespace Boccialyzer.Core.Repository
         Task<(OperationResult Result, string Value, string Message)> GetNameByIdAsync(Guid id);
         
         #endregion
-        #region # Task<(OperationResult Result, bool Value, string Message)> IsExistAsync(string roleId)
+        #region # Task<(...)> IsExistAsync(...)
 
         /// <summary>
         /// Чи існує роль
@@ -107,7 +107,7 @@ namespace Boccialyzer.Core.Repository
         Task<(OperationResult Result, bool Value, string Message)> IsExistAsync(string roleId);
 
         #endregion
-        #region # Task<(OperationResult Result, bool Value, string Message)> IsExistAsync(Guid roleId)
+        #region # Task<(...)> IsExistAsync(...)
 
         /// <summary>
         /// Чи існує роль
@@ -149,7 +149,7 @@ namespace Boccialyzer.Core.Repository
 
         #endregion
 
-        #region # Task<(OperationResult Result, PagedList<AppRole> Value, string Message)> GetPagedAsync(int pageNumber, int pageSize, string filter, string order)
+        #region # Task<(...)> GetPagedAsync(...)
 
         /// <inheritdoc/>
         public async Task<(OperationResult Result, PagedList<AppRole> Value, string Message)> GetPagedAsync(int pageNumber, int pageSize, string filter, string order)
@@ -164,7 +164,7 @@ namespace Boccialyzer.Core.Repository
         }
 
         #endregion
-        #region # Task<(OperationResult Result, AppRole Value, string Message)> GetByIdAsync(string roleId)
+        #region # Task<(...)> GetByIdAsync(...)
 
         /// <inheritdoc/>
         public async Task<(OperationResult Result, AppRole Value, string Message)> GetByIdAsync(string roleId)
@@ -179,7 +179,7 @@ namespace Boccialyzer.Core.Repository
         }
 
         #endregion
-        #region # Task<(OperationResult Result, AppRole Value, string Message)> GetByIdAsync(Guid roleId)
+        #region # Task<(...)> GetByIdAsync(...)
 
         /// <inheritdoc/>
         public async Task<(OperationResult Result, AppRole Value, string Message)> GetByIdAsync(Guid roleId)
@@ -194,7 +194,7 @@ namespace Boccialyzer.Core.Repository
         }
 
         #endregion
-        #region # Task<(OperationResult Result, Guid Value, string Message)> CreateAsync(AppRole item)
+        #region # Task<(...)> CreateAsync(...)
 
         /// <inheritdoc/>
         public async Task<(OperationResult Result, Guid Value, string Message)> CreateAsync(AppRole item)
@@ -221,7 +221,7 @@ namespace Boccialyzer.Core.Repository
         }
 
         #endregion
-        #region # Task<(OperationResult Result, Guid Value, string Message)> UpdateAsync(AppRole item)
+        #region # Task<(...)> UpdateAsync(...)
 
         /// <inheritdoc/>
         public async Task<(OperationResult Result, Guid Value, string Message)> UpdateAsync(AppRole item)
@@ -245,7 +245,7 @@ namespace Boccialyzer.Core.Repository
         }
 
         #endregion
-        #region # Task<(OperationResult Result, Guid Value, string Message)> GetDefaultIdAsync()
+        #region # Task<(...)> GetDefaultIdAsync()
 
         /// <inheritdoc/>
         public async Task<(OperationResult Result, Guid Value, string Message)> GetDefaultIdAsync()
@@ -261,7 +261,7 @@ namespace Boccialyzer.Core.Repository
         }
 
         #endregion
-        #region # Task<(OperationResult Result, AppRole Value, string Message)> GetDefaultAsync()
+        #region # Task<(...)> GetDefaultAsync()
 
         /// <inheritdoc/>
         public async Task<(OperationResult Result, AppRole Value, string Message)> GetDefaultAsync()
@@ -270,14 +270,14 @@ namespace Boccialyzer.Core.Repository
             {
                 var result = await _dbContext.Roles.FirstOrDefaultAsync(x => x.IsDefault);
                 if (result != null) return (Result: OperationResult.Ok, Value: result, Message: "");
-                return (Result: OperationResult.Ok, Value: null, Message: "");
+                return (Result: OperationResult.Error, Value: null, Message: "Роль за замовчуванням не знайдено.");
             }
             catch (Exception ex)
             { return (Result: OperationResult.Error, Value: null, Message: ex.Message); }
         }
 
         #endregion
-        #region # Task<(OperationResult Result, string Value, string Message)> GetNameByIdAsync(Guid id)
+        #region # Task<(...)> GetNameByIdAsync(...)
 
         /// <inheritdoc/>
         public async Task<(OperationResult Result, string Value, string Message)> GetNameByIdAsync(Guid id)
@@ -293,7 +293,7 @@ namespace Boccialyzer.Core.Repository
         }
 
         #endregion
-        #region # Task<(OperationResult Result, bool Value, string Message)> IsExistAsync(string roleId)
+        #region # Task<(...)> IsExistAsync(...)
 
         /// <inheritdoc/>
         public async Task<(OperationResult Result, bool Value, string Message)> IsExistAsync(string roleId)
@@ -309,7 +309,7 @@ namespace Boccialyzer.Core.Repository
         }
 
         #endregion
-        #region # Task<(OperationResult Result, bool Value, string Message)> IsExistAsync(Guid roleId)
+        #region # Task<(...)> IsExistAsync(...)
 
         /// <inheritdoc/>
         public async Task<(OperationResult Result, bool Value, string Message)> IsExistAsync(Guid roleId)

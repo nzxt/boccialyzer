@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Serilog;
 using System.Threading.Tasks;
+using Boccialyzer.Domain.Models;
 
 namespace Boccialyzer.Web.Controllers
 {
@@ -47,30 +48,15 @@ namespace Boccialyzer.Web.Controllers
         /// Авторизація користувача
         /// </summary>
         /// <param name="loginModel">Модель авторизації</param>
-        /// <returns>Профіль користувача</returns>
         /// <response code="200">Успішне виконання</response>
         /// <response code="422">Помилка виконання</response>
-        ///// <remarks>
-        ///// Sample request:
-        /////
-        /////     POST /Todo
-        /////     {
-        /////        "id": 1,
-        /////        "name": "Item1",
-        /////        "isComplete": true
-        /////     }
-        /////
-        ///// </remarks>
         [HttpPost]
         [AllowAnonymous]
-        [Route("login")]
+        [Route("Login")]
         [ProducesResponseType(200)]
         [ProducesResponseType(422)]
         public async Task<IActionResult> Login([FromBody] LoginDto loginModel)
         {
-            //_log.DbLog(new DbLogMessageModel { Text = "Text test" });
-
-
             if (loginModel == null) return StatusCode(422, "Відсутні данні.");
             if (string.IsNullOrEmpty(loginModel.UserName)) return StatusCode(422, "Відсутнє ім'я користувача.");
             if (string.IsNullOrEmpty(loginModel.Password)) return StatusCode(422, "Відсутній пароль");
@@ -95,7 +81,7 @@ namespace Boccialyzer.Web.Controllers
         /// <response code="200">Успішне виконання</response>
         [Authorize]
         [HttpGet]
-        [Route("logout")]
+        [Route("Logout")]
         [ProducesResponseType(200)]
         [ProducesResponseType(422)]
         public async Task<IActionResult> Logout()
@@ -122,6 +108,33 @@ namespace Boccialyzer.Web.Controllers
         {
             var result = _accountRepository.GetUserProfile();
             if (result.Result == OperationResult.Ok) return StatusCode(200, result.Value);
+            return StatusCode(422, result.Message);
+        }
+
+        #endregion
+
+        #region # Registration - реєстрація нового користувача
+
+        /// <summary>
+        /// Реєстрація нового користувача
+        /// </summary>
+        /// <param name="item">Модель реєстрації</param>
+        /// <returns>Профіль користувача</returns>
+        /// <response code="200">Успішне виконання</response>
+        /// <response code="422">Помилка виконання</response>
+        [HttpPost]
+        [AllowAnonymous]
+        [Route("Registration")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(422)]
+        public async Task<IActionResult> Registration([FromBody] NewUserModel item)
+        {
+            if (!ModelState.IsValid) return StatusCode(422, "Помилкові данні.");
+            if (string.IsNullOrEmpty(item.UserName)) return StatusCode(422, "Відсутнє ім'я користувача.");
+            if (string.IsNullOrEmpty(item.Password)) return StatusCode(422, "Відсутній пароль.");
+            var result = await _accountRepository.Create(item);
+            if (result.Result == OperationResult.Ok) return StatusCode(201, result.Value);
+
             return StatusCode(422, result.Message);
         }
 

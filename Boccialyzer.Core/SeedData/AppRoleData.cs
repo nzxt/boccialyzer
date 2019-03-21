@@ -34,7 +34,7 @@ namespace Boccialyzer.Core.SeedData
                 Id = new Guid("47c9d0a4-f2c4-4228-96f1-4dc645c1e58a"),
                 Name = "User",
                 Caption = "Користувач",
-                IsDefault = false,
+                IsDefault = true,
                 IsAdministrator = true,
                 IsExpert = false,
                 IsManager = false,

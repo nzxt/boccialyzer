@@ -1,9 +1,12 @@
 ﻿using Boccialyzer.Core.Context;
+using Boccialyzer.Domain.Dtos;
 using Boccialyzer.Domain.Enums;
 using Boccialyzer.Domain.Models;
 using System;
 using System.Threading.Tasks;
-using Boccialyzer.Domain.Dtos;
+using Boccialyzer.Domain.Entities;
+using Microsoft.AspNetCore.Identity;
+using Newtonsoft.Json;
 
 namespace Boccialyzer.Core.Repository
 {
@@ -44,15 +47,19 @@ namespace Boccialyzer.Core.Repository
         private readonly ApplicationDbContext _dbContext;
         private readonly IAppUserRepository _appUserRepository;
         private readonly IUserInfo _userInfo;
+        private readonly UserManager<AppUser> _userManager;
+        private readonly IAppRoleRepository _appRoleRepository;
 
         #endregion
         #region # AccountRepository - конструктор
 
-        public AccountRepository(ApplicationDbContext dbContext, IAppUserRepository appUserRepository, IUserInfo userInfo)
+        public AccountRepository(ApplicationDbContext dbContext, IAppUserRepository appUserRepository, IUserInfo userInfo, UserManager<AppUser> userManager, IAppRoleRepository appRoleRepository)
         {
             _dbContext = dbContext;
             _appUserRepository = appUserRepository;
             _userInfo = userInfo;
+            _userManager = userManager;
+            _appRoleRepository = appRoleRepository;
         }
 
         #endregion
@@ -65,18 +72,31 @@ namespace Boccialyzer.Core.Repository
         {
             try
             {
+                var newUser = new AppUser
+                {
+                    UserName = user.UserName,
+                    EmailConfirmed = true,
+                    PhoneNumberConfirmed = true,
+                    CountryId = user.CountryId,
+                    FirstName = user.FirstName,
+                    LastName = string.IsNullOrEmpty(user.LastName) ? user.UserName : user.LastName,
+                    DateOfBirth = user.DateOfBirth,
+                    Gender = user.Gender
+                };
+                var result = await _userManager.CreateAsync(newUser, user.Password);
+                if (result.Succeeded)
+                {
+                    var resultDefaultId = await _appRoleRepository.GetDefaultAsync();
+                    if (resultDefaultId.Result == OperationResult.Ok)
+                    {
+                        var resultAddToRole = await _userManager.AddToRoleAsync(newUser, resultDefaultId.Value.Name);
+                        if (resultAddToRole.Succeeded)
+                            return (Result: OperationResult.Ok, Value: newUser.Id, Message: "");
+                    }
 
-
-
-                //string decodedString = Encoding.UTF8.GetString(Convert.FromBase64String(code));
-                //var invitationId = decodedString.ToGuid();
-                //if (!invitationId.Equals(default(Guid)))
-                //{
-                //    var result = await _dbContext.Invitations.FindAsync(invitationId);
-                //    if (result != null)
-                //        return (Result: OperationResult.Ok, Value: result.Id, Message: "");
-                //}
-                return (Result: OperationResult.Error, Value: default(Guid), Message: "Запрошення не знайдено.");
+                    return (Result: OperationResult.Error, Value: default(Guid), Message: "Помилка додавання ролі.");
+                }
+                return (Result: OperationResult.Error, Value: default(Guid), Message: JsonConvert.SerializeObject(result.Errors));
             }
             catch (Exception ex)
             {

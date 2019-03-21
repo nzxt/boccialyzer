@@ -45,13 +45,9 @@ namespace Boccialyzer.Core.Repository
         /// <summary>
         /// Створити нового користувача
         /// </summary>
-        /// <param name="userName">Нік</param>
-        /// <param name="password">Пароль</param>
-        /// <param name="personId">Персона</param>
-        /// <param name="roleId">Ідентифікатор ролі (опціонально)</param>
+        /// <param name="item">Модель для сворення нового користувача</param>
         /// <returns>Результат операції: ідентифікатор, результат</returns>
-        Task<(OperationResult Result, Guid Value, string Message)> CreateAsync(string userName, string password,
-            Guid personId, Guid roleId);
+        Task<(OperationResult Result, Guid Value, string Message)> CreateAsync(NewUserModel item);
 
         #endregion
         #region # Task<(...)> UpdateAsync(...)
@@ -149,24 +145,6 @@ namespace Boccialyzer.Core.Repository
         Task<(OperationResult Result, Guid Value, string Message)> SetPasswordAsync(Guid userId, string pass);
 
         #endregion
-        //#region # Task<Person> GetPerson(string userName)
-
-        ///// <summary>
-        ///// Отримати профіль користувача
-        ///// </summary>
-        ///// <param name="userName">Ім'я користувача</param>
-        ///// <returns>Профіль користувача (Person)</returns>
-        //Task<(OperationResult Result, Person Value, string Message)> GetPerson(string userName);
-
-        //#endregion
-        //#region # string GetPersonFullName(Guid userId)
-
-        ///// <summary>
-        ///// Отримати ПІБ користувача
-        ///// </summary>
-        //string GetPersonFullName(Guid userId);
-
-        //#endregion
     }
 
     /// <summary>
@@ -269,28 +247,32 @@ namespace Boccialyzer.Core.Repository
         #region # Task<(...)> CreateAsync(...)
 
         /// <inheritdoc/>
-        public async Task<(OperationResult Result, Guid Value, string Message)> CreateAsync(string userName, string password, Guid personId, Guid roleId)
+        public async Task<(OperationResult Result, Guid Value, string Message)> CreateAsync(NewUserModel item)
         {
             try
             {
-                var resultRoleName = await _appRoleRepository.GetNameByIdAsync(roleId);
+                var resultRoleName = await _appRoleRepository.GetNameByIdAsync(item.RoleId);
                 if (resultRoleName.Result == OperationResult.Error)
                     return (Result: OperationResult.Error, Value: default(Guid), Message: resultRoleName.Message);
                 if (string.IsNullOrEmpty(resultRoleName.Value))
                     return (Result: OperationResult.Error, Value: default(Guid), Message: "Помилкова назва ролі.");
 
-                var user = new AppUser
+                var newUser = new AppUser
                 {
-                    UserName = userName,
+                    UserName = item.UserName,
                     EmailConfirmed = true,
                     PhoneNumberConfirmed = true,
+                    CountryId = item.CountryId,
+                    FirstName = item.FirstName,
+                    LastName = string.IsNullOrEmpty(item.LastName) ? item.UserName : item.LastName,
+                    DateOfBirth = item.DateOfBirth,
+                    Gender = item.Gender
                 };
-                if (string.IsNullOrEmpty(password)) password = "h4rdp4ss";
-                var result = await _userManager.CreateAsync(user, password);
+                var result = await _userManager.CreateAsync(newUser, item.Password);
                 if (result.Succeeded)
                 {
-                    var resultAddToRole = await _userManager.AddToRoleAsync(user, resultRoleName.Value);
-                    if (resultAddToRole.Succeeded) return (Result: OperationResult.Ok, Value: user.Id, Message: "");
+                    var resultAddToRole = await _userManager.AddToRoleAsync(newUser, resultRoleName.Value);
+                    if (resultAddToRole.Succeeded) return (Result: OperationResult.Ok, Value: newUser.Id, Message: "");
                     return (Result: OperationResult.Error, Value: default(Guid), Message: "Помилка додавання ролі.");
                 }
                 return (Result: OperationResult.Error, Value: default(Guid), Message: "Щось пішло не за планом...");
@@ -432,36 +414,6 @@ namespace Boccialyzer.Core.Repository
                 return (Result: OperationResult.Error, Value: default(Guid), Message: ex.Message);
             }
         }
-
-        #endregion
-
-        #region --- Task<(...)> GetPerson(...)
-
-        ///// <inheritdoc/>
-        //public async Task<(OperationResult Result, Person Value, string Message)> GetPerson(string userName)
-        //{
-        //    try
-        //    {
-        //        var user = await _userManager.FindByNameAsync(userName);
-        //        if (user == null) return (Result: OperationResult.Ok, Value: null, Message: "");
-        //        var result = _dbContext.Persons.Find(user.PersonId);
-        //        return (Result: OperationResult.Ok, Value: result, Message: "");
-        //    }
-        //    catch (Exception ex)
-        //    { return (Result: OperationResult.Error, Value: null, Message: ex.Message); }
-        //}
-
-        #endregion
-        #region --- string GetPersonFullName(...)
-        ///// <inheritdoc/>
-        //public string GetPersonFullName(Guid userId)
-        //{
-        //    Guid? personId = _dbContext.Users.Find(userId).PersonId;
-        //    var person = _dbContext.Persons.Find(personId);
-        //    var fullName = string.Format("{0} {1} {2}", person?.LastName, person?.FirstName, person?.MiddleName).Trim();
-
-        //    return fullName;
-        //}
 
         #endregion
     }

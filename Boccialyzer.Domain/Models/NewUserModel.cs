@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Boccialyzer.Domain.Models
 {
     /// <summary>
-    /// Модель для сворення нового користувача (респондента)
+    /// Модель для сворення нового користувача
     /// </summary>
     public class NewUserModel
     {
@@ -15,6 +15,8 @@ namespace Boccialyzer.Domain.Models
         public NewUserModel()
         {
             Gender = Gender.Undefined;
+            RoleId = default(Guid);
+            CountryId = default(Guid);
         }
         /// <summary>
         /// Ім'я користувача
@@ -25,7 +27,7 @@ namespace Boccialyzer.Domain.Models
         /// </summary>
         public string Password { get; set; }
         /// <summary>
-        /// Національність
+        /// Національність (optional)
         /// </summary>
         public Guid? CountryId { get; set; }
         /// <summary>
@@ -46,5 +48,9 @@ namespace Boccialyzer.Domain.Models
         /// Стать
         /// </summary>
         public Gender Gender { get; set; }
+        /// <summary>
+        /// Роль користувача (optional)
+        /// </summary>
+        public Guid RoleId { get; set; }
     }
 }

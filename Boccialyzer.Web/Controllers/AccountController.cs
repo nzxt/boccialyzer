@@ -2,12 +2,12 @@
 using Boccialyzer.Domain.Dtos;
 using Boccialyzer.Domain.Entities;
 using Boccialyzer.Domain.Enums;
+using Boccialyzer.Domain.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Serilog;
 using System.Threading.Tasks;
-using Boccialyzer.Domain.Models;
 
 namespace Boccialyzer.Web.Controllers
 {

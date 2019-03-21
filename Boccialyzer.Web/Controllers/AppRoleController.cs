@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 namespace Boccialyzer.Web.Controllers
 {
     /// <summary>
-    /// AppRole Controller
+    /// Керування ролями (ONLY FOR ROLE ADMINISTRATOR)
     /// </summary>
     [Produces("application/json")]
     [Route("api/AppRole")]
-    [Authorize]
+    [Authorize(Roles = "Administrator")]
     [ApiController]
     public class AppRoleController : Controller
     {

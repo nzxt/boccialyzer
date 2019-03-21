@@ -107,7 +107,7 @@ namespace Boccialyzer.Core.Repository
         Task<(OperationResult Result, bool Value, string Message)> IsExistAsync(string roleId);
 
         #endregion
-        #region # Task<(...)> IsExistAsync(...)
+        #region # Task<(...)> IsExistGuidAsync(...)
 
         /// <summary>
         /// Чи існує роль
@@ -115,7 +115,7 @@ namespace Boccialyzer.Core.Repository
         /// <param name="roleId">Ідентифікатор ролі (Guid)</param>
         /// <returns>TRUE - роль з таким ідентифікатором існує</returns>
         /// <returns>FALSE - роль з таким ідентифікатором відсутня</returns>
-        Task<(OperationResult Result, bool Value, string Message)> IsExistAsync(Guid roleId);
+        Task<(OperationResult Result, bool Value, string Message)> IsExistGuidAsync(Guid roleId);
 
         #endregion
     }
@@ -309,10 +309,10 @@ namespace Boccialyzer.Core.Repository
         }
 
         #endregion
-        #region # Task<(...)> IsExistAsync(...)
+        #region # Task<(...)> IsExistGuidAsync(...)
 
         /// <inheritdoc/>
-        public async Task<(OperationResult Result, bool Value, string Message)> IsExistAsync(Guid roleId)
+        public async Task<(OperationResult Result, bool Value, string Message)> IsExistGuidAsync(Guid roleId)
         {
             try
             {

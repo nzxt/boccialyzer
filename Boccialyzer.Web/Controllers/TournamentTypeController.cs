@@ -1,19 +1,19 @@
-﻿using System;
-using System.Threading.Tasks;
-using Boccialyzer.Core.Repository;
+﻿using Boccialyzer.Core.Repository;
 using Boccialyzer.Domain.Entities;
 using Boccialyzer.Domain.Enums;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Threading.Tasks;
 
 namespace Boccialyzer.Web.Controllers
 {
     /// <summary>
-    /// Турнір
+    /// Типи турнирів (ONLY FOR ROLE ADMINISTRATOR)
     /// </summary>
     [Produces("application/json")]
     [Route("api/TournamentType")]
-    [Authorize]
+    [Authorize(Roles = "Administrator")]
     [ApiController]
     public class TournamentTypeController : Controller
     {

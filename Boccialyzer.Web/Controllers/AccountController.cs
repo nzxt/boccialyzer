@@ -105,26 +105,26 @@ namespace Boccialyzer.Web.Controllers
         }
 
         #endregion
-        //#region # GetProfile - Отримати профіль користувача
+        #region # GetProfile - Отримати профіль користувача
 
-        ///// <summary>
-        ///// Отримати профіль користувача
-        ///// </summary>
-        ///// <returns>Профіль користувача</returns>
-        ///// <response code="200">Успішне виконання</response>
-        ///// <response code="422">Помилка виконання</response>
-        //[Authorize]
-        //[HttpGet]
-        //[Route("getProfile")]
-        //[ProducesResponseType(200)]
-        //[HttpGet]
-        //public async Task<IActionResult> GetProfile()
-        //{
-        //    var result = await _accountRepository.GetUserProfile(HttpContext.User.Identity.Name);
-        //    if (result.Result == OperationResult.Ok) return StatusCode(200, result.Value);
-        //    return StatusCode(422, result.Message);
-        //}
+        /// <summary>
+        /// Отримати профіль користувача
+        /// </summary>
+        /// <returns>Профіль користувача</returns>
+        /// <response code="200">Успішне виконання</response>
+        /// <response code="422">Помилка виконання</response>
+        [Authorize]
+        [HttpGet]
+        [Route("GetProfile")]
+        [ProducesResponseType(200)]
+        [HttpGet]
+        public IActionResult GetProfile()
+        {
+            var result = _accountRepository.GetUserProfile();
+            if (result.Result == OperationResult.Ok) return StatusCode(200, result.Value);
+            return StatusCode(422, result.Message);
+        }
 
-        //#endregion
+        #endregion
     }
 }

@@ -3,6 +3,7 @@ using Boccialyzer.Domain.Enums;
 using Boccialyzer.Domain.Models;
 using System;
 using System.Threading.Tasks;
+using Boccialyzer.Domain.Dtos;
 
 namespace Boccialyzer.Core.Repository
 {
@@ -21,16 +22,15 @@ namespace Boccialyzer.Core.Repository
         Task<(OperationResult Result, Guid Value, string Message)> Create(NewUserModel user);
 
         #endregion
-        //#region # Task<UserProfile> GetUserProfile(string userName)
+        #region # (...) GetUserProfile()
 
-        ///// <summary>
-        ///// Отримати профіль користувача
-        ///// </summary>
-        ///// <param name="userName"></param>
-        ///// <returns></returns>
-        //Task<(OperationResult Result, UserProfile Value, string Message)> GetUserProfile(string userName);
+        /// <summary>
+        /// Отримати профіль користувача
+        /// </summary>
+        /// <returns></returns>
+        (OperationResult Result, UserProfile Value, string Message) GetUserProfile();
 
-        //#endregion
+        #endregion
     }
 
     /// <summary>
@@ -43,14 +43,16 @@ namespace Boccialyzer.Core.Repository
 
         private readonly ApplicationDbContext _dbContext;
         private readonly IAppUserRepository _appUserRepository;
+        private readonly IUserInfo _userInfo;
 
         #endregion
         #region # AccountRepository - конструктор
 
-        public AccountRepository(ApplicationDbContext dbContext, IAppUserRepository appUserRepository)
+        public AccountRepository(ApplicationDbContext dbContext, IAppUserRepository appUserRepository, IUserInfo userInfo)
         {
             _dbContext = dbContext;
             _appUserRepository = appUserRepository;
+            _userInfo = userInfo;
         }
 
         #endregion
@@ -84,34 +86,26 @@ namespace Boccialyzer.Core.Repository
 
         #endregion
 
+        #region # (...) GetUserProfile()
 
-        //#region # Task<UserProfile> GetUserProfile(string userName)
+        /// <inheritdoc/>
+        public (OperationResult Result, UserProfile Value, string Message) GetUserProfile()
+        {
+            try
+            {
+                var userProfile = new UserProfile
+                {
+                    UserName = _userInfo.UserName,
+                    Roles = _userInfo.Roles,
+                    AppUserId = _userInfo.AppUserId
+                };
 
-        ///// <inheritdoc/>
-        //public async Task<(OperationResult Result, UserProfile Value, string Message)> GetUserProfile(string userName)
-        //{
-        //    try
-        //    {
-        //        var userProfile = new UserProfile
-        //        {
-        //            UserName = userName,
-        //            Roles = await _appUserRepository.GetUserRoleAsync(userName)
-        //        };
-        //        var profile = await _appUserRepository.GetPerson(userName);
-        //        if (profile.Result == OperationResult.Error)
-        //            return (Result: OperationResult.Error, Value: null, Message: profile.Message);
+                return (Result: OperationResult.Ok, Value: userProfile, Message: "");
+            }
+            catch (Exception ex)
+            { return (Result: OperationResult.Error, Value: null, Message: ex.Message); }
+        }
 
-        //        userProfile.AppUserId = profile.Value.AppUser.Id;
-        //        userProfile.PersonId = profile.Value.Id;
-
-        //        userProfile.WorkPlace = _dbContext.WorkPlace.FirstOrDefault(w => w.PersonToWorkPlaces.FirstOrDefault(a => a.IsDefault == true).PersonId == userProfile.PersonId);
-
-        //        return (Result: OperationResult.Ok, Value: userProfile, Message: "");
-        //    }
-        //    catch (Exception ex)
-        //    { return (Result: OperationResult.Error, Value: null, Message: ex.Message); }
-        //}
-
-        //#endregion
+        #endregion
     }
 }

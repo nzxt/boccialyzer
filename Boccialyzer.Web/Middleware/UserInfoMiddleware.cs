@@ -46,17 +46,9 @@ namespace Boccialyzer.Web.Middleware
             {
                 userInfo.UserName = httpContext.User?.Identity?.Name;
                 userInfo.IpAddress = httpContext.Connection.RemoteIpAddress.MapToIPv4().ToString();
-                var user = await userManager.FindByNameAsync(userInfo.UserName);//.Result;
+                var user = await userManager.FindByNameAsync(userInfo.UserName);
                 userInfo.AppUserId = user.Id;
-                var roles = await userManager.GetRolesAsync(user);
-                userInfo.RoleName = roles.FirstOrDefault();
-
-                //var rrrr = RoleEnum.
-
-                //if (Enum.TryParse(typeof(RoleEnum), userInfo.RoleName, true, out var roleId))
-                //    userInfo.RoleId = (Guid)roleId;
-                //else
-                //    userInfo.RoleId = default(Guid);
+                userInfo.Roles = await userManager.GetRolesAsync(user);
             }
             await _next.Invoke(httpContext);
         }

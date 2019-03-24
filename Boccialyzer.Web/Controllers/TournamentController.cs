@@ -1,10 +1,10 @@
-﻿using System;
-using System.Threading.Tasks;
-using Boccialyzer.Core.Repository;
+﻿using Boccialyzer.Core.Repository;
 using Boccialyzer.Domain.Entities;
 using Boccialyzer.Domain.Enums;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Threading.Tasks;
 
 namespace Boccialyzer.Web.Controllers
 {
@@ -153,6 +153,5 @@ namespace Boccialyzer.Web.Controllers
         }
 
         #endregion
-
     }
 }

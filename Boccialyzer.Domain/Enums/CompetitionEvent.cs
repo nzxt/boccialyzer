@@ -6,6 +6,10 @@
     public enum CompetitionEvent
     {
         /// <summary>
+        /// Не визначено
+        /// </summary>
+        None,
+        /// <summary>
         /// BC1
         /// </summary>
         Bс1,

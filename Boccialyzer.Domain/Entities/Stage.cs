@@ -25,13 +25,14 @@ namespace Boccialyzer.Domain.Entities
         /// <summary>
         /// Ідентифікатор матчу
         /// </summary>
+        [Required]
         public Guid MatchId { get; set; }
         /// <summary>
         /// Порядковий номер у грі
         /// </summary>
         public int Index { get; set; }
         /// <summary>
-        /// 
+        /// З порушенням?
         /// </summary>
         public bool IsDisrupted { get; set; }
         /// <summary>
@@ -42,5 +43,14 @@ namespace Boccialyzer.Domain.Entities
         /// М'ячі
         /// </summary>
         public virtual ICollection<Ball> Balls { get; set; } = new Collection<Ball>();
+
+        /// <summary>
+        /// Рахунок червоних
+        /// </summary>
+        public int ScoreRed { get; set; }
+        /// <summary>
+        /// Рахунок синіх
+        /// </summary>
+        public int ScoreBlue { get; set; }
     }
 }

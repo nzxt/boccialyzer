@@ -38,10 +38,10 @@ namespace Boccialyzer.Domain.Entities
         /// Гравці
         /// </summary>
         public Guid PlayerId { get; set; }
-        /// <summary>
-        /// Ідентифікатор тренування
-        /// </summary>
-        public Guid? TrainingId { get; set; }
+        ///// <summary>
+        ///// Ідентифікатор тренування
+        ///// </summary>
+        //public Guid? TrainingId { get; set; }
         /// <summary>
         /// Ідентифікатор матчу
         /// </summary>

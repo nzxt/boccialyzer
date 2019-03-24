@@ -61,22 +61,18 @@ namespace Boccialyzer.Core.Context
         /// Матчі
         /// </summary>
         public DbSet<Match> Matches { get; set; }
-        ///// <summary>
-        ///// М'ячі у матчі
-        ///// </summary>
-        //public DbSet<MatchBall> MatchBalls { get; set; }
         /// <summary>
         /// Тренування
         /// </summary>
         public DbSet<Training> Trainings { get; set; }
-        ///// <summary>
-        ///// М'ячі тренування
-        ///// </summary>
-        //public DbSet<TrainingBall> TrainingBalls { get; set; }
         /// <summary>
         /// Зв'язок гравців з матчами/тренуваннями
         /// </summary>
         public DbSet<MatchToPlayer> MatchToPlayers { get; set; }
+        /// <summary>
+        /// Періоди гри
+        /// </summary>
+        public DbSet<Stage> Stages { get; set; }
 
 
         /// <summary>
@@ -202,6 +198,23 @@ namespace Boccialyzer.Core.Context
             modelBuilder.Entity<Tournament>().Property(x => x.UpdatedOn).HasColumnName(@"UpdatedOn").ForNpgsqlHasComment("Дата та час редагування").ValueGeneratedNever();
             modelBuilder.Entity<Tournament>().Property(x => x.CreatedBy).HasColumnName(@"CreatedBy").ForNpgsqlHasComment("Користувач системи, що створив запис").ValueGeneratedNever();
             modelBuilder.Entity<Tournament>().Property(x => x.UpdatedBy).HasColumnName(@"UpdatedBy").ForNpgsqlHasComment("Користувач системи, що модифікував запис").ValueGeneratedNever();
+
+            #endregion
+            #region # Stages Mapping
+
+            modelBuilder.Entity<Stage>().ToTable(@"Stages").ForNpgsqlHasComment("Періоди гри");
+            modelBuilder.Entity<Stage>().HasKey(x => x.Id);
+
+            modelBuilder.Entity<Stage>().Property(x => x.Id).HasColumnName(@"Id").IsRequired().ForNpgsqlHasComment("Ідентифікатор").ValueGeneratedNever();
+            modelBuilder.Entity<Stage>().Property(x => x.MatchId).HasColumnName(@"MatchId").IsRequired().IsRequired().ForNpgsqlHasComment("Ідентифікатор матчу").ValueGeneratedNever();
+            modelBuilder.Entity<Stage>().Property(x => x.Index).HasColumnName(@"Index").ForNpgsqlHasComment("Порядковий номер у грі").ValueGeneratedNever();
+            modelBuilder.Entity<Stage>().Property(x => x.IsDisrupted).HasColumnName(@"IsDisrupted").IsRequired().ForNpgsqlHasComment("З порушенням?").ValueGeneratedNever();
+            modelBuilder.Entity<Stage>().Property(x => x.IsTieBreak).HasColumnName(@"IsTieBreak").ForNpgsqlHasComment("Тай-брейк?").ValueGeneratedNever();
+
+            modelBuilder.Entity<Stage>().Property(x => x.CreatedOn).HasColumnName(@"CreatedOn").ForNpgsqlHasComment("Дата та час внесення").ValueGeneratedNever();
+            modelBuilder.Entity<Stage>().Property(x => x.UpdatedOn).HasColumnName(@"UpdatedOn").ForNpgsqlHasComment("Дата та час редагування").ValueGeneratedNever();
+            modelBuilder.Entity<Stage>().Property(x => x.CreatedBy).HasColumnName(@"CreatedBy").ForNpgsqlHasComment("Користувач системи, що створив запис").ValueGeneratedNever();
+            modelBuilder.Entity<Stage>().Property(x => x.UpdatedBy).HasColumnName(@"UpdatedBy").ForNpgsqlHasComment("Користувач системи, що модифікував запис").ValueGeneratedNever();
 
             #endregion
 

@@ -33,8 +33,12 @@ namespace Boccialyzer.Domain.Entities
         [Required]
         public Guid AppUserId { get; set; }
         /// <summary>
-        /// Гравці матчу/тренування
+        /// М'ячі
         /// </summary>
-        public virtual ICollection<MatchToPlayer> MatchToPlayers { get; set; } = new Collection<MatchToPlayer>();
+        public virtual ICollection<Ball> Balls { get; set; } = new Collection<Ball>();
+        /// <summary>
+        /// Тренувальна гра
+        /// </summary>
+        public virtual ICollection<Match> Matches { get; set; } = new Collection<Match>();
     }
 }

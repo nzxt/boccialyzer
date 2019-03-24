@@ -26,8 +26,12 @@ namespace Boccialyzer.Domain.Entities
         /// <summary>
         /// Дата та час проведення
         /// </summary>
-        [Required]
+        //[Required]
         public DateTime DateTimeStamp { get; set; }
+        /// <summary>
+        /// Тип матчу
+        /// </summary>
+        public MatchType MatchType { get; set; }
         /// <summary>
         /// Competition Event
         /// </summary>
@@ -40,6 +44,14 @@ namespace Boccialyzer.Domain.Entities
         /// Етап на вибування
         /// </summary>
         public EliminationStage EliminationStage { get; set; }
+        /// <summary>
+        /// Рахунок червоних
+        /// </summary>
+        public int ScoreRed { get; set; }
+        /// <summary>
+        /// Рахунок синіх
+        /// </summary>
+        public int ScoreBlue { get; set; }
 
         /// <summary>
         /// Користувач системи
@@ -47,6 +59,10 @@ namespace Boccialyzer.Domain.Entities
         [Required]
         public Guid AppUserId { get; set; }
 
+        /// <summary>
+        /// Тренування
+        /// </summary>
+        public Guid? TrainingId { get; set; }
         /// <summary>
         /// Турнір
         /// </summary>

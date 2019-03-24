@@ -9,17 +9,17 @@ using System.Threading.Tasks;
 namespace Boccialyzer.Web.Controllers
 {
     /// <summary>
-    /// Матч
+    /// Гравці
     /// </summary>
     [Produces("application/json")]
     [Route("api/Match")]
     [Authorize]
     [ApiController]
-    public class MatchController : Controller
+    public class PlayerController : Controller
     {
         #region # Local variables
 
-        private readonly IMatchRepository _matchRepository;
+        private readonly IPlayerRepository _playerRepository;
 
         #endregion
         #region # Constructor
@@ -27,10 +27,10 @@ namespace Boccialyzer.Web.Controllers
         /// <summary>
         /// MatchController Constructor
         /// </summary>
-        /// <param name="matchRepository"></param>
-        public MatchController(IMatchRepository matchRepository)
+        /// <param name="playerRepository"></param>
+        public PlayerController(IPlayerRepository playerRepository)
         {
-            _matchRepository = matchRepository;
+            _playerRepository = playerRepository;
         }
 
         #endregion
@@ -52,7 +52,7 @@ namespace Boccialyzer.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> Get(int pageNumber = 1, int pageSize = 25, string filter = "", string order = "")
         {
-            var result = await _matchRepository.GetPaged(pageNumber, pageSize, filter, order);
+            var result = await _playerRepository.GetPaged(pageNumber, pageSize, filter, order);
             if (result.Result == OperationResult.Ok) return StatusCode(200, result.Value);
             return StatusCode(422, result.Message);
         }
@@ -77,7 +77,7 @@ namespace Boccialyzer.Web.Controllers
             try { itemId = Guid.Parse(id); }
             catch (Exception ex) { return StatusCode(422, $"Помилковий ідентифікатор. {ex.Message}"); }
 
-            var result = await _matchRepository.GetByIdAsync(itemId);
+            var result = await _playerRepository.GetByIdAsync(itemId);
             if (result.Result == OperationResult.Ok) return StatusCode(200, result.Value);
             return StatusCode(422, result.Message);
         }
@@ -95,12 +95,12 @@ namespace Boccialyzer.Web.Controllers
         [ProducesResponseType(201)]
         [ProducesResponseType(422)]
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] Match item)
+        public async Task<IActionResult> Post([FromBody] Player item)
         {
             if (item == null) return StatusCode(422, "Відсутні данні.");
             //if (string.IsNullOrEmpty(item.Name)) return StatusCode(422, "Відсутня назва.");
 
-            var result = await _matchRepository.CreateAsync(item);
+            var result = await _playerRepository.CreateAsync(item);
             if (result.Result == OperationResult.Ok) return StatusCode(201, result.Value);
             return StatusCode(422, result.Message);
         }
@@ -118,10 +118,10 @@ namespace Boccialyzer.Web.Controllers
         [ProducesResponseType(202)]
         [ProducesResponseType(422)]
         [HttpPut]
-        public async Task<IActionResult> Put([FromBody] Match item)
+        public async Task<IActionResult> Put([FromBody] Player item)
         {
             if (item == null) return StatusCode(422, "Відсутні данні.");
-            var result = await _matchRepository.UpdateAsync(item);
+            var result = await _playerRepository.UpdateAsync(item);
             if (result.Result == OperationResult.Ok) return StatusCode(202, result.Value);
             return StatusCode(422, result.Message);
         }
@@ -147,7 +147,7 @@ namespace Boccialyzer.Web.Controllers
             try { itemId = Guid.Parse(id); }
             catch (Exception ex) { return StatusCode(422, $"Помилковий ідентифікатор. {ex.Message}"); }
 
-            var result = await _matchRepository.DeleteAsync(itemId);
+            var result = await _playerRepository.DeleteAsync(itemId);
             if (result.Result == OperationResult.Ok) return StatusCode(204, result.Value);
             return StatusCode(422, result.Message);
         }

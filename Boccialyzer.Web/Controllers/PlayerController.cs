@@ -12,7 +12,7 @@ namespace Boccialyzer.Web.Controllers
     /// Гравці
     /// </summary>
     [Produces("application/json")]
-    [Route("api/Match")]
+    [Route("api/Player")]
     [Authorize]
     [ApiController]
     public class PlayerController : Controller

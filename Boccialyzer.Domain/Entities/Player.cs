@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Boccialyzer.Domain.Entities
 {
     /// <summary>
-    /// Гравці
+    /// Гравець
     /// </summary>
     public class Player : BaseEntity, IEntity
     {
@@ -42,5 +42,9 @@ namespace Boccialyzer.Domain.Entities
         /// </summary>
         public virtual ICollection<MatchToPlayer> MatchToPlayers { get; set; } = new Collection<MatchToPlayer>();
 
+        /// <summary>
+        /// М'ячі
+        /// </summary>
+        public virtual ICollection<Ball> Balls { get; set; } = new Collection<Ball>();
     }
 }

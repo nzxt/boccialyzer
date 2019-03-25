@@ -39,10 +39,6 @@ namespace Boccialyzer.Domain.Entities
         /// Тай-брейк?
         /// </summary>
         public bool IsTieBreak { get; set; }
-        /// <summary>
-        /// М'ячі
-        /// </summary>
-        public virtual ICollection<Ball> Balls { get; set; } = new Collection<Ball>();
 
         /// <summary>
         /// Рахунок червоних
@@ -52,5 +48,13 @@ namespace Boccialyzer.Domain.Entities
         /// Рахунок синіх
         /// </summary>
         public int ScoreBlue { get; set; }
+        /// <summary>
+        /// М'ячі
+        /// </summary>
+        public virtual ICollection<Ball> Balls { get; set; } = new Collection<Ball>();
+        /// <summary>
+        /// М'ячі
+        /// </summary>
+        public virtual ICollection<StageToPlayer> StageToPlayers { get; set; } = new Collection<StageToPlayer>();
     }
 }

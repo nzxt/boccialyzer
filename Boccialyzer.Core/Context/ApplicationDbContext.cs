@@ -66,13 +66,17 @@ namespace Boccialyzer.Core.Context
         /// </summary>
         public DbSet<Training> Trainings { get; set; }
         /// <summary>
-        /// Зв'язок гравців з матчами/тренуваннями
+        /// Зв'язок гравців з матчами
         /// </summary>
         public DbSet<MatchToPlayer> MatchToPlayers { get; set; }
         /// <summary>
         /// Періоди гри
         /// </summary>
         public DbSet<Stage> Stages { get; set; }
+        /// <summary>
+        /// Зв'язок гравців з етапами
+        /// </summary>
+        public DbSet<StageToPlayer> StageToPlayers { get; set; }
 
 
         /// <summary>
@@ -110,6 +114,12 @@ namespace Boccialyzer.Core.Context
             modelBuilder.Entity<IdentityUserRole<Guid>>().ToTable("AppUserRoles");
             modelBuilder.Entity<IdentityRoleClaim<Guid>>().ToTable("AppRoleClaims");
             modelBuilder.Entity<IdentityUserToken<Guid>>().ToTable("AppUserTokens");
+
+
+            modelBuilder.Entity<LinkToPlayers>()
+                .HasDiscriminator<int>("Discriminator")
+                .HasValue<MatchToPlayer>(1)
+                .HasValue<StageToPlayer>(2);
 
             #region # AppRole Mapping
 

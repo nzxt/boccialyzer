@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Boccialyzer.Domain.Enums;
+using System;
 using System.ComponentModel.DataAnnotations;
-using Boccialyzer.Domain.Enums;
 
 namespace Boccialyzer.Domain.Entities
 {
@@ -17,6 +17,7 @@ namespace Boccialyzer.Domain.Entities
             Id = Guid.NewGuid();
             IsDeadBall = false;
             IsPenalty = false;
+            DeadBallType = DeadBallType.None;
         }
         /// <summary>
         /// Ідентифікатор

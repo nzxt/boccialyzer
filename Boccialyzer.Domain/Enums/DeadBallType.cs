@@ -6,6 +6,10 @@
     public enum DeadBallType
     {
         /// <summary>
+        /// Не визначено
+        /// </summary>
+        None,
+        /// <summary>
         /// Balls Not Thrown (the athlete elect not to throw)
         /// </summary>
         BallsNotThrown,

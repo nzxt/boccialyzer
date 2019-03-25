@@ -32,8 +32,8 @@ namespace Boccialyzer.Core.Context
                 //Seed для разработчиков
                 if (isDevelopment == true)
                 {
-                    //if (!dbContext.Departments.IgnoreQueryFilters().Any()) await DepartmentData.Seed(dbContext);
-                    //if (!dbContext.Positions.IgnoreQueryFilters().Any()) await PositionData.Seed(dbContext);
+                    if (!dbContext.Trainings.IgnoreQueryFilters().Any()) await TrainingData.Seed(dbContext);
+                    if (!dbContext.Balls.IgnoreQueryFilters().Any()) await BallData.Seed(dbContext);
                     //if (!dbContext.Sims.IgnoreQueryFilters().Any()) await SimData.Seed(dbContext);
                 }
             }

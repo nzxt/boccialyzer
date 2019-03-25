@@ -58,6 +58,7 @@ namespace Boccialyzer.Domain.Entities
         /// <summary>
         /// Гравець
         /// </summary>
+        [Required]
         public Guid PlayerId { get; set; }
         ///// <summary>
         ///// Зв'язок гравців з матчами/тренуваннями

@@ -4,6 +4,7 @@ using Boccialyzer.Core.Repository;
 using Boccialyzer.Core.SeedData;
 using Boccialyzer.Domain.Entities;
 using Boccialyzer.Domain.Models;
+using Boccialyzer.Web;
 using Boccialyzer.Web.Middleware;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -14,7 +15,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.PlatformAbstractions;
 using Serilog;
 using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerUI;
@@ -22,8 +22,6 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using Boccialyzer.Web;
-using System.Reflection;
 
 namespace Boccialyzer
 {
@@ -263,6 +261,7 @@ namespace Boccialyzer
                 services.AddTransient<IMatchRepository, MatchRepository>();
                 services.AddTransient<IStageRepository, StageRepository>();
                 services.AddTransient<IBallRepository, BallRepository>();
+                services.AddTransient<IPlayerRepository, PlayerRepository>();
                 services.AddTransient<ILogRepository, LogRepository>();
 
                 #endregion

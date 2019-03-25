@@ -24,5 +24,9 @@ namespace Boccialyzer.Domain.Entities
         /// </summary>
         [Required]
         public Guid MatchId { get; set; }
+        /// <summary>
+        /// Матч
+        /// </summary>
+        public virtual Match Match { get; set; }
     }
 }

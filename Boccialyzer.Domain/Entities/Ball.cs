@@ -52,7 +52,7 @@ namespace Boccialyzer.Domain.Entities
         /// </summary>
         public Distance Distance { get; set; }
         /// <summary>
-        /// 
+        /// Період гри
         /// </summary>
         public Guid? StageId { get; set; }
         /// <summary>

@@ -28,6 +28,11 @@ namespace Boccialyzer.Domain.Entities
         [Required]
         public Guid MatchId { get; set; }
         /// <summary>
+        /// Match
+        /// </summary>
+        [Obsolete]
+        public virtual Match Match { get; set; }
+        /// <summary>
         /// Порядковий номер у грі
         /// </summary>
         public int Index { get; set; }

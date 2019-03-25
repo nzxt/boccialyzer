@@ -58,7 +58,11 @@ namespace Boccialyzer.Domain.Entities
         /// </summary>
         [Required]
         public Guid AppUserId { get; set; }
-
+        /// <summary>
+        /// Користувач системи
+        /// </summary>
+        [Obsolete]
+        public virtual AppUser AppUser { get; set; }
         /// <summary>
         /// Тренування
         /// </summary>
@@ -72,5 +76,9 @@ namespace Boccialyzer.Domain.Entities
         /// Зв'язок гравців з матчами/тренуваннями
         /// </summary>
         public virtual ICollection<MatchToPlayer> MatchToPlayers { get; set; } = new Collection<MatchToPlayer>();
+        /// <summary>
+        /// Періоди гри
+        /// </summary>
+        public virtual ICollection<Stage> Stages { get; set; } = new Collection<Stage>();
     }
 }

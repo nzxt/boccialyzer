@@ -9,20 +9,14 @@ namespace Boccialyzer.Domain.Entities
     public class StageToPlayer : LinkToPlayers
     {
         /// <summary>
-        /// Constructor
-        /// </summary>
-        public StageToPlayer()
-        {
-            Id = Guid.NewGuid();
-        }
-        /// <summary>
         /// Ідентифікатор періоду гри
         /// </summary>
-        [Required]
+        //[Required]
         public Guid StageId { get; set; }
         /// <summary>
         /// Період гри
         /// </summary>
+        [Obsolete]
         public virtual Stage Stage { get; set; }
     }
 }

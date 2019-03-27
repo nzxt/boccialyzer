@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Boccialyzer.Core.SeedData
 {
-    public static class TrainingData
+    public static class MatchToPlayerData
     {
         #region # Task Seed(ApplicationDbContext dbContext)
 
@@ -19,10 +19,10 @@ namespace Boccialyzer.Core.SeedData
         {
             try
             {
-                var jsonPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "SeedData", "Json", "Training.json");
-                var entities = JsonConvert.DeserializeObject<List<Training>>(File.ReadAllText(jsonPath));
+                var jsonPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "SeedData", "Json", "MatchToPlayer.json");
+                var entities = JsonConvert.DeserializeObject<List<MatchToPlayer>>(File.ReadAllText(jsonPath));
 
-                dbContext.Trainings.AddRange(entities);
+                dbContext.MatchToPlayers.AddRange(entities);
                 await dbContext.SaveChangesAsync();
             }
             catch (Exception ex)

@@ -59,9 +59,9 @@ namespace Boccialyzer
                 Log.Information("{Info}", "Застосування міграцій");
                 services.GetService<ApplicationDbContext>().ApplyMigrationsAsync().Wait();
                 Log.Information("{Info}", "Додавання данних");
-                services.GetService<ApplicationDbContext>().EnsureSeededAsync(isDevelopment).Wait();
                 AppRoleData.Seed(services).Wait();
                 AppUserData.Seed(services, isDevelopment).Wait();
+                services.GetService<ApplicationDbContext>().EnsureSeededAsync(isDevelopment).Wait();
                 services.GetService<ApplicationDbContext>().EnsureSeededAfterAsync(isDevelopment).Wait();
             }
             Log.Information("{Info}", "Запуск сервісу");

@@ -1,17 +1,15 @@
 ﻿using Boccialyzer.Core.Context;
 using Boccialyzer.Domain.Entities;
 using Newtonsoft.Json;
-using Npgsql.Bulk;
 using Serilog;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Boccialyzer.Core.SeedData
 {
-    public static class TrainingData
+    public static class StageToPlayerData
     {
         #region # Task Seed(ApplicationDbContext dbContext)
 
@@ -19,10 +17,10 @@ namespace Boccialyzer.Core.SeedData
         {
             try
             {
-                var jsonPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "SeedData", "Json", "Training.json");
-                var entities = JsonConvert.DeserializeObject<List<Training>>(File.ReadAllText(jsonPath));
+                var jsonPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "SeedData", "Json", "StageToPlayer.json");
+                var entities = JsonConvert.DeserializeObject<List<StageToPlayer>>(File.ReadAllText(jsonPath));
 
-                dbContext.Trainings.AddRange(entities);
+                await dbContext.StageToPlayers.AddRangeAsync(entities);
                 await dbContext.SaveChangesAsync();
             }
             catch (Exception ex)

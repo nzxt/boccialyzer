@@ -12,6 +12,7 @@
     <Compile Remove="Migrations\20190314214241_ModifiedDB2.cs" />
     <Compile Remove="Migrations\20190314214733_ModifiedDB2.cs" />
     <Compile Remove="Migrations\20190316193327_ModifiedModel.cs" />
+    <Compile Remove="Migrations\20190327170854_ChangeDbModel05.cs" />
   </ItemGroup>
   
   <ItemGroup>
@@ -62,7 +63,25 @@
   </ItemGroup>
   
   <ItemGroup>
+    <None Update="SeedData\Json\Ball.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="SeedData\Json\Match.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="SeedData\Json\MatchToPlayer.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="SeedData\Json\Players.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="SeedData\Json\Stage.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="SeedData\Json\StageToPlayer.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="SeedData\Json\Training.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

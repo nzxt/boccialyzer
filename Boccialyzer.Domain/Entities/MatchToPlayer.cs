@@ -9,24 +9,18 @@ namespace Boccialyzer.Domain.Entities
     public class MatchToPlayer : LinkToPlayers
     {
         /// <summary>
-        /// Constructor
-        /// </summary>
-        public MatchToPlayer()
-        {
-            Id = Guid.NewGuid();
-        }
-        /// <summary>
         /// Гравець для заміни?
         /// </summary>
         public bool IsSubstitutePlayer { get; set; }
         /// <summary>
         /// Ідентифікатор матчу
         /// </summary>
-        [Required]
+        //[Required]
         public Guid MatchId { get; set; }
         /// <summary>
         /// Матч
         /// </summary>
+        [Obsolete]
         public virtual Match Match { get; set; }
     }
 }

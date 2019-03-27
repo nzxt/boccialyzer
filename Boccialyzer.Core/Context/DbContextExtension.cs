@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Boccialyzer.Core.SeedData;
+﻿using Boccialyzer.Core.SeedData;
+using Microsoft.EntityFrameworkCore;
 using Serilog;
 using System;
 using System.Linq;
@@ -29,12 +29,14 @@ namespace Boccialyzer.Core.Context
                 if (!dbContext.Configurations.Any()) await ConfigurationData.Seed(dbContext);
                 if (!dbContext.Players.Any()) await PlayerData.Seed(dbContext);
 
-                //Seed для разработчиков
-                if (isDevelopment == true)
+                if (isDevelopment)
                 {
                     if (!dbContext.Trainings.IgnoreQueryFilters().Any()) await TrainingData.Seed(dbContext);
+                    if (!dbContext.Matches.IgnoreQueryFilters().Any()) await MatchData.Seed(dbContext);
+                    if (!dbContext.MatchToPlayers.IgnoreQueryFilters().Any()) await MatchToPlayerData.Seed(dbContext);
+                    if (!dbContext.Stages.IgnoreQueryFilters().Any()) await StageData.Seed(dbContext);
+                    if (!dbContext.StageToPlayers.IgnoreQueryFilters().Any()) await StageToPlayerData.Seed(dbContext);
                     if (!dbContext.Balls.IgnoreQueryFilters().Any()) await BallData.Seed(dbContext);
-                    //if (!dbContext.Sims.IgnoreQueryFilters().Any()) await SimData.Seed(dbContext);
                 }
             }
             catch (Exception ex)
@@ -51,22 +53,6 @@ namespace Boccialyzer.Core.Context
 
             //try
             //{
-            //    //Seed для разработчиков
-            //    if (isDevelopment == true)
-            //    {
-            //        if (!dbContext.Crimes.IgnoreQueryFilters().Any()) await CrimeData.Seed(dbContext);
-            //        if (!dbContext.CrimeToCodex.IgnoreQueryFilters().Any()) await CrimeToCodexData.Seed(dbContext);
-            //        if (!dbContext.CourtOrders.IgnoreQueryFilters().Any()) await CourtOrderData.Seed(dbContext);
-            //        if (!dbContext.Issues.IgnoreQueryFilters().Any()) await IssueData.Seed(dbContext);
-            //        if (!dbContext.Sessions.IgnoreQueryFilters().Any()) await SessionData.Seed(dbContext);
-            //        if (!dbContext.Interlocutors.IgnoreQueryFilters().Any()) await InterlocutorData.Seed(dbContext);
-            //        if (!dbContext.InitiatorToIssues.IgnoreQueryFilters().Any()) await InitiatorToIssueData.Seed(dbContext);
-            //        if (!dbContext.SessionDescriptions.IgnoreQueryFilters().Any()) await SessionDescriptionData.Seed(dbContext);
-            //        if (!dbContext.Documents.IgnoreQueryFilters().Any()) await DocumentData.Seed(dbContext);
-            //        if (!dbContext.IssueStatusHistories.IgnoreQueryFilters().Any()) await IssueStatusHistoryData.Seed(dbContext);
-            //    }
-            //    if (!dbContext.ImporterServices.IgnoreQueryFilters().Any()) await ImporterServiceData.Seed(dbContext);
-
             //    StoredFunctionData.Seed(dbContext);
             //    TriggerData.Seed(dbContext);
             //    StoredViewData.Seed(dbContext);

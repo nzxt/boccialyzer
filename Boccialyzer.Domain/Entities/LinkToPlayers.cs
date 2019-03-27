@@ -11,7 +11,7 @@ namespace Boccialyzer.Domain.Entities
         /// <summary>
         /// Constructor
         /// </summary>
-        public LinkToPlayers()
+        protected LinkToPlayers()
         {
             Id = Guid.NewGuid();
         }

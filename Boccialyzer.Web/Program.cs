@@ -254,12 +254,14 @@ namespace Boccialyzer
                 services.AddTransient<IAppUserRepository, AppUserRepository>();
                 services.AddTransient<IConfigurationRepository, ConfigurationRepository>();
                 services.AddTransient<ICountryRepository, CountryRepository>();
-                services.AddTransient<ISendGridRepository, SendGridRepository>();
+                services.AddTransient<ITrainingRepository, TrainingRepository>();
                 services.AddTransient<ISystemJobRepository, SystemJobRepository>();
                 services.AddTransient<ITournamentRepository, TournamentRepository>();
                 services.AddTransient<ITournamentTypeRepository, TournamentTypeRepository>();
                 services.AddTransient<IMatchRepository, MatchRepository>();
+                services.AddTransient<IMatchToPlayerRepository, MatchToPlayerRepository>();
                 services.AddTransient<IStageRepository, StageRepository>();
+                services.AddTransient<IStageToPlayerRepository, StageToPlayerRepository>();
                 services.AddTransient<IBallRepository, BallRepository>();
                 services.AddTransient<IPlayerRepository, PlayerRepository>();
                 services.AddTransient<ILogRepository, LogRepository>();

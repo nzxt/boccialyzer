@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Boccialyzer.Core.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190320141823_Initial")]
+    [Migration("20190328192921_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -116,7 +116,9 @@ namespace Boccialyzer.Core.Migrations
                         .HasColumnName("CreatedOn")
                         .HasAnnotation("Npgsql:Comment", "Дата та час внесення");
 
-                    b.Property<DateTime?>("DateOfBirth");
+                    b.Property<DateTime?>("DateOfBirth")
+                        .HasColumnName("DateOfBirth")
+                        .HasAnnotation("Npgsql:Comment", "Дата народження");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256);
@@ -124,13 +126,19 @@ namespace Boccialyzer.Core.Migrations
                     b.Property<bool>("EmailConfirmed");
 
                     b.Property<string>("FirstName")
-                        .HasMaxLength(50);
+                        .HasColumnName("FirstName")
+                        .HasMaxLength(50)
+                        .HasAnnotation("Npgsql:Comment", "Ім'я");
 
-                    b.Property<int>("Gender");
+                    b.Property<int>("Gender")
+                        .HasColumnName("Gender")
+                        .HasAnnotation("Npgsql:Comment", "Стать");
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasMaxLength(50);
+                        .HasColumnName("LastName")
+                        .HasMaxLength(50)
+                        .HasAnnotation("Npgsql:Comment", "Прізвище");
 
                     b.Property<bool>("LockoutEnabled");
 
@@ -147,6 +155,10 @@ namespace Boccialyzer.Core.Migrations
                     b.Property<string>("PhoneNumber");
 
                     b.Property<bool>("PhoneNumberConfirmed");
+
+                    b.Property<Guid?>("PlayerId")
+                        .HasColumnName("PlayerId")
+                        .HasAnnotation("Npgsql:Comment", "Ідентифікатор гравця");
 
                     b.Property<string>("SecurityStamp");
 
@@ -182,39 +194,76 @@ namespace Boccialyzer.Core.Migrations
             modelBuilder.Entity("Boccialyzer.Domain.Entities.Ball", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
+                        .HasColumnName("Id")
+                        .HasAnnotation("Npgsql:Comment", "Ідентифікатор");
 
-                    b.Property<int>("Box");
+                    b.Property<int>("Box")
+                        .HasColumnName("Box")
+                        .HasAnnotation("Npgsql:Comment", "Ігрова зона");
 
-                    b.Property<Guid?>("CreatedBy");
+                    b.Property<Guid?>("CreatedBy")
+                        .HasColumnName("CreatedBy")
+                        .HasAnnotation("Npgsql:Comment", "Користувач системи, що створив запис");
 
-                    b.Property<DateTime?>("CreatedOn");
+                    b.Property<DateTime?>("CreatedOn")
+                        .HasColumnName("CreatedOn")
+                        .HasAnnotation("Npgsql:Comment", "Дата та час внесення");
 
-                    b.Property<int>("DeadBallType");
+                    b.Property<int>("DeadBallType")
+                        .HasColumnName("DeadBallType")
+                        .HasAnnotation("Npgsql:Comment", "Типи м'ячів поза грою");
 
-                    b.Property<int>("Distance");
+                    b.Property<int>("Distance")
+                        .HasColumnName("Distance")
+                        .HasAnnotation("Npgsql:Comment", "Дистанція");
 
-                    b.Property<bool>("IsDeadBall");
+                    b.Property<bool>("IsDeadBall")
+                        .HasColumnName("IsDeadBall")
+                        .HasAnnotation("Npgsql:Comment", "М'яч поза грою?");
 
-                    b.Property<bool>("IsPenalty");
+                    b.Property<bool>("IsPenalty")
+                        .HasColumnName("IsPenalty")
+                        .HasAnnotation("Npgsql:Comment", "Штрафний м'яч?");
 
-                    b.Property<Guid?>("MatchToPlayerId");
+                    b.Property<Guid>("PlayerId")
+                        .HasColumnName("PlayerId")
+                        .HasAnnotation("Npgsql:Comment", "Гравець");
 
-                    b.Property<int>("Rating");
+                    b.Property<int>("Rating")
+                        .HasColumnName("Rating")
+                        .HasAnnotation("Npgsql:Comment", "Оцінка");
 
-                    b.Property<int>("ShotType");
+                    b.Property<int>("ShotType")
+                        .HasColumnName("ShotType")
+                        .HasAnnotation("Npgsql:Comment", "Тип кидка");
 
-                    b.Property<Guid?>("StageId");
+                    b.Property<Guid?>("StageId")
+                        .HasColumnName("StageId")
+                        .HasAnnotation("Npgsql:Comment", "Період гри");
 
-                    b.Property<Guid?>("UpdatedBy");
+                    b.Property<Guid?>("TrainingId")
+                        .HasColumnName("TrainingId")
+                        .HasAnnotation("Npgsql:Comment", "Тренування");
 
-                    b.Property<DateTime?>("UpdatedOn");
+                    b.Property<Guid?>("UpdatedBy")
+                        .HasColumnName("UpdatedBy")
+                        .HasAnnotation("Npgsql:Comment", "Користувач системи, що модифікував запис");
+
+                    b.Property<DateTime?>("UpdatedOn")
+                        .HasColumnName("UpdatedOn")
+                        .HasAnnotation("Npgsql:Comment", "Дата та час редагування");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("MatchToPlayerId");
+                    b.HasIndex("PlayerId");
+
+                    b.HasIndex("StageId");
+
+                    b.HasIndex("TrainingId");
 
                     b.ToTable("Balls");
+
+                    b.HasAnnotation("Npgsql:Comment", "М'ячі");
                 });
 
             modelBuilder.Entity("Boccialyzer.Domain.Entities.Configuration", b =>
@@ -266,8 +315,6 @@ namespace Boccialyzer.Core.Migrations
                         .HasColumnName("CreatedOn")
                         .HasAnnotation("Npgsql:Comment", "Дата та час внесення");
 
-                    b.Property<string>("Icon");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnName("Name")
@@ -289,44 +336,10 @@ namespace Boccialyzer.Core.Migrations
 
                     b.ToTable("Countries");
 
-                    b.HasAnnotation("Npgsql:Comment", "Громадянство");
+                    b.HasAnnotation("Npgsql:Comment", "Країни");
                 });
 
-            modelBuilder.Entity("Boccialyzer.Domain.Entities.Match", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<Guid>("AppUserId");
-
-                    b.Property<int>("CompetitionEvent");
-
-                    b.Property<Guid?>("CreatedBy");
-
-                    b.Property<DateTime?>("CreatedOn");
-
-                    b.Property<DateTime>("DateTimeStamp");
-
-                    b.Property<int>("EliminationStage");
-
-                    b.Property<int>("PoolStage");
-
-                    b.Property<Guid?>("TournamentId");
-
-                    b.Property<Guid?>("UpdatedBy");
-
-                    b.Property<DateTime?>("UpdatedOn");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AppUserId");
-
-                    b.HasIndex("TournamentId");
-
-                    b.ToTable("Matches");
-                });
-
-            modelBuilder.Entity("Boccialyzer.Domain.Entities.MatchToPlayer", b =>
+            modelBuilder.Entity("Boccialyzer.Domain.Entities.LinkToPlayers", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
@@ -339,13 +352,9 @@ namespace Boccialyzer.Core.Migrations
 
                     b.Property<DateTime?>("CreatedOn");
 
-                    b.Property<bool>("IsSubstitutePlayer");
-
-                    b.Property<Guid?>("MatchId");
+                    b.Property<int>("Discriminator");
 
                     b.Property<Guid>("PlayerId");
-
-                    b.Property<Guid?>("TrainingId");
 
                     b.Property<Guid?>("UpdatedBy");
 
@@ -353,69 +362,245 @@ namespace Boccialyzer.Core.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("MatchId");
+                    b.ToTable("LinkToPlayers");
 
-                    b.HasIndex("PlayerId");
+                    b.HasDiscriminator<int>("Discriminator");
+                });
+
+            modelBuilder.Entity("Boccialyzer.Domain.Entities.Match", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnName("Id")
+                        .HasAnnotation("Npgsql:Comment", "Ідентифікатор");
+
+                    b.Property<Guid>("AppUserId")
+                        .HasColumnName("AppUserId")
+                        .HasAnnotation("Npgsql:Comment", "Ідентифікатор Користувача системи");
+
+                    b.Property<int>("CompetitionEvent")
+                        .HasColumnName("CompetitionEvent")
+                        .HasAnnotation("Npgsql:Comment", "Competition Event");
+
+                    b.Property<Guid?>("CreatedBy")
+                        .HasColumnName("CreatedBy")
+                        .HasAnnotation("Npgsql:Comment", "Користувач системи, що створив запис");
+
+                    b.Property<DateTime?>("CreatedOn")
+                        .HasColumnName("CreatedOn")
+                        .HasAnnotation("Npgsql:Comment", "Дата та час внесення");
+
+                    b.Property<DateTime>("DateTimeStamp")
+                        .HasColumnName("DateTimeStamp")
+                        .HasAnnotation("Npgsql:Comment", "Дата та час проведення");
+
+                    b.Property<int>("EliminationStage")
+                        .HasColumnName("EliminationStage")
+                        .HasAnnotation("Npgsql:Comment", "Етап на вибування");
+
+                    b.Property<string>("FlagBlue")
+                        .HasColumnName("FlagBlue")
+                        .HasAnnotation("Npgsql:Comment", "Ідентифікатор прапору для синіх");
+
+                    b.Property<string>("FlagRed")
+                        .HasColumnName("FlagRed")
+                        .HasAnnotation("Npgsql:Comment", "Ідентифікатор прапору для червоних");
+
+                    b.Property<int>("MatchType")
+                        .HasColumnName("MatchType")
+                        .HasAnnotation("Npgsql:Comment", "Тип матчу");
+
+                    b.Property<int>("PoolStage")
+                        .HasColumnName("PoolStage")
+                        .HasAnnotation("Npgsql:Comment", "Етап пулу");
+
+                    b.Property<int>("ScoreBlue")
+                        .HasColumnName("ScoreBlue")
+                        .HasAnnotation("Npgsql:Comment", "Рахунок синіх");
+
+                    b.Property<int>("ScoreRed")
+                        .HasColumnName("ScoreRed")
+                        .HasAnnotation("Npgsql:Comment", "Рахунок червоних");
+
+                    b.Property<Guid?>("TournamentId")
+                        .HasColumnName("TournamentId")
+                        .HasAnnotation("Npgsql:Comment", "Турнір");
+
+                    b.Property<Guid?>("TrainingId")
+                        .HasColumnName("TrainingId")
+                        .HasAnnotation("Npgsql:Comment", "Тренування");
+
+                    b.Property<Guid?>("UpdatedBy")
+                        .HasColumnName("UpdatedBy")
+                        .HasAnnotation("Npgsql:Comment", "Користувач системи, що модифікував запис");
+
+                    b.Property<DateTime?>("UpdatedOn")
+                        .HasColumnName("UpdatedOn")
+                        .HasAnnotation("Npgsql:Comment", "Дата та час редагування");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.HasIndex("TournamentId");
 
                     b.HasIndex("TrainingId");
 
-                    b.ToTable("MatchToPlayers");
+                    b.ToTable("Matches");
+
+                    b.HasAnnotation("Npgsql:Comment", "Матчі");
                 });
 
             modelBuilder.Entity("Boccialyzer.Domain.Entities.Player", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
+                        .HasColumnName("Id")
+                        .HasAnnotation("Npgsql:Comment", "Ідентифікатор");
 
-                    b.Property<Guid?>("CountryId");
+                    b.Property<Guid?>("CountryId")
+                        .HasColumnName("CountryId")
+                        .HasAnnotation("Npgsql:Comment", "Країна");
 
-                    b.Property<Guid?>("CreatedBy");
+                    b.Property<Guid?>("CreatedBy")
+                        .HasColumnName("CreatedBy")
+                        .HasAnnotation("Npgsql:Comment", "Користувач системи, що створив запис");
 
-                    b.Property<DateTime?>("CreatedOn");
+                    b.Property<DateTime?>("CreatedOn")
+                        .HasColumnName("CreatedOn")
+                        .HasAnnotation("Npgsql:Comment", "Дата та час внесення");
 
                     b.Property<string>("FullName")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasColumnName("FullName")
+                        .HasAnnotation("Npgsql:Comment", "Ім'я та прізвище");
 
-                    b.Property<int>("PlayerClassification");
+                    b.Property<bool>("IsBisFed")
+                        .HasColumnName("IsBisFed")
+                        .HasAnnotation("Npgsql:Comment", "Чи є гравцем BISFed?");
 
-                    b.Property<Guid?>("UpdatedBy");
+                    b.Property<int>("PlayerClassification")
+                        .HasColumnName("PlayerClassification")
+                        .HasAnnotation("Npgsql:Comment", "Класифікація");
 
-                    b.Property<DateTime?>("UpdatedOn");
+                    b.Property<Guid?>("UpdatedBy")
+                        .HasColumnName("UpdatedBy")
+                        .HasAnnotation("Npgsql:Comment", "Користувач системи, що модифікував запис");
+
+                    b.Property<DateTime?>("UpdatedOn")
+                        .HasColumnName("UpdatedOn")
+                        .HasAnnotation("Npgsql:Comment", "Дата та час редагування");
 
                     b.HasKey("Id");
 
                     b.ToTable("Players");
+
+                    b.HasAnnotation("Npgsql:Comment", "Гравці");
+                });
+
+            modelBuilder.Entity("Boccialyzer.Domain.Entities.Stage", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnName("Id")
+                        .HasAnnotation("Npgsql:Comment", "Ідентифікатор");
+
+                    b.Property<Guid?>("CreatedBy")
+                        .HasColumnName("CreatedBy")
+                        .HasAnnotation("Npgsql:Comment", "Користувач системи, що створив запис");
+
+                    b.Property<DateTime?>("CreatedOn")
+                        .HasColumnName("CreatedOn")
+                        .HasAnnotation("Npgsql:Comment", "Дата та час внесення");
+
+                    b.Property<int>("Index")
+                        .HasColumnName("Index")
+                        .HasAnnotation("Npgsql:Comment", "Порядковий номер у грі");
+
+                    b.Property<bool>("IsDisrupted")
+                        .HasColumnName("IsDisrupted")
+                        .HasAnnotation("Npgsql:Comment", "З порушенням?");
+
+                    b.Property<bool>("IsTieBreak")
+                        .HasColumnName("IsTieBreak")
+                        .HasAnnotation("Npgsql:Comment", "Тай-брейк?");
+
+                    b.Property<Guid>("MatchId")
+                        .HasColumnName("MatchId")
+                        .HasAnnotation("Npgsql:Comment", "Ідентифікатор матчу");
+
+                    b.Property<int>("ScoreBlue")
+                        .HasColumnName("ScoreBlue")
+                        .HasAnnotation("Npgsql:Comment", "Рахунок синіх");
+
+                    b.Property<int>("ScoreRed")
+                        .HasColumnName("ScoreRed")
+                        .HasAnnotation("Npgsql:Comment", "Рахунок червоних");
+
+                    b.Property<Guid?>("UpdatedBy")
+                        .HasColumnName("UpdatedBy")
+                        .HasAnnotation("Npgsql:Comment", "Користувач системи, що модифікував запис");
+
+                    b.Property<DateTime?>("UpdatedOn")
+                        .HasColumnName("UpdatedOn")
+                        .HasAnnotation("Npgsql:Comment", "Дата та час редагування");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MatchId");
+
+                    b.ToTable("Stages");
+
+                    b.HasAnnotation("Npgsql:Comment", "Періоди гри");
                 });
 
             modelBuilder.Entity("Boccialyzer.Domain.Entities.Tournament", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
+                        .HasColumnName("Id")
+                        .HasAnnotation("Npgsql:Comment", "Ідентифікатор");
 
-                    b.Property<Guid?>("CreatedBy");
+                    b.Property<Guid?>("CreatedBy")
+                        .HasColumnName("CreatedBy")
+                        .HasAnnotation("Npgsql:Comment", "Користувач системи, що створив запис");
 
-                    b.Property<DateTime?>("CreatedOn");
+                    b.Property<DateTime?>("CreatedOn")
+                        .HasColumnName("CreatedOn")
+                        .HasAnnotation("Npgsql:Comment", "Дата та час внесення");
 
                     b.Property<DateTime>("DateFrom")
-                        .HasColumnType("Date");
+                        .HasColumnName("DateFrom")
+                        .HasColumnType("Date")
+                        .HasAnnotation("Npgsql:Comment", "Дата початку");
 
                     b.Property<DateTime>("DateTo")
-                        .HasColumnType("Date");
+                        .HasColumnName("DateTo")
+                        .HasColumnType("Date")
+                        .HasAnnotation("Npgsql:Comment", "Дата завершення");
 
                     b.Property<string>("Name")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasColumnName("Name")
+                        .HasAnnotation("Npgsql:Comment", "Назва");
 
-                    b.Property<Guid>("TournamentTypeId");
+                    b.Property<Guid>("TournamentTypeId")
+                        .HasColumnName("TournamentTypeId")
+                        .HasAnnotation("Npgsql:Comment", "Тип турниру");
 
-                    b.Property<Guid?>("UpdatedBy");
+                    b.Property<Guid?>("UpdatedBy")
+                        .HasColumnName("UpdatedBy")
+                        .HasAnnotation("Npgsql:Comment", "Користувач системи, що модифікував запис");
 
-                    b.Property<DateTime?>("UpdatedOn");
+                    b.Property<DateTime?>("UpdatedOn")
+                        .HasColumnName("UpdatedOn")
+                        .HasAnnotation("Npgsql:Comment", "Дата та час редагування");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Name");
 
                     b.HasIndex("TournamentTypeId");
 
                     b.ToTable("Tournaments");
+
+                    b.HasAnnotation("Npgsql:Comment", "Турніри");
                 });
 
             modelBuilder.Entity("Boccialyzer.Domain.Entities.TournamentType", b =>
@@ -462,33 +647,48 @@ namespace Boccialyzer.Core.Migrations
 
                     b.HasIndex("Name");
 
-                    b.ToTable("TournamentType");
+                    b.ToTable("TournamentTypes");
 
-                    b.HasAnnotation("Npgsql:Comment", "Тип турниру");
+                    b.HasAnnotation("Npgsql:Comment", "Тип турніру");
                 });
 
             modelBuilder.Entity("Boccialyzer.Domain.Entities.Training", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
+                        .HasColumnName("Id")
+                        .HasAnnotation("Npgsql:Comment", "Ідентифікатор");
 
-                    b.Property<Guid>("AppUserId");
+                    b.Property<Guid>("AppUserId")
+                        .HasColumnName("AppUserId")
+                        .HasAnnotation("Npgsql:Comment", "Користувач системи");
 
-                    b.Property<Guid?>("CreatedBy");
+                    b.Property<Guid?>("CreatedBy")
+                        .HasColumnName("CreatedBy")
+                        .HasAnnotation("Npgsql:Comment", "Користувач системи, що створив запис");
 
-                    b.Property<DateTime?>("CreatedOn");
+                    b.Property<DateTime?>("CreatedOn")
+                        .HasColumnName("CreatedOn")
+                        .HasAnnotation("Npgsql:Comment", "Дата та час внесення");
 
-                    b.Property<DateTime>("DateTimeStamp");
+                    b.Property<DateTime>("DateTimeStamp")
+                        .HasColumnName("DateTimeStamp")
+                        .HasAnnotation("Npgsql:Comment", "Дата та час тренування");
 
-                    b.Property<Guid?>("UpdatedBy");
+                    b.Property<Guid?>("UpdatedBy")
+                        .HasColumnName("UpdatedBy")
+                        .HasAnnotation("Npgsql:Comment", "Користувач системи, що модифікував запис");
 
-                    b.Property<DateTime?>("UpdatedOn");
+                    b.Property<DateTime?>("UpdatedOn")
+                        .HasColumnName("UpdatedOn")
+                        .HasAnnotation("Npgsql:Comment", "Дата та час редагування");
 
                     b.HasKey("Id");
 
                     b.HasIndex("AppUserId");
 
                     b.ToTable("Trainings");
+
+                    b.HasAnnotation("Npgsql:Comment", "Тренування");
                 });
 
             modelBuilder.Entity("Boccialyzer.Domain.LogEntities.LogDbEvent", b =>
@@ -645,6 +845,32 @@ namespace Boccialyzer.Core.Migrations
                     b.ToTable("AppUserTokens");
                 });
 
+            modelBuilder.Entity("Boccialyzer.Domain.Entities.MatchToPlayer", b =>
+                {
+                    b.HasBaseType("Boccialyzer.Domain.Entities.LinkToPlayers");
+
+                    b.Property<bool>("IsSubstitutePlayer");
+
+                    b.Property<Guid>("MatchId");
+
+                    b.HasIndex("MatchId");
+
+                    b.HasIndex("PlayerId");
+
+                    b.HasDiscriminator().HasValue(1);
+                });
+
+            modelBuilder.Entity("Boccialyzer.Domain.Entities.StageToPlayer", b =>
+                {
+                    b.HasBaseType("Boccialyzer.Domain.Entities.LinkToPlayers");
+
+                    b.Property<Guid>("StageId");
+
+                    b.HasIndex("StageId");
+
+                    b.HasDiscriminator().HasValue(2);
+                });
+
             modelBuilder.Entity("Boccialyzer.Domain.Entities.AppUser", b =>
                 {
                     b.HasOne("Boccialyzer.Domain.Entities.Country", "Country")
@@ -654,14 +880,23 @@ namespace Boccialyzer.Core.Migrations
 
             modelBuilder.Entity("Boccialyzer.Domain.Entities.Ball", b =>
                 {
-                    b.HasOne("Boccialyzer.Domain.Entities.MatchToPlayer")
+                    b.HasOne("Boccialyzer.Domain.Entities.Player")
                         .WithMany("Balls")
-                        .HasForeignKey("MatchToPlayerId");
+                        .HasForeignKey("PlayerId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Boccialyzer.Domain.Entities.Stage")
+                        .WithMany("Balls")
+                        .HasForeignKey("StageId");
+
+                    b.HasOne("Boccialyzer.Domain.Entities.Training")
+                        .WithMany("Balls")
+                        .HasForeignKey("TrainingId");
                 });
 
             modelBuilder.Entity("Boccialyzer.Domain.Entities.Match", b =>
                 {
-                    b.HasOne("Boccialyzer.Domain.Entities.AppUser")
+                    b.HasOne("Boccialyzer.Domain.Entities.AppUser", "AppUser")
                         .WithMany("Matches")
                         .HasForeignKey("AppUserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -669,22 +904,18 @@ namespace Boccialyzer.Core.Migrations
                     b.HasOne("Boccialyzer.Domain.Entities.Tournament")
                         .WithMany("Matches")
                         .HasForeignKey("TournamentId");
-                });
-
-            modelBuilder.Entity("Boccialyzer.Domain.Entities.MatchToPlayer", b =>
-                {
-                    b.HasOne("Boccialyzer.Domain.Entities.Match")
-                        .WithMany("MatchToPlayers")
-                        .HasForeignKey("MatchId");
-
-                    b.HasOne("Boccialyzer.Domain.Entities.Player")
-                        .WithMany("MatchToPlayers")
-                        .HasForeignKey("PlayerId")
-                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("Boccialyzer.Domain.Entities.Training")
-                        .WithMany("MatchToPlayers")
+                        .WithMany("Matches")
                         .HasForeignKey("TrainingId");
+                });
+
+            modelBuilder.Entity("Boccialyzer.Domain.Entities.Stage", b =>
+                {
+                    b.HasOne("Boccialyzer.Domain.Entities.Match", "Match")
+                        .WithMany("Stages")
+                        .HasForeignKey("MatchId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Boccialyzer.Domain.Entities.Tournament", b =>
@@ -745,6 +976,27 @@ namespace Boccialyzer.Core.Migrations
                     b.HasOne("Boccialyzer.Domain.Entities.AppUser")
                         .WithMany()
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Boccialyzer.Domain.Entities.MatchToPlayer", b =>
+                {
+                    b.HasOne("Boccialyzer.Domain.Entities.Match", "Match")
+                        .WithMany("MatchToPlayers")
+                        .HasForeignKey("MatchId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Boccialyzer.Domain.Entities.Player")
+                        .WithMany("MatchToPlayers")
+                        .HasForeignKey("PlayerId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Boccialyzer.Domain.Entities.StageToPlayer", b =>
+                {
+                    b.HasOne("Boccialyzer.Domain.Entities.Stage", "Stage")
+                        .WithMany("StageToPlayers")
+                        .HasForeignKey("StageId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

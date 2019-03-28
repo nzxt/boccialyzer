@@ -52,9 +52,17 @@ namespace Boccialyzer.Domain.Entities
         /// Рахунок синіх
         /// </summary>
         public int ScoreBlue { get; set; }
+        /// <summary>
+        /// Ідентифікатор прапору для червоних
+        /// </summary>
+        public string FlagRed { get; set; }
+        /// <summary>
+        /// Ідентифікатор прапору для синіх
+        /// </summary>
+        public string FlagBlue { get; set; }
 
         /// <summary>
-        /// Користувач системи
+        /// Ідентифікатор Користувача системи
         /// </summary>
         [Required]
         public Guid AppUserId { get; set; }

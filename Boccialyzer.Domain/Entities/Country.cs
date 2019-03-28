@@ -46,10 +46,6 @@ namespace Boccialyzer.Domain.Entities
         /// </summary>
         public string Alpha3 { get; set; }
         /// <summary>
-        /// Іконка флагу
-        /// </summary>
-        public string Icon { get; set; }
-        /// <summary>
         /// Користувачі
         /// </summary>
         public ICollection<AppUser> AppUsers { get; set; } = new Collection<AppUser>();

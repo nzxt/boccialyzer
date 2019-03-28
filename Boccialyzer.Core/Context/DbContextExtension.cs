@@ -51,16 +51,16 @@ namespace Boccialyzer.Core.Context
         {
             dbContext.LoggingDisable = true;
 
-            //try
-            //{
-            //    StoredFunctionData.Seed(dbContext);
-            //    TriggerData.Seed(dbContext);
-            //    StoredViewData.Seed(dbContext);
-            //}
-            //catch (Exception ex)
-            //{
-            //    Log.Error("{SeedError}", ex.Message);
-            //}
+            try
+            {
+                //StoredFunctionData.Seed(dbContext);
+                //TriggerData.Seed(dbContext);
+                StoredViewData.Seed(dbContext);
+            }
+            catch (Exception ex)
+            {
+                Log.Error("{SeedError}", ex.Message);
+            }
 
             dbContext.LoggingDisable = false;
         }

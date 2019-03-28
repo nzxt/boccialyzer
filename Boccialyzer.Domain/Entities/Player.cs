@@ -36,6 +36,10 @@ namespace Boccialyzer.Domain.Entities
         /// Країна
         /// </summary>
         public Guid? CountryId { get; set; }
+        /// <summary>
+        /// Чи є гравцем BISFed?
+        /// </summary>
+        public bool IsBisFed { get; set; }
 
         /// <summary>
         /// М'ячі

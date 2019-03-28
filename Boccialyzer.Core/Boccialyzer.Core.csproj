@@ -63,6 +63,12 @@
   </ItemGroup>
   
   <ItemGroup>
+    <Compile Update="SeedData\StoredViewData.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+  </ItemGroup>
+  
+  <ItemGroup>
     <None Update="SeedData\Json\Ball.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -79,6 +85,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="SeedData\Json\StageToPlayer.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="SeedData\Json\StoredView.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="SeedData\Json\Training.json">

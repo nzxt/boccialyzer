@@ -8,6 +8,9 @@ namespace Boccialyzer.Core.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.EnsureSchema(
+                name: "public");
+
             migrationBuilder.AlterDatabase()
                 .Annotation("Npgsql:PostgresExtension:hstore", ",,");
 
@@ -87,14 +90,13 @@ namespace Boccialyzer.Core.Migrations
                     Alpha2 = table.Column<string>(nullable: true)
                         .Annotation("Npgsql:Comment", "Alpha2"),
                     Alpha3 = table.Column<string>(nullable: true)
-                        .Annotation("Npgsql:Comment", "Alpha3"),
-                    Icon = table.Column<string>(nullable: true)
+                        .Annotation("Npgsql:Comment", "Alpha3")
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Countries", x => x.Id);
                 })
-                .Annotation("Npgsql:Comment", "Громадянство");
+                .Annotation("Npgsql:Comment", "Країни");
 
             migrationBuilder.CreateTable(
                 name: "LogDbEvent",
@@ -141,22 +143,33 @@ namespace Boccialyzer.Core.Migrations
                 name: "Players",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
-                    CreatedOn = table.Column<DateTime>(nullable: true),
-                    UpdatedOn = table.Column<DateTime>(nullable: true),
-                    CreatedBy = table.Column<Guid>(nullable: true),
-                    UpdatedBy = table.Column<Guid>(nullable: true),
-                    FullName = table.Column<string>(nullable: false),
-                    PlayerClassification = table.Column<int>(nullable: false),
+                    Id = table.Column<Guid>(nullable: false)
+                        .Annotation("Npgsql:Comment", "Ідентифікатор"),
+                    CreatedOn = table.Column<DateTime>(nullable: true)
+                        .Annotation("Npgsql:Comment", "Дата та час внесення"),
+                    UpdatedOn = table.Column<DateTime>(nullable: true)
+                        .Annotation("Npgsql:Comment", "Дата та час редагування"),
+                    CreatedBy = table.Column<Guid>(nullable: true)
+                        .Annotation("Npgsql:Comment", "Користувач системи, що створив запис"),
+                    UpdatedBy = table.Column<Guid>(nullable: true)
+                        .Annotation("Npgsql:Comment", "Користувач системи, що модифікував запис"),
+                    FullName = table.Column<string>(nullable: false)
+                        .Annotation("Npgsql:Comment", "Ім'я та прізвище"),
+                    PlayerClassification = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:Comment", "Класифікація"),
                     CountryId = table.Column<Guid>(nullable: true)
+                        .Annotation("Npgsql:Comment", "Країна"),
+                    IsBisFed = table.Column<bool>(nullable: false)
+                        .Annotation("Npgsql:Comment", "Чи є гравцем BISFed?")
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Players", x => x.Id);
-                });
+                })
+                .Annotation("Npgsql:Comment", "Гравці");
 
             migrationBuilder.CreateTable(
-                name: "TournamentType",
+                name: "TournamentTypes",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false)
@@ -180,9 +193,9 @@ namespace Boccialyzer.Core.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TournamentType", x => x.Id);
+                    table.PrimaryKey("PK_TournamentTypes", x => x.Id);
                 })
-                .Annotation("Npgsql:Comment", "Тип турниру");
+                .Annotation("Npgsql:Comment", "Тип турніру");
 
             migrationBuilder.CreateTable(
                 name: "AppRoleClaims",
@@ -223,10 +236,16 @@ namespace Boccialyzer.Core.Migrations
                         .Annotation("Npgsql:Comment", "Користувач системи, що модифікував запис"),
                     CountryId = table.Column<Guid>(nullable: true)
                         .Annotation("Npgsql:Comment", "Національність"),
-                    FirstName = table.Column<string>(maxLength: 50, nullable: true),
-                    LastName = table.Column<string>(maxLength: 50, nullable: false),
-                    DateOfBirth = table.Column<DateTime>(nullable: true),
-                    Gender = table.Column<int>(nullable: false),
+                    FirstName = table.Column<string>(maxLength: 50, nullable: true)
+                        .Annotation("Npgsql:Comment", "Ім'я"),
+                    LastName = table.Column<string>(maxLength: 50, nullable: false)
+                        .Annotation("Npgsql:Comment", "Прізвище"),
+                    DateOfBirth = table.Column<DateTime>(nullable: true)
+                        .Annotation("Npgsql:Comment", "Дата народження"),
+                    Gender = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:Comment", "Стать"),
+                    PlayerId = table.Column<Guid>(nullable: true)
+                        .Annotation("Npgsql:Comment", "Ідентифікатор гравця"),
                     NormalizedUserName = table.Column<string>(maxLength: 256, nullable: true),
                     NormalizedEmail = table.Column<string>(maxLength: 256, nullable: true),
                     PasswordHash = table.Column<string>(nullable: true),
@@ -254,26 +273,36 @@ namespace Boccialyzer.Core.Migrations
                 name: "Tournaments",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
-                    CreatedOn = table.Column<DateTime>(nullable: true),
-                    UpdatedOn = table.Column<DateTime>(nullable: true),
-                    CreatedBy = table.Column<Guid>(nullable: true),
-                    UpdatedBy = table.Column<Guid>(nullable: true),
-                    Name = table.Column<string>(nullable: false),
-                    TournamentTypeId = table.Column<Guid>(nullable: false),
-                    DateFrom = table.Column<DateTime>(type: "Date", nullable: false),
+                    Id = table.Column<Guid>(nullable: false)
+                        .Annotation("Npgsql:Comment", "Ідентифікатор"),
+                    CreatedOn = table.Column<DateTime>(nullable: true)
+                        .Annotation("Npgsql:Comment", "Дата та час внесення"),
+                    UpdatedOn = table.Column<DateTime>(nullable: true)
+                        .Annotation("Npgsql:Comment", "Дата та час редагування"),
+                    CreatedBy = table.Column<Guid>(nullable: true)
+                        .Annotation("Npgsql:Comment", "Користувач системи, що створив запис"),
+                    UpdatedBy = table.Column<Guid>(nullable: true)
+                        .Annotation("Npgsql:Comment", "Користувач системи, що модифікував запис"),
+                    Name = table.Column<string>(nullable: false)
+                        .Annotation("Npgsql:Comment", "Назва"),
+                    TournamentTypeId = table.Column<Guid>(nullable: false)
+                        .Annotation("Npgsql:Comment", "Тип турниру"),
+                    DateFrom = table.Column<DateTime>(type: "Date", nullable: false)
+                        .Annotation("Npgsql:Comment", "Дата початку"),
                     DateTo = table.Column<DateTime>(type: "Date", nullable: false)
+                        .Annotation("Npgsql:Comment", "Дата завершення")
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Tournaments", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Tournaments_TournamentType_TournamentTypeId",
+                        name: "FK_Tournaments_TournamentTypes_TournamentTypeId",
                         column: x => x.TournamentTypeId,
-                        principalTable: "TournamentType",
+                        principalTable: "TournamentTypes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                });
+                })
+                .Annotation("Npgsql:Comment", "Турніри");
 
             migrationBuilder.CreateTable(
                 name: "AppUserClaims",
@@ -364,13 +393,20 @@ namespace Boccialyzer.Core.Migrations
                 name: "Trainings",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
-                    CreatedOn = table.Column<DateTime>(nullable: true),
-                    UpdatedOn = table.Column<DateTime>(nullable: true),
-                    CreatedBy = table.Column<Guid>(nullable: true),
-                    UpdatedBy = table.Column<Guid>(nullable: true),
-                    DateTimeStamp = table.Column<DateTime>(nullable: false),
+                    Id = table.Column<Guid>(nullable: false)
+                        .Annotation("Npgsql:Comment", "Ідентифікатор"),
+                    CreatedOn = table.Column<DateTime>(nullable: true)
+                        .Annotation("Npgsql:Comment", "Дата та час внесення"),
+                    UpdatedOn = table.Column<DateTime>(nullable: true)
+                        .Annotation("Npgsql:Comment", "Дата та час редагування"),
+                    CreatedBy = table.Column<Guid>(nullable: true)
+                        .Annotation("Npgsql:Comment", "Користувач системи, що створив запис"),
+                    UpdatedBy = table.Column<Guid>(nullable: true)
+                        .Annotation("Npgsql:Comment", "Користувач системи, що модифікував запис"),
+                    DateTimeStamp = table.Column<DateTime>(nullable: false)
+                        .Annotation("Npgsql:Comment", "Дата та час тренування"),
                     AppUserId = table.Column<Guid>(nullable: false)
+                        .Annotation("Npgsql:Comment", "Користувач системи")
                 },
                 constraints: table =>
                 {
@@ -381,23 +417,47 @@ namespace Boccialyzer.Core.Migrations
                         principalTable: "AppUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                });
+                })
+                .Annotation("Npgsql:Comment", "Тренування");
 
             migrationBuilder.CreateTable(
                 name: "Matches",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
-                    CreatedOn = table.Column<DateTime>(nullable: true),
-                    UpdatedOn = table.Column<DateTime>(nullable: true),
-                    CreatedBy = table.Column<Guid>(nullable: true),
-                    UpdatedBy = table.Column<Guid>(nullable: true),
-                    DateTimeStamp = table.Column<DateTime>(nullable: false),
-                    CompetitionEvent = table.Column<int>(nullable: false),
-                    PoolStage = table.Column<int>(nullable: false),
-                    EliminationStage = table.Column<int>(nullable: false),
-                    AppUserId = table.Column<Guid>(nullable: false),
+                    Id = table.Column<Guid>(nullable: false)
+                        .Annotation("Npgsql:Comment", "Ідентифікатор"),
+                    CreatedOn = table.Column<DateTime>(nullable: true)
+                        .Annotation("Npgsql:Comment", "Дата та час внесення"),
+                    UpdatedOn = table.Column<DateTime>(nullable: true)
+                        .Annotation("Npgsql:Comment", "Дата та час редагування"),
+                    CreatedBy = table.Column<Guid>(nullable: true)
+                        .Annotation("Npgsql:Comment", "Користувач системи, що створив запис"),
+                    UpdatedBy = table.Column<Guid>(nullable: true)
+                        .Annotation("Npgsql:Comment", "Користувач системи, що модифікував запис"),
+                    DateTimeStamp = table.Column<DateTime>(nullable: false)
+                        .Annotation("Npgsql:Comment", "Дата та час проведення"),
+                    MatchType = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:Comment", "Тип матчу"),
+                    CompetitionEvent = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:Comment", "Competition Event"),
+                    PoolStage = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:Comment", "Етап пулу"),
+                    EliminationStage = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:Comment", "Етап на вибування"),
+                    ScoreRed = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:Comment", "Рахунок червоних"),
+                    ScoreBlue = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:Comment", "Рахунок синіх"),
+                    FlagRed = table.Column<string>(nullable: true)
+                        .Annotation("Npgsql:Comment", "Ідентифікатор прапору для червоних"),
+                    FlagBlue = table.Column<string>(nullable: true)
+                        .Annotation("Npgsql:Comment", "Ідентифікатор прапору для синіх"),
+                    AppUserId = table.Column<Guid>(nullable: false)
+                        .Annotation("Npgsql:Comment", "Ідентифікатор Користувача системи"),
+                    TrainingId = table.Column<Guid>(nullable: true)
+                        .Annotation("Npgsql:Comment", "Тренування"),
                     TournamentId = table.Column<Guid>(nullable: true)
+                        .Annotation("Npgsql:Comment", "Турнір")
                 },
                 constraints: table =>
                 {
@@ -414,75 +474,151 @@ namespace Boccialyzer.Core.Migrations
                         principalTable: "Tournaments",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "MatchToPlayers",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(nullable: false),
-                    CreatedOn = table.Column<DateTime>(nullable: true),
-                    UpdatedOn = table.Column<DateTime>(nullable: true),
-                    CreatedBy = table.Column<Guid>(nullable: true),
-                    UpdatedBy = table.Column<Guid>(nullable: true),
-                    IsSubstitutePlayer = table.Column<bool>(nullable: false),
-                    Bib = table.Column<int>(nullable: false),
-                    Box = table.Column<int>(nullable: false),
-                    PlayerId = table.Column<Guid>(nullable: false),
-                    TrainingId = table.Column<Guid>(nullable: true),
-                    MatchId = table.Column<Guid>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_MatchToPlayers", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_MatchToPlayers_Matches_MatchId",
-                        column: x => x.MatchId,
-                        principalTable: "Matches",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_MatchToPlayers_Players_PlayerId",
-                        column: x => x.PlayerId,
-                        principalTable: "Players",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_MatchToPlayers_Trainings_TrainingId",
+                        name: "FK_Matches_Trainings_TrainingId",
                         column: x => x.TrainingId,
                         principalTable: "Trainings",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
-                });
+                })
+                .Annotation("Npgsql:Comment", "Матчі");
+
+            migrationBuilder.CreateTable(
+                name: "Stages",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false)
+                        .Annotation("Npgsql:Comment", "Ідентифікатор"),
+                    CreatedOn = table.Column<DateTime>(nullable: true)
+                        .Annotation("Npgsql:Comment", "Дата та час внесення"),
+                    UpdatedOn = table.Column<DateTime>(nullable: true)
+                        .Annotation("Npgsql:Comment", "Дата та час редагування"),
+                    CreatedBy = table.Column<Guid>(nullable: true)
+                        .Annotation("Npgsql:Comment", "Користувач системи, що створив запис"),
+                    UpdatedBy = table.Column<Guid>(nullable: true)
+                        .Annotation("Npgsql:Comment", "Користувач системи, що модифікував запис"),
+                    MatchId = table.Column<Guid>(nullable: false)
+                        .Annotation("Npgsql:Comment", "Ідентифікатор матчу"),
+                    Index = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:Comment", "Порядковий номер у грі"),
+                    IsDisrupted = table.Column<bool>(nullable: false)
+                        .Annotation("Npgsql:Comment", "З порушенням?"),
+                    IsTieBreak = table.Column<bool>(nullable: false)
+                        .Annotation("Npgsql:Comment", "Тай-брейк?"),
+                    ScoreRed = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:Comment", "Рахунок червоних"),
+                    ScoreBlue = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:Comment", "Рахунок синіх")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Stages", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Stages_Matches_MatchId",
+                        column: x => x.MatchId,
+                        principalTable: "Matches",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("Npgsql:Comment", "Періоди гри");
 
             migrationBuilder.CreateTable(
                 name: "Balls",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
-                    CreatedOn = table.Column<DateTime>(nullable: true),
-                    UpdatedOn = table.Column<DateTime>(nullable: true),
-                    CreatedBy = table.Column<Guid>(nullable: true),
-                    UpdatedBy = table.Column<Guid>(nullable: true),
-                    Rating = table.Column<int>(nullable: false),
-                    IsPenalty = table.Column<bool>(nullable: false),
-                    IsDeadBall = table.Column<bool>(nullable: false),
-                    DeadBallType = table.Column<int>(nullable: false),
-                    ShotType = table.Column<int>(nullable: false),
-                    Box = table.Column<int>(nullable: false),
-                    Distance = table.Column<int>(nullable: false),
-                    StageId = table.Column<Guid>(nullable: true),
-                    MatchToPlayerId = table.Column<Guid>(nullable: true)
+                    Id = table.Column<Guid>(nullable: false)
+                        .Annotation("Npgsql:Comment", "Ідентифікатор"),
+                    CreatedOn = table.Column<DateTime>(nullable: true)
+                        .Annotation("Npgsql:Comment", "Дата та час внесення"),
+                    UpdatedOn = table.Column<DateTime>(nullable: true)
+                        .Annotation("Npgsql:Comment", "Дата та час редагування"),
+                    CreatedBy = table.Column<Guid>(nullable: true)
+                        .Annotation("Npgsql:Comment", "Користувач системи, що створив запис"),
+                    UpdatedBy = table.Column<Guid>(nullable: true)
+                        .Annotation("Npgsql:Comment", "Користувач системи, що модифікував запис"),
+                    Rating = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:Comment", "Оцінка"),
+                    IsPenalty = table.Column<bool>(nullable: false)
+                        .Annotation("Npgsql:Comment", "Штрафний м'яч?"),
+                    IsDeadBall = table.Column<bool>(nullable: false)
+                        .Annotation("Npgsql:Comment", "М'яч поза грою?"),
+                    DeadBallType = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:Comment", "Типи м'ячів поза грою"),
+                    ShotType = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:Comment", "Тип кидка"),
+                    Box = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:Comment", "Ігрова зона"),
+                    Distance = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:Comment", "Дистанція"),
+                    StageId = table.Column<Guid>(nullable: true)
+                        .Annotation("Npgsql:Comment", "Період гри"),
+                    PlayerId = table.Column<Guid>(nullable: false)
+                        .Annotation("Npgsql:Comment", "Гравець"),
+                    TrainingId = table.Column<Guid>(nullable: true)
+                        .Annotation("Npgsql:Comment", "Тренування")
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Balls", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Balls_MatchToPlayers_MatchToPlayerId",
-                        column: x => x.MatchToPlayerId,
-                        principalTable: "MatchToPlayers",
+                        name: "FK_Balls_Players_PlayerId",
+                        column: x => x.PlayerId,
+                        principalTable: "Players",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Balls_Stages_StageId",
+                        column: x => x.StageId,
+                        principalTable: "Stages",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Balls_Trainings_TrainingId",
+                        column: x => x.TrainingId,
+                        principalTable: "Trainings",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                })
+                .Annotation("Npgsql:Comment", "М'ячі");
+
+            migrationBuilder.CreateTable(
+                name: "LinkToPlayers",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    CreatedOn = table.Column<DateTime>(nullable: true),
+                    UpdatedOn = table.Column<DateTime>(nullable: true),
+                    CreatedBy = table.Column<Guid>(nullable: true),
+                    UpdatedBy = table.Column<Guid>(nullable: true),
+                    Bib = table.Column<int>(nullable: false),
+                    Box = table.Column<int>(nullable: false),
+                    PlayerId = table.Column<Guid>(nullable: false),
+                    Discriminator = table.Column<int>(nullable: false),
+                    IsSubstitutePlayer = table.Column<bool>(nullable: true),
+                    MatchId = table.Column<Guid>(nullable: true),
+                    StageId = table.Column<Guid>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_LinkToPlayers", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_LinkToPlayers_Matches_MatchId",
+                        column: x => x.MatchId,
+                        principalTable: "Matches",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_LinkToPlayers_Players_PlayerId",
+                        column: x => x.PlayerId,
+                        principalTable: "Players",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_LinkToPlayers_Stages_StageId",
+                        column: x => x.StageId,
+                        principalTable: "Stages",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -533,9 +669,19 @@ namespace Boccialyzer.Core.Migrations
                 column: "UserName");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Balls_MatchToPlayerId",
+                name: "IX_Balls_PlayerId",
                 table: "Balls",
-                column: "MatchToPlayerId");
+                column: "PlayerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Balls_StageId",
+                table: "Balls",
+                column: "StageId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Balls_TrainingId",
+                table: "Balls",
+                column: "TrainingId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Countries_Code",
@@ -546,6 +692,21 @@ namespace Boccialyzer.Core.Migrations
                 name: "IX_Countries_Name",
                 table: "Countries",
                 column: "Name");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_LinkToPlayers_MatchId",
+                table: "LinkToPlayers",
+                column: "MatchId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_LinkToPlayers_PlayerId",
+                table: "LinkToPlayers",
+                column: "PlayerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_LinkToPlayers_StageId",
+                table: "LinkToPlayers",
+                column: "StageId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_LogDbEvent_EventLevel",
@@ -568,19 +729,19 @@ namespace Boccialyzer.Core.Migrations
                 column: "TournamentId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_MatchToPlayers_MatchId",
-                table: "MatchToPlayers",
+                name: "IX_Matches_TrainingId",
+                table: "Matches",
+                column: "TrainingId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Stages_MatchId",
+                table: "Stages",
                 column: "MatchId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_MatchToPlayers_PlayerId",
-                table: "MatchToPlayers",
-                column: "PlayerId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_MatchToPlayers_TrainingId",
-                table: "MatchToPlayers",
-                column: "TrainingId");
+                name: "IX_Tournaments_Name",
+                table: "Tournaments",
+                column: "Name");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Tournaments_TournamentTypeId",
@@ -588,8 +749,8 @@ namespace Boccialyzer.Core.Migrations
                 column: "TournamentTypeId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_TournamentType_Name",
-                table: "TournamentType",
+                name: "IX_TournamentTypes_Name",
+                table: "TournamentTypes",
                 column: "Name");
 
             migrationBuilder.CreateIndex(
@@ -622,31 +783,34 @@ namespace Boccialyzer.Core.Migrations
                 name: "Configurations");
 
             migrationBuilder.DropTable(
+                name: "LinkToPlayers");
+
+            migrationBuilder.DropTable(
                 name: "LogDbEvent");
 
             migrationBuilder.DropTable(
                 name: "AppRoles");
 
             migrationBuilder.DropTable(
-                name: "MatchToPlayers");
+                name: "Players");
+
+            migrationBuilder.DropTable(
+                name: "Stages");
 
             migrationBuilder.DropTable(
                 name: "Matches");
 
             migrationBuilder.DropTable(
-                name: "Players");
+                name: "Tournaments");
 
             migrationBuilder.DropTable(
                 name: "Trainings");
 
             migrationBuilder.DropTable(
-                name: "Tournaments");
+                name: "TournamentTypes");
 
             migrationBuilder.DropTable(
                 name: "AppUsers");
-
-            migrationBuilder.DropTable(
-                name: "TournamentType");
 
             migrationBuilder.DropTable(
                 name: "Countries");

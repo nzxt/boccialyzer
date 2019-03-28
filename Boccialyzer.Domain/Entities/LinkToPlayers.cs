@@ -27,6 +27,7 @@ namespace Boccialyzer.Domain.Entities
         /// <summary>
         /// Номер боксу
         /// </summary>
+        [Required]
         public int Box { get; set; }
         /// <summary>
         /// Гравці

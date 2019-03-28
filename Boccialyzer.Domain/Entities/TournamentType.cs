@@ -45,6 +45,5 @@ namespace Boccialyzer.Domain.Entities
         /// Турнірии
         /// </summary>
         public ICollection<Tournament> Tournaments { get; set; } = new Collection<Tournament>();
-
     }
 }

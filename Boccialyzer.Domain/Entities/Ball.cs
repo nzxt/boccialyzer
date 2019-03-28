@@ -29,7 +29,7 @@ namespace Boccialyzer.Domain.Entities
         /// </summary>
         public int Rating { get; set; }
         /// <summary>
-        /// Штрафний м'яч ?
+        /// Штрафний м'яч?
         /// </summary>
         public bool IsPenalty { get; set; }
         /// <summary>
@@ -61,10 +61,6 @@ namespace Boccialyzer.Domain.Entities
         /// </summary>
         [Required]
         public Guid PlayerId { get; set; }
-        ///// <summary>
-        ///// Зв'язок гравців з матчами/тренуваннями
-        ///// </summary>
-        //public Guid? MatchToPlayerId { get; set; }
         /// <summary>
         /// Тренування
         /// </summary>

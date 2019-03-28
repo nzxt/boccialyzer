@@ -44,7 +44,6 @@ namespace Boccialyzer.Domain.Entities
         /// Тай-брейк?
         /// </summary>
         public bool IsTieBreak { get; set; }
-
         /// <summary>
         /// Рахунок червоних
         /// </summary>

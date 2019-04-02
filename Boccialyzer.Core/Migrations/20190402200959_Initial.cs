@@ -448,6 +448,8 @@ namespace Boccialyzer.Core.Migrations
                         .Annotation("Npgsql:Comment", "Рахунок червоних"),
                     ScoreBlue = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:Comment", "Рахунок синіх"),
+                    AvgPointRed = table.Column<int>(nullable: false),
+                    AvgPointBlue = table.Column<int>(nullable: false),
                     FlagRed = table.Column<string>(nullable: true)
                         .Annotation("Npgsql:Comment", "Ідентифікатор прапору для червоних"),
                     FlagBlue = table.Column<string>(nullable: true)
@@ -508,7 +510,9 @@ namespace Boccialyzer.Core.Migrations
                     ScoreRed = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:Comment", "Рахунок червоних"),
                     ScoreBlue = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:Comment", "Рахунок синіх")
+                        .Annotation("Npgsql:Comment", "Рахунок синіх"),
+                    AvgPointRed = table.Column<int>(nullable: false),
+                    AvgPointBlue = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -669,9 +673,29 @@ namespace Boccialyzer.Core.Migrations
                 column: "UserName");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Balls_Box",
+                table: "Balls",
+                column: "Box");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Balls_DeadBallType",
+                table: "Balls",
+                column: "DeadBallType");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Balls_Distance",
+                table: "Balls",
+                column: "Distance");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Balls_PlayerId",
                 table: "Balls",
                 column: "PlayerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Balls_ShotType",
+                table: "Balls",
+                column: "ShotType");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Balls_StageId",
@@ -722,6 +746,26 @@ namespace Boccialyzer.Core.Migrations
                 name: "IX_Matches_AppUserId",
                 table: "Matches",
                 column: "AppUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Matches_CompetitionEvent",
+                table: "Matches",
+                column: "CompetitionEvent");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Matches_EliminationStage",
+                table: "Matches",
+                column: "EliminationStage");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Matches_MatchType",
+                table: "Matches",
+                column: "MatchType");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Matches_PoolStage",
+                table: "Matches",
+                column: "PoolStage");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Matches_TournamentId",

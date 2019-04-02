@@ -108,6 +108,11 @@ namespace Boccialyzer.Core.Context
                 .HasValue<MatchToPlayer>(1)
                 .HasValue<StageToPlayer>(2);
 
+            //modelBuilder.Entity<Stage>()
+            //    .Property(u => u.AvgPointRed)
+            //    .HasComputedColumnSql("public.bl_get_avg_point_red_by_stage('[Id]')");
+
+
             #region # AppRole Mapping
 
             modelBuilder.Entity<AppRole>().ToTable("AppRoles");
@@ -151,6 +156,10 @@ namespace Boccialyzer.Core.Context
 
             modelBuilder.Entity<Ball>().ToTable(@"Balls").ForNpgsqlHasComment("М'ячі");
             modelBuilder.Entity<Ball>().HasKey(x => x.Id);
+            modelBuilder.Entity<Ball>().HasIndex(x => x.Box);
+            modelBuilder.Entity<Ball>().HasIndex(x => x.ShotType);
+            modelBuilder.Entity<Ball>().HasIndex(x => x.Distance);
+            modelBuilder.Entity<Ball>().HasIndex(x => x.DeadBallType);
 
             modelBuilder.Entity<Ball>().Property(x => x.Id).HasColumnName(@"Id").IsRequired().ForNpgsqlHasComment("Ідентифікатор").ValueGeneratedNever();
             modelBuilder.Entity<Ball>().Property(x => x.Rating).HasColumnName(@"Rating").ForNpgsqlHasComment("Оцінка").ValueGeneratedNever();
@@ -193,6 +202,10 @@ namespace Boccialyzer.Core.Context
 
             modelBuilder.Entity<Match>().ToTable(@"Matches").ForNpgsqlHasComment("Матчі");
             modelBuilder.Entity<Match>().HasKey(x => x.Id);
+            modelBuilder.Entity<Match>().HasIndex(x => x.MatchType);
+            modelBuilder.Entity<Match>().HasIndex(x => x.CompetitionEvent);
+            modelBuilder.Entity<Match>().HasIndex(x => x.PoolStage);
+            modelBuilder.Entity<Match>().HasIndex(x => x.EliminationStage);
 
             modelBuilder.Entity<Match>().Property(x => x.Id).HasColumnName(@"Id").IsRequired().ForNpgsqlHasComment("Ідентифікатор").ValueGeneratedNever();
             modelBuilder.Entity<Match>().Property(x => x.DateTimeStamp).HasColumnName(@"DateTimeStamp").ForNpgsqlHasComment("Дата та час проведення").ValueGeneratedNever();

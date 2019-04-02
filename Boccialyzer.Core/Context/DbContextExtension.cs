@@ -47,6 +47,12 @@ namespace Boccialyzer.Core.Context
             dbContext.LoggingDisable = false;
         }
 
+        /// <summary>
+        /// Додавання данних
+        /// </summary>
+        /// <param name="dbContext"></param>
+        /// <param name="isDevelopment"></param>
+        /// <returns></returns>
         public static async Task EnsureSeededAfterAsync(this ApplicationDbContext dbContext, bool isDevelopment)
         {
             dbContext.LoggingDisable = true;
@@ -55,7 +61,7 @@ namespace Boccialyzer.Core.Context
             {
                 //StoredFunctionData.Seed(dbContext);
                 //TriggerData.Seed(dbContext);
-                StoredViewData.Seed(dbContext);
+                //StoredViewData.Seed(dbContext);
             }
             catch (Exception ex)
             {
@@ -65,6 +71,11 @@ namespace Boccialyzer.Core.Context
             dbContext.LoggingDisable = false;
         }
 
+        /// <summary>
+        /// Застосування міграцій
+        /// </summary>
+        /// <param name="dbContext"></param>
+        /// <returns></returns>
         public static async Task ApplyMigrationsAsync(this ApplicationDbContext dbContext)
         {
             dbContext.LoggingDisable = true;

@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Boccialyzer.Core.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190328192921_Initial")]
+    [Migration("20190402200959_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -255,7 +255,15 @@ namespace Boccialyzer.Core.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Box");
+
+                    b.HasIndex("DeadBallType");
+
+                    b.HasIndex("Distance");
+
                     b.HasIndex("PlayerId");
+
+                    b.HasIndex("ShotType");
 
                     b.HasIndex("StageId");
 
@@ -377,6 +385,10 @@ namespace Boccialyzer.Core.Migrations
                         .HasColumnName("AppUserId")
                         .HasAnnotation("Npgsql:Comment", "Ідентифікатор Користувача системи");
 
+                    b.Property<int>("AvgPointBlue");
+
+                    b.Property<int>("AvgPointRed");
+
                     b.Property<int>("CompetitionEvent")
                         .HasColumnName("CompetitionEvent")
                         .HasAnnotation("Npgsql:Comment", "Competition Event");
@@ -441,6 +453,14 @@ namespace Boccialyzer.Core.Migrations
 
                     b.HasIndex("AppUserId");
 
+                    b.HasIndex("CompetitionEvent");
+
+                    b.HasIndex("EliminationStage");
+
+                    b.HasIndex("MatchType");
+
+                    b.HasIndex("PoolStage");
+
                     b.HasIndex("TournamentId");
 
                     b.HasIndex("TrainingId");
@@ -501,6 +521,10 @@ namespace Boccialyzer.Core.Migrations
                     b.Property<Guid>("Id")
                         .HasColumnName("Id")
                         .HasAnnotation("Npgsql:Comment", "Ідентифікатор");
+
+                    b.Property<int>("AvgPointBlue");
+
+                    b.Property<int>("AvgPointRed");
 
                     b.Property<Guid?>("CreatedBy")
                         .HasColumnName("CreatedBy")

@@ -53,6 +53,14 @@ namespace Boccialyzer.Domain.Entities
         /// </summary>
         public int ScoreBlue { get; set; }
         /// <summary>
+        /// Середня якість кидків червоних
+        /// </summary>
+        public int AvgPointRed { get; set; } = 0;
+        /// <summary>
+        /// Середня якість кидків синіх
+        /// </summary>
+        public int AvgPointBlue { get; set; } = 0;
+        /// <summary>
         /// Ідентифікатор прапору для червоних
         /// </summary>
         public string FlagRed { get; set; }

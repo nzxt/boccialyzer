@@ -14,6 +14,7 @@ namespace Boccialyzer.Core.Repository
     public interface IStageRepository : IGenericRepository<Stage>
     {
         new Task<(OperationResult Result, Guid Value, string Message)> CreateAsync(Stage entity);
+        new Task<(OperationResult Result, Guid Value, string Message)> UpdateAsync(Stage entity);
     }
 
     public class StageRepository : GenericRepository<Stage>, IStageRepository
@@ -49,20 +50,12 @@ namespace Boccialyzer.Core.Repository
                 entity.AvgPointBlue = ballsBlue.Any() ? (int)((decimal)ballsBlue.Sum(x => x.Rating) / ballsBlue.Count() / 5 * 100) : 0;
 
                 var result = await base.CreateAsync(entity);
+                if (result.Result == OperationResult.Error)
+                    return (Result: OperationResult.Error, Value: default(Guid), Message: result.Message);
 
                 var match = _dbContext.Matches.Find(entity.MatchId);
                 if (match != null)
                 {
-                    var scoreRed = _dbContext.Stages.Where(x => x.MatchId == match.Id).Sum(_ => _.ScoreRed);
-                    var scoreBlue = _dbContext.Stages.Where(x => x.MatchId == match.Id).Sum(_ => _.ScoreBlue);
-
-                    var stages = _dbContext.Stages.Where(x => x.MatchId == match.Id);
-                    var avgPointsRed = (int) stages.Average(_ => _.AvgPointRed);
-                    var avgPointsBlue = (int) stages.Average(_ => _.AvgPointBlue);
-                    match.ScoreRed = scoreRed;
-                    match.ScoreBlue = scoreBlue;
-                    match.AvgPointRed = avgPointsRed;
-                    match.AvgPointBlue = avgPointsBlue;
                     var updResult = await _matchRepository.UpdateAsync(match);
                     if (updResult.Result == OperationResult.Error)
                         return (Result: OperationResult.Error, Value: default(Guid), Message: updResult.Message);
@@ -75,5 +68,47 @@ namespace Boccialyzer.Core.Repository
             catch (Exception ex)
             { return (Result: OperationResult.Error, Value: default(Guid), Message: ex.Message); }
         }
+
+        #region Task<(OperationResult Result, Guid Value, string Message)> UpdateAsync(TEntity entity)
+
+        /// <inheritdoc/>
+        public new async Task<(OperationResult Result, Guid Value, string Message)> UpdateAsync(Stage entity)
+        {
+            try
+            {
+                var exist = await _dbContext.Set<Stage>().FindAsync(entity.Id);
+                if (exist == null)
+                    return (Result: OperationResult.Error, Value: default(Guid), Message: "Відсутній етап.");
+
+                var filterRed = new List<Box> { Box.Box1, Box.Box3, Box.Box5 };
+                var filterBlue = new List<Box> { Box.Box2, Box.Box4, Box.Box6 };
+                var ballsRed = entity.Balls.Where(_ => filterRed.Contains(_.Box)).ToList();
+                var ballsBlue = entity.Balls.Where(_ => filterBlue.Contains(_.Box)).ToList();
+
+                entity.AvgPointRed = ballsRed.Any() ? (int)((decimal)ballsRed.Sum(x => x.Rating) / ballsRed.Count() / 5 * 100) : 0;
+                entity.AvgPointBlue = ballsBlue.Any() ? (int)((decimal)ballsBlue.Sum(x => x.Rating) / ballsBlue.Count() / 5 * 100) : 0;
+
+                var result = await base.UpdateAsync(entity);
+                if (result.Result == OperationResult.Error)
+                    return (Result: OperationResult.Error, Value: default(Guid), Message: result.Message);
+
+                var match = _dbContext.Matches.Find(entity.MatchId);
+                if (match != null)
+                {
+                    var updResult = await _matchRepository.UpdateAsync(match);
+                    if (updResult.Result == OperationResult.Error)
+                        return (Result: OperationResult.Error, Value: default(Guid), Message: updResult.Message);
+                }
+                else
+                    return (Result: OperationResult.Error, Value: default(Guid), Message: "Матч не знайдено.");
+
+                return result;
+            }
+            catch (Exception ex)
+            { return (Result: OperationResult.Error, Value: default(Guid), Message: ex.Message); }
+        }
+
+        #endregion
+
     }
 }

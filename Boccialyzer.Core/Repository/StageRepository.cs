@@ -53,16 +53,6 @@ namespace Boccialyzer.Core.Repository
                 var match = _dbContext.Matches.Find(entity.MatchId);
                 if (match != null)
                 {
-                    var scoreRed = _dbContext.Stages.Where(x => x.MatchId == match.Id).Sum(_ => _.ScoreRed);
-                    var scoreBlue = _dbContext.Stages.Where(x => x.MatchId == match.Id).Sum(_ => _.ScoreBlue);
-
-                    var stages = _dbContext.Stages.Where(x => x.MatchId == match.Id);
-                    var avgPointsRed = (int) stages.Average(_ => _.AvgPointRed);
-                    var avgPointsBlue = (int) stages.Average(_ => _.AvgPointBlue);
-                    match.ScoreRed = scoreRed;
-                    match.ScoreBlue = scoreBlue;
-                    match.AvgPointRed = avgPointsRed;
-                    match.AvgPointBlue = avgPointsBlue;
                     var updResult = await _matchRepository.UpdateAsync(match);
                     if (updResult.Result == OperationResult.Error)
                         return (Result: OperationResult.Error, Value: default(Guid), Message: updResult.Message);

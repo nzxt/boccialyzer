@@ -49,6 +49,7 @@ namespace Boccialyzer.Web.Middleware
                 var user = await userManager.FindByNameAsync(userInfo.UserName);
                 userInfo.AppUserId = user.Id;
                 userInfo.Roles = await userManager.GetRolesAsync(user);
+                userInfo.IsAdmin = await userManager.IsInRoleAsync(user,"Administrator");
             }
             await _next.Invoke(httpContext);
         }

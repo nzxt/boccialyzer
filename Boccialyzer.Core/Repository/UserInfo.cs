@@ -28,6 +28,10 @@ namespace Boccialyzer.Core.Repository
         /// Ролі користувача
         /// </summary>
         IList<string> Roles { get; set; }
+        /// <summary>
+        /// Чи адміністратор?
+        /// </summary>
+        bool IsAdmin { get; set; }
     }
 
     public class UserInfo : IUserInfo
@@ -37,5 +41,6 @@ namespace Boccialyzer.Core.Repository
         public Guid AppUserId { get; set; }
         public string Locale { get; set; }
         public IList<string> Roles { get; set; }
+        public bool IsAdmin { get; set; }
     }
 }

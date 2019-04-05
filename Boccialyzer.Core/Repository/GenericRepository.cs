@@ -19,15 +19,15 @@ namespace Boccialyzer.Core.Repository
     public interface IGenericRepository<TEntity>
         where TEntity : class, IEntity
     {
-        #region # Task<(OperationResult Result, IList<TEntity> Value, string Message)> GetAllAsync()
+        //#region # Task<(OperationResult Result, IList<TEntity> Value, string Message)> GetAllAsync()
 
-        /// <summary>
-        /// Отримати всі записи сутності
-        /// </summary>
-        /// <returns>Список екземплярів сутності</returns>
-        Task<(OperationResult Result, IList<TEntity> Value, string Message)> GetAllAsync();
+        ///// <summary>
+        ///// Отримати всі записи сутності
+        ///// </summary>
+        ///// <returns>Список екземплярів сутності</returns>
+        //Task<(OperationResult Result, IList<TEntity> Value, string Message)> GetAllAsync();
 
-        #endregion
+        //#endregion
         #region # (OperationResult Result, TEntity Value, string Message) GetById(Guid id)
 
         /// <summary>
@@ -151,21 +151,21 @@ namespace Boccialyzer.Core.Repository
 
         #endregion
 
-        #region Task<(OperationResult Result, IList<TEntity> Value, string Message)> GetAllAsync()
+        //#region Task<(OperationResult Result, IList<TEntity> Value, string Message)> GetAllAsync()
 
-        /// <inheritdoc/>
-        public async Task<(OperationResult Result, IList<TEntity> Value, string Message)> GetAllAsync()
-        {
-            try
-            {
-                var dbResult = await _dbContext.Set<TEntity>().AsNoTracking().ToListAsync();
-                return (Result: OperationResult.Ok, Value: dbResult, Message: "");
-            }
-            catch (Exception ex)
-            { return (Result: OperationResult.Error, Value: null, Message: ex.Message); }
-        }
+        ///// <inheritdoc/>
+        //public async Task<(OperationResult Result, IList<TEntity> Value, string Message)> GetAllAsync()
+        //{
+        //    try
+        //    {
+        //        var dbResult = await _dbContext.Set<TEntity>().AsNoTracking().ToListAsync();
+        //        return (Result: OperationResult.Ok, Value: dbResult, Message: "");
+        //    }
+        //    catch (Exception ex)
+        //    { return (Result: OperationResult.Error, Value: null, Message: ex.Message); }
+        //}
 
-        #endregion
+        //#endregion
         #region (OperationResult Result, TEntity Value, string Message) GetById(Guid id)
 
         /// <inheritdoc/>
@@ -245,7 +245,7 @@ namespace Boccialyzer.Core.Repository
             try
             {
                 var exist = _dbContext.Set<TEntity>().Find(entity.Id);
-                if(exist == null)
+                if (exist == null)
                     return (Result: OperationResult.Error, Value: default(Guid), Message: "[Generic Repo] Сутність відсутня.");
                 entity.UpdatedOn = DateTime.UtcNow;
                 entity.UpdatedBy = _userInfo.AppUserId;
@@ -336,7 +336,7 @@ namespace Boccialyzer.Core.Repository
         {
             try
             {
-                var qry = _dbContext.Set<TEntity>().AsNoTracking().AsQueryable();
+                var qry = _dbContext.Set<TEntity>().AsNoTracking().AsQueryable().Where(x => _userInfo.IsAdmin || x.CreatedBy == _userInfo.AppUserId);
 
                 if (!string.IsNullOrEmpty(filter.Trim()))
                 {

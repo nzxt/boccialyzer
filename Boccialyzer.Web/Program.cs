@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -170,6 +171,7 @@ namespace Boccialyzer
                 {
                     options.Cookie.HttpOnly = true;
                     options.ExpireTimeSpan = TimeSpan.FromMinutes(cookiesOption.ExpireTimeSpan);
+                    options.Cookie.SameSite = SameSiteMode.None;
                     options.SlidingExpiration = true;
                     options.Events = new CookieAuthenticationEvents
                     {

@@ -66,7 +66,7 @@ namespace Boccialyzer.Web.Controllers
             if (result.Result == OperationResult.Ok)
             {
                 Log.Information("{ControllerInfo}", "Успішна авторизація.");
-                return StatusCode(200, new { access_token = $"Bearer {result.Value}" });
+                return StatusCode(200, new { access_token = $"{result.Value}" });
             }
 
             Log.Error("{ControllerError}", "Помилка авторизації.");

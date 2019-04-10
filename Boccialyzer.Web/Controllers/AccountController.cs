@@ -75,25 +75,6 @@ namespace Boccialyzer.Web.Controllers
         }
 
         #endregion
-        #region # Logout - Вихід з системи
-
-        /// <summary>
-        /// Вихід з системи
-        /// </summary>
-        /// <returns>Вітання</returns>
-        /// <response code="200">Успішне виконання</response>
-        [Authorize]
-        [HttpGet]
-        [Route("Logout")]
-        [ProducesResponseType(200)]
-        [ProducesResponseType(422)]
-        public async Task<IActionResult> Logout()
-        {
-            await _signInManager.SignOutAsync();
-            return Ok("Фух... Робота завершена! :-)");
-        }
-
-        #endregion
         #region # GetProfile - Отримати профіль користувача
 
         /// <summary>

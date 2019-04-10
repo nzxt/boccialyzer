@@ -19,6 +19,6 @@ namespace Boccialyzer.Domain.Dtos
         /// <summary>
         /// Ролі користувача
         /// </summary>
-        public IEnumerable<string> Roles { get; set; }
+        public string Role { get; set; }
     }
 }

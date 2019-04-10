@@ -20,9 +20,13 @@ using Serilog;
 using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerUI;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Boccialyzer
 {
@@ -129,71 +133,37 @@ namespace Boccialyzer
                 #region # Identity config
 
                 services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
-
-                var cookiesOption = Configuration.GetSection("AppCookiesOption").Get<AppCookiesOption>();
+                var identityOption = Configuration.GetSection("IdentityOption").Get<IdentityOption>();
                 services.Configure<IdentityOptions>(options =>
                 {
                     #region # Password settings
 
-                    options.Password.RequireDigit = cookiesOption.Password.RequireDigit;
-                    options.Password.RequiredLength = cookiesOption.Password.RequiredLength;
-                    options.Password.RequireNonAlphanumeric = cookiesOption.Password.RequireNonAlphanumeric;
-                    options.Password.RequireUppercase = cookiesOption.Password.RequireUppercase;
-                    options.Password.RequireLowercase = cookiesOption.Password.RequireLowercase;
-                    options.Password.RequiredUniqueChars = cookiesOption.Password.RequiredUniqueChars;
+                    options.Password.RequireDigit = identityOption.Password.RequireDigit;
+                    options.Password.RequiredLength = identityOption.Password.RequiredLength;
+                    options.Password.RequireNonAlphanumeric = identityOption.Password.RequireNonAlphanumeric;
+                    options.Password.RequireUppercase = identityOption.Password.RequireUppercase;
+                    options.Password.RequireLowercase = identityOption.Password.RequireLowercase;
+                    options.Password.RequiredUniqueChars = identityOption.Password.RequiredUniqueChars;
 
                     #endregion
                     #region # Lockout settings
 
-                    options.Lockout.DefaultLockoutTimeSpan =
-                    TimeSpan.FromMinutes(cookiesOption.Lockout.DefaultLockoutTimeSpan);
-                    options.Lockout.MaxFailedAccessAttempts = cookiesOption.Lockout.MaxFailedAccessAttempts;
-                    options.Lockout.AllowedForNewUsers = cookiesOption.Lockout.AllowedForNewUsers;
+                    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(identityOption.Lockout.DefaultLockoutTimeSpan);
+                    options.Lockout.MaxFailedAccessAttempts = identityOption.Lockout.MaxFailedAccessAttempts;
+                    options.Lockout.AllowedForNewUsers = identityOption.Lockout.AllowedForNewUsers;
 
                     #endregion
                     #region # AppUser settings
 
-                    options.User.RequireUniqueEmail = cookiesOption.User.RequireUniqueEmail;
+                    options.User.RequireUniqueEmail = identityOption.User.RequireUniqueEmail;
 
                     #endregion
                     #region # SignIn setting
 
-                    options.SignIn.RequireConfirmedEmail = cookiesOption.SignIn.RequireConfirmedEmail;
-                    options.SignIn.RequireConfirmedPhoneNumber = cookiesOption.SignIn.RequireConfirmedPhoneNumber;
+                    options.SignIn.RequireConfirmedEmail = identityOption.SignIn.RequireConfirmedEmail;
+                    options.SignIn.RequireConfirmedPhoneNumber = identityOption.SignIn.RequireConfirmedPhoneNumber;
 
                     #endregion
-                });
-
-                #endregion
-                #region # Cookie config
-
-                services.ConfigureApplicationCookie(options =>
-                {
-                    options.Cookie.HttpOnly = true;
-                    options.ExpireTimeSpan = TimeSpan.FromMinutes(cookiesOption.ExpireTimeSpan);
-                    options.Cookie.SameSite = SameSiteMode.None;
-                    options.SlidingExpiration = true;
-                    options.Events = new CookieAuthenticationEvents
-                    {
-                        OnRedirectToLogin = ctx =>
-                        {
-                            if (ctx.Request.Path.StartsWithSegments("/api") && ctx.Response.StatusCode == 200)
-                                ctx.Response.StatusCode = 401;
-                            else
-                                ctx.Response.Redirect(ctx.RedirectUri);
-
-                            return Task.CompletedTask;
-                        },
-                        OnRedirectToAccessDenied = ctx =>
-                        {
-                            if (ctx.Request.Path.StartsWithSegments("/api") && ctx.Response.StatusCode == 200)
-                                ctx.Response.StatusCode = 403;
-                            else
-                                ctx.Response.Redirect(ctx.RedirectUri);
-
-                            return Task.CompletedTask;
-                        }
-                    };
                 });
 
                 #endregion
@@ -239,9 +209,46 @@ namespace Boccialyzer
                     }
                     catch (Exception ex)
                     {
-                        Log.Fatal("{Fatal}{ErrorMessage}", "Помилка отримання налаштувань імпортера (AppOptions)",
+                        Log.Fatal("{Fatal}{ErrorMessage}", "Помилка отримання налаштувань (AppOptions)",
                             ex.Message);
                     }
+                });
+
+                #endregion
+                #region # AuthOption
+
+                var appAuthOption = Configuration.GetSection("AppAuthOption").Get<AppAuthOption>();
+                //var signingKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes((appAuthOption.SecurityKey));
+
+                services.Configure<AppAuthOption>(options =>
+                {
+                    options.Issuer = appAuthOption.Issuer;
+                    options.Audience = appAuthOption.Audience;
+                    options.SecurityKey = appAuthOption.SecurityKey;
+                    options.Expiration = appAuthOption.Expiration;
+                });
+
+                services.AddAuthentication(options =>
+                {
+                    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                })
+                    .AddJwtBearer(configureOptions =>
+                    {
+                        configureOptions.ClaimsIssuer = appAuthOption.Issuer;
+                        configureOptions.TokenValidationParameters = new TokenValidationParameters
+                        {
+                            ValidateIssuer = true,
+                            ValidIssuer = appAuthOption.Issuer,
+                            ValidateAudience = true,
+                            ValidAudience = appAuthOption.Audience,
+                            ValidateIssuerSigningKey = true,
+                            IssuerSigningKey = appAuthOption.GetSymmetricSecurityKey(),
+                            RequireExpirationTime = false,
+                            ValidateLifetime = true,
+                            ClockSkew = TimeSpan.Zero
+                        };
+                        configureOptions.SaveToken = true;
                 });
 
                 #endregion
@@ -280,6 +287,18 @@ namespace Boccialyzer
                         Title = $"Boccialyzer API Version 1 Build {DateTime.UtcNow:yyyy.MM.dd}",
                         Description = "Boccialyzer Web API"
                     });
+                    c.AddSecurityDefinition("Bearer", new ApiKeyScheme
+                    {
+                        In = "header",
+                        Description = "Authorization format : Bearer {token}",
+                        Name = "Authorization",
+                        Type = "apiKey"
+                    });
+                    c.AddSecurityRequirement(new Dictionary<string, IEnumerable<string>>
+                    {
+                        { "Bearer", new string[] { } }
+                    });
+
                     //c.IncludeXmlComments(Path.Combine(PlatformServices.Default.Application.ApplicationBasePath, "Boccialyzer.Web.xml"));
                     //c.IncludeXmlComments(Path.Combine(PlatformServices.Default.Application.ApplicationBasePath, "Boccialyzer.Domain.xml"));
 

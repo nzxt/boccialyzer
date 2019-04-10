@@ -3,7 +3,7 @@
     /// <summary>
     /// Налаштування Cookies
     /// </summary>
-    public class AppCookiesOption
+    public class IdentityOption
     {
         /// <summary>
         /// Час дії
@@ -12,25 +12,25 @@
         /// <summary>
         /// Пароль
         /// </summary>
-        public AppCookiesPassword Password { get; set; }
+        public IdentityPassword Password { get; set; }
         /// <summary>
         /// Блокування
         /// </summary>
-        public AppCookiesLockout Lockout { get; set; }
+        public IdentityLockout Lockout { get; set; }
         /// <summary>
         /// Користувач
         /// </summary>
-        public AppCookiesUser User { get; set; }
+        public IdentityUser User { get; set; }
         /// <summary>
         /// Аутентифікація
         /// </summary>
-        public AppCookiesSignIn SignIn { get; set; }
+        public IdentitySignIn SignIn { get; set; }
     }
 
     /// <summary>
     /// Налаштування Cookies Password
     /// </summary>
-    public class AppCookiesPassword
+    public class IdentityPassword
     {
         /// <summary>
         /// Чи обов'язкові цифри
@@ -61,7 +61,7 @@
     /// <summary>
     /// Налаштування Cookies Lockout
     /// </summary>
-    public class AppCookiesLockout
+    public class IdentityLockout
     {
         /// <summary>
         /// Час блокування
@@ -80,7 +80,7 @@
     /// <summary>
     /// Налаштування Cookie sUser
     /// </summary>
-    public class AppCookiesUser
+    public class IdentityUser
     {
         /// <summary>
         /// Чи необхідно перевіряти унікальність пошти
@@ -91,7 +91,7 @@
     /// <summary>
     /// Налаштування Cookies SignIn
     /// </summary>
-    public class AppCookiesSignIn
+    public class IdentitySignIn
     {
         /// <summary>
         /// Чи обов'язкове підтвердження пошти

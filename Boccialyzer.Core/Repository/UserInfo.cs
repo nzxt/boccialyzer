@@ -27,7 +27,7 @@ namespace Boccialyzer.Core.Repository
         /// <summary>
         /// Ролі користувача
         /// </summary>
-        IList<string> Roles { get; set; }
+        string Role { get; set; }
         /// <summary>
         /// Чи адміністратор?
         /// </summary>
@@ -40,7 +40,7 @@ namespace Boccialyzer.Core.Repository
         public string IpAddress { get; set; }
         public Guid AppUserId { get; set; }
         public string Locale { get; set; }
-        public IList<string> Roles { get; set; }
+        public string Role { get; set; }
         public bool IsAdmin { get; set; }
     }
 }

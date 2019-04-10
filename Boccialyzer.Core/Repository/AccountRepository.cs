@@ -1,12 +1,18 @@
 ﻿using Boccialyzer.Core.Context;
 using Boccialyzer.Domain.Dtos;
+using Boccialyzer.Domain.Entities;
 using Boccialyzer.Domain.Enums;
 using Boccialyzer.Domain.Models;
-using System;
-using System.Threading.Tasks;
-using Boccialyzer.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
+using System;
+using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace Boccialyzer.Core.Repository
 {
@@ -15,6 +21,16 @@ namespace Boccialyzer.Core.Repository
     /// </summary>
     public interface IAccountRepository
     {
+        #region # Task<(...)> LogIn(...)
+
+        /// <summary>
+        /// Авторизація користувача
+        /// </summary>
+        /// <param name="login">Модель авторизації</param>
+        /// <returns>Токен</returns>
+        Task<(OperationResult Result, string Value, string Message)> LogIn(LoginDto login);
+
+        #endregion
         #region # Task<(...)> Create(...)
 
         /// <summary>
@@ -49,21 +65,22 @@ namespace Boccialyzer.Core.Repository
         private readonly IUserInfo _userInfo;
         private readonly UserManager<AppUser> _userManager;
         private readonly IAppRoleRepository _appRoleRepository;
+        private readonly AppAuthOption _appAuthOption;
 
         #endregion
         #region # AccountRepository - конструктор
 
-        public AccountRepository(ApplicationDbContext dbContext, IAppUserRepository appUserRepository, IUserInfo userInfo, UserManager<AppUser> userManager, IAppRoleRepository appRoleRepository)
+        public AccountRepository(ApplicationDbContext dbContext, IAppUserRepository appUserRepository, IUserInfo userInfo, UserManager<AppUser> userManager, IAppRoleRepository appRoleRepository, IOptionsSnapshot<AppAuthOption> appAuthOption)
         {
             _dbContext = dbContext;
             _appUserRepository = appUserRepository;
             _userInfo = userInfo;
             _userManager = userManager;
             _appRoleRepository = appRoleRepository;
+            _appAuthOption = appAuthOption.Value;
         }
 
         #endregion
-
 
         #region # Task<(...)> Create(...)
 
@@ -105,7 +122,56 @@ namespace Boccialyzer.Core.Repository
         }
 
         #endregion
+        #region # Task<(...)> LogIn(...)
 
+        /// <inheritdoc/>
+        public async Task<(OperationResult Result, string Value, string Message)> LogIn(LoginDto login)
+        {
+            try
+            {
+                var user = await _userManager.Users.Where(x => x.UserName == login.UserName).FirstOrDefaultAsync();
+                if (user != null)
+                {
+                    var isValidPassword = await _userManager.CheckPasswordAsync(user, login.Password);
+                    if (isValidPassword)
+                    {
+                        var roles = await _userManager.GetRolesAsync(user);
+                        var isAdmin = await _userManager.IsInRoleAsync(user, Role.Admin);
+
+                        var tokenHandler = new JwtSecurityTokenHandler();
+                        var key = _appAuthOption.GetSymmetricSecurityKey();
+                        var tokenDescriptor = new SecurityTokenDescriptor
+                        {
+                            Subject = new ClaimsIdentity(new Claim[]
+                            {
+                            new Claim(ClaimTypes.Name, user.UserName),
+                            new Claim("id", user.Id.ToString()),
+                            new Claim("is_admin", isAdmin.ToString()),
+                            new Claim(ClaimTypes.Role, roles.FirstOrDefault())
+                            }),
+                            Expires = DateTime.UtcNow.AddMinutes(_appAuthOption.Expiration),
+                            SigningCredentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256Signature),
+                            Audience = _appAuthOption.Audience,
+                            IssuedAt = DateTime.UtcNow,
+                            Issuer = _appAuthOption.Issuer,
+                            NotBefore = DateTime.UtcNow
+                        };
+                        var token = tokenHandler.CreateToken(tokenDescriptor);
+                        var tokenString = tokenHandler.WriteToken(token);
+
+                        return (Result: OperationResult.Ok, Value: tokenString, Message: "");
+                    }
+                }
+
+                return (Result: OperationResult.Error, Value: string.Empty, Message: "Помилка авторизації.");
+            }
+            catch (Exception ex)
+            {
+                return (Result: OperationResult.Error, Value: string.Empty, Message: ex.Message);
+            }
+        }
+
+        #endregion
         #region # (...) GetUserProfile()
 
         /// <inheritdoc/>
@@ -116,7 +182,7 @@ namespace Boccialyzer.Core.Repository
                 var userProfile = new UserProfile
                 {
                     UserName = _userInfo.UserName,
-                    Roles = _userInfo.Roles,
+                    Role = _userInfo.Role,
                     AppUserId = _userInfo.AppUserId
                 };
 

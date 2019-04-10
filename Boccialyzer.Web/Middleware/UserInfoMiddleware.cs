@@ -1,8 +1,10 @@
-﻿using Boccialyzer.Core.Repository;
+﻿using System;
+using Boccialyzer.Core.Repository;
 using Boccialyzer.Domain.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace Boccialyzer.Web.Middleware
@@ -46,10 +48,10 @@ namespace Boccialyzer.Web.Middleware
             {
                 userInfo.UserName = httpContext.User?.Identity?.Name;
                 userInfo.IpAddress = httpContext.Connection.RemoteIpAddress.MapToIPv4().ToString();
-                var user = await userManager.FindByNameAsync(userInfo.UserName);
-                userInfo.AppUserId = user.Id;
-                userInfo.Roles = await userManager.GetRolesAsync(user);
-                userInfo.IsAdmin = await userManager.IsInRoleAsync(user,"Administrator");
+
+                if (Guid.TryParse(httpContext.User.FindFirstValue("id"), out Guid id)) userInfo.AppUserId = id;
+                if (bool.TryParse(httpContext.User.FindFirstValue("is_admin"), out bool isAdmin)) userInfo.IsAdmin = isAdmin;
+                userInfo.Role = httpContext.User.FindFirstValue(ClaimTypes.Role);
             }
             await _next.Invoke(httpContext);
         }

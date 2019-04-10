@@ -1,4 +1,5 @@
-﻿using Boccialyzer.Core.Repository;
+﻿using System.Linq;
+using Boccialyzer.Core.Repository;
 using Boccialyzer.Domain.Dtos;
 using Boccialyzer.Domain.Entities;
 using Boccialyzer.Domain.Enums;
@@ -16,7 +17,7 @@ namespace Boccialyzer.Web.Controllers
     /// </summary>
     [Produces("application/json")]
     [Route("api/Account")]
-    [Authorize]
+    //[Authorize]
     [ApiController]
     public class AccountController : ControllerBase
     {
@@ -57,15 +58,17 @@ namespace Boccialyzer.Web.Controllers
         [ProducesResponseType(422)]
         public async Task<IActionResult> Login([FromBody] LoginDto loginModel)
         {
+            if (!ModelState.IsValid) return StatusCode(422, ModelState.Values.SelectMany(v => v.Errors));
             if (loginModel == null) return StatusCode(422, "Відсутні данні.");
             if (string.IsNullOrEmpty(loginModel.UserName)) return StatusCode(422, "Відсутнє ім'я користувача.");
             if (string.IsNullOrEmpty(loginModel.Password)) return StatusCode(422, "Відсутній пароль");
-            var result = await _signInManager.PasswordSignInAsync(loginModel.UserName, loginModel.Password, isPersistent: true, lockoutOnFailure: false);
-            if (result.Succeeded)
+            var result = await _accountRepository.LogIn(loginModel);
+            if (result.Result == OperationResult.Ok)
             {
                 Log.Information("{ControllerInfo}", "Успішна авторизація.");
-                return Ok();
+                return StatusCode(200, new { access_token = $"Bearer {result.Value}" });
             }
+
             Log.Error("{ControllerError}", "Помилка авторизації.");
 
             return StatusCode(422, "Помилка авторизації.");

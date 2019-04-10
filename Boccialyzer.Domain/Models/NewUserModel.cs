@@ -15,8 +15,8 @@ namespace Boccialyzer.Domain.Models
         public NewUserModel()
         {
             Gender = Gender.Undefined;
-            RoleId = default(Guid);
-            CountryId = default(Guid);
+            //RoleId = default(Guid);
+            //CountryId = default(Guid);
         }
         /// <summary>
         /// Ім'я користувача

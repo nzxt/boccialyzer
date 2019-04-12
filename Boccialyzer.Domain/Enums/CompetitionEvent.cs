@@ -36,6 +36,10 @@
         /// <summary>
         /// Team BC1/BC2
         /// </summary>
-        TeamBc1Bc2
+        TeamBc1Bc2,
+        /// <summary>
+        /// Pair, undefined
+        /// </summary>
+        Pair
     }
 }

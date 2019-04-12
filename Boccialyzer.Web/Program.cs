@@ -132,7 +132,10 @@ namespace Boccialyzer
 
                 #region # Identity config
 
-                services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
+                services.AddIdentity<AppUser, AppRole>()
+                    .AddEntityFrameworkStores<ApplicationDbContext>()
+                    .AddDefaultTokenProviders()
+                    .AddTokenProvider("RefreshToken", typeof(DataProtectorTokenProvider<AppUser>));
                 var identityOption = Configuration.GetSection("IdentityOption").Get<IdentityOption>();
                 services.Configure<IdentityOptions>(options =>
                 {

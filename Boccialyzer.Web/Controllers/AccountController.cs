@@ -66,7 +66,7 @@ namespace Boccialyzer.Web.Controllers
             if (result.Result == OperationResult.Ok)
             {
                 Log.Information("{ControllerInfo}", "Успішна авторизація.");
-                return StatusCode(200, new { access_token = $"{result.Value}" });
+                return StatusCode(200, result.Value);
             }
 
             Log.Error("{ControllerError}", "Помилка авторизації.");
@@ -96,7 +96,6 @@ namespace Boccialyzer.Web.Controllers
         }
 
         #endregion
-
         #region # Registration - реєстрація нового користувача
 
         /// <summary>
@@ -118,6 +117,33 @@ namespace Boccialyzer.Web.Controllers
             if (string.IsNullOrEmpty(item.Password)) return StatusCode(422, "Відсутній пароль.");
             var result = await _accountRepository.Create(item);
             if (result.Result == OperationResult.Ok) return StatusCode(201, result.Value);
+
+            return StatusCode(422, result.Message);
+        }
+
+        #endregion
+        #region # RefreshTokens - Оновлення токенів
+
+        /// <summary>
+        /// Оновлення токенів
+        /// </summary>
+        /// <param name="item">Модель токенів</param>
+        /// <returns>Модель токенів</returns>
+        /// <response code="200">Успішне виконання</response>
+        /// <response code="422">Помилка виконання</response>
+        [HttpPost]
+        [AllowAnonymous]
+        [Route("RefreshTokens")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(422)]
+        public async Task<IActionResult> RefreshTokens([FromBody] TokensModel item)
+        {
+            if (!ModelState.IsValid) return StatusCode(422, "Помилкові данні.");
+            if (string.IsNullOrEmpty(item.AccessToken)) return StatusCode(422, "Відсутній токен доступу.");
+            if (string.IsNullOrEmpty(item.RefreshToken)) return StatusCode(422, "Відсутній токен оновлення.");
+            if (item.ExpiresIn==0) return StatusCode(422, "Час дії токену завершився.");
+            var result = await _accountRepository.RefreshToken(item);
+            if (result.Result == OperationResult.Ok) return StatusCode(200, result.Value);
 
             return StatusCode(422, result.Message);
         }

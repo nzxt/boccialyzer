@@ -26,7 +26,7 @@ namespace Boccialyzer.Core.SeedData
                 if (File.Exists(jsonPath))
                 {
                     var spData = JsonConvert.DeserializeObject<List<StoredFunctionDto>>(File.ReadAllText(jsonPath));
-                    var storedFunctions = dbContext.Query<ViewStoredView>().FromSql(@"SELECT viewname FROM pg_catalog.pg_views WHERE viewname LIKE 'bl_view_%' ORDER BY viewname ASC").ToList();
+                    var storedFunctions = dbContext.Query<ViewStoredView>().FromSql(@"SELECT viewname FROM pg_catalog.pg_views WHERE viewname LIKE 'boccialyzer_%' ORDER BY viewname ASC").ToList();
 
                     foreach (var item in spData)
                     {

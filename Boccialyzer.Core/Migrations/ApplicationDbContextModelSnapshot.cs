@@ -219,6 +219,8 @@ namespace Boccialyzer.Core.Migrations
                         .HasColumnName("IsDeadBall")
                         .HasAnnotation("Npgsql:Comment", "М'яч поза грою?");
 
+                    b.Property<bool>("IsJack");
+
                     b.Property<bool>("IsPenalty")
                         .HasColumnName("IsPenalty")
                         .HasAnnotation("Npgsql:Comment", "Штрафний м'яч?");

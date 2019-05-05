@@ -29,6 +29,10 @@ namespace Boccialyzer.Domain.Entities
         /// </summary>
         public int Rating { get; set; }
         /// <summary>
+        /// Джек?
+        /// </summary>
+        public bool IsJack { get; set; }
+        /// <summary>
         /// Штрафний м'яч?
         /// </summary>
         public bool IsPenalty { get; set; }

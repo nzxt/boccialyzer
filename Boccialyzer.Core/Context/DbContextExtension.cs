@@ -59,7 +59,7 @@ namespace Boccialyzer.Core.Context
 
             try
             {
-                //StoredFunctionData.Seed(dbContext);
+                StoredFunctionData.Seed(dbContext);
                 //TriggerData.Seed(dbContext);
                 //StoredViewData.Seed(dbContext);
             }

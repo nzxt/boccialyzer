@@ -90,6 +90,9 @@
     <None Update="SeedData\Json\StageToPlayer.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="SeedData\Json\StoredFunction.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="SeedData\Json\StoredView.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

@@ -14,12 +14,21 @@ namespace Boccialyzer.Core.SeedData
         {
             new TournamentType
             {
+                Id = new Guid("1c34cfbb-840c-42dc-a4b4-9028e39193b0"),
+                CreatedOn = DateTime.UtcNow, 
+                CreatedBy = default(Guid),
+                Name = "General Tourney",
+                Abbr="GT",
+                Icon = "mdi-triforce"
+            },
+            new TournamentType
+            {
                 Id = new Guid("c1632aa2-0387-42b9-9d31-9cbcd0560263"),
                 CreatedOn = DateTime.UtcNow, 
                 CreatedBy = default(Guid),
                 Name = "Paralympic Games",
                 Abbr="PG",
-                Icon = ""
+                Icon = "mdi-trophy-broken"
             },
             new TournamentType
             {
@@ -28,7 +37,7 @@ namespace Boccialyzer.Core.SeedData
                 CreatedBy = default(Guid),
                 Name = "World Championships",
                 Abbr="WC",
-                Icon = ""
+                Icon = "mdi-trophy"
             },
             new TournamentType
             {
@@ -37,7 +46,7 @@ namespace Boccialyzer.Core.SeedData
                 CreatedBy = default(Guid),
                 Name = "Regional Championships",
                 Abbr="RC",
-                Icon = ""
+                Icon = "mdi-trophy-variant"
             },
             new TournamentType
             {
@@ -46,7 +55,7 @@ namespace Boccialyzer.Core.SeedData
                 CreatedBy = default(Guid),
                 Name = "World Open",
                 Abbr="WO",
-                Icon = ""
+                Icon = "mdi-trophy-outline"
             },
             new TournamentType
             {
@@ -55,7 +64,7 @@ namespace Boccialyzer.Core.SeedData
                 CreatedBy = default(Guid),
                 Name = "Regional Open",
                 Abbr="RO",
-                Icon = ""
+                Icon = "mdi-trophy-variant-outline"
             }
         };
 

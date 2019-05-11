@@ -540,6 +540,7 @@ namespace Boccialyzer.Core.Migrations
                         .Annotation("Npgsql:Comment", "Користувач системи, що створив запис"),
                     UpdatedBy = table.Column<Guid>(nullable: true)
                         .Annotation("Npgsql:Comment", "Користувач системи, що модифікував запис"),
+                    Index = table.Column<int>(nullable: false),
                     Rating = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:Comment", "Оцінка"),
                     IsJack = table.Column<bool>(nullable: false),

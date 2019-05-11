@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Boccialyzer.Core.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190503084434_Initial")]
+    [Migration("20190511080209_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -216,6 +216,8 @@ namespace Boccialyzer.Core.Migrations
                     b.Property<int>("Distance")
                         .HasColumnName("Distance")
                         .HasAnnotation("Npgsql:Comment", "Дистанція");
+
+                    b.Property<int>("Index");
 
                     b.Property<bool>("IsDeadBall")
                         .HasColumnName("IsDeadBall")

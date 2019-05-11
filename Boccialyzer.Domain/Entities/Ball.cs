@@ -25,6 +25,10 @@ namespace Boccialyzer.Domain.Entities
         [Key]
         public Guid Id { get; set; }
         /// <summary>
+        /// Порядковий номер
+        /// </summary>
+        public int Index { get; set; }
+        /// <summary>
         /// Оцінка
         /// </summary>
         public int Rating { get; set; }

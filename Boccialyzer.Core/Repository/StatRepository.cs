@@ -54,6 +54,7 @@ namespace Boccialyzer.Core.Repository
                         matchtype = param.MatchType,
                         tournamentid = param.TournamentId,
                         tournamenttypeid = param.TournamentTypeId,
+                        trainingid = param.TrainingId,
                         matchid = param.MatchId,
                         stageid = param.StageId
                     }, commandType: CommandType.StoredProcedure);

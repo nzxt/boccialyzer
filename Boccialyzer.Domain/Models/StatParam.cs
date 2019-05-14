@@ -48,6 +48,10 @@ namespace Boccialyzer.Domain.Models
         /// </summary>
         public Guid? TournamentTypeId { get; set; } = null;
         /// <summary>
+        /// Ідентифікатор тренування
+        /// </summary>
+        public Guid? TrainingId { get; set; } = null;
+        /// <summary>
         /// Ідентифікатор матчу (для статистики тільки за матчем)
         /// </summary>
         public Guid? MatchId { get; set; } = null;

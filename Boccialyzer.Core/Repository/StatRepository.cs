@@ -14,6 +14,7 @@ namespace Boccialyzer.Core.Repository
     public interface IStatRepository
     {
         Task<(OperationResult Result, IEnumerable<StatResult> Value, string Message)> GetStatistic(StatParam param);
+        Task<(OperationResult Result, IEnumerable<StatResultTraining> Value, string Message)> GetTrainingStat(Guid id);
     }
 
     public class StatRepository : IStatRepository
@@ -61,6 +62,30 @@ namespace Boccialyzer.Core.Repository
                     db.Close();
                     if (result == null)
                         return (Result: OperationResult.Error, Value: null, Message: "[GetStatistic] Щось пішло не за планом...");
+                    return (Result: OperationResult.Ok, Value: result, Message: "");
+                }
+                catch (Exception ex)
+                {
+                    Log.Error("{SqlError}", ex.Message);
+                    return (Result: OperationResult.Error, Value: null, Message: ex.Message);
+                }
+            }
+        }
+        public async Task<(OperationResult Result, IEnumerable<StatResultTraining> Value, string Message)> GetTrainingStat(Guid id)
+        {
+            using (IDbConnection db = new NpgsqlConnection(_appOptions.ConnectionString))
+            {
+                try
+                {
+                    db.Open();
+                    var result = await db.QueryAsync<StatResultTraining>("public.boccialyzer_get_training_stat", new
+                    {
+                        createdby = _userInfo.AppUserId,
+                        trainingid = id
+                    }, commandType: CommandType.StoredProcedure);
+                    db.Close();
+                    if (result == null)
+                        return (Result: OperationResult.Error, Value: null, Message: "[GetTrainingStat] Щось пішло не за планом...");
                     return (Result: OperationResult.Ok, Value: result, Message: "");
                 }
                 catch (Exception ex)

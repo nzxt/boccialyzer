@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
+using Boccialyzer.Domain.Enums;
 
 namespace Boccialyzer.Domain.Entities
 {
@@ -27,6 +28,10 @@ namespace Boccialyzer.Domain.Entities
         /// Дата та час тренування
         /// </summary>
         public DateTime DateTimeStamp { get; set; }
+        /// <summary>
+        /// Тип тренування
+        /// </summary>
+        public TrainingType TrainingType { get; set; }
         /// <summary>
         /// Користувач системи
         /// </summary>

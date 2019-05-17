@@ -700,6 +700,8 @@ namespace Boccialyzer.Core.Migrations
                         .HasColumnName("DateTimeStamp")
                         .HasAnnotation("Npgsql:Comment", "Дата та час тренування");
 
+                    b.Property<int>("TrainingType");
+
                     b.Property<Guid?>("UpdatedBy")
                         .HasColumnName("UpdatedBy")
                         .HasAnnotation("Npgsql:Comment", "Користувач системи, що модифікував запис");

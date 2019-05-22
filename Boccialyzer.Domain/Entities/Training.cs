@@ -33,6 +33,10 @@ namespace Boccialyzer.Domain.Entities
         /// </summary>
         public TrainingType TrainingType { get; set; }
         /// <summary>
+        /// Оцінка тренування
+        /// </summary>
+        public int Rate { get; set; }
+        /// <summary>
         /// Користувач системи
         /// </summary>
         [Required]

@@ -20,5 +20,13 @@ namespace Boccialyzer.Domain.Dtos
         /// Тип тренування
         /// </summary>
         public TrainingType TrainingType { get; set; }
+        /// <summary>
+        /// Середня оцінка кидків
+        /// </summary>
+        public double AvgBallRating { get; set; }
+        /// <summary>
+        /// Оцінка тренування
+        /// </summary>
+        public int Rate { get; set; }
     }
 }

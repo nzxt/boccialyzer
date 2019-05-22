@@ -85,7 +85,9 @@ namespace Boccialyzer.Core.Repository
                 {
                     Id = _.Id,
                     DateTimeStamp = _.DateTimeStamp,
-                    TrainingType = _.TrainingType
+                    TrainingType = _.TrainingType,
+                    AvgBallRating = Math.Round(_.Balls.Average(x => x.Rating), 2),
+                    Rate = _.Rate
                 });
 
                 var result = new PagedList<TrainingDto>

@@ -1,6 +1,0 @@
-﻿[
-  {
-    "proname": "bl_get_matches_list",
-    "sql": "CREATE OR REPLACE VIEW public.bl_get_matches_list AS SELECT tn.\"Name\" AS \"TournamentName\", tn.\"TournamentTypeId\" AS \"TournamentTypeId\", mt.\"Id\", mt.\"AppUserId\", mt.\"DateTimeStamp\", mt.\"MatchType\", string_agg(( SELECT pl.\"FullName\" FROM \"Players\" pl WHERE lp.\"PlayerId\" = pl.\"Id\" AND (lp.\"Box\" = ANY (ARRAY[1, 3, 5]))), ', '::text) AS \"PlayersRed\", string_agg(( SELECT pl.\"FullName\" FROM \"Players\" pl WHERE lp.\"PlayerId\" = pl.\"Id\" AND (lp.\"Box\" = ANY (ARRAY[2, 4, 6]))), ', '::text) AS \"PlayersBlue\", mt.\"ScoreRed\", mt.\"ScoreBlue\", mt.\"PoolStage\", mt.\"EliminationStage\", mt.\"CompetitionEvent\", mt.\"FlagRed\", mt.\"FlagBlue\", mt.\"TournamentId\", mt.\"TrainingId\" FROM \"Matches\" mt JOIN \"LinkToPlayers\" lp ON mt.\"Id\" = lp.\"MatchId\" LEFT JOIN \"Tournaments\" tn ON tn.\"Id\" = mt.\"TournamentId\" GROUP BY mt.\"Id\", tn.\"Name\", tn.\"TournamentTypeId\"; ALTER TABLE public.bl_get_matches_list OWNER TO postgres; COMMENT ON VIEW public.bl_get_matches_list IS 'Список матчів для статистики';"
-  }
-]

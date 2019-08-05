@@ -1,0 +1,1562 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Blyzer.Domain</name>
+    </assembly>
+    <members>
+        <member name="T:Blyzer.Domain.Entities.AppRoleId">
+            <summary>
+            Системні ролі
+            </summary>
+        </member>
+        <member name="M:Blyzer.Domain.Entities.AppRoleId.#ctor">
+            <summary>
+            AppRoleId constructor
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.AppRoleId.CreatedOn">
+            <summary>
+            Дата і час заведення
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.AppRoleId.UpdatedOn">
+            <summary>
+            Дата та час редагування
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.AppRoleId.CreatedBy">
+            <summary>
+            Користувач системи, що створив запис
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.AppRoleId.UpdatedBy">
+            <summary>
+            Користувач системи, що модифікував запис
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.AppRoleId.Caption">
+            <summary>
+            Опис ролі
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.AppRoleId.IsDefault">
+            <summary>
+            За замовчуванням
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.AppRoleId.IsSystem">
+            <summary>
+            Системна?
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.AppRoleId.IsAdministrator">
+            <summary>
+            Адміністратор?
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.AppRoleId.IsSuperUser">
+            <summary>
+            Суперюзер?
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.AppRoleId.IsExpert">
+            <summary>
+            Експерт?
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.AppRoleId.IsManager">
+            <summary>
+            Менеджер?
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.AppRoleId.UserRoleIds">
+            <summary>
+            User RoleIds
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.AppRoleId.RoleIdClaims">
+            <summary>
+            Application`s RoleId Claim
+            </summary>
+        </member>
+        <member name="T:Blyzer.Domain.Entities.AppRoleIdClaim">
+            <summary>
+            Application`s RoleId Claim
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.AppRoleIdClaim.RoleId">
+            <summary>
+            Application`s RoleId
+            </summary>
+        </member>
+        <member name="T:Blyzer.Domain.Entities.AppUser">
+            <summary>
+            Системні користувачі
+            </summary>
+        </member>
+        <member name="M:Blyzer.Domain.Entities.AppUser.#ctor">
+            <summary>
+            AppUser constructor
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.AppUser.CreatedOn">
+            <summary>
+            Дата і час заведення
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.AppUser.UpdatedOn">
+            <summary>
+            Дата та час редагування
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.AppUser.CreatedBy">
+            <summary>
+            Користувач системи, що створив запис
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.AppUser.UpdatedBy">
+            <summary>
+            Користувач системи, що модифікував запис
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.AppUser.CountryId">
+            <summary>
+            Національність
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.AppUser.Country">
+            <summary>
+            Національність
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.AppUser.FirstName">
+            <summary>
+            Ім'я
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.AppUser.LastName">
+            <summary>
+            Прізвище
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.AppUser.DateOfBirth">
+            <summary>
+            Дата народження
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.AppUser.Gender">
+            <summary>
+            Стать
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.AppUser.PlayerId">
+            <summary>
+            Ідентифікатор гравця
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.AppUser.Matches">
+            <summary>
+            Матчі
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.AppUser.Tournaments">
+            <summary>
+            Турніри
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.AppUser.Claims">
+            <summary>
+            Application`s User Claim
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.AppUser.Logins">
+            <summary>
+            Application`s User Logins
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.AppUser.Tokens">
+            <summary>
+            Application`s User Tokens
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.AppUser.UserRoleIds">
+            <summary>
+            Application`s User RoleIds
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.AppUser.NormalizedUserName">
+            <summary>
+            NormalizedUserName
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.AppUser.NormalizedEmail">
+            <summary>
+            NormalizedEmail
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.AppUser.PasswordHash">
+            <summary>
+            PasswordHash
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.AppUser.SecurityStamp">
+            <summary>
+            SecurityStamp
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.AppUser.ConcurrencyStamp">
+            <summary>
+            ConcurrencyStamp
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.AppUser.PhoneNumber">
+            <summary>
+            PhoneNumber
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.AppUser.Email">
+            <summary>
+            Email
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.AppUser.EmailConfirmed">
+            <summary>
+            EmailConfirmed
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.AppUser.PhoneNumberConfirmed">
+            <summary>
+            PhoneNumberConfirmed
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.AppUser.TwoFactorEnabled">
+            <summary>
+            TwoFactorEnabled
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.AppUser.AccessFailedCount">
+            <summary>
+            AccessFailedCount
+            </summary>
+        </member>
+        <member name="T:Blyzer.Domain.Entities.AppUserClaim">
+            <summary>
+            Application`s User Claim
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.AppUserClaim.User">
+            <summary>
+            App User
+            </summary>
+        </member>
+        <member name="T:Blyzer.Domain.Entities.AppUserLogin">
+            <summary>
+            Application`s User Login
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.AppUserLogin.User">
+            <summary>
+            Application`s User
+            </summary>
+        </member>
+        <member name="T:Blyzer.Domain.Entities.AppUserRoleId">
+            <summary>
+            Application User RoleId
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.AppUserRoleId.User">
+            <summary>
+            User
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.AppUserRoleId.RoleId">
+            <summary>
+            RoleId
+            </summary>
+        </member>
+        <member name="T:Blyzer.Domain.Entities.AppUserToken">
+            <summary>
+            Application`s User Token
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.AppUserToken.User">
+            <summary>
+            Application`s User
+            </summary>
+        </member>
+        <member name="T:Blyzer.Domain.Entities.Ball">
+            <summary>
+            М'яч
+            </summary>
+        </member>
+        <member name="M:Blyzer.Domain.Entities.Ball.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Ball.Id">
+            <summary>
+            Ідентифікатор
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Ball.Index">
+            <summary>
+            Номер в енді
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Ball.Rating">
+            <summary>
+            Оцінка
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Ball.IsJack">
+            <summary>
+            Джек?
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Ball.IsPenalty">
+            <summary>
+            Штрафний м'яч?
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Ball.IsDeadBall">
+            <summary>
+            М'яч поза грою?
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Ball.DeadBallType">
+            <summary>
+            Типи м'ячів поза грою
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Ball.ShotType">
+            <summary>
+            Тип кидка
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Ball.FromBox">
+            <summary>
+            Ігрова зона
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Ball.Distance">
+            <summary>
+            Дистанція
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Ball.EndId">
+            <summary>
+            Період гри
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Ball.PlayerId">
+            <summary>
+            Гравець
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Ball.TrainingId">
+            <summary>
+            Тренування
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Ball.CoordinateX">
+            <summary>
+            Координата X
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Ball.CoordinateY">
+            <summary>
+            Координата Y
+            </summary>
+        </member>
+        <member name="T:Blyzer.Domain.Entities.IBaseEntity">
+            <summary>
+            Інтерфейс базової сутності
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.IBaseEntity.Id">
+            <summary>
+            Ідентифікатор
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.IBaseEntity.CreatedOn">
+            <summary>
+            Дата і час заведення
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.IBaseEntity.UpdatedOn">
+            <summary>
+            Дата та час редагування
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.IBaseEntity.CreatedBy">
+            <summary>
+            Користувач системи, що створив запис
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.IBaseEntity.UpdatedBy">
+            <summary>
+            Користувач системи, що модифікував запис
+            </summary>
+        </member>
+        <member name="T:Blyzer.Domain.Entities.BaseEntity">
+            <summary>
+            Базова сутність
+            </summary>
+        </member>
+        <member name="M:Blyzer.Domain.Entities.BaseEntity.#ctor">
+            <summary>
+            BaseEntity constructor
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.BaseEntity.CreatedOn">
+            <summary>
+            Дата і час заведення
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.BaseEntity.UpdatedOn">
+            <summary>
+            Дата та час редагування
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.BaseEntity.CreatedBy">
+            <summary>
+            Користувач системи, що створив запис
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.BaseEntity.UpdatedBy">
+            <summary>
+            Користувач системи, що модифікував запис
+            </summary>
+        </member>
+        <member name="T:Blyzer.Domain.Entities.Country">
+            <summary>
+            Країни
+            </summary>
+        </member>
+        <member name="M:Blyzer.Domain.Entities.Country.#ctor">
+            <summary>
+            Country constructor
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Country.Id">
+            <summary>
+            Ідентифікатор
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Country.Name">
+            <summary>
+            Назва
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Country.Code">
+            <summary>
+            Код країни
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Country.Alpha2">
+            <summary>
+            Alpha2
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Country.Alpha3">
+            <summary>
+            Alpha3
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Country.AppUsers">
+            <summary>
+            Користувачі
+            </summary>
+        </member>
+        <member name="T:Blyzer.Domain.Entities.End">
+            <summary>
+            Період гри
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.End.Id">
+            <summary>
+            Ідентифікатор
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.End.MatchId">
+            <summary>
+            Ідентифікатор матчу
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.End.Match">
+            <summary>
+            Match
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.End.Index">
+            <summary>
+            Порядковий номер у грі
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.End.IsDisrupted">
+            <summary>
+            З порушенням?
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.End.IsTieBreak">
+            <summary>
+            Тай-брейк?
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.End.ScoreRed">
+            <summary>
+            Рахунок червоних
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.End.ScoreBlue">
+            <summary>
+            Рахунок синіх
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.End.AvgPointRed">
+            <summary>
+            Середня якість кидків червоних
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.End.AvgPointBlue">
+            <summary>
+            Середня якість кидків синіх
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.End.Balls">
+            <summary>
+            М'ячі
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.End.StageToPlayers">
+            <summary>
+            М'ячі
+            </summary>
+        </member>
+        <member name="T:Blyzer.Domain.Entities.EndToPlayer">
+            <summary>
+            Зв'язок гравців з періодами гри
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.EndToPlayer.EndId">
+            <summary>
+            Ідентифікатор періоду гри
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.EndToPlayer.End">
+            <summary>
+            Період гри
+            </summary>
+        </member>
+        <member name="T:Blyzer.Domain.Entities.LinkToPlayer">
+            <summary>
+            Зв'язок гравців з матчами/тренуваннями
+            </summary>
+        </member>
+        <member name="M:Blyzer.Domain.Entities.LinkToPlayer.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.LinkToPlayer.Id">
+            <summary>
+            Ідентифікатор
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.LinkToPlayer.Bib">
+            <summary>
+            BIB
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.LinkToPlayer.Box">
+            <summary>
+            Номер боксу
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.LinkToPlayer.PlayerId">
+            <summary>
+            Гравець
+            </summary>
+        </member>
+        <member name="T:Blyzer.Domain.Entities.Match">
+            <summary>
+            Матч
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Match.Id">
+            <summary>
+            Ідентифікатор
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Match.DateTimeStamp">
+            <summary>
+            Дата та час проведення
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Match.MatchType">
+            <summary>
+            Тип матчу
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Match.Rate">
+            <summary>
+            Оцінка матчу
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Match.IsPublic">
+            <summary>
+            Чи надавати публічний доступ
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Match.CompetitionEvent">
+            <summary>
+            Competition Event
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Match.PoolStage">
+            <summary>
+            Етап пулу
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Match.EliminationStage">
+            <summary>
+            Етап на вибування
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Match.ScoreRed">
+            <summary>
+            Рахунок червоних
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Match.ScoreBlue">
+            <summary>
+            Рахунок синіх
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Match.AvgPointRed">
+            <summary>
+            Середня якість кидків червоних
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Match.AvgPointBlue">
+            <summary>
+            Середня якість кидків синіх
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Match.FlagRed">
+            <summary>
+            Ідентифікатор прапору для червоних
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Match.FlagBlue">
+            <summary>
+            Ідентифікатор прапору для синіх
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Match.TrainingId">
+            <summary>
+            Тренування
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Match.TournamentId">
+            <summary>
+            Турнір
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Match.MatchToPlayers">
+            <summary>
+            Зв'язок гравців з матчами/тренуваннями
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Match.Ends">
+            <summary>
+            Періоди гри
+            </summary>
+        </member>
+        <member name="T:Blyzer.Domain.Entities.MatchToPlayer">
+            <summary>
+            Зв'язок гравців з матчами
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.MatchToPlayer.IsSubstitutePlayer">
+            <summary>
+            Гравець для заміни?
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.MatchToPlayer.MatchId">
+            <summary>
+            Ідентифікатор матчу
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.MatchToPlayer.Match">
+            <summary>
+            Матч
+            </summary>
+        </member>
+        <member name="T:Blyzer.Domain.Entities.Player">
+            <summary>
+            Гравець
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Player.Id">
+            <summary>
+            Ідентифікатор
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Player.FullName">
+            <summary>
+            Ім'я та прізвище
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Player.PlayerClassification">
+            <summary>
+            Класифікація
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Player.CountryId">
+            <summary>
+            Країна
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Player.IsBisFed">
+            <summary>
+            Чи є гравцем BISFed?
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Player.MatchToPlayers">
+            <summary>
+            М'ячі
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Player.Balls">
+            <summary>
+            М'ячі
+            </summary>
+        </member>
+        <member name="T:Blyzer.Domain.Entities.Tournament">
+            <summary>
+            Турнір
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Tournament.Id">
+            <summary>
+            Ідентифікатор
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Tournament.Name">
+            <summary>
+            Назва
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Tournament.TournamentTypeId">
+            <summary>
+            Тип турниру
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Tournament.DateFrom">
+            <summary>
+            Дата початку
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Tournament.DateTo">
+            <summary>
+            Дата завершення
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.Tournament.Matches">
+            <summary>
+            Матчі
+            </summary>
+        </member>
+        <member name="T:Blyzer.Domain.Entities.TournamentType">
+            <summary>
+            Тип турнирів
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.TournamentType.Id">
+            <summary>
+            Ідентифікатор
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.TournamentType.Name">
+            <summary>
+            Назва
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.TournamentType.Abbr">
+            <summary>
+            Абревіатура
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.TournamentType.IsBisFed">
+            <summary>
+            Чи є офіційним турніром BISFed?
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.TournamentType.Icon">
+            <summary>
+            Іконка
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Entities.TournamentType.Tournaments">
+            <summary>
+            Турнірии
+            </summary>
+        </member>
+        <member name="T:Blyzer.Domain.Enums.ApiResultStatus">
+            <summary>
+            Operation result status
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.ApiResultStatus.Unknow">
+            <summary>
+            Unknow
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.ApiResultStatus.Error">
+            <summary>
+            Error
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.ApiResultStatus.Warning">
+            <summary>
+            Warning
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.ApiResultStatus.Ok">
+            <summary>
+            Ok
+            </summary>
+        </member>
+        <member name="T:Blyzer.Domain.Enums.Box">
+            <summary>
+            Ігрові зони
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.Box.Undefined">
+            <summary>
+            Не визначено
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.Box.Box1">
+            <summary>
+            Box 1
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.Box.Box2">
+            <summary>
+            Box 2
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.Box.Box3">
+            <summary>
+            Box 3
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.Box.Box4">
+            <summary>
+            Box 4
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.Box.Box5">
+            <summary>
+            Box 5
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.Box.Box6">
+            <summary>
+            Box 6
+            </summary>
+        </member>
+        <member name="T:Blyzer.Domain.Enums.CompetitionEvent">
+            <summary>
+            Кваліфікації
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.CompetitionEvent.None">
+            <summary>
+            Не визначено
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.CompetitionEvent.Bс1">
+            <summary>
+            BC1
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.CompetitionEvent.Bс2">
+            <summary>
+            BC2
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.CompetitionEvent.Bс3">
+            <summary>
+            BC3
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.CompetitionEvent.Bс4">
+            <summary>
+            BC4
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.CompetitionEvent.PairBc3">
+            <summary>
+            Pair BC3
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.CompetitionEvent.PairBc4">
+            <summary>
+            Pair BC4
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.CompetitionEvent.TeamBc1Bc2">
+            <summary>
+            Team BC1/BC2
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.CompetitionEvent.Pair">
+            <summary>
+            Pair, undefined
+            </summary>
+        </member>
+        <member name="T:Blyzer.Domain.Enums.DeadBallType">
+            <summary>
+            Типи м'ячів поза грою
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.DeadBallType.None">
+            <summary>
+            Не визначено
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.DeadBallType.BallsNotThrown">
+            <summary>
+            Balls Not Thrown (the athlete elect not to throw)
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.DeadBallType.Violation">
+            <summary>
+            Violation
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.DeadBallType.TimeIsOut">
+            <summary>
+            Time is out
+            </summary>
+        </member>
+        <member name="T:Blyzer.Domain.Enums.EliminationStage">
+            <summary>
+            Етап на вибування
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.EliminationStage.None">
+            <summary>
+            Не визначено
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.EliminationStage.Final32">
+            <summary>
+            1/32 фыналу
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.EliminationStage.Final16">
+            <summary>
+            1/16 фыналу
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.EliminationStage.Final8">
+            <summary>
+            1/8 фыналу
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.EliminationStage.Final4">
+            <summary>
+            Чвертьфінал
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.EliminationStage.Final2">
+            <summary>
+            Півфінал
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.EliminationStage.BronzeFinal">
+            <summary>
+            Bronze Final
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.EliminationStage.Final">
+            <summary>
+            Final
+            </summary>
+        </member>
+        <member name="T:Blyzer.Domain.Enums.EventLevel">
+            <summary>
+            Рівні сповіщень
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.EventLevel.Verbose">
+            <summary>
+            Всі сповіщення
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.EventLevel.Debug">
+            <summary>
+            Пошук помилок
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.EventLevel.Information">
+            <summary>
+            Інформація
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.EventLevel.Warning">
+            <summary>
+            Попередження
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.EventLevel.Error">
+            <summary>
+            Помилка
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.EventLevel.Fatal">
+            <summary>
+            Фатальна помилка
+            </summary>
+        </member>
+        <member name="T:Blyzer.Domain.Enums.FilterOperator">
+            <summary>
+            Filter Operators
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.FilterOperator.Equals">
+            <summary>
+            Equals
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.FilterOperator.NotEquals">
+            <summary>
+            NotEquals
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.FilterOperator.GreaterThan">
+            <summary>
+            GreaterThan
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.FilterOperator.LessThan">
+            <summary>
+            LessThan
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.FilterOperator.GreaterThanOrEqualTo">
+            <summary>
+            GreaterThanOrEqualTo
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.FilterOperator.LessThanOrEqualTo">
+            <summary>
+            LessThanOrEqualTo
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.FilterOperator.Contains">
+            <summary>
+            Contains
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.FilterOperator.StartsWith">
+            <summary>
+            StartsWith
+            </summary>
+        </member>
+        <member name="T:Blyzer.Domain.Enums.Gender">
+            <summary>
+            Стать
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.Gender.Undefined">
+            <summary>
+            Не визначена
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.Gender.Male">
+            <summary>
+            Чоловіча
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.Gender.Female">
+            <summary>
+            Жіноча
+            </summary>
+        </member>
+        <member name="T:Blyzer.Domain.Enums.MatchType">
+            <summary>
+            Тип матчу
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.MatchType.None">
+            <summary>
+            Не визначено
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.MatchType.Tournament">
+            <summary>
+            Турнір
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.MatchType.Training">
+            <summary>
+            Тренування
+            </summary>
+        </member>
+        <member name="T:Blyzer.Domain.Enums.PlayerClassification">
+            <summary>
+            Класифікація гравців
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.PlayerClassification.None">
+            <summary>
+            None
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.PlayerClassification.Bс1">
+            <summary>
+            BC1
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.PlayerClassification.Bс2">
+            <summary>
+            BC2
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.PlayerClassification.Bс3">
+            <summary>
+            BC3
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.PlayerClassification.Bс4">
+            <summary>
+            BC4
+            </summary>
+        </member>
+        <member name="T:Blyzer.Domain.Enums.ShotType">
+            <summary>
+            Типи кидків
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.ShotType.FirstBall">
+            <summary>
+            First ball delivered after the jack
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.ShotType.Placement">
+            <summary>
+            A shot played to deliver a ball in a specific area
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.ShotType.PushOn">
+            <summary>
+            A shot in which the player pushes own ball closer into a target area e.g. jack ball or scoring space
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.ShotType.PushOff">
+            <summary>
+            A shot in which the player pushes opposition ball away from the specific target
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.ShotType.Smash">
+            <summary>
+            Predominently power shot along the ground
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.ShotType.Ricochet">
+            <summary>
+            A shot played to rebound off a ball into a scoring zone
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.ShotType.BounceOver">
+            <summary>
+            An aerial trajectory shot aimed at bouncing over a barrier ball to reach a specific target
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.ShotType.RollOnTop">
+            <summary>
+            A shot with the intention of playing the ball and it remaining on top of another ball
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.ShotType.RollUpAndOver">
+            <summary>
+            A shot with the intention of the ball rolling up and over
+            </summary>
+        </member>
+        <member name="F:Blyzer.Domain.Enums.ShotType.LobbingShot">
+            <summary>
+            An aerial shot played to move a target ball by attacking over a ball
+            </summary>
+        </member>
+        <member name="T:Blyzer.Domain.Extensions.StringExtensions">
+            <summary>
+            String Extension
+            </summary>
+        </member>
+        <member name="M:Blyzer.Domain.Extensions.StringExtensions.ToCamelCase(System.String)">
+            <summary>
+            ToCamelCase
+            </summary>
+            <param name="str">String</param>
+            <returns>String in CamelCase</returns>
+        </member>
+        <member name="M:Blyzer.Domain.Extensions.StringExtensions.ToFirstUpperCase(System.String)">
+            <summary>
+            ToFirstUpperCase
+            </summary>
+            <param name="str">String</param>
+            <returns>String, First symbol upper</returns>
+        </member>
+        <member name="M:Blyzer.Domain.Extensions.StringExtensions.ToGuid(System.String)">
+            <summary>
+            ToGuid
+            </summary>
+            <param name="str">String</param>
+            <returns>String</returns>
+        </member>
+        <member name="M:Blyzer.Domain.Extensions.StringExtensions.ToSnakeCase(System.String)">
+            <summary>
+            ToSnakeCase
+            </summary>
+            <param name="input">String</param>
+            <returns>String</returns>
+        </member>
+        <member name="T:Blyzer.Domain.Models.ApiResponse">
+            <summary>
+            ApiResponse
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.ApiResponse.StatusCode">
+            <summary>
+            StatusCode
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.ApiResponse.Message">
+            <summary>
+            Message
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.ApiResponse.Result">
+            <summary>
+            Result
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.ApiResponse.Errors">
+            <summary>
+            Errors
+            </summary>
+        </member>
+        <member name="M:Blyzer.Domain.Models.ApiResponse.#ctor(System.Int32,System.String,System.Object,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            ApiResponse constructor
+            </summary>
+            <param name="statusCode">StatusCode</param>
+            <param name="message">Message (optional)</param>
+            <param name="result"></param>
+            <param name="errors"></param>
+        </member>
+        <member name="T:Blyzer.Domain.Models.ApiResult">
+            <summary>
+            Service execution result
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.ApiResult.Status">
+            <summary>
+            Execution status
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.ApiResult.Result">
+            <summary>
+            Execution result
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.ApiResult.Error">
+            <summary>
+            Error
+            </summary>
+        </member>
+        <member name="T:Blyzer.Domain.Models.AppAuthOption">
+            <summary>
+            Налаштування токену
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.AppAuthOption.Issuer">
+            <summary>
+            Видавець токену
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.AppAuthOption.Audience">
+            <summary>
+            Користувач токену
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.AppAuthOption.SecurityKey">
+            <summary>
+            Ключ шифрування
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.AppAuthOption.Expiration">
+            <summary>
+            Час існування токену
+            </summary>
+        </member>
+        <member name="T:Blyzer.Domain.Models.AppConfiguration">
+            <summary>
+            Application`s Configuration
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.AppConfiguration.ConnectionString">
+            <summary>
+            Application`s Connection String
+            </summary>
+        </member>
+        <member name="T:Blyzer.Domain.Models.AppIdentityLockout">
+            <summary>
+            Gets or sets the LockoutOptions for the identity system.
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.AppIdentityLockout.DefaultLockoutTimeSpan">
+            <summary>
+            Gets or sets the TimeSpan a user is locked out for when a lockout occurs. Defaults to 5 minutes.
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.AppIdentityLockout.MaxFailedAccessAttempts">
+            <summary>
+            Gets or sets the number of failed access attempts allowed before a user is locked out,
+            assuming lock out is enabled. Defaults to 5.
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.AppIdentityLockout.AllowedForNewUsers">
+            <summary>
+            Gets or sets a flag indicating whether a new user can be locked out. Defaults to true.
+            </summary>
+        </member>
+        <member name="T:Blyzer.Domain.Models.AppIdentityOption">
+            <summary>
+            Represents all the options you can use to configure the identity system.
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.AppIdentityOption.ExpireTimeSpan">
+            <summary>
+            Expire TimeSpan
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.AppIdentityOption.Password">
+            <summary>
+            Specifies options for password requirements.
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.AppIdentityOption.Lockout">
+            <summary>
+            Gets or sets the LockoutOptions for the identity system.
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.AppIdentityOption.User">
+            <summary>
+            Gets or sets the UserOptions for the identity system.
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.AppIdentityOption.SignIn">
+            <summary>
+            Gets or sets the SignInOptions for the identity system.
+            </summary>
+        </member>
+        <member name="T:Blyzer.Domain.Models.AppIdentityPassword">
+            <summary>
+            Specifies options for password requirements.
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.AppIdentityPassword.RequireDigit">
+            <summary>
+            Gets or sets a flag indicating if passwords must contain a digit. Defaults to true.
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.AppIdentityPassword.RequiredLength">
+            <summary>
+            Gets or sets the minimum length a password must be. Defaults to 6.
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.AppIdentityPassword.RequireLowercase">
+            <summary>
+            Gets or sets a flag indicating if passwords must contain a lower case ASCII character. Defaults to true.
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.AppIdentityPassword.RequireNonAlphanumeric">
+            <summary>
+            Gets or sets a flag indicating if passwords must contain a non-alphanumeric character. Defaults to true.
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.AppIdentityPassword.RequiredUniqueChars">
+            <summary>
+            Gets or sets the minimum number of unique chars a password must comprised of. Defaults to 1.
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.AppIdentityPassword.RequireUppercase">
+            <summary>
+            Gets or sets a flag indicating if passwords must contain a upper case ASCII character. Defaults to true.
+            </summary>
+        </member>
+        <member name="T:Blyzer.Domain.Models.AppIdentitySignIn">
+            <summary>
+            Gets or sets the SignInOptions for the identity system.
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.AppIdentitySignIn.RequireConfirmedEmail">
+            <summary>
+            Gets or sets a flag indicating whether a confirmed email address is required to sign in. Defaults to false.
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.AppIdentitySignIn.RequireConfirmedPhoneNumber">
+            <summary>
+            Gets or sets a flag indicating whether a confirmed telephone number is required to sign in. Defaults to false.
+            </summary>
+        </member>
+        <member name="T:Blyzer.Domain.Models.AppIdentityUser">
+            <summary>
+            Gets or sets the UserOptions for the identity system.
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.AppIdentityUser.AllowedUserNameCharacters">
+            <summary>
+            Gets or sets the list of allowed characters in the username used to validate user names.
+            Defaults to abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.AppIdentityUser.RequireUniqueEmail">
+            <summary>
+            Gets or sets a flag indicating whether the application requires unique emails for its users. Defaults to false.
+            </summary>
+        </member>
+        <member name="T:Blyzer.Domain.Models.AppState">
+            <summary>
+            Application State
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.AppState.FatalError">
+            <summary>
+            Is Fatal Error
+            </summary>
+        </member>
+        <member name="T:Blyzer.Domain.Models.SwaggerOption">
+            <summary>
+            Swagger Option
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.SwaggerOption.Version">
+            <summary>
+            Version
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.SwaggerOption.Title">
+            <summary>
+            Title
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.SwaggerOption.Description">
+            <summary>
+            Description
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.SwaggerOption.RoutePrefix">
+            <summary>
+            Route Prefix
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.SwaggerOption.EndpointPath">
+            <summary>
+            Endpoint Path
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.SwaggerOption.EndpointDescription">
+            <summary>
+            Endpoint Description
+            </summary>
+        </member>
+        <member name="T:Blyzer.Domain.Models.IUserInfo">
+            <summary>
+            Current user infos
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.IUserInfo.UserName">
+            <summary>
+            UserName
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.IUserInfo.IpAddress">
+            <summary>
+            IP address
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.IUserInfo.AppUserId">
+            <summary>
+            AppUserId
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.IUserInfo.Locale">
+            <summary>
+            User`s locale
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.IUserInfo.RoleId">
+            <summary>
+            User`s role
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.IUserInfo.IsAdmin">
+            <summary>
+            Is user admin?
+            </summary>
+        </member>
+        <member name="T:Blyzer.Domain.Models.UserInfo">
+            <summary>
+            Current user infos
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.UserInfo.UserName">
+            <summary>
+            UserName
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.UserInfo.IpAddress">
+            <summary>
+            IP address
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.UserInfo.AppUserId">
+            <summary>
+            AppUserId
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.UserInfo.Locale">
+            <summary>
+            User`s locale
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.UserInfo.RoleId">
+            <summary>
+            User`s role
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.Models.UserInfo.IsAdmin">
+            <summary>
+            Is user admin?
+            </summary>
+        </member>
+        <member name="T:Blyzer.Domain.QueryType.StoredFunction">
+            <summary>
+            Функції БД
+            </summary>
+        </member>
+        <member name="P:Blyzer.Domain.QueryType.StoredFunction.Proname">
+            <summary>
+            Назва функції
+            </summary>
+        </member>
+    </members>
+</doc>

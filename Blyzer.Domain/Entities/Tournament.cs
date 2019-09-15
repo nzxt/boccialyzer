@@ -9,20 +9,15 @@ namespace Blyzer.Domain.Entities
     /// <summary>
     /// Tournament
     /// </summary>
-    public class Tournament : BaseEntity, IBaseEntity
+    public class Tournament : BaseEntity
     {
-        /// <summary>
-        /// Identifier
-        /// </summary>
-        [Key]
-        public Guid Id { get; set; } = Guid.NewGuid();
         /// <summary>
         /// Tournament Name
         /// </summary>
         [Required]
         public string Name { get; set; }
         /// <summary>
-        /// Tournament type
+        /// Tournament type ID
         /// </summary>
         [Required]
         public Guid TournamentTypeId { get; set; }

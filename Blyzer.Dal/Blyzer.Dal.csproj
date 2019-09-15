@@ -3,6 +3,8 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <NoWarn>1701;1702;CS0612;CS0809</NoWarn>
+    <AssemblyVersion>2019.9.6.0</AssemblyVersion>
+    <FileVersion>2019.9.6.40</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -10,11 +12,10 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.AutoHistory" Version="2.1.0" />
     <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="2.2.0" />
-    <PackageReference Include="Npgsql" Version="4.0.5" />
-    <PackageReference Include="Npgsql.Bulk" Version="0.6.4" />
-    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="2.2.0" />
+    <PackageReference Include="Npgsql" Version="4.0.10" />
+    <PackageReference Include="Npgsql.Bulk" Version="0.7.4" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="2.2.4" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL.Design" Version="1.1.1" />
-    <PackageReference Include="Toolbelt.EntityFrameworkCore.IndexAttribute" Version="2.0.0" />
   </ItemGroup>
 
   <ItemGroup>

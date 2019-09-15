@@ -2,90 +2,74 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
-using Toolbelt.ComponentModel.DataAnnotations.Schema;
 
 namespace Blyzer.Domain.Entities
 {
     /// <summary>
     /// Match
     /// </summary>
-    public class Match : BaseEntity, IBaseEntity
+    public class Match : BaseEntity
     {
         /// <summary>
-        /// Identifier
-        /// </summary>
-        [Key]
-        public Guid Id { get; set; } = Guid.NewGuid();
-        /// <summary>
-        /// Дата та час проведення
+        /// Date of match
         /// </summary>
         //[Required]
         public DateTime DateTimeStamp { get; set; }
         /// <summary>
-        /// Тип матчу
+        /// Match type
         /// </summary>
-        [Index]
         public MatchType MatchType { get; set; } = MatchType.None;
         /// <summary>
-        /// Оцінка матчу
+        /// Rate
         /// </summary>
-        [Index]
         public int Rate { get; set; } = 0;
-        /// <summary>
-        /// Чи надавати публічний доступ
-        /// </summary>
-        public bool IsPublic { get; set; } = false;
         /// <summary>
         /// Competition Event
         /// </summary>
-        [Index]
         public CompetitionEvent CompetitionEvent { get; set; } = CompetitionEvent.None;
         /// <summary>
-        /// Етап пулу
+        /// Pool stage
         /// </summary>
-        [Index]
         public string PoolStage { get; set; }
         /// <summary>
-        /// Етап на вибування
+        /// Elimination stage
         /// </summary>
-        [Index]
         public EliminationStage EliminationStage { get; set; }
         /// <summary>
-        /// Рахунок червоних
+        /// Score Red
         /// </summary>
         public int ScoreRed { get; set; } = 0;
         /// <summary>
-        /// Рахунок синіх
+        /// Score Blue
         /// </summary>
         public int ScoreBlue { get; set; } = 0;
         /// <summary>
-        /// Середня якість кидків червоних
+        /// Average Point Red
         /// </summary>
         public int AvgPointRed { get; set; } = 0;
         /// <summary>
-        /// Середня якість кидків синіх
+        /// Average Point Blue
         /// </summary>
         public int AvgPointBlue { get; set; } = 0;
         /// <summary>
-        /// Ідентифікатор прапору для червоних
+        /// Flag for Red
         /// </summary>
         public string FlagRed { get; set; }
         /// <summary>
-        /// Ідентифікатор прапору для синіх
+        /// Flag for Blue
         /// </summary>
         public string FlagBlue { get; set; }
         /// <summary>
-        /// Турнір
+        /// Tournament ID
         /// </summary>
         public Guid? TournamentId { get; set; }
 
         /// <summary>
-        /// Зв'язок гравців з матчами/тренуваннями
+        /// Players
         /// </summary>
         public virtual ICollection<MatchToPlayer> MatchToPlayers { get; set; } = new Collection<MatchToPlayer>();
         /// <summary>
-        /// Періоди гри
+        /// Ends
         /// </summary>
         public virtual ICollection<End> Ends { get; set; } = new Collection<End>();
     }

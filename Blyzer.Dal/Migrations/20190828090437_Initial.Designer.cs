@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Blyzer.Dal.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20190730155206_Initial")]
+    [Migration("20190828090437_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

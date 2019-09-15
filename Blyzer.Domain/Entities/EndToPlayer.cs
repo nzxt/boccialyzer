@@ -3,16 +3,16 @@
 namespace Blyzer.Domain.Entities
 {
     /// <summary>
-    /// Зв'язок гравців з періодами гри
+    /// Relation between End and Player
     /// </summary>
     public class EndToPlayer : LinkToPlayer
     {
         /// <summary>
-        /// Ідентифікатор періоду гри
+        /// End ID
         /// </summary>
         public Guid? EndId { get; set; }
         /// <summary>
-        /// Період гри
+        /// End
         /// </summary>
         [Obsolete]
         public virtual End End { get; set; }

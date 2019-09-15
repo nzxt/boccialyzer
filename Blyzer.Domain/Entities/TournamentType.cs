@@ -1,40 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace Blyzer.Domain.Entities
 {
     /// <summary>
-    /// Тип турнирів
+    /// Tournament Type
     /// </summary>
-    public class TournamentType : BaseEntity, IBaseEntity
+    public class TournamentType : BaseEntity
     {
         /// <summary>
-        /// Ідентифікатор
-        /// </summary>
-        [Required]
-        public Guid Id { get; set; } = Guid.NewGuid();
-        /// <summary>
-        /// Назва
+        /// Name
         /// </summary>
         [Required]
         public string Name { get; set; }
         /// <summary>
-        /// Абревіатура
+        /// Abbreviation
         /// </summary>
         [Required]
-        public string Abbr { get; set; }
+        public string Abbreviation { get; set; }
         /// <summary>
-        /// Чи є офіційним турніром BISFed?
+        /// Is it an official BISFed tournament?
         /// </summary>
         public bool IsBisFed { get; set; } = true;
         /// <summary>
-        /// Іконка
+        /// Icon
         /// </summary>
         public string Icon { get; set; }
         /// <summary>
-        /// Турнірии
+        /// Tournaments
         /// </summary>
         public ICollection<Tournament> Tournaments { get; set; } = new Collection<Tournament>();
     }

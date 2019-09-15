@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Blyzer.Domain.Models.Fsp
+namespace Blyzer.Domain.Sorting
 {
     public interface ISortTerm
     {

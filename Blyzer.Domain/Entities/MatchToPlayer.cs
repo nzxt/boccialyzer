@@ -3,20 +3,20 @@
 namespace Blyzer.Domain.Entities
 {
     /// <summary>
-    /// Зв'язок гравців з матчами
+    /// Relation between match and players
     /// </summary>
     public class MatchToPlayer : LinkToPlayer
     {
         /// <summary>
-        /// Гравець для заміни?
+        /// Is substitute player?
         /// </summary>
         public bool IsSubstitutePlayer { get; set; }
         /// <summary>
-        /// Ідентифікатор матчу
+        /// Match ID
         /// </summary>
         public Guid? MatchId { get; set; }
         /// <summary>
-        /// Матч
+        /// Match
         /// </summary>
         [Obsolete]
         public virtual Match Match { get; set; }

@@ -2,41 +2,22 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
-using Toolbelt.ComponentModel.DataAnnotations.Schema;
 
 namespace Blyzer.Domain.Entities
 {
     /// <summary>
-    /// Країни
+    /// Country
     /// </summary>
-    public class Country : BaseEntity, IBaseEntity
+    public class Country : BaseEntity
     {
-        #region Country constructor
-
         /// <summary>
-        /// Country constructor
-        /// </summary>
-        public Country()
-        {
-            Id = Guid.NewGuid();
-        }
-
-        #endregion
-        /// <summary>
-        /// Ідентифікатор
-        /// </summary>
-        [Key]
-        public Guid Id { get; set; }
-        /// <summary>
-        /// Назва
+        /// Name
         /// </summary>
         [Required]
-        [Index]
         public string Name { get; set; }
         /// <summary>
-        /// Код країни
+        /// Code
         /// </summary>
-        [Index]
         public int Code { get; set; }
         /// <summary>
         /// Alpha2
@@ -47,8 +28,9 @@ namespace Blyzer.Domain.Entities
         /// </summary>
         public string Alpha3 { get; set; }
         /// <summary>
-        /// Користувачі
+        /// Users
         /// </summary>
-        public ICollection<AppUser> AppUsers { get; set; } = new Collection<AppUser>();
+        [Obsolete]
+        public virtual ICollection<AppUser> AppUsers { get; set; } = new Collection<AppUser>();
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Blyzer.Domain.Entities
 {
@@ -38,27 +39,33 @@ namespace Blyzer.Domain.Entities
     /// </summary>
     public abstract class BaseEntity : IBaseEntity
     {
-        public Guid Id { get; set; }
+        /// <summary>
+        /// Identifier
+        /// </summary>
+        [Key]
+        public Guid Id { get; set; } = Guid.NewGuid();
         /// <summary>
         /// Дата і час заведення
         /// </summary>
         [Obsolete]
         public DateTime CreatedOn { get; set; } = DateTime.UtcNow;
+
         /// <summary>
         /// Дата та час редагування
         /// </summary>
         [Obsolete]
-        public DateTime? UpdatedOn { get; set; }
+        public DateTime? UpdatedOn { get; set; } = null;
         /// <summary>
         /// Користувач системи, що створив запис
         /// </summary>
         [Obsolete]
-        public Guid CreatedBy { get; set; } = default(Guid);
+        public Guid CreatedBy { get; set; } = default;
+
         /// <summary>
         /// Користувач системи, що модифікував запис
         /// </summary>
         [Obsolete]
-        public Guid? UpdatedBy { get; set; }
+        public Guid? UpdatedBy { get; set; } = default;
 
         /// <summary>
         /// Is it public access?

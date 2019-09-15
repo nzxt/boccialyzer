@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Blyzer.Domain.Models.Fsp
+namespace Blyzer.Domain.Paging
 {
     /// <summary>
     /// Entities page

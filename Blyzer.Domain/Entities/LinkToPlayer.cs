@@ -1,31 +1,24 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using Toolbelt.ComponentModel.DataAnnotations.Schema;
 
 namespace Blyzer.Domain.Entities
 {
     /// <summary>
-    /// Зв'язок гравців з матчами/тренуваннями
+    /// Relation to Players
     /// </summary>
-    public abstract class LinkToPlayer : BaseEntity, IBaseEntity
+    public abstract class LinkToPlayer : BaseEntity
     {
-        /// <summary>
-        /// Ідентифікатор
-        /// </summary>
-        [Key]
-        public Guid Id { get; set; } = Guid.NewGuid();
         /// <summary>
         /// BIB
         /// </summary>
         public int Bib { get; set; }
         /// <summary>
-        /// Номер боксу
+        /// Box
         /// </summary>
         [Required]
-        [Index]
         public int Box { get; set; }
         /// <summary>
-        /// Гравець
+        /// Player ID
         /// </summary>
         [Required]
         public Guid PlayerId { get; set; }

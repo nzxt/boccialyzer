@@ -1,39 +1,30 @@
 ﻿using Blyzer.Domain.Enums;
 using System;
 using System.ComponentModel.DataAnnotations;
-using Toolbelt.ComponentModel.DataAnnotations.Schema;
 
 namespace Blyzer.Domain.Entities
 {
     /// <summary>
     /// Ball
     /// </summary>
-    public class Ball : BaseEntity, IBaseEntity
+    public class Ball : BaseEntity
     {
         /// <summary>
         /// Constructor
         /// </summary>
         public Ball()
         {
-            Id = Guid.NewGuid();
             IsDeadBall = false;
             IsPenalty = false;
             DeadBallType = DeadBallType.None;
         }
         /// <summary>
-        /// Identifier
+        /// Index
         /// </summary>
-        [Key]
-        public Guid Id { get; set; }
-        /// <summary>
-        /// Number in period
-        /// </summary>
-        [Index]
         public int Index { get; set; }
         /// <summary>
         /// Rate
         /// </summary>
-        [Index]
         public int Rating { get; set; }
         /// <summary>
         /// Is it jack-ball?
@@ -52,28 +43,24 @@ namespace Blyzer.Domain.Entities
         /// </summary>
         public DeadBallType DeadBallType { get; set; }
         /// <summary>
-        /// Тип кидка
+        /// Shot type
         /// </summary>
-        [Index]
         public ShotType ShotType { get; set; }
         /// <summary>
-        /// Ігрова зона
+        /// Box
         /// </summary>
-        [Index]
         public Box FromBox { get; set; }
-
         /// <summary>
-        /// Дистанція
+        /// Distance
         /// </summary>
-        [Index]
         public float Distance { get; set; } = 0;
         /// <summary>
-        /// Період гри
+        /// End
         /// </summary>
         [Required]
         public Guid EndId { get; set; }
         /// <summary>
-        /// Гравець
+        /// Player
         /// </summary>
         [Required]
         public Guid PlayerId { get; set; }

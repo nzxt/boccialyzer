@@ -3,45 +3,37 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
-using Toolbelt.ComponentModel.DataAnnotations.Schema;
 
 namespace Blyzer.Domain.Entities
 {
     /// <summary>
-    /// Гравець
+    /// Player
     /// </summary>
-    public class Player : BaseEntity, IBaseEntity
+    public class Player : BaseEntity
     {
         /// <summary>
-        /// Ідентифікатор
-        /// </summary>
-        [Key]
-        public Guid Id { get; set; } = Guid.NewGuid();
-        /// <summary>
-        /// Ім'я та прізвище
+        /// Player fullname
         /// </summary>
         [Required]
-        [Index]
         public string FullName { get; set; }
         /// <summary>
-        /// Класифікація
+        /// Classification
         /// </summary>
-        [Index]
         public PlayerClassification PlayerClassification { get; set; } = PlayerClassification.None;
         /// <summary>
-        /// Країна
+        /// Country ID
         /// </summary>
         public Guid? CountryId { get; set; }
         /// <summary>
-        /// Чи є гравцем BISFed?
+        /// Is BisFed player?
         /// </summary>
         public bool IsBisFed { get; set; } = false;
         /// <summary>
-        /// М'ячі
+        /// Matches
         /// </summary>
         public virtual ICollection<MatchToPlayer> MatchToPlayers { get; set; } = new Collection<MatchToPlayer>();
         /// <summary>
-        /// М'ячі
+        /// Balls
         /// </summary>
         public virtual ICollection<Ball> Balls { get; set; } = new Collection<Ball>();
     }

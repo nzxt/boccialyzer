@@ -2,22 +2,16 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
-using Toolbelt.ComponentModel.DataAnnotations.Schema;
 
 namespace Blyzer.Domain.Entities
 {
     /// <summary>
-    /// Період гри
+    /// End
     /// </summary>
-    public class End : BaseEntity, IBaseEntity
+    public class End : BaseEntity
     {
         /// <summary>
-        /// Ідентифікатор
-        /// </summary>
-        [Key]
-        public Guid Id { get; set; } = Guid.NewGuid();
-        /// <summary>
-        /// Ідентифікатор матчу
+        /// Match Id
         /// </summary>
         [Required]
         public Guid MatchId { get; set; }
@@ -27,40 +21,39 @@ namespace Blyzer.Domain.Entities
         [Obsolete]
         public virtual Match Match { get; set; }
         /// <summary>
-        /// Порядковий номер у грі
+        /// Index
         /// </summary>
-        [Index]
         public int Index { get; set; } = 0;
         /// <summary>
-        /// З порушенням?
+        /// Is Disrupted?
         /// </summary>
         public bool IsDisrupted { get; set; } = false;
         /// <summary>
-        /// Тай-брейк?
+        /// Is TieBreak?
         /// </summary>
         public bool IsTieBreak { get; set; } = false;
         /// <summary>
-        /// Рахунок червоних
+        /// Score Red
         /// </summary>
         public int ScoreRed { get; set; } = 0;
         /// <summary>
-        /// Рахунок синіх
+        /// Score Blue
         /// </summary>
         public int ScoreBlue { get; set; } = 0;
         /// <summary>
-        /// Середня якість кидків червоних
+        /// Average Point Red
         /// </summary>
         public int AvgPointRed { get; set; } = 0;
         /// <summary>
-        /// Середня якість кидків синіх
+        ///  Average Point Blue
         /// </summary>
         public int AvgPointBlue { get; set; } = 0;
         /// <summary>
-        /// М'ячі
+        /// Balls
         /// </summary>
         public virtual ICollection<Ball> Balls { get; set; } = new Collection<Ball>();
         /// <summary>
-        /// М'ячі
+        /// Players
         /// </summary>
         public virtual ICollection<EndToPlayer> EndToPlayers { get; set; } = new Collection<EndToPlayer>();
     }

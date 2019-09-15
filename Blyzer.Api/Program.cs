@@ -1,9 +1,13 @@
-﻿using Blyzer.Api.Extensions;
+﻿using AutoMapper;
+using Blyzer.Api.Extensions;
 using Blyzer.Api.Middleware;
 using Blyzer.Dal.Context;
 using Blyzer.Dal.Extensions;
 using Blyzer.Domain.Entities;
+using Blyzer.Domain.Mappers;
 using Blyzer.Domain.Models;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
@@ -57,7 +61,7 @@ namespace Blyzer.Api
         }
 
         /// <summary>
-        /// A Builder for IWebHost
+        /// IWebHost Builder
         /// </summary>
         /// <param name="args"></param>
         /// <returns></returns>
@@ -83,7 +87,15 @@ namespace Blyzer.Api
                         services.ConfigureIdentity(Configuration);
                         services.ConfigureCors(Configuration);
                         services.ConfigureSwagger(Configuration);
-                        services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+
+                        services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+                            .AddFluentValidation();
+
+                        services.AddAutoMapper(typeof(BallMapper));
+
+                        //services.AddTransient<IValidator<RequestParameterValidator>, RequestParametersModel>();
+
                         services.ConfigureAppServices();
                         services.ConfigureCompression();
                     }

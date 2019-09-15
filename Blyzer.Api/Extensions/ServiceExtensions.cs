@@ -16,6 +16,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
+using Blyzer.Domain.Filtering;
 
 namespace Blyzer.Api.Extensions
 {

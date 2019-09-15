@@ -2,12 +2,14 @@
 using Blyzer.Domain.Entities;
 using Blyzer.Domain.Enums;
 using Blyzer.Domain.Extensions;
+using Blyzer.Domain.Filtering;
 using Blyzer.Domain.Models;
-using Blyzer.Domain.Models.Fsp;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using AutoMapper.QueryableExtensions;
 
 namespace Blyzer.Repository.Repository
 {
@@ -15,7 +17,7 @@ namespace Blyzer.Repository.Repository
     /// Common Repository
     /// </summary>
     /// <typeparam name="TEntity">Entity</typeparam>
-    public interface ICommonRepository<in TEntity> where TEntity : class, IBaseEntity
+    public interface IBaseRepository<in TEntity> where TEntity : class, IBaseEntity
     {
         #region # GetById(Guid id)
 
@@ -57,14 +59,14 @@ namespace Blyzer.Repository.Repository
         Task<ApiResult> DeleteAsync(Guid id);
 
         #endregion
-        #region # GetAsync(FspModel model)
+        #region # GetAsync(RequestParametersModel)
 
         /// <summary>
         /// Get entities list with filtering, sorting, pagination
         /// </summary>
         /// <param name="model">Input parameters model</param>
         /// <returns>ApiResult</returns>
-        Task<ApiResult> GetAsync(GetParametersModel model);
+        Task<ApiResult> GetAsync<TDto>(RequestParametersModel model);
 
         #endregion
         #region # GetAsync()
@@ -81,12 +83,13 @@ namespace Blyzer.Repository.Repository
     /// Common Repository
     /// </summary>
     /// <typeparam name="TEntity">Entity</typeparam>
-    public class CommonRepository<TEntity> : ICommonRepository<TEntity> where TEntity : class, IBaseEntity
+    public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : class, IBaseEntity
     {
         #region # Local variables
 
         private readonly AppDbContext _dbContext;
         private readonly IUserInfo _userInfo;
+        private readonly IMapper _mapper;
 
         #endregion
         #region GenericRepository constructor
@@ -96,16 +99,18 @@ namespace Blyzer.Repository.Repository
         /// </summary>
         /// <param name="dbContext">DB context</param>
         /// <param name="userInfo">userInfo</param>
-        public CommonRepository(AppDbContext dbContext, IUserInfo userInfo)
+        public BaseRepository(AppDbContext dbContext, IUserInfo userInfo, IMapper mapper)
         {
             _dbContext = dbContext;
             _userInfo = userInfo;
+            _mapper = mapper;
         }
         #endregion
+
         #region # GetByIdAsync(Guid id)
 
         /// <inheritdoc/>
-        public async Task<ApiResult> GetByIdAsync(Guid id)
+        public virtual async Task<ApiResult> GetByIdAsync(Guid id)
         {
             try
             {
@@ -120,7 +125,7 @@ namespace Blyzer.Repository.Repository
         #region # CreateAsync(TEntity entity)
 
         /// <inheritdoc/>
-        public async Task<ApiResult> CreateAsync(TEntity entity)
+        public virtual async Task<ApiResult> CreateAsync(TEntity entity)
         {
             try
             {
@@ -140,7 +145,7 @@ namespace Blyzer.Repository.Repository
         #region # UpdateAsync(TEntity entity)
 
         /// <inheritdoc/>
-        public async Task<ApiResult> UpdateAsync(TEntity entity)
+        public virtual async Task<ApiResult> UpdateAsync(TEntity entity)
         {
             try
             {
@@ -163,7 +168,7 @@ namespace Blyzer.Repository.Repository
         #region # DeleteAsync(Guid id)
 
         /// <inheritdoc/>
-        public async Task<ApiResult> DeleteAsync(Guid id)
+        public virtual async Task<ApiResult> DeleteAsync(Guid id)
         {
             try
             {
@@ -182,16 +187,18 @@ namespace Blyzer.Repository.Repository
         }
 
         #endregion
-        #region # GetAsync(FspModel)
+
+        #region # GetAsync(RequestParametersModel)
 
         /// <inheritdoc/>
-        public async Task<ApiResult> GetAsync(GetParametersModel model)
+        public virtual async Task<ApiResult> GetAsync<TDto>(RequestParametersModel model)
         {
             try
             {
-                var result = await GetEntities()
+                var result = await GetAllQueryable()
                     .ApplyFiltering(model.GetFiltersParsed())
                     .ApplySorting(model.GetSortsParsed())
+                    .ProjectTo<TDto>(_mapper.ConfigurationProvider)
                     .ApplyPagination(model);
 
                 return new ApiResult(status: ApiResultStatus.Ok, result: result);
@@ -201,6 +208,7 @@ namespace Blyzer.Repository.Repository
         }
 
         #endregion
+
         #region # GetAsync()
 
         /// <inheritdoc/>
@@ -208,7 +216,7 @@ namespace Blyzer.Repository.Repository
         {
             try
             {
-                return new ApiResult(status: ApiResultStatus.Ok, result: await GetEntities().ToListAsync());
+                return new ApiResult(status: ApiResultStatus.Ok, result: await GetAllQueryable().ToListAsync());
             }
             catch (Exception ex)
             { return new ApiResult(status: ApiResultStatus.Error, error: ex.Message); }
@@ -216,9 +224,34 @@ namespace Blyzer.Repository.Repository
 
         #endregion
 
-        #region ## GetEntities()
+        /*
+        public virtual void AddRange(IEnumerable<TEntity> entityList)
+        {
+            using (var entityContext = ContextCreator())
+            {
+                entityContext.Set<TEntity>().AddRange(entityList);
+                entityContext.SaveChanges();
+            }
+        }
+        public virtual void RemoveRange(IEnumerable<string> clauses)
+        {
 
-        private IQueryable<TEntity> GetEntities()
+            using (var entityContext = ContextCreator())
+            {
+                IQueryable<TEntity> temporaryQuery = entityContext.Set<TEntity>();
+
+                foreach (var clause in clauses)
+                    temporaryQuery = temporaryQuery.Where(clause);
+
+                entityContext.Set<TEntity>().RemoveRange(temporaryQuery);
+                entityContext.SaveChanges();
+            }
+        }
+    */
+
+        #region ## GetAllQueryable()
+
+        private IQueryable<TEntity> GetAllQueryable()
         {
             return _dbContext.Set<TEntity>().AsNoTracking().AsQueryable()
                 .Where(x => _userInfo.IsAdmin || x.IsPublic || x.CreatedBy == _userInfo.AppUserId);
